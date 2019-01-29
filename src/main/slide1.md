@@ -2,6 +2,6 @@
 
 asdadsad
 
-```kotlin
+```kotlin:ank
 val a: Option<Int> = Some(1) {}
 ```
