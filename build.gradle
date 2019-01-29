@@ -87,7 +87,7 @@ task printcp {
 
 ank {
     source = file("${projectDir}/src/main/ank")
-    target = file("${projectDir}/deck")
+    target = file("${projectDir}")
     classpath = sourceSets.main.runtimeClasspath
 }
 
