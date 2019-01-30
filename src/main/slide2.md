@@ -3,5 +3,8 @@
 asdadsad
 
 ```kotlin:ank
-val a: Option<Int> = Some(1) {}
+import arrow.core.Option
+import arrow.core.Some
+
+val a: Option<Int> = Some(1)
 ```
