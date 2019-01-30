@@ -1,3 +1,0 @@
-## Third slide
-
-asdadsad

@@ -18,3 +18,4 @@ fun main(args: Array<String>) {
     println(result)
 }
 ```
+<!-- .element: class="arrow" data-executable="true" -->
