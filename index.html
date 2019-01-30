@@ -27,8 +27,28 @@
 			<div class="slides">
 				<section data-markdown="./src/main/slide1.md"></section>
 			 	<section data-markdown="./src/main/slide2.md"></section>
-				<section data-markdown="./src/main/slide3.md"></section>
-				<section data-markdown="./src/main/slide4.md"></section>
+				<section data-markdown>
+					<textarea data-template>
+						An raw playground example.
+
+						{: data-executable='true'}
+
+						```kotlin
+
+						import arrow.*
+						import arrow.core.*
+						import arrow.data.*
+
+						fun main(args: Array<String>) {
+							val result =
+							//sampleStart
+							Option(1).map { it * 2 }
+							//sampleEnd
+							println(result)
+						}
+						```
+					</textarea>
+				</section>
 			</div>
 		</div>
 
