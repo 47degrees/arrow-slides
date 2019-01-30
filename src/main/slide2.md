@@ -8,3 +8,4 @@ import arrow.core.Some
 
 val a: Option<Int> = Some(1)
 ```
+<!-- .element: class="arrow" data-executable="true" -->
