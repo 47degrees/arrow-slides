@@ -35,8 +35,10 @@
 
 		<script>
 			Reveal.initialize({
-				// minScale: 1.0, // If you are gonna edit Arrow Playground code, set this to 1.0, otherwise the cursor will behave erractically
-				// maxScale: 1.0, // If you are gonna edit Arrow Playground code, set this to 1.0, otherwise the cursor will behave erratically
+				height: "100%",
+				margin: 0,
+				minScale: 1.0, // If you are gonna edit Arrow Playground code, set this to 1.0, otherwise the cursor will behave erractically
+				maxScale: 1.0, // If you are gonna edit Arrow Playground code, set this to 1.0, otherwise the cursor will behave erratically
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
@@ -44,14 +46,21 @@
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
-		</script>
-		<script src="js/playground.js"></script>
-		<script>
-			document.addEventListener('DOMContentLoaded', () => {
-				setTimeout(function () {
-					ArrowPlayground('.arrow');
-				});
+			Reveal.addEventListener( 'ready', function( event ) {
+					const AP = ArrowPlayground('.arrow');
+					AP.then((value) => {
+						window.PlaygroundSnippets = value;
+					});
+			});
+			Reveal.addEventListener( 'slidechanged', function( event ) {
+				 const currentSlide = document.querySelector(".present");
+				 PlaygroundSnippets.map((arrowSnippet) => {
+					 if (currentSlide.contains(arrowSnippet.targetNode)) {
+						 arrowSnippet.view.codemirror.refresh();
+					 }
+				 });
 			});
 		</script>
+		<script src="js/playground.js"></script>
 	</body>
 </html>
