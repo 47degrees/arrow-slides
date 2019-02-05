@@ -33,10 +33,15 @@
 		<script src="js/reveal.js"></script>
 		<script>
 			Reveal.initialize({
-				// height: "100%",
-				// margin: 0,
-				// minScale: 1.0, // If you are gonna edit Arrow Playground code, set this to 1.0, otherwise the cursor will behave erractically
-				// maxScale: 1.0, // If you are gonna edit Arrow Playground code, set this to 1.0, otherwise the cursor will behave erratically
+				// The "normal" size of the presentation, aspect ratio will be preserved
+				// when the presentation is scaled to fit different resolutions. Can be
+				// specified using percentage units.
+				width: 960,
+				height: 700,
+				margin: 0.1,
+				minScale: 1, // If you are gonna edit Arrow Playground code, set this to 1.0, otherwise the cursor will behave erractically
+				maxScale: 1, // If you are gonna edit Arrow Playground code, set this to 1.0, otherwise the cursor will behave erratically
+				// center: false,
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
