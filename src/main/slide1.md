@@ -2,7 +2,9 @@
 
 An Arrow playground example.
 
-```kotlin:ank:playground
+Code snippet not treated by Arrow Playground:
+
+```kotlin:ank
 import arrow.*
 import arrow.core.*
 import arrow.data.*
@@ -15,4 +17,3 @@ fun main(args: Array<String>) {
     println(result)
 }
 ```
-<!-- .element: class="arrow" data-executable="true" -->

@@ -7,7 +7,7 @@
 		<title>reveal.js</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -20,35 +20,13 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
-		<script src="https://unpkg.com/arrow-playground@1" data-selector=".language-kotlin"></script>
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
 				<section data-markdown="./src/main/slide1.md"></section>
 			 	<section data-markdown="./src/main/slide2.md"></section>
-				<section data-markdown class=".language-kotlin">
-					<textarea data-template>
-						An raw playground example.
-
-
-						```kotlin
-
-						import arrow.*
-						import arrow.core.*
-						import arrow.data.*
-
-						fun main(args: Array<String>) {
-							val result =
-							//sampleStart
-							Option(1).map { it * 2 }
-							//sampleEnd
-							println(result)
-						}
-						```
-						<!-- .element: class="arrow" data-executable="true" -->
-					</textarea>
-				</section>
+				<section data-markdown="./src/main/slide3.md"></section>
 			</div>
 		</div>
 
@@ -56,18 +34,24 @@
 		<script src="js/reveal.js"></script>
 
 		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+				// minScale: 1.0, // If you are gonna edit Arrow Playground code, set this to 1.0, otherwise the cursor will behave erractically
+				// maxScale: 1.0, // If you are gonna edit Arrow Playground code, set this to 1.0, otherwise the cursor will behave erratically
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
-					// { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
 		</script>
-		<script src="https://unpkg.com/arrow-playground@1" data-selector=".arrow"></script>
+		<script src="js/playground.js"></script>
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				setTimeout(function () {
+					ArrowPlayground('.arrow');
+				});
+			});
+		</script>
 	</body>
 </html>
