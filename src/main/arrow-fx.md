@@ -94,7 +94,7 @@ fun main() {
   println(name)
 }
 ```
-<!-- .element: class="arrow" theme="darcula" -->
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
@@ -109,7 +109,7 @@ fun main() {
   println(name)
 }
 ```
-<!-- .element: class="arrow" data-executable="true" theme="darcula" -->
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
@@ -127,7 +127,7 @@ fun main() {
   println(name)
 }
 ```
-<!-- .element: class="arrow" data-executable="true" theme="darcula" -->
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
@@ -142,7 +142,7 @@ fun main() {
   println(result)
 }
 ```
-<!-- .element: class="arrow" data-executable="true" theme="darcula" -->
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
@@ -159,7 +159,7 @@ fun main() {
   println(result)
 }
 ```
-<!-- .element: class="arrow" data-executable="true" theme="darcula" -->
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
@@ -176,7 +176,7 @@ fun main() {
   println(result)
 }
 ```
-<!-- .element: class="arrow" data-executable="true" theme="darcula" -->
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
@@ -199,7 +199,7 @@ fun main() {
   println(result)
 }
 ```
-<!-- .element: class="arrow" data-executable="true" theme="darcula" -->
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
@@ -228,7 +228,7 @@ fun main() {
   println(result)
 }
 ```
-<!-- .element: class="arrow" data-executable="true" theme="darcula" -->
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
@@ -254,7 +254,7 @@ fun main() {
   println(result)
 }
 ```
-<!-- .element: class="arrow" data-executable="true" theme="darcula" -->
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
@@ -272,7 +272,7 @@ fun main() {
   println(result)
 }
 ```
-<!-- .element: class="arrow" data-executable="true" theme="darcula" -->
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
@@ -290,7 +290,7 @@ fun main() {
   println(result)
 }
 ```
-<!-- .element: class="arrow" data-executable="true" theme="darcula" -->
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
@@ -309,7 +309,7 @@ fun main() {
   println(result)
 }
 ```
-<!-- .element: class="arrow" data-executable="true" theme="darcula" -->
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
@@ -332,7 +332,7 @@ fun main() {
   println(result)
 }
 ```
-<!-- .element: class="arrow" data-executable="true" theme="darcula" -->
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
@@ -351,7 +351,7 @@ fun main() {
   println(result)
 }
 ```
-<!-- .element: class="arrow" data-executable="true" theme="darcula" -->
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
@@ -373,7 +373,7 @@ fun main() {
   println(result)
 }
 ```
-<!-- .element: class="arrow" data-executable="true" theme="darcula" -->
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
@@ -395,7 +395,7 @@ fun main() {
   println(result)
 }
 ```
-<!-- .element: class="arrow" data-executable="true" theme="darcula" -->
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
@@ -426,7 +426,7 @@ fun main() {
   println("")
 }
 ```
-<!-- .element: class="arrow" data-executable="true" theme="darcula" -->
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
@@ -464,7 +464,7 @@ fun main() {
   println(result)
 }
 ```
-<!-- .element: class="arrow" data-executable="true" theme="darcula" -->
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
@@ -489,7 +489,7 @@ fun main() {
   println(result)
 }
 ```
-<!-- .element: class="arrow" data-executable="true" theme="darcula" -->
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
@@ -517,7 +517,7 @@ fun main() {
 }
 //sampleEnd
 ```
-<!-- .element: class="arrow" data-executable="true" theme="darcula" -->
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
@@ -545,7 +545,7 @@ fun main() {
 }
 //sampleEnd
 ```
-<!-- .element: class="arrow" data-executable="true" theme="darcula" -->
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
@@ -573,7 +573,7 @@ fun main() {
 }
 //sampleEnd
 ```
-<!-- .element: class="arrow" data-executable="true" theme="darcula" -->
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
@@ -599,6 +599,6 @@ fun main() {
 }
 //sampleEnd
 ```
-<!-- .element: class="arrow" data-executable="true" theme="darcula" -->
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
