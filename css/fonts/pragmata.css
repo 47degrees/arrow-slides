@@ -1,0 +1,16 @@
+@font-face {
+    font-family: "PragmataPro";
+    /Users/raulraja/workspace/talks/arrow-slides/css/fonts/PragmataProR_liga_0827.woff2
+    src: url("//db.onlinewebfonts.com/t/d96c852713159cf16030fa8c8fa652b9.eot");
+    src: url("//db.onlinewebfonts.com/t/d96c852713159cf16030fa8c8fa652b9.eot?#iefix") format("embedded-opentype"),
+    url("PragmataProR_liga_0827.woff2") format("woff2")
+}
+
+@font-face {font-family: "Pragmata";
+    src: url("//db.onlinewebfonts.com/t/d96c852713159cf16030fa8c8fa652b9.eot");
+    src: url("//db.onlinewebfonts.com/t/d96c852713159cf16030fa8c8fa652b9.eot?#iefix") format("embedded-opentype"),
+    url("PragmataProR_liga_0827.woff2") format("woff2"),
+    url("//db.onlinewebfonts.com/t/d96c852713159cf16030fa8c8fa652b9.woff") format("woff"),
+    url("//db.onlinewebfonts.com/t/d96c852713159cf16030fa8c8fa652b9.ttf") format("truetype"),
+    url("//db.onlinewebfonts.com/t/d96c852713159cf16030fa8c8fa652b9.svg#Pragmata") format("svg");
+}

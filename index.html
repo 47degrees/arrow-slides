@@ -24,7 +24,8 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section data-markdown="./src/main/arrow-fx.md"></section>
+				<section data-background="./css/images/fx.png" data-background-opacity="1"></section>
+				<section data-markdown="./processed-slides/arrow-fx.md" data-background="./css/images/fx.png" data-background-opacity="0.05"></section>
 			</div>
 		</div>
 
@@ -37,15 +38,21 @@
 				// when the presentation is scaled to fit different resolutions. Can be
 				// specified using percentage units.
 				width: 960,
+				transition: 'none',
+				touch: true,
+				progress: true,
+				history : true,
+				viewDistance: 3,
 				height: 700,
 				margin: 0.1,
-				minScale: 1, // If you are gonna edit Arrow Playground code, set this to 1.0, otherwise the cursor will behave erractically
-				maxScale: 1, // If you are gonna edit Arrow Playground code, set this to 1.0, otherwise the cursor will behave erratically
+				minScale: 1.0, // If you are gonna edit Arrow Playground code, set this to 1.0, otherwise the cursor will behave erractically
+				maxScale: 1.0, // If you are gonna edit Arrow Playground code, set this to 1.0, otherwise the cursor will behave erratically
 				// center: false,
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/menu/menu.js' },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});

@@ -78,7 +78,7 @@ dependencies {
     kapt "io.arrow-kt:arrow-annotations-processor:$arrow_version"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
-    implementation "io.arrow-kt:arrow-ank:$ankVersion"
+    implementation "io.arrow-kt:arrow-ank:$arrow_version"
 }
 
 task printcp {
