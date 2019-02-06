@@ -4,6 +4,10 @@
                 monospace, serif !important;
   font-size: 1.5rem !important;
   text-align: left !important;
+  margin: inherit !important;
+  padding: inherit !important;
+  border: inherit !important;
+  vertical-align: inherit !important;
 }
 
 .compiler-info {
@@ -37,6 +41,11 @@
   overflow: auto !important;
   padding-left: 10px !important;
   padding-top: 15px !important;
+}
+
+.loader {
+  font-size: 8px !important;
+  margin: 0 auto !important;
 }
 
 .CodeMirror-scroll {
@@ -79,4 +88,8 @@
 
 .cm-atom {
   color: inherit !important;
+}
+
+.output-wrapper {
+  position: relative !important;
 }
