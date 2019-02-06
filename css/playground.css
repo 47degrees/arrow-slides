@@ -1,0 +1,36 @@
+.executable-fragment {
+  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono,
+                DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
+                monospace, serif !important;
+  font-size: 1.5rem !important;
+  text-align: left !important;
+}
+
+.compiler-info {
+  font-size: 1rem !important;
+}
+
+.reveal pre {
+  box-shadow: none !important;
+}
+
+.CodeMirror-lines {
+  margin: 12px 0 !important;
+  padding: 0 !important;
+}
+
+.code-output {
+  overflow: auto !important;
+  padding-left: 10px !important;
+  padding-top: 15px !important;
+}
+
+.CodeMirror-scroll {
+  margin-bottom: -30px !important;
+  margin-right: -30px !important;
+  padding-bottom: 30px !important;
+}
+
+.CodeMirror-sizer {
+  min-height: 0px !important;
+}

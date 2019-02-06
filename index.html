@@ -12,6 +12,9 @@
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
+		<!-- Overrides for a correct showing of the Playground -->
+		<link rel="stylesheet" href="css/playground.css">
+
 		<!-- Printing and PDF exports -->
 		<script>
 			var link = document.createElement( 'link' );
@@ -28,7 +31,7 @@
 			</div>
 		</div>
 
-		<script src="js/playground.js"></script>
+		<script src="js/playground-stylable.js"></script>
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
 		<script>
@@ -36,11 +39,11 @@
 				// The "normal" size of the presentation, aspect ratio will be preserved
 				// when the presentation is scaled to fit different resolutions. Can be
 				// specified using percentage units.
-				width: 960,
-				height: 700,
+				// width: 960,
+				// height: 700,
 				margin: 0.1,
-				minScale: 1, // If you are gonna edit Arrow Playground code, set this to 1.0, otherwise the cursor will behave erractically
-				maxScale: 1, // If you are gonna edit Arrow Playground code, set this to 1.0, otherwise the cursor will behave erratically
+				// minScale: 1, // If you are gonna edit Arrow Playground code, set this to 1.0, otherwise the cursor will behave erractically
+				// maxScale: 1, // If you are gonna edit Arrow Playground code, set this to 1.0, otherwise the cursor will behave erratically
 				// center: false,
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
@@ -62,6 +65,7 @@
 						 arrowSnippet.view.codemirror.refresh();
 					 }
 				 });
+				 window.dispatchEvent(new Event('resize'));
 			});
 		</script>
 	</body>

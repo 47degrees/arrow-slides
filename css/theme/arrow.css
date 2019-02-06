@@ -7,7 +7,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   color: #fff; }
 
 .reveal table {
-  font-size: 50%; }
+  font-size: 45%; }
 
 /*********************************************
  * GLOBAL STYLES
@@ -18,7 +18,7 @@ body {
 
 .reveal {
   font-family: "Titillium Web", Helvetica, sans-serif;
-  font-size: 52px;
+  font-size: 42px;
   font-weight: normal;
   color: #333; }
 
