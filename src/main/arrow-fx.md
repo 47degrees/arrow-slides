@@ -43,13 +43,11 @@ The name was cool but the community was more important
 
 ![inline](css/images/arrow-brand-transparent.png)
 
-Λrrow = KΛTEGORY + Funktionale
+ΛRROW = KΛTEGORY + Funktionale
 
 ---
 
-## Data types
-
-Λrrow includes data types to cover general use cases.
+ΛRROW includes popular FP data types...
 
 |                |                                                      |
 |----------------|------------------------------------------------------|
@@ -65,7 +63,7 @@ The name was cool but the community was more important
 
 ---
 
-### Λrrow includes a comprehensive list of type classes
+... and type classes.
 
 | Type class | Combinator |
 | --- | --- |
@@ -84,9 +82,19 @@ The name was cool but the community was more important
 
 ---
 
-### Λrrow includes a comprehensive list of type classes
+| arrow-core |
+| --- |
+| ![inline](css/images/core-typeclasses.png) |
 
-Data types may support all or a subset of type classes based on capabilities:
+---
+
+| arrow-effects |
+| --- |
+| ![inline](css/images/effects-typeclasses.png) |
+
+---
+
+Data types may provide extensions for type classes based on capabilities:
 
 | Type class | Combinators | **List** |
 | --- | --- | --- |
@@ -101,9 +109,7 @@ Data types may support all or a subset of type classes based on capabilities:
 
 ---
 
-### Λrrow includes a comprehensive list of type classes
-
-Data types may support all or a subset of type classes based on capabilities:
+Data types may provide extensions for type classes based on capabilities:
 
 | Type class | Combinators | **List** | **Either** | **Deferred** | **IO** |
 | --- | --- | --- | --- | --- | --- |
@@ -118,9 +124,7 @@ Data types may support all or a subset of type classes based on capabilities:
 
 ---
 
-## Λrrow is modular
-
-Pick and choose what you'd like to use.
+ΛRROW is modular ![inline](css/images/android.jpg)
 
 | Module            | Contents                                                              |
 |-------------------|-----------------------------------------------------------------------|
@@ -137,11 +141,23 @@ Pick and choose what you'd like to use.
 
 ---
 
-## Kotlin TOP 5 features that help with FP
+__Top 5__ 
+
+Features Kotlin offers to FP
 
 ---
 
 ### 5. `?` Nullable Types
+
+---
+
+`?` Nullable Types
+
+![inline](css/images/kotlin-types.png)
+
+---
+
+`?` Nullable Types
 
 ```kotlin
 //sampleStart
@@ -152,7 +168,7 @@ fun main() {
   println(name)
 }
 ```
-<!-- .element: class="ΛRROW" data-executable="true" -->
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
@@ -168,7 +184,7 @@ name?.toUpperCase() //safe, short circuits
 }())
 }
 ```
-<!-- .element: class="ΛRROW" data-executable="true" -->
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
@@ -188,7 +204,7 @@ name.map { it.toUpperCase() } //safe, short circuits
 }())
 }
 ```
-<!-- .element: class="ΛRROW" data-executable="true" -->
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
@@ -204,7 +220,7 @@ Person("John", 40)
 }())
 }
 ```
-<!-- .element: class="ΛRROW" data-executable="true" -->
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
@@ -222,7 +238,7 @@ Person("John", 40) == Person("John", 40)
 }())
 }
 ```
-<!-- .element: class="ΛRROW" data-executable="true" -->
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
@@ -732,7 +748,7 @@ fun main() {
 
 ## Support Async/Non-Blocking Popular data types
 
-Λrrow can abstract away the computational container type emulating __higher kinded types__.
+ΛRROW can abstract away the computational container type emulating __higher kinded types__.
 
 `Kind<F, A>` denotes an `A` value inside an `F` type contructor:
 Ex: `List<A>`, `Deferred<A>`, `IO<A>`, `Observable<A>`
@@ -784,7 +800,7 @@ A type class is a generic interface that describes behaviors that concrete types
 
 ```kotlin
 interface Functor<F> {
-  // Λrrow projects type class behaviors as static or extension functions over kinded values
+  // ΛRROW projects type class behaviors as static or extension functions over kinded values
   fun <A, B> Kind<F, A>.map(f: (A) -> B): Kind<F, B>
   fun <A, B> lift(f: (A) -> B): (Kind<F, A>) -> Kind<F, B> =
       { fa: Kind<F, A> -> fa.map(f) }
@@ -881,14 +897,14 @@ persistCache(InvoiceRepository) // compiles and runs because extension context i
 
 ## KEEP-87 
 
-The Λrrow team plans to submit this proposal once it's solid and it has properly addressed feedback
+The ΛRROW team plans to submit this proposal once it's solid and it has properly addressed feedback
 from the community and the jetbrains compiler team.
 
 ---
 
 ## Credits
 
-Λrrow is inspired in great libraries that have proven useful to the FP community:
+ΛRROW is inspired in great libraries that have proven useful to the FP community:
 
 - [Cats](https://typelevel.org/cats/)
 - [Scalaz](https://github.com/scalaz/scalaz)
@@ -919,6 +935,6 @@ We are beginner friendly and provide 1:1 mentoring for both users & new contribu
 
 ## Thanks!
 
-### Thanks to everyone that makes Λrrow possible!
+### Thanks to everyone that makes ΛRROW possible!
 
 ![inline 80%](css/images/47deg-logo.png)![inline 80%](css/images/kotlin.png)![inline 80%](css/images/lw-logo.png)
