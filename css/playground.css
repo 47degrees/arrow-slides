@@ -14,6 +14,19 @@
   box-shadow: none !important;
 }
 
+.CodeMirror {
+  background: rgba(255, 255, 255, 0.3) !important;
+}
+
+.CodeMirror-gutters {
+  background: rgba(255, 255, 255, 0) !important;
+}
+
+.CodeMirror-linebackground.unmodifiable-line {
+  background: rgba(255, 255, 255, 0) !important;
+  /* background: rgba(200, 200, 200, 0.3) !important; */
+}
+
 .CodeMirror-lines {
   margin: 12px 0 !important;
   padding: 0 !important;
