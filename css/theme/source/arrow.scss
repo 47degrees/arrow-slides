@@ -3,16 +3,13 @@
  *
  */
 
-
 // Default mixins and settings -----------------
 @import "../template/mixins";
 @import "../template/settings";
 // ---------------------------------------------
 
-
 // Include theme-specific fonts
 @import url(../../lib/font/titillium-web/titillium-web.css);
-
 
 // Override theme settings (see ../template/settings.scss)
 $backgroundColor: #eee;
@@ -27,7 +24,7 @@ $headingTextShadow: none;
 $headingLetterSpacing: normal;
 $headingTextTransform: uppercase;
 $headingFontWeight: 600;
-$linkColor: #2a76dd;
+$linkColor: $mainColor;
 $linkColorHover: lighten( $linkColor, 15% );
 $selectionBackgroundColor: lighten( $linkColor, 25% );
 
@@ -46,7 +43,13 @@ section.has-dark-background {
 	font-size: 45%;
 }
 
-
 // Theme template ------------------------------
 @import "../template/theme";
 // ---------------------------------------------
+
+.reveal section img {
+	margin: 15px 0px;
+	background: none;
+	border: none;
+	box-shadow: none;
+}
