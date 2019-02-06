@@ -2,41 +2,48 @@ Typed FP for the masses
 
 ---
 
-## Who am I? # 
+Who am I?
 
-- Co-Founder and CTO at [@47deg](https://twitter.com/47deg)
-- Typed FP advocate (regardless of language)
+- [@raulraja](https://twitter.com/raulraja), Co-Founder and CTO [@47deg](https://twitter.com/47deg)
+- Typed FP advocate (for all languages)
 
 ---
 
-## Agenda
+Agenda
 
-1. An introduction to Arrow
-2. Top 5 Kotlin features for FP
-3. The Kotlin suspension system
-4. Arrow Fx. A solution for building typed FP in Kotlin
-5. Features for lang designers to consider based on industry FP devs experience.
+1. An introduction to __ΛRROW__
+2. __Top 5__ features Kotlin offers to FP
+3. __Top 5__ features Kotlin lacks for FP
+4. The __Kotlin Suspension__ system
+4. __ΛRROW Fx__. A solution for building typed FP programs in Kotlin
+
+---
+
+# 1. An introduction to __ΛRROW__
 
 ---
 
 ![inline](css/images/ojetehandler.png)
-## Arrow started as learning exercise in the spanish Android Community Slack
+
+ΛRROW started as learning exercise in the spanish Android Community Slack
 
 ---
-
-{: data-background-color="#ff0000" }
-
-...at the time it was called KΛTEGORY
 
 ![inline](css/images/kategory.png)
 
+...at the time it was called KΛTEGORY and we had the coolest logo ever!
+
 ---
 
-## KΛTEGORY + Funktionale = Λrrow
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">With <a href="https://twitter.com/raulraja?ref_src=twsrc%5Etfw">@raulraja</a> from <a href="https://twitter.com/47deg?ref_src=twsrc%5Etfw">@47deg</a>, <a href="https://twitter.com/hashtag/katz?src=hash&amp;ref_src=twsrc%5Etfw">#katz</a> type functional library for <a href="https://twitter.com/hashtag/kotlin?src=hash&amp;ref_src=twsrc%5Etfw">#kotlin</a> leader at <a href="https://twitter.com/hashtag/scaladays?src=hash&amp;ref_src=twsrc%5Etfw">#scaladays</a> <a href="https://t.co/jbd0kb12ur">pic.twitter.com/jbd0kb12ur</a></p>&mdash; Mario Arias (@dh44t) <a href="https://twitter.com/dh44t/status/870251774178885633?ref_src=twsrc%5Etfw">June 1, 2017</a></blockquote>
 
-### The name was cool but the community was more important
+The name was cool but the community was more important
+
+---
 
 ![inline](css/images/arrow-brand-transparent.png)
+
+Λrrow = KΛTEGORY + Funktionale
 
 ---
 
@@ -145,7 +152,7 @@ fun main() {
   println(name)
 }
 ```
-<!-- .element: class="arrow" data-executable="true" -->
+<!-- .element: class="ΛRROW" data-executable="true" -->
 
 ---
 
@@ -161,13 +168,13 @@ name?.toUpperCase() //safe, short circuits
 }())
 }
 ```
-<!-- .element: class="arrow" data-executable="true" -->
+<!-- .element: class="ΛRROW" data-executable="true" -->
 
 ---
 
 ### 5. `?` Nullable Types
 
-#### Arrow enhances nullable types with the `Option` data type
+#### ΛRROW enhances nullable types with the `Option` data type
 
 ```kotlin:ank:silent
 import arrow.core.Option
@@ -181,7 +188,7 @@ name.map { it.toUpperCase() } //safe, short circuits
 }())
 }
 ```
-<!-- .element: class="arrow" data-executable="true" -->
+<!-- .element: class="ΛRROW" data-executable="true" -->
 
 ---
 
@@ -197,7 +204,7 @@ Person("John", 40)
 }())
 }
 ```
-<!-- .element: class="arrow" data-executable="true" -->
+<!-- .element: class="ΛRROW" data-executable="true" -->
 
 ---
 
@@ -215,7 +222,7 @@ Person("John", 40) == Person("John", 40)
 }())
 }
 ```
-<!-- .element: class="arrow" data-executable="true" -->
+<!-- .element: class="ΛRROW" data-executable="true" -->
 
 ---
 
@@ -238,7 +245,7 @@ Person("John", 40).copy(name = "Jane")
 
 ### 4. Data classes
 
-#### Arrow enhances data classes with `@product`
+#### ΛRROW enhances data classes with `@product`
 
 ```kotlin
 import arrow.core.*
@@ -260,7 +267,7 @@ fun main() {
 
 ### 4. Data classes
 
-#### Arrow enhances data classes with `@product`
+#### ΛRROW enhances data classes with `@product`
 
 ```kotlin
 import arrow.core.*
@@ -288,7 +295,7 @@ fun main() {
 
 ### 4. Data classes
 
-#### Arrow enhances data classes with `@optics`
+#### ΛRROW enhances data classes with `@optics`
 
 ```kotlin
 import arrow.optics.dsl.*
@@ -299,7 +306,7 @@ import arrow.optics.Optional
 @optics data class Company(val name: String, val address: Address)
 @optics data class Employee(val name: String, val company: Company?)
 
-val john = Employee("John Doe", Company("Arrow", Address("Funtown", Street(42, "lambda street"))))
+val john = Employee("John Doe", Company("ΛRROW", Address("Funtown", Street(42, "lambda street"))))
 val optional: Optional<Employee, String> = Employee.company.address.street.name
 val result = optional.modify(john, String::toUpperCase)
 
@@ -475,7 +482,7 @@ fun main() {
 
 ---
 
-## Arrow Fx
+## ΛRROW Fx
 
 ---
 
@@ -617,7 +624,7 @@ fun main() {
 
 ---
 
-### Arrow Fx is polymorphic
+### ΛRROW Fx is polymorphic
 
 ```kotlin
 //sampleStart
@@ -642,7 +649,7 @@ fun main() {
 
 ---
 
-### Arrow Fx works over all monads
+### ΛRROW Fx works over all monads
 
 *Fx over `Option`*
 ```kotlin:ank
@@ -665,7 +672,7 @@ fun main() {
 
 ---
 
-### Arrow Fx works over all monads
+### ΛRROW Fx works over all monads
 
 *Fx over `Try`*
 ```kotlin:ank
@@ -750,7 +757,7 @@ by Jeremy Yallop and Leo White
 + @higherkind
 + class Option<A> : OptionOf<A>
 - class ForOption private constructor() { companion object }
-- typealias OptionOf<A> = arrow.Kind<ForOption, A>
+- typealias OptionOf<A> = ΛRROW.Kind<ForOption, A>
 - inline fun <A> OptionOf<A>.fix(): Option<A> =
 -   this as Option<A>
 ```
@@ -824,7 +831,7 @@ A data type may be able to implement such abstract interfaces
 
 ## Thanks to [@tomasruizlopez](https://twitter.com/tomasruizlopez) we have a POC for KEEP-87: 
 
-### [https://github.com/arrow-kt/kotlin/pull/6](https://github.com/arrow-kt/kotlin/pull/6)
+### [https://github.com/ΛRROW-kt/kotlin/pull/6](https://github.com/ΛRROW-kt/kotlin/pull/6)
 
 ![inline](css/images/keep-pr.png)
 
@@ -895,9 +902,9 @@ from the community and the jetbrains compiler team.
 
 |        |                                                 |
 |--------|-------------------------------------------------|
-| Github | https://github.com/arrow-kt/arrow                     |
+| Github | https://github.com/ΛRROW-kt/ΛRROW                     |
 | Slack  | https://kotlinlang.slack.com/messages/C5UPMM0A0 |
-| Gitter | https://gitter.im/arrow-kt/Lobby               |
+| Gitter | https://gitter.im/ΛRROW-kt/Lobby               |
 
 We are beginner friendly and provide 1:1 mentoring for both users & new contributors!
 +90 Contributors and growing!
@@ -906,7 +913,7 @@ We are beginner friendly and provide 1:1 mentoring for both users & new contribu
 
 ## Join us at [lambda.world](http://cadiz.lambda.world/schedule/#session-103) for more FP in Kotlin!
 
-![inline](css/images/arrow-workshop.png)
+![inline](css/images/ΛRROW-workshop.png)
 
 ---
 
