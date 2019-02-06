@@ -172,7 +172,7 @@ fun main() {
 
 ---
 
-### 5. `?` Nullable Types
+`?` Nullable Types
 
 ```kotlin:ank:silent
 fun main() {
@@ -188,9 +188,7 @@ name?.toUpperCase() //safe, short circuits
 
 ---
 
-### 5. `?` Nullable Types
-
-#### ΛRROW enhances nullable types with the `Option` data type
+ΛRROW complements `?` with `Option`
 
 ```kotlin:ank:silent
 import arrow.core.Option
@@ -210,6 +208,10 @@ name.map { it.toUpperCase() } //safe, short circuits
 
 ### 4. Data classes
 
+---
+
+Data classes
+
 ```kotlin:ank:silent
 fun main() {
 println({
@@ -224,9 +226,7 @@ Person("John", 40)
 
 ---
 
-### 4. Data classes
-
-#### Auto hashcode + equals for the structure
+Synthetic backed-in `hashcode` and `equals` impls
 
 ```kotlin:ank:silent
 fun main() {
@@ -242,11 +242,9 @@ Person("John", 40) == Person("John", 40)
 
 ---
 
-### 4. Data classes
+Synthetic `copy`
 
-#### Synthetic copy
-
-```kotlin:ank
+```kotlin:ank:silent
 fun main() {
 println({
 //sampleStart
@@ -256,12 +254,11 @@ Person("John", 40).copy(name = "Jane")
 }())
 }
 ```
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
-### 4. Data classes
-
-#### ΛRROW enhances data classes with `@product`
+ΛRROW enhances data classes with `@product`
 
 ```kotlin
 import arrow.core.*
@@ -273,17 +270,14 @@ data class Account(val balance: Int, val available: Int) {
 }
 
 Account(1000, 900) + Account(1000, 900)
+//Account(2000, 1800)
 //sampleEnd
-fun main() {
-  println(result)
-}
 ```
+<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
-### 4. Data classes
-
-#### ΛRROW enhances data classes with `@product`
+ΛRROW enhances data classes with `@product`
 
 ```kotlin
 import arrow.core.*
@@ -297,21 +291,17 @@ data class Account(val balance: Int, val available: Int) {
 val maybeBalance: Option<Int> = Option(1000)
 val maybeAvailable: Option<Int> = Option(900)
 
-val result = 
-  Option.applicative().run { 
-    mapToAccount(maybeBalance, maybeAvailable)
-  }
-//sampleEnd
-fun main() {
-  println(result)
+Option.applicative().run { 
+  mapToAccount(maybeBalance, maybeAvailable)
 }
+//Some(Account(1000, 900))
+//sampleEnd
 ```
+<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
-### 4. Data classes
-
-#### ΛRROW enhances data classes with `@optics`
+ΛRROW enhances data classes with `@optics`
 
 ```kotlin
 import arrow.optics.dsl.*
@@ -324,73 +314,88 @@ import arrow.optics.Optional
 
 val john = Employee("John Doe", Company("ΛRROW", Address("Funtown", Street(42, "lambda street"))))
 val optional: Optional<Employee, String> = Employee.company.address.street.name
-val result = optional.modify(john, String::toUpperCase)
-
+optional.modify(john, String::toUpperCase)
+// Employee(
+//   name=John Doe, 
+//   company=Company(name=ΛRROW, 
+//     address=Address(city=Funtown, street=Street(number=42, name=LAMBDA STREET))
+//   )
+// )
 //sampleEnd
-fun main() {
-  println(result)
-}
 ```
+<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
 ### 3. Scoping functions
 
-#### `run`, `with`
+---
 
-```kotlin
+`run`, `with`
+
+```kotlin:ank:silent
+fun main() {
+println({
 //sampleStart
 data class Account(val balance: Int, val available: Int)
 
-val result = Account(1000, 800).run { balance - available }
+Account(1000, 800).run { balance - available }
 //sampleEnd
-fun main() {
-  println(result)
+}())
 }
 ```
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
-### 3. Scoping functions
+`run`, `with`
 
-#### `run`, `with`
-
-```kotlin
+```kotlin:ank:silent
+fun main() {
+println({
 //sampleStart
 data class Account(val balance: Int, val available: Int)
 
-val result = with(Account(1000, 800)) { balance - available }
+with(Account(1000, 800)) { 
+  balance - available 
+}
 //sampleEnd
-fun main() {
-  println(result)
+}())
 }
 ```
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
-### 3. Scoping functions
+`run`, `with`
 
-#### `run`, `with`
-
-```kotlin
+```kotlin:ank:silent
 //sampleStart
-fun <A, B> A.run(f: A.() -> B): B = 
+fun <A, B> A.runX(f: A.() -> B): B = 
   f(this)
-
-val result = "ΛRROW".run { "<${toLowerCase()}>" }
+  
+fun <A, B> withX(a: A, f: A.() -> B): B = 
+  f(a)
+  
+val result = 
+  "ΛRROW".runX { "<${toLowerCase()}>" } to 
+    with("ΛRROW") { "<${toLowerCase()}>" }
 //sampleEnd
 fun main() {
   println(result)
 }
 ```
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
 ### 2. Extension functions
 
-#### Enhance any type with extensions
+---
 
-```kotlin
+Extend any type with extensions
+
+```kotlin:ank:silent
 //sampleStart
 data class Account(val balance: Int, val available: Int)
 
@@ -405,6 +410,7 @@ fun main() {
   println(result)
 }
 ```
+<!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
