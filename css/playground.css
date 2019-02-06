@@ -48,3 +48,35 @@
 .CodeMirror-sizer {
   min-height: 0px !important;
 }
+
+.run-button {
+  filter: saturate(0) !important;
+}
+
+.cm-meta {
+  color: inherit !important;
+}
+
+.cm-keyword {
+  color: inherit !important;
+}
+
+.cm-type {
+  color: inherit !important;
+}
+
+.cm-def {
+  color: inherit !important;
+}
+
+.cm-string {
+  color: inherit !important;
+}
+
+.cm-number {
+  color: inherit !important;
+}
+
+.cm-atom {
+  color: inherit !important;
+}
