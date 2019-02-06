@@ -10,8 +10,9 @@
   font-size: 1rem !important;
 }
 
-.reveal pre {
+.CodeMirror pre {
   box-shadow: none !important;
+  line-height: 30px !important;
 }
 
 .CodeMirror {
