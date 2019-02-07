@@ -8,7 +8,7 @@
 @import "../template/settings";
 // ---------------------------------------------
 // Include theme-specific fonts
-@import url(../../lib/font/titillium-web/titillium-web.css);
+@import url(../../lib/font/pragmata/pragmata.css);
 @import url(../../lib/font/poppins/poppins.css);
 
 // Override theme settings (see ../template/settings.scss)
@@ -18,12 +18,8 @@ $mainColor: #1A1C1C;
 $headingColor: #1A1C1C;
 
 $mainFontSize: 6vmin;
-$mainFont: 'Poppins',
-Helvetica,
-sans-serif;
-$headingFont: 'Poppins',
-Helvetica,
-sans-serif;
+$mainFont: "PragmataPro", Helvetica, sans-serif;
+$headingFont: "PragmataPro", Helvetica, sans-serif;
 $headingTextShadow: none;
 $headingLetterSpacing: normal;
 $headingTextTransform: uppercase;
@@ -51,7 +47,7 @@ section.has-dark-background {
 
 .reveal {
     table {
-        font-size: 45%;
+        font-size: 70%;
     }
 }
 
@@ -91,7 +87,7 @@ section.has-dark-background {
   // slides effect or not
   display: flex !important;
   flex-direction: column !important;
-  justify-content: space-evenly !important;
+  justify-content: flex-start!important;
   //
 	overflow-y: hidden !important;
 	overflow-x: hidden !important;

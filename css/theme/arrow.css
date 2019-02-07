@@ -2,7 +2,7 @@
  * Arrow clear theme for reveal.js.
  *
  */
-@import url(../../lib/font/titillium-web/titillium-web.css);
+@import url(../../lib/font/pragmata/pragmata.css);
 @import url(../../lib/font/poppins/poppins.css);
 section.has-dark-background,
 section.has-dark-background h1,
@@ -14,7 +14,7 @@ section.has-dark-background h6 {
   color: #fff; }
 
 .reveal table {
-  font-size: 45%; }
+  font-size: 70%; }
 
 /*********************************************
  * GLOBAL STYLES
@@ -24,7 +24,7 @@ body {
   background-color: #eee; }
 
 .reveal {
-  font-family: "Poppins", Helvetica, sans-serif;
+  font-family: "PragmataPro", Helvetica, sans-serif;
   font-size: 6vmin;
   font-weight: normal;
   color: #1A1C1C; }
@@ -55,7 +55,7 @@ body {
 .reveal h6 {
   margin: 0 0 20px 0;
   color: #1A1C1C;
-  font-family: "Poppins", Helvetica, sans-serif;
+  font-family: "PragmataPro", Helvetica, sans-serif;
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: normal;
@@ -300,7 +300,7 @@ body {
 .reveal section {
   display: flex !important;
   flex-direction: column !important;
-  justify-content: space-evenly !important;
+  justify-content: flex-start !important;
   overflow-y: hidden !important;
   overflow-x: hidden !important;
   height: 100%; }
