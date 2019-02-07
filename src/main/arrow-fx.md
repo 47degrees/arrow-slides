@@ -26,18 +26,19 @@ An introduction to __ΛRROW__
 
 ...at the time it was called KΛTEGORY and we had the coolest logo ever!
 
-![inline](css/images/kategory.png)
+![Kategory](css/images/kategory.png)
 
 ---
 
 The name was cool but the community was more important
 
-![inline](css/images/mario-raul.png)
+![Mario & Raul](css/images/mario-raul.png)
 
 ---
 
 ΛRROW = KΛTEGORY + Funktionale
-![inline](css/images/arrow-brand-transparent.png)
+
+![Arrow](css/images/arrow-brand-transparent.png)
 
 ---
 
@@ -60,7 +61,7 @@ The name was cool but the community was more important
 Kotlin lacks higher kinded types and real type classes
 
 Emulating __higher kinded types__ is based on `defunctionalization`
-[__Lightweight higher-kinded polymorphism__](https://www.cl.cam.ac.uk/~jdy22/papers/lightweight-higher-kinded-polymorphism.pdf) 
+[__Lightweight higher-kinded polymorphism__](https://www.cl.cam.ac.uk/~jdy22/papers/lightweight-higher-kinded-polymorphism.pdf)
 by Jeremy Yallop and Leo White
 
 ```diff
@@ -102,18 +103,18 @@ This will export all extensions functions declared in `Functor` into `IO`
 
 | Type class | Combinator |
 | --- | --- |
-| Semigroup | combine | 
-| Monoid | empty | 
-| Functor | map, lift | 
-| Foldable | foldLeft, foldRight | 
-| Traverse | traverse, sequence | 
-| Applicative | just, ap | 
-| ApplicativeError | raiseError, catch | 
-| Monad | flatMap, flatten | 
-| MonadError | ensure, rethrow | 
-| MonadDefer | delay, suspend | 
-| Async | async | 
-| Effect | runAsync | 
+| Semigroup | combine |
+| Monoid | empty |
+| Functor | map, lift |
+| Foldable | foldLeft, foldRight |
+| Traverse | traverse, sequence |
+| Applicative | just, ap |
+| ApplicativeError | raiseError, catch |
+| Monad | flatMap, flatten |
+| MonadError | ensure, rethrow |
+| MonadDefer | delay, suspend |
+| Async | async |
+| Effect | runAsync |
 
 ---
 
@@ -134,7 +135,7 @@ Data types may provide extensions for type classes based on capabilities:
 | Type class | Combinators | **List** |
 | --- | --- | --- |
 | Functor | map, lift | ✓ |
-| Applicative | just, ap | ✓ | 
+| Applicative | just, ap | ✓ |
 | ApplicativeError | raiseError, catch | ✕ |
 | Monad | flatMap, flatten | ✓ |
 | MonadError | ensure, rethrow | ✕ |
@@ -148,14 +149,14 @@ Data types may provide extensions for type classes based on capabilities:
 
 | Type class | Combinators | **List** | **Either** | **Deferred** | **IO** |
 | --- | --- | --- | --- | --- | --- |
-| Functor | map, lift | ✓ | ✓ | ✓ | ✓ | 
-| Applicative | pure, ap | ✓ | ✓ | ✓ | ✓ | 
-| ApplicativeError | raiseError, catch | ✕ | ✓ | ✓ | ✓ | 
-| Monad | flatMap, flatten | ✓ | ✓ | ✓ | ✓ | 
-| MonadError | ensure, rethrow | ✕ | ✓ | ✓ | ✓ | 
-| MonadDefer | delay, suspend | ✕ | ✕ | ✓ | ✓ | 
-| Async | async | ✕ | ✕ | ✓ | ✓ | 
-| Effect | runAsync | ✕ | ✕ | ✓ | ✓ | 
+| Functor | map, lift | ✓ | ✓ | ✓ | ✓ |
+| Applicative | pure, ap | ✓ | ✓ | ✓ | ✓ |
+| ApplicativeError | raiseError, catch | ✕ | ✓ | ✓ | ✓ |
+| Monad | flatMap, flatten | ✓ | ✓ | ✓ | ✓ |
+| MonadError | ensure, rethrow | ✕ | ✓ | ✓ | ✓ |
+| MonadDefer | delay, suspend | ✕ | ✕ | ✓ | ✓ |
+| Async | async | ✕ | ✕ | ✓ | ✓ |
+| Effect | runAsync | ✕ | ✕ | ✓ | ✓ |
 
 ---
 
@@ -176,7 +177,7 @@ Data types may provide extensions for type classes based on capabilities:
 
 ---
 
-__Top 5__ 
+__Top 5__
 
 Features Kotlin offers to FP
 
@@ -331,7 +332,7 @@ data class Account(val balance: Int, val available: Int) {
 val maybeBalance: Option<Int> = Option(1000)
 val maybeAvailable: Option<Int> = Option(900)
 
-Option.applicative().run { 
+Option.applicative().run {
   mapToAccount(maybeBalance, maybeAvailable)
 }
 //Some(Account(1000, 900))
@@ -356,8 +357,8 @@ val john = Employee("John Doe", Company("ΛRROW", Address("Funtown", Street(42, 
 val optional: Optional<Employee, String> = Employee.company.address.street.name
 optional.modify(john, String::toUpperCase)
 // Employee(
-//   name=John Doe, 
-//   company=Company(name=ΛRROW, 
+//   name=John Doe,
+//   company=Company(name=ΛRROW,
 //     address=Address(city=Funtown, street=Street(number=42, name=LAMBDA STREET))
 //   )
 // )
@@ -398,8 +399,8 @@ println({
 //sampleStart
 data class Account(val balance: Int, val available: Int)
 
-with(Account(1000, 800)) { 
-  balance - available 
+with(Account(1000, 800)) {
+  balance - available
 }
 //sampleEnd
 }())
@@ -413,14 +414,14 @@ with(Account(1000, 800)) {
 
 ```kotlin:ank:silent
 //sampleStart
-fun <A, B> A.runX(f: A.() -> B): B = 
+fun <A, B> A.runX(f: A.() -> B): B =
   f(this)
-  
-fun <A, B> withX(a: A, f: A.() -> B): B = 
+
+fun <A, B> withX(a: A, f: A.() -> B): B =
   f(a)
-  
-val result = 
-  "ΛRROW".runX { "<${toLowerCase()}>" } to 
+
+val result =
+  "ΛRROW".runX { "<${toLowerCase()}>" } to
     with("ΛRROW") { "<${toLowerCase()}>" }
 //sampleEnd
 
@@ -448,7 +449,7 @@ data class Account(val balance: Int, val available: Int)
 
 fun Iterable<Account>.total(): Int =
   fold(0) { acc, account -> acc + account.balance }
-  
+
 listOf(Account(1000, 800), Account(2000, 1890)).total()
 //sampleEnd
 }())
@@ -470,7 +471,7 @@ Pure or impure?
 //sampleStart
 suspend fun printHelloWorld(): Unit =
   println("Hello World!")
-  
+
 val result = printHelloWorld()
 //sampleEnd
 fun main() {
@@ -506,10 +507,10 @@ import kotlin.coroutines.RestrictsSuspension
 //sampleStart
 suspend fun printHelloWorld(): Unit =
   println(helloWorld())
-  
+
 suspend fun Restricted.printHelloWorld2(): Unit =
   println(helloWorld())
-  
+
 @RestrictsSuspension
 class Restricted {
   suspend fun x(): Unit = printHelloWorld2() // works because in `Restricted` receiver
@@ -521,7 +522,7 @@ class Restricted {
 
 ---
 
-`suspend fun` + ΛRROW 
+`suspend fun` + ΛRROW
 
 ![inline](css/images/arrow-fx-brand.png)
 
@@ -555,8 +556,8 @@ import arrow.effects.extensions.io.fx.fx
 //sampleStart
 suspend fun printHelloWorld(): Unit =
   println("Hello world")
-  
-val result: IO<Unit> = 
+
+val result: IO<Unit> =
   fx {
     printHelloWorld() //lacks explicit `effect` control. Won't compile
   }
@@ -581,8 +582,8 @@ import arrow.effects.extensions.io.unsafeRun.runBlocking
 //sampleStart
 suspend fun printHelloWorld(): Unit =
   println("Hello world")
-  
-val result = 
+
+val result =
   fx {
     effect { printHelloWorld() }
   }
@@ -605,8 +606,8 @@ import arrow.effects.extensions.io.fx.fx
 //sampleStart
 suspend fun printHelloWorld(): Unit =
   println("Hello World")
-  
-val result: IO<Unit> = 
+
+val result: IO<Unit> =
   fx {
     val result: Unit = !effect { printHelloWorld() }
     result
@@ -633,7 +634,7 @@ import arrow.effects.extensions.io.fx.fx
 import arrow.effects.extensions.io.unsafeRun.runBlocking
 
 //sampleStart
-val result: IO<Unit> = 
+val result: IO<Unit> =
   fx {
     !effect { println("Hello World") }
   }
@@ -658,12 +659,12 @@ import arrow.effects.typeclasses.suspended.concurrent.Fx
 import arrow.effects.extensions.io.unsafeRun.unsafeRun
 import arrow.effects.extensions.io.fx.fx
 //sampleStart
-fun <F> Fx<F>.program(): Kind<F, Unit> = 
+fun <F> Fx<F>.program(): Kind<F, Unit> =
   fx {
     !effect { println("HelloWorld") }
   }
-  
-fun <F> UnsafeRun<F>.main(fa: Kind<F, Unit>): Unit = 
+
+fun <F> UnsafeRun<F>.main(fa: Kind<F, Unit>): Unit =
   unsafe { runBlocking { fa } }
 
 fun main() {
@@ -687,7 +688,7 @@ unsafe {
   runBlocking {
 //sampleStart
 fx {
-  val fiber = !NonBlocking.startFiber(effect { 
+  val fiber = !NonBlocking.startFiber(effect {
     Thread.currentThread().name
   })
   val threadName: String = !fiber.join()
@@ -811,12 +812,12 @@ import arrow.data.extensions.list.fx.fx
 fun main() {
 println({
 //sampleStart
-unsafe { 
+unsafe {
   val original = fx {
     val a = !listOf(1, 2).k()
     val b = !listOf(true, false).k()
     a toT b
-  } 
+  }
   val inlined = fx {
     val b = !listOf(true, false).k()
     !listOf(1, 2).k() toT b
@@ -837,7 +838,7 @@ We want to make Typed FP in Kotlin even easier
 
 ---
 
-Thanks to [@tomasruizlopez](https://twitter.com/tomasruizlopez) and the community we have a POC for KEEP-87: 
+Thanks to [@tomasruizlopez](https://twitter.com/tomasruizlopez) and the community we have a POC for KEEP-87:
 
 ### [https://github.com/ΛRROW-kt/kotlin/pull/6](https://github.com/ΛRROW-kt/kotlin/pull/6)
 
@@ -876,7 +877,7 @@ We can write polymorphic code with compile time verified dependencies
 ```kotlin
 suspend fun <A> persistCache(with R: Repository<A>): List<A> =
   cache().map { it.save() }
-  
+
 persistCache<User>() // compiles and runs because there is a [Repository<User>]
 persistCache<Invoice>() // fails to compile: No `extension` [Repository<Invoice>] found
 persistCache(UserRepository) // java compatible
@@ -886,7 +887,7 @@ persistCache(InvoiceRepository) // compiles and runs because extension context i
 
 ---
 
-KEEP-87 
+KEEP-87
 
 The ΛRROW team plans to submit this proposal at the end of Q1 2019 once it's solid and it has properly addressed feedback from the community and the jetbrains compiler team.
 
@@ -921,4 +922,4 @@ We are beginner friendly and provide 1:1 mentoring for both users & new contribu
 
 ### Thanks to everyone that makes ΛRROW possible!
 
-![inline 80%](css/images/47deg-logo.png)  ![inline 80%](css/images/kotlin.png)
+![47 Degrees](css/images/47deg-logo.png)  ![Kotlin](css/images/kotlin.png)
