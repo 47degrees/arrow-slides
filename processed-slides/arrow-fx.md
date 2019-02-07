@@ -20,7 +20,7 @@ An introduction to __ΛRROW__
 
 ΛRROW started as learning exercise in the spanish Android Community Slack
 
-![inline](css/images/ojetehandler.png)
+![inline](css/images/FineCinnamon.png)
 
 ---
 
@@ -160,7 +160,7 @@ Data types may provide extensions for type classes based on capabilities:
 
 ---
 
-ΛRROW is modular ![inline](css/images/android.jpg)
+ΛRROW is modular ![Android waving](css/images/android-waving.png)
 
 | Module            | Contents                                                              |
 |-------------------|-----------------------------------------------------------------------|
