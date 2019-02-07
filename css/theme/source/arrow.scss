@@ -7,7 +7,6 @@
 @import "../template/mixins";
 @import "../template/settings";
 // ---------------------------------------------
-
 // Include theme-specific fonts
 @import url(../../lib/font/titillium-web/titillium-web.css);
 @import url(../../lib/font/poppins/poppins.css);
@@ -15,19 +14,23 @@
 // Override theme settings (see ../template/settings.scss)
 $backgroundColor: #eee;
 
-$mainColor: #333;
-$headingColor: #333;
+$mainColor: #1A1C1C;
+$headingColor: #1A1C1C;
 
 $mainFontSize: 42px;
-$mainFont: 'Titillium Web', Helvetica, sans-serif;
-$headingFont: 'Titillium Web', Helvetica, sans-serif;
+$mainFont: 'Poppins',
+Helvetica,
+sans-serif;
+$headingFont: 'Poppins',
+Helvetica,
+sans-serif;
 $headingTextShadow: none;
 $headingLetterSpacing: normal;
 $headingTextTransform: uppercase;
 $headingFontWeight: 600;
 $linkColor: $mainColor;
-$linkColorHover: lighten( $linkColor, 15% );
-$selectionBackgroundColor: lighten( $linkColor, 25% );
+$linkColorHover: lighten( $linkColor, 15%);
+$selectionBackgroundColor: lighten( $linkColor, 25%);
 
 $heading1Size: 2.5em;
 $heading2Size: 1.6em;
@@ -35,26 +38,54 @@ $heading3Size: 1.3em;
 $heading4Size: 1.0em;
 
 section.has-dark-background {
-	&, h1, h2, h3, h4, h5, h6 {
-		color: #fff;
-	}
+    &,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: #fff;
+    }
 }
 
-.reveal table {
-	font-size: 45%;
+.reveal {
+    table {
+        font-size: 45%;
+    }
 }
+
 
 // Theme template ------------------------------
 @import "../template/theme";
 // ---------------------------------------------
 
+.reveal {
+    h1, h2, h3, h4, h5, h6 {
+        color: $headingColor;
+    }
+}
+
 .reveal section img {
-	margin: 15px 0px;
-	background: none;
-	border: none;
-	box-shadow: none;
+    margin: 15px 0px;
+    background: none;
+    border: none;
+    box-shadow: none;
 }
 
 twitter-widget {
-	margin-left: 25% !important;
+    margin-left: 25% !important;
+}
+
+.reveal {
+    ul { 
+        
+        list-style-type: none;
+         list-style-image: url('../../../css/images/arrow-bullet.svg');
+        
+        li {
+            padding-left: 8px;
+            margin-bottom: 16px;
+        }
+    }
 }
