@@ -1,11 +1,11 @@
-Who am I?
+## Who am I?
 
 - [@raulraja](https://twitter.com/raulraja), Co-Founder and CTO [@47deg](https://twitter.com/47deg)
 - Typed FP advocate (for all languages)
 
 ---
 
-Agenda
+## Agenda
 
 1. An introduction to __ΛRROW__
 2. __Top 5__ Kotlin features FP programmers love
@@ -120,13 +120,13 @@ This will export all extensions functions declared in `Functor` into `IO`
 
 | arrow-core |
 | --- |
-| ![inline](css/images/core-typeclasses.png) |
+| ![Core type classes](css/images/core-typeclasses.png) |
 
 ---
 
 | arrow-effects |
 | --- |
-| ![inline](css/images/effects-typeclasses.png) |
+| ![Efects Type Classes](css/images/effects-typeclasses.png) |
 
 ---
 
@@ -362,7 +362,6 @@ optional.modify(john, String::toUpperCase)
 //     address=Address(city=Funtown, street=Street(number=42, name=LAMBDA STREET))
 //   )
 // )
-//sampleEnd
 ```
 <!-- .element: class="arrow" data-executable="false" -->
 
@@ -524,7 +523,7 @@ class Restricted {
 
 `suspend fun` + ΛRROW
 
-![inline](css/images/arrow-fx-brand.png)
+![Arrow FX](css/images/arrow-fx-brand.png)
 
 ---
 

@@ -1,11 +1,11 @@
-Who am I?
+## Who am I?
 
 - [@raulraja](https://twitter.com/raulraja), Co-Founder and CTO [@47deg](https://twitter.com/47deg)
 - Typed FP advocate (for all languages)
 
 ---
 
-Agenda
+## Agenda
 
 1. An introduction to __ΛRROW__
 2. __Top 5__ Kotlin features FP programmers love
@@ -120,13 +120,13 @@ This will export all extensions functions declared in `Functor` into `IO`
 
 | arrow-core |
 | --- |
-| ![inline](css/images/core-typeclasses.png) |
+| ![Core type classes](css/images/core-typeclasses.png) |
 
 ---
 
 | arrow-effects |
 | --- |
-| ![inline](css/images/effects-typeclasses.png) |
+| ![Efects Type Classes](css/images/effects-typeclasses.png) |
 
 ---
 
@@ -367,7 +367,6 @@ optional.modify(john, String::toUpperCase)
 //     address=Address(city=Funtown, street=Street(number=42, name=LAMBDA STREET))
 //   )
 // )
-//sampleEnd
 ```
 <!-- .element: class="arrow" data-executable="false" -->
 
@@ -533,7 +532,7 @@ class Restricted {
 
 `suspend fun` + ΛRROW
 
-![inline](css/images/arrow-fx-brand.png)
+![Arrow FX](css/images/arrow-fx-brand.png)
 
 ---
 
@@ -853,15 +852,15 @@ unsafe {
 
 We want to make Typed FP in Kotlin even easier
 
-![inline](css/images/keep.png)
+![KEEP-87 picture](css/images/keep.png)
 
 ---
 
 Thanks to [@tomasruizlopez](https://twitter.com/tomasruizlopez) and the community we have a POC for KEEP-87:
 
-### [https://github.com/ΛRROW-kt/kotlin/pull/6](https://github.com/ΛRROW-kt/kotlin/pull/6)
+[https://github.com/ΛRROW-kt/kotlin/pull/6](https://github.com/ΛRROW-kt/kotlin/pull/6)
 
-![inline](css/images/keep-pr.png)
+![KEEP-87 PR picture](css/images/keep-pr.png)
 
 ---
 
