@@ -11,16 +11,17 @@
 }
 
 .compiler-info {
-  font-size: 1rem !important;
+  font-size: 0.9rem !important;
 }
 
 .CodeMirror pre {
   box-shadow: none !important;
-  line-height: 30px !important;
+  line-height: 35px !important;
 }
 
 .CodeMirror {
   background: rgba(255, 255, 255, 0.3) !important;
+  height: auto;
 }
 
 .CodeMirror-gutters {
@@ -39,8 +40,9 @@
 
 .code-output {
   overflow: auto !important;
-  padding-left: 10px !important;
-  padding-top: 15px !important;
+  padding-left: 20px !important;
+  padding-top: 10px !important;
+  height: 60px;
 }
 
 .loader {
@@ -63,15 +65,18 @@
 }
 
 .cm-meta {
-  color: inherit !important;
+  color: #cccccc !important;
 }
 
 .cm-keyword {
-  color: inherit !important;
+  font-style: oblique !important;
+  color: #6A6E7D !important;
+  font-weight: bold !important;
 }
 
 .cm-type {
-  color: inherit !important;
+  color: #6A6E7D !important;
+  font-weight: bold !important;
 }
 
 .cm-def {
@@ -79,17 +84,18 @@
 }
 
 .cm-string {
-  color: inherit !important;
+  color: #777BD1 !important;
 }
 
 .cm-number {
-  color: inherit !important;
+  color: #777BD1 !important;
 }
 
 .cm-atom {
-  color: inherit !important;
+  color: #FF856E !important;
 }
 
 .output-wrapper {
+  background: rgba(85, 103, 110, 0.3) !important;
   position: relative !important;
 }
