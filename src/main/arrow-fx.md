@@ -834,15 +834,15 @@ unsafe {
 
 We want to make Typed FP in Kotlin even easier
 
-![inline](css/images/keep.png)
+![KEEP-87 picture](css/images/keep.png)
 
 ---
 
 Thanks to [@tomasruizlopez](https://twitter.com/tomasruizlopez) and the community we have a POC for KEEP-87:
 
-### [https://github.com/ΛRROW-kt/kotlin/pull/6](https://github.com/ΛRROW-kt/kotlin/pull/6)
+[https://github.com/ΛRROW-kt/kotlin/pull/6](https://github.com/ΛRROW-kt/kotlin/pull/6)
 
-![inline](css/images/keep-pr.png)
+![KEEP-87 PR picture](css/images/keep-pr.png)
 
 ---
 
