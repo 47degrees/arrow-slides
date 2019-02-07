@@ -25,18 +25,18 @@ body {
 
 .reveal {
   font-family: "Poppins", Helvetica, sans-serif;
-  font-size: 42px;
+  font-size: 6vmin;
   font-weight: normal;
   color: #1A1C1C; }
 
 ::selection {
   color: #fff;
-  background: #575e5e;
+  background: #a6a6a6;
   text-shadow: none; }
 
 ::-moz-selection {
   color: #fff;
-  background: #575e5e;
+  background: #a6a6a6;
   text-shadow: none; }
 
 .reveal .slides section,
@@ -218,20 +218,20 @@ body {
  * LINKS
  *********************************************/
 .reveal a {
-  color: #1A1C1C;
+  color: #666;
   text-decoration: none;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
   transition: color .15s ease; }
 
 .reveal a:hover {
-  color: #3f4444;
+  color: #8c8c8c;
   text-shadow: none;
   border: none; }
 
 .reveal .roll span:after {
   color: #fff;
-  background: black; }
+  background: #404040; }
 
 /*********************************************
  * IMAGES
@@ -253,21 +253,21 @@ body {
 
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2);
-  border-color: #1A1C1C;
+  border-color: #666;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
 
 /*********************************************
  * NAVIGATION CONTROLS
  *********************************************/
 .reveal .controls {
-  color: #1A1C1C; }
+  color: #666; }
 
 /*********************************************
  * PROGRESS BAR
  *********************************************/
 .reveal .progress {
   background: rgba(0, 0, 0, 0.2);
-  color: #1A1C1C; }
+  color: #666; }
 
 .reveal .progress span {
   -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
@@ -290,12 +290,19 @@ body {
   border: none;
   box-shadow: none; }
 
-twitter-widget {
-  margin-left: 25% !important; }
-
 .reveal ul {
   list-style-type: none;
   list-style-image: url("../../../css/images/arrow-bullet.svg"); }
   .reveal ul li {
     padding-left: 8px;
     margin-bottom: 16px; }
+
+.reveal section {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-evenly !important;
+  overflow-y: hidden !important;
+  overflow-x: hidden !important;
+  height: 100%; }
+  .reveal section:hover {
+    overflow-y: auto !important; }

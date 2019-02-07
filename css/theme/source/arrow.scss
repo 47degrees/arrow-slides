@@ -17,7 +17,7 @@ $backgroundColor: #eee;
 $mainColor: #1A1C1C;
 $headingColor: #1A1C1C;
 
-$mainFontSize: 42px;
+$mainFontSize: 6vmin;
 $mainFont: 'Poppins',
 Helvetica,
 sans-serif;
@@ -28,7 +28,7 @@ $headingTextShadow: none;
 $headingLetterSpacing: normal;
 $headingTextTransform: uppercase;
 $headingFontWeight: 600;
-$linkColor: $mainColor;
+$linkColor: #666;
 $linkColorHover: lighten( $linkColor, 15%);
 $selectionBackgroundColor: lighten( $linkColor, 25%);
 
@@ -84,4 +84,19 @@ section.has-dark-background {
             margin-bottom: 16px;
         }
     }
+}
+
+.reveal section {
+  // Comment-uncomment the following 3 lines to have a centered content
+  // slides effect or not
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-evenly !important;
+  //
+	overflow-y: hidden !important;
+	overflow-x: hidden !important;
+	height: 100%;
+  &:hover {
+  	overflow-y: auto !important;
+  }
 }
