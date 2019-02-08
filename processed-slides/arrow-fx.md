@@ -193,6 +193,10 @@ Features Kotlin offers to FP
 
 ![inline](css/images/kotlin-types.png)
 
+[http://natpryce.com/articles/000818.html](http://natpryce.com/articles/000818.html)
+
+
+
 ---
 
 `?` Nullable Types
