@@ -6,10 +6,10 @@
 // Default mixins and settings -----------------
 @import "../template/mixins";
 @import "../template/settings";
+
 // ---------------------------------------------
 // Include theme-specific fonts
-@import url(../../lib/font/pragmata/pragmata.css);
-@import url(../../lib/font/poppins/poppins.css);
+@import url(../../lib/font/titillium-web/titillium-web.css);
 
 // Override theme settings (see ../template/settings.scss)
 $backgroundColor: #eee;
@@ -18,8 +18,8 @@ $mainColor: #1A1C1C;
 $headingColor: #1A1C1C;
 
 $mainFontSize: 6vmin;
-$mainFont: "PragmataPro", Helvetica, sans-serif;
-$headingFont: "PragmataPro", Helvetica, sans-serif;
+$mainFont: "Titillium Web", Helvetica, sans-serif;
+$headingFont: "Titillium Web", Helvetica, sans-serif;
 $headingTextShadow: none;
 $headingLetterSpacing: normal;
 $headingTextTransform: uppercase;
@@ -47,7 +47,7 @@ section.has-dark-background {
 
 .reveal {
     table {
-        font-size: 70%;
+        font-size: 60%;
     }
 }
 
@@ -87,7 +87,7 @@ section.has-dark-background {
   // slides effect or not
   display: flex !important;
   flex-direction: column !important;
-  justify-content: flex-start!important;
+  justify-content: space-evenly !important;
   //
 	overflow-y: hidden !important;
 	overflow-x: hidden !important;
