@@ -9,7 +9,7 @@
 
 // ---------------------------------------------
 // Include theme-specific fonts
-@import url(../../lib/font/titillium-web/titillium-web.css);
+@import url(../../lib/font/open-sans/open-sans.css);
 
 // Override theme settings (see ../template/settings.scss)
 $backgroundColor: #eee;
@@ -18,8 +18,8 @@ $mainColor: #1A1C1C;
 $headingColor: #1A1C1C;
 
 $mainFontSize: 6vmin;
-$mainFont: "Titillium Web", Helvetica, sans-serif;
-$headingFont: "Titillium Web", Helvetica, sans-serif;
+$mainFont: "Open Sans", Helvetica, sans-serif;
+$headingFont: "Open Sans", Helvetica, sans-serif;
 $headingTextShadow: none;
 $headingLetterSpacing: normal;
 $headingTextTransform: uppercase;

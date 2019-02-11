@@ -2,7 +2,7 @@
  * Arrow clear theme for reveal.js.
  *
  */
-@import url(../../lib/font/titillium-web/titillium-web.css);
+@import url(../../lib/font/open-sans/open-sans.css);
 section.has-dark-background,
 section.has-dark-background h1,
 section.has-dark-background h2,
@@ -23,7 +23,7 @@ body {
   background-color: #eee; }
 
 .reveal {
-  font-family: "Titillium Web", Helvetica, sans-serif;
+  font-family: "Open Sans", Helvetica, sans-serif;
   font-size: 6vmin;
   font-weight: normal;
   color: #1A1C1C; }
@@ -54,7 +54,7 @@ body {
 .reveal h6 {
   margin: 0 0 20px 0;
   color: #1A1C1C;
-  font-family: "Titillium Web", Helvetica, sans-serif;
+  font-family: "Open Sans", Helvetica, sans-serif;
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: normal;

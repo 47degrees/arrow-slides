@@ -1,5 +1,7 @@
+@import url(../../lib/font/fira-code/fira-code.css);
+
 .executable-fragment {
-  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono,
+  font-family: 'Fira Code', Consolas, Menlo, Monaco, Lucida Console, Liberation Mono,
                 DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
                 monospace, serif !important;
   font-size: 2.5vmin !important;
