@@ -1,3 +1,65 @@
+# Arrow slides
+
+Basic reveal.js template for [Arrow](https://arrow-kt.io) talks.
+
+## How to run
+
+For the slides, run the following commands:
+
+```bash
+./gradlew clean runAnk // validate and process slides
+
+npm install
+npm start
+```
+That will automatically deploy the slides in a local web server and open it in your browser.
+
+For running tests:
+
+```bash
+./gradlew clean build test
+```
+
+For running ktlint:
+
+```bash
+./gradlew ktlint
+```
+
+## How to add new slides
+
+The source slides to keep up to date are in `src/main` directory. The ones inside `processed-slides` are automatically moved
+there after Ank runs to validate the source ones. You can ignore those, and keep the ones in `src/main` up to date.
+
+To add a new lesson:
+
+* Add a new lesson directory in `src/main/`.
+* Add a `slides.md` file inside.
+* Reference that markdown from `index.html`, as we've done for previous lessons.
+
+To add slides to an already existing lesson:
+
+* Modify `src/main/yourlesson/slides.md` by adding `---` separator and a new slide below it.
+
+
+In the slides you can include Arrow executable snippets using [Arrow Playground](https://github.com/arrow-kt/arrow-playground). Remember to include the appropriate attributes, e.g:
+
+````
+```kotlin
+fun main() {
+   println({
+      //sampleStart
+      data class Person(val name: String, val age: Int)
+      Person("John", 40) == Person("John", 40)
+      //sampleEnd
+   }())
+}
+```
+<!-- .element: class="arrow" data-executable="true" -->
+````
+
+
+
 # reveal.js [![Build Status](https://travis-ci.org/hakimel/reveal.js.svg?branch=master)](https://travis-ci.org/hakimel/reveal.js) <a href="https://slides.com?ref=github"><img src="https://s3.amazonaws.com/static.slid.es/images/slides-github-banner-320x40.png?1" alt="Slides" width="160" height="20"></a>
 
 A framework for easily creating beautiful presentations using HTML. [Check out the live demo](http://revealjs.com/).

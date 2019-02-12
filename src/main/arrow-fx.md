@@ -1,69 +1,48 @@
-# Arrow Fx
-## Typed FP for the masses
+## Who am I?
 
-![inline](custom/images/arrow-brand-transparent.png)
-
----
-
-## Who am I? #
-
-[@raulraja](https://twitter.com/raulraja)
-[@47deg](https://twitter.com/47deg)
-
-- Co-Founder and CTO at 47 Degrees
-- Typed FP advocate (regardless of language)
+- [@raulraja](https://twitter.com/raulraja), Co-Founder and CTO [@47deg](https://twitter.com/47deg)
+- Typed FP advocate (for all languages)
 
 ---
 
 ## Agenda
 
-1. An introduction to Arrow
-2. Choices Kotlin has made for it's user base
-3. The Kotlin suspension system
-4. Arrow Fx. A solution for building typed FP in Kotlin
-5. Features for lang designers to consider based on industry FP devs experience.
+1. An introduction to __ΛRROW__
+2. __Top 5__ Kotlin features FP programmers love
+4. The __Kotlin Suspension__ system
+4. __Fx__. A solution for building typed FP programs in Kotlin
 
 ---
 
-## Arrow started as learning Exercise to learn FP in the spanish Android Community Slack
-
-![inline](custom/images/ojetehandler.png)
+An introduction to __ΛRROW__
 
 ---
 
-## ...at the time it was called KΛTEGORY
+ΛRROW started as learning exercise in the spanish Android Community Slack
 
-![inline](custom/images/kategory.png)
-
----
-
-## KΛTEGORY + Funktionale = Λrrow
-
-### The name was cool but the community was more important
-
-![inline](custom/images/arrow-brand-transparent.png)
+![inline](css/images/FineCinnamon.png)
 
 ---
 
-## Type classes
+...at the time it was called KΛTEGORY and we had the coolest logo ever!
 
-### Λrrow contains includes the FP type classes
-
-|                |                                                      |
-|----------------|------------------------------------------------------|
-| Error Handling | `ApplicativeError`, `MonadError`                      |
-| Computation    | `Functor`, `Applicative`, `Monad`, `Bimonad`, `Comonad`                    |
-| Folding        | `Foldable`, `Traverse`                          |
-| Combining      | `Semigroup`, `SemigroupK`, `Monoid`, `MonoidK` |
-| Effects        | `MonadDefer`, `Async`, `Effect`, `Concurrent`, `Bracket`           |
-| Recursion      | `Recursive`, `BiRecursive`,...                                |
-| MTL            | `FunctorFilter`, `MonadState`, `MonadReader`, `MonadWriter`, `MonadFilter`, ...                |
+![Kategory](css/images/kategory.png)
 
 ---
 
-## Data types
+The name was cool but the community was more important
 
-Λrrow includes data types to cover general use cases.
+![Mario & Raul](css/images/mario-raul.png)
+
+---
+
+ΛRROW = KΛTEGORY + Funktionale
+
+![Arrow](css/images/arrow-brand-transparent.png)
+
+---
+
+ΛRROW includes popular FP data types...
 
 |                |                                                      |
 |----------------|------------------------------------------------------|
@@ -79,110 +58,252 @@
 
 ---
 
-## Kotlin TOP 5 features that help with FP
+Kotlin lacks higher kinded types and real type classes
+
+Emulating __higher kinded types__ is based on `defunctionalization`
+[__Lightweight higher-kinded polymorphism__](https://www.cl.cam.ac.uk/~jdy22/papers/lightweight-higher-kinded-polymorphism.pdf)
+by Jeremy Yallop and Leo White
+
+```diff
++ @higherkind
++ class Option<A> : OptionOf<A>
+- class ForOption private constructor() { companion object }
+- typealias OptionOf<A> = ΛRROW.Kind<ForOption, A>
+- inline fun <A> OptionOf<A>.fix(): Option<A> =
+-   this as Option<A>
+```
+<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
-### 5. `?` Nullable Types
+Once we have a `Kind` representation we can provide `extensions`
 
 ```kotlin
-import arrow.*
-val name: String? = null
-val result = name.toUpperCase() //unsafe, won't compile
-
-fun main() {
-  println(name)
+interface Functor<F> {
+  fun <A, B> Kind<F, A>.map(f: (A) -> B): Kind<F, B>
 }
 ```
-<!-- .element: class="arrow" data-executable="true" -->
+<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
-### 5. `?` Nullable Types
+This will export all extensions functions declared in `Functor` into `IO`
 
 ```kotlin
+@extension interface IOFunctor : Functor<ForIO> {
+  override fun <A, B> Kind<ForIO, A>.map(f: (A) -> B): IO<B> =
+    fix().map(f)
+}
+```
+<!-- .element: class="arrow" data-executable="false" -->
+
+---
+
+... and type classes.
+
+| Type class | Combinator |
+| --- | --- |
+| Semigroup | combine |
+| Monoid | empty |
+| Functor | map, lift |
+| Foldable | foldLeft, foldRight |
+| Traverse | traverse, sequence |
+| Applicative | just, ap |
+| ApplicativeError | raiseError, catch |
+| Monad | flatMap, flatten |
+| MonadError | ensure, rethrow |
+| MonadDefer | delay, suspend |
+| Async | async |
+| Effect | runAsync |
+
+---
+
+| arrow-core |
+| --- |
+| ![Core type classes](css/images/core-typeclasses.png) |
+
+---
+
+| arrow-effects |
+| --- |
+| ![Efects Type Classes](css/images/effects-typeclasses.png) |
+
+---
+
+Data types may provide extensions for type classes based on capabilities:
+
+| Type class | Combinators | **List** |
+| --- | --- | --- |
+| Functor | map, lift | ✓ |
+| Applicative | just, ap | ✓ |
+| ApplicativeError | raiseError, catch | ✕ |
+| Monad | flatMap, flatten | ✓ |
+| MonadError | ensure, rethrow | ✕ |
+| MonadDefer | delay, suspend | ✕ |
+| Async | async | ✕ |
+| Effect | runAsync | ✕ |
+
+---
+
+Data types may provide extensions for type classes based on capabilities:
+
+| Type class | Combinators | **List** | **Either** | **Deferred** | **IO** |
+| --- | --- | --- | --- | --- | --- |
+| Functor | map, lift | ✓ | ✓ | ✓ | ✓ |
+| Applicative | pure, ap | ✓ | ✓ | ✓ | ✓ |
+| ApplicativeError | raiseError, catch | ✕ | ✓ | ✓ | ✓ |
+| Monad | flatMap, flatten | ✓ | ✓ | ✓ | ✓ |
+| MonadError | ensure, rethrow | ✕ | ✓ | ✓ | ✓ |
+| MonadDefer | delay, suspend | ✕ | ✕ | ✓ | ✓ |
+| Async | async | ✕ | ✕ | ✓ | ✓ |
+| Effect | runAsync | ✕ | ✕ | ✓ | ✓ |
+
+---
+
+ΛRROW is modular ![Android waving](css/images/android-waving.png)
+
+| Module            | Contents                                                              |
+|-------------------|-----------------------------------------------------------------------|
+| typeclasses       | `Semigroup`, `Monoid`, `Functor`, `Applicative`, `Monad`...                      |
+| core/data         | `Option`, `Try`, `Either`, `Validated`...                                     |
+| effects           | `Async`, `MonadDefer`, `Effect`, `IO`...                                                                    |
+| effects-rx2       | `ObservableK`, `FlowableK`, `MaybeK`, `SingleK`                                                          |
+| effects-coroutines       | `DeferredK`                                                       |
+| mtl               | `MonadReader`, `MonadState`, `MonadFilter`,...                              |
+| free              | `Free`, `FreeApplicative`, `Trampoline`, ...                                |
+| recursion-schemes | `Fix`, `Mu`, `Nu`                                                                     |
+| optics            | `Prism`, `Iso`, `Lens`, ...                                                 |
+| meta              | `@higherkind`, `@deriving`, `@extension`, `@optics` |
+
+---
+
+__Top 5__
+
+Features Kotlin offers to FP
+
+---
+
+## 5
+
+`?` Nullable Types
+
+---
+
+`?` Nullable Types
+
+![inline](css/images/kotlin-types.png)
+
+[http://natpryce.com/articles/000818.html](http://natpryce.com/articles/000818.html)
+
+
+
+---
+
+`?` Nullable Types
+
+```kotlin
+fun main() {
+println({
 //sampleStart
 val name: String? = null
-val result = name?.toUpperCase() //safe, short circuits
+name.toUpperCase() //unsafe, won't compile
 //sampleEnd
-fun main() {
-  println(name)
+}())
 }
 ```
 <!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
-### 5. `?` Nullable Types
+`?` Nullable Types
 
-#### Arrow enhances nullable types with the `Option` data type
+```kotlin:ank:silent
+fun main() {
+println({
+//sampleStart
+val name: String? = null
+name?.toUpperCase() //safe, short circuits
+//sampleEnd
+}())
+}
+```
+<!-- .element: class="arrow" data-executable="true" -->
 
-```kotlin
+---
+
+ΛRROW complements `?` with `Option`
+
+```kotlin:ank:silent
 import arrow.core.Option
+import arrow.core.None
+fun main() {
+println({
 //sampleStart
 val name: Option<String> = None
-val result = name.map { it.toUpperCase() } //safe, short circuits
+name.map { it.toUpperCase() } //safe, short circuits
 //sampleEnd
-fun main() {
-  println(name)
+}())
 }
 ```
 <!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
-### 4. Data classes
+## 4
 
-```kotlin
+Data classes
+
+---
+
+Data classes
+
+```kotlin:ank:silent
+fun main() {
+println({
 //sampleStart
 data class Person(val name: String, val age: Int)
-val result = Person("John", 40)
+Person("John", 40)
 //sampleEnd
-fun main() {
-  println(result)
+}())
 }
 ```
 <!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
-### 4. Data classes
+Synthetic backed-in `hashcode` and `equals` impls
 
-#### Auto hashcode + equals for the structure
-
-```kotlin
+```kotlin:ank:silent
+fun main() {
+println({
 //sampleStart
 data class Person(val name: String, val age: Int)
-val result = Person("John", 40) == Person("John", 40)
+Person("John", 40) == Person("John", 40)
 //sampleEnd
-fun main() {
-  println(result)
+}())
 }
 ```
 <!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
-### 4. Data classes
+Synthetic `copy`
 
-#### Synthetic copy
-
-```kotlin
+```kotlin:ank:silent
+fun main() {
+println({
 //sampleStart
 data class Person(val name: String, val age: Int)
-val result = Person("John", 40).copy(name = "Jane")
+Person("John", 40).copy(name = "Jane")
 //sampleEnd
-fun main() {
-  println(result)
+}())
 }
 ```
 <!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
-### 4. Data classes
-
-#### Arrow enhances data classes with `@product`
+ΛRROW enhances data classes with `@product`
 
 ```kotlin
 import arrow.core.*
@@ -194,18 +315,14 @@ data class Account(val balance: Int, val available: Int) {
 }
 
 Account(1000, 900) + Account(1000, 900)
+//Account(2000, 1800)
 //sampleEnd
-fun main() {
-  println(result)
-}
 ```
-<!-- .element: class="arrow" data-executable="true" -->
+<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
-### 4. Data classes
-
-#### Arrow enhances data classes with `@product`
+ΛRROW enhances data classes with `@product`
 
 ```kotlin
 import arrow.core.*
@@ -219,22 +336,17 @@ data class Account(val balance: Int, val available: Int) {
 val maybeBalance: Option<Int> = Option(1000)
 val maybeAvailable: Option<Int> = Option(900)
 
-val result =
-  Option.applicative().run {
-    mapToAccount(maybeBalance, maybeAvailable)
-  }
-//sampleEnd
-fun main() {
-  println(result)
+Option.applicative().run {
+  mapToAccount(maybeBalance, maybeAvailable)
 }
+//Some(Account(1000, 900))
+//sampleEnd
 ```
-<!-- .element: class="arrow" data-executable="true" -->
+<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
-### 4. Data classes
-
-#### Arrow enhances data classes with `@optics`
+ΛRROW enhances data classes with `@optics`
 
 ```kotlin
 import arrow.optics.dsl.*
@@ -245,66 +357,77 @@ import arrow.optics.Optional
 @optics data class Company(val name: String, val address: Address)
 @optics data class Employee(val name: String, val company: Company?)
 
-val john = Employee("John Doe", Company("Arrow", Address("Funtown", Street(42, "lambda street"))))
+val john = Employee("John Doe", Company("ΛRROW", Address("Funtown", Street(42, "lambda street"))))
 val optional: Optional<Employee, String> = Employee.company.address.street.name
-val result = optional.modify(john, String::toUpperCase)
-
-//sampleEnd
-fun main() {
-  println(result)
-}
+optional.modify(john, String::toUpperCase)
+// Employee(
+//   name=John Doe,
+//   company=Company(name=ΛRROW,
+//     address=Address(city=Funtown, street=Street(number=42, name=LAMBDA STREET))
+//   )
+// )
 ```
-<!-- .element: class="arrow" data-executable="true" -->
+<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
-### 3. Scoping functions
+## 3
 
-#### `run`, `with`
+Receiver functions
 
-```kotlin
+---
+
+`run`, `with`
+
+```kotlin:ank:silent
+fun main() {
+println({
 //sampleStart
 data class Account(val balance: Int, val available: Int)
 
-val result = Account(1000, 800).run { balance - available }
+Account(1000, 800).run { balance - available }
 //sampleEnd
-fun main() {
-  println(result)
+}())
 }
 ```
 <!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
-### 3. Scoping functions
+`run`, `with`
 
-#### `run`, `with`
-
-```kotlin
+```kotlin:ank:silent
+fun main() {
+println({
 //sampleStart
 data class Account(val balance: Int, val available: Int)
 
-val result = with(Account(1000, 800)) { balance - available }
+with(Account(1000, 800)) {
+  balance - available
+}
 //sampleEnd
-fun main() {
-  println(result)
+}())
 }
 ```
 <!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
-### 3. Scoping functions
+`run`, `with`
 
-#### `run`, `with`
-
-```kotlin
+```kotlin:ank:silent
 //sampleStart
-fun <A, B> A.run(f: A.() -> B): B =
+fun <A, B> A.runX(f: A.() -> B): B =
   f(this)
 
-val result = "ΛRROW".run { "<${toLowerCase()}>" }
+fun <A, B> withX(a: A, f: A.() -> B): B =
+  f(a)
+
+val result =
+  "ΛRROW".runX { "<${toLowerCase()}>" } to
+    with("ΛRROW") { "<${toLowerCase()}>" }
 //sampleEnd
+
 fun main() {
   println(result)
 }
@@ -313,59 +436,44 @@ fun main() {
 
 ---
 
-### 2. Extension functions
+## 2
 
-#### Enhance any type with extensions
+Extension functions
 
-```kotlin
+---
+
+Extend any type with extensions
+
+```kotlin:ank:silent
+fun main() {
+println({
 //sampleStart
 data class Account(val balance: Int, val available: Int)
 
 fun Iterable<Account>.total(): Int =
-  fold(0) { acc, account ->
-    acc + account.balance
-  }
+  fold(0) { acc, account -> acc + account.balance }
 
-val result = listOf(Account(1000, 800), Account(2000, 1890)).total()
+listOf(Account(1000, 800), Account(2000, 1890)).total()
 //sampleEnd
-fun main() {
-  println(result)
+}())
 }
 ```
 <!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
-### 1. The Kotlin Suspension System
+## 1
 
-#### A pure function is just `fun`
-
-```kotlin
-//sampleStart
-fun helloWorld(): String =
-  "Hello World"
-
-val result = helloWorld()
-//sampleEnd
-fun main() {
-  println(result)
-}
-```
-<!-- .element: class="arrow" data-executable="true" -->
+Suspended Functions
 
 ---
 
-### 1. The Kotlin Suspension System
-
-#### Is `printHelloWorld` a pure function?
+Pure or impure?
 
 ```kotlin
 //sampleStart
-fun helloWorld(): String =
-  "Hello World"
-
 suspend fun printHelloWorld(): Unit =
-  println(helloWorld())
+  println("Hello World!")
 
 val result = printHelloWorld()
 //sampleEnd
@@ -377,38 +485,29 @@ fun main() {
 
 ---
 
-### 1. The Kotlin Suspension System
+Suspended functions require a continuation to run.
 
-#### Suspended functions can't compile or run in the pure environment! 🎉
+```diff
+- suspend fun printHelloWorld(): Unit
++ fun printHelloWorld(callback: Continuation<Unit>): Unit
+```
+<!-- .element: class="arrow" data-executable="false" -->
 
 ```kotlin
-//sampleStart
-fun helloWorld(): String =
-  "Hello World"
-
-suspend fun printHelloWorld(): Unit =
-  println(helloWorld())
-
-val result = printHelloWorld()
-//sampleEnd
-fun main() {
-  println(result)
+interface Continuation<in A> {
+  val context: CoroutineContext
+  fun resumeWith(result: Result<A>)
 }
 ```
-<!-- .element: class="arrow" data-executable="true" -->
+<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
-### 1. The Kotlin Suspension System
-
-#### Scopes in which functions compile can be restricted a la carte
+@RestrictSuspension prevents external functions from composing
 
 ```kotlin
 import kotlin.coroutines.RestrictsSuspension
 //sampleStart
-fun helloWorld(): String =
-  "Hello World"
-
 suspend fun printHelloWorld(): Unit =
   println(helloWorld())
 
@@ -420,44 +519,50 @@ class Restricted {
   suspend fun x(): Unit = printHelloWorld2() // works because in `Restricted` receiver
   suspend fun y(): Unit = printHelloWorld() // fails to compile
 }
-
 //sampleEnd
-fun main() {
-  println("")
-}
 ```
-<!-- .element: class="arrow" data-executable="true" -->
+<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
-## Arrow Fx
+`suspend fun` + ΛRROW
+
+![Arrow FX](css/images/arrow-fx-brand.png)
 
 ---
 
-## Primitive ops
+ΛRROW Fx
 
-- `Fx` A block that delimits a concurrent cancelable continuation. `IO`
-- `!` (bind, component1) Effect binding via implicit CPS
+- A purely functional effects library for Kotlin built on ΛRROW and the Kotlin Coroutines System.
+- Emphasis in empowering simple and declarative effectful programming for everyone.
 
 ---
 
-## Fx
+Fx DSL
 
-### A continuation that controls and allows effects
+|        |        |
+|--------|--------|
+| __fx__ | A block that delimits a concurrent cancelable continuation |
+| __effect__ | Turn and effect into a pure value |
+| __!__ | Bind a pure value into the continuation context |
+| __unsafe__ | Unsafe perform effects |
+
+---
+
+__fx__
+
+A continuation that controls effects and their composition
 
 ```kotlin
+import arrow.effects.IO
+import arrow.effects.extensions.io.fx.fx
 //sampleStart
-import arrow.effects.suspended.Fx
-
-fun helloWorld(): String =
-  "Hello World"
-
 suspend fun printHelloWorld(): Unit =
-  println(helloWorld())
+  println("Hello world")
 
-val result: Fx<Unit> =
-  Fx {
-    printHelloWorld()
+val result: IO<Unit> =
+  fx {
+    printHelloWorld() //lacks explicit `effect` control. Won't compile
   }
 //sampleEnd
 fun main() {
@@ -468,21 +573,22 @@ fun main() {
 
 ---
 
-## Fx
+__effect__
 
-### `Fx` blocks can be nested and unested via `!`
+Lifts suspended effects to the monad context
 
-```kotlin
+```kotlin:ank:silent
+import arrow.effects.IO
+import arrow.effects.extensions.io.fx.fx
+import arrow.unsafe
+import arrow.effects.extensions.io.unsafeRun.runBlocking
 //sampleStart
-import arrow.effects.suspended.Fx
+suspend fun printHelloWorld(): Unit =
+  println("Hello world")
 
-fun helloWorld(): String =
-  "Hello World"
-
-val result: Fx<Unit> =
-  Fx {
-    val result = !Fx { println(helloWorld()) }
-    result
+val result =
+  fx {
+    effect { printHelloWorld() }
   }
 //sampleEnd
 fun main() {
@@ -493,23 +599,47 @@ fun main() {
 
 ---
 
-## Fx
+__!__
 
-### Running effects is unsafe. We make it explicit
+Bind effects to the monad context with implicit CPS style
 
-```kotlin
+```kotlin:ank:silent
+import arrow.effects.IO
+import arrow.effects.extensions.io.fx.fx
 //sampleStart
-import arrow.unsafe
-import arrow.effects.suspended.Fx
-import arrow.effects.extensions.fx.unsafeRun.runBlocking
+suspend fun printHelloWorld(): Unit =
+  println("Hello World")
 
-fun helloWorld(): String =
-  "Hello World"
-
-val result: Fx<Unit> =
-  Fx {
-    val result = !Fx { println(helloWorld()) }
+val result: IO<Unit> =
+  fx {
+    val result: Unit = !effect { printHelloWorld() }
     result
+  }
+
+fun main() {
+  println(result)
+}
+//sampleEnd
+```
+<!-- .element: class="arrow" data-executable="true" -->
+
+---
+
+__unsafe__
+
+The only place where you can actually run side effects
+
+```kotlin:ank:silent
+import arrow.unsafe
+import arrow.effects.IO
+import arrow.effects.extensions.io.fx.fx
+//sampleStart
+import arrow.effects.extensions.io.unsafeRun.runBlocking
+
+//sampleStart
+val result: IO<Unit> =
+  fx {
+    !effect { println("Hello World") }
   }
 
 fun main() {
@@ -521,27 +651,27 @@ fun main() {
 
 ---
 
-## Fx
+Polymorphism with Arrow Fx is easy
 
-### unsafe is also a `@RestrictsSuspension` scope
-
-```kotlin
-//sampleStart
+```kotlin:ank:silent
+import arrow.Kind
 import arrow.unsafe
-import arrow.effects.suspended.Fx
-import arrow.effects.extensions.fx.unsafeRun.runBlocking
-
-fun helloWorld(): String =
-  "Hello World"
-
-val result: Fx<Unit> =
-  Fx {
-    val result = !Fx { println(helloWorld()) }
-    result
+import arrow.effects.IO
+import arrow.effects.typeclasses.UnsafeRun
+import arrow.effects.typeclasses.suspended.concurrent.Fx
+import arrow.effects.extensions.io.unsafeRun.unsafeRun
+import arrow.effects.extensions.io.fx.fx
+//sampleStart
+fun <F> Fx<F>.program(): Kind<F, Unit> =
+  fx {
+    !effect { println("HelloWorld") }
   }
 
+fun <F> UnsafeRun<F>.main(fa: Kind<F, Unit>): Unit =
+  unsafe { runBlocking { fa } }
+
 fun main() {
-  unsafe { runBlocking { result } }
+  IO.unsafeRun().main(IO.fx().program())
 }
 //sampleEnd
 ```
@@ -549,56 +679,250 @@ fun main() {
 
 ---
 
-## Fx
+Asynchronous fibers are easy to spawn and manage
 
-### When you have the ability to restrict compilation you can create architectural areas.
-
-```kotlin
-//sampleStart
+```kotlin:ank:silent
 import arrow.unsafe
-import arrow.effects.suspended.Fx
-import arrow.effects.extensions.fx.unsafeRun.runBlocking
-
-fun helloWorld(): String =
-  "Hello World"
-
-val result: Fx<Unit> =
-  Fx {
-    val result = !Fx { println(helloWorld()) }
-    result
-  }
-
+import arrow.effects.typeclasses.suspended.concurrent.Fx
+import arrow.effects.extensions.io.unsafeRun.runBlocking
+import arrow.effects.extensions.io.fx.fx
 fun main() {
-  unsafe { runBlocking { result } }
+unsafe {
+  runBlocking {
+//sampleStart
+fx {
+  val fiber = !NonBlocking.startFiber(effect {
+    Thread.currentThread().name
+  })
+  val threadName: String = !fiber.join()
+  !effect { println(threadName) }
 }
 //sampleEnd
+  }
+}
+}
 ```
 <!-- .element: class="arrow" data-executable="true" -->
 
 ---
 
-### Arrow Fx is polymorphic
+Spawning concurrent ops is a piece of cake
 
-```kotlin
-//sampleStart
+```kotlin:ank:silent
 import arrow.unsafe
-import arrow.effects.suspended.Fx
-import arrow.effects.extensions.fx.unsafeRun.runBlocking
-
-fun helloWorld(): String =
-  "Hello World"
-
-val result: Fx<Unit> =
-  Fx {
-    val result = !Fx { println(helloWorld()) }
-    result
-  }
-
+import arrow.core.Tuple3
+import arrow.effects.typeclasses.suspended.concurrent.Fx
+import arrow.effects.extensions.io.unsafeRun.runBlocking
+import arrow.effects.extensions.io.fx.fx
 fun main() {
-  unsafe { runBlocking { result } }
+unsafe {
+  runBlocking {
+//sampleStart
+fx {
+  val (threadA, threadB, threadC) = !NonBlocking.parMapN(
+    effect { Thread.currentThread().name },
+    effect { Thread.currentThread().name },
+    effect { Thread.currentThread().name },
+    ::Tuple3
+  )
+  !effect { println(listOf(threadA, threadB, threadC)) }
 }
 //sampleEnd
+  }
+}
+}
 ```
 <!-- .element: class="arrow" data-executable="true" -->
 
 ---
+
+Fx for all monadic `F`s
+
+*Fx over `Option`*
+```kotlin:ank:silent
+import arrow.effects.IO
+import arrow.core.Option
+import arrow.core.extensions.option.fx.fx
+fun main() {
+  println(
+//sampleStart
+fx {
+  val one = !Option(1)
+  val two = !Option(one + one)
+  two
+}
+//sampleEnd
+)
+}
+```
+<!-- .element: class="arrow" data-executable="true" -->
+
+---
+
+We support different binding styles
+
+*(_) destructuring syntax*
+```kotlin:ank:silent
+import arrow.core.Option
+import arrow.core.extensions.option.fx.fx
+fun main() {
+  println(
+//sampleStart
+fx {
+  val (one) = Option(1)
+  val (two) = Option(one + one)
+  two
+}
+//sampleEnd
+)
+}
+```
+<!-- .element: class="arrow" data-executable="true" -->
+
+---
+
+We support different binding styles
+
+*explicit `bind()`*
+```kotlin:ank:silent
+import arrow.core.Option
+import arrow.core.extensions.option.fx.fx
+fun main() {
+  println(
+//sampleStart
+fx {
+  val one = Option(1).bind()
+  val two = Option(one + one).bind()
+  two
+}
+//sampleEnd
+)
+}
+```
+<!-- .element: class="arrow" data-executable="true" -->
+
+---
+
+Implicit CPS + bind can break RT
+
+```kotlin:ank:silent
+import arrow.data.*
+import arrow.unsafe
+import arrow.core.toT
+import arrow.core.Tuple3
+import arrow.data.extensions.list.fx.fx
+
+fun main() {
+println({
+//sampleStart
+unsafe {
+  val original = fx {
+    val a = !listOf(1, 2).k()
+    val b = !listOf(true, false).k()
+    a toT b
+  }
+  val inlined = fx {
+    val b = !listOf(true, false).k()
+    !listOf(1, 2).k() toT b
+  }
+  Tuple3(original == inlined, original, inlined)
+}
+//sampleEnd
+}())
+}
+```
+<!-- .element: class="arrow" data-executable="true" -->
+
+---
+
+We want to make Typed FP in Kotlin even easier
+
+![KEEP-87 picture](css/images/keep.png)
+
+---
+
+Thanks to [@tomasruizlopez](https://twitter.com/tomasruizlopez) and the community we have a POC for KEEP-87:
+
+[https://github.com/ΛRROW-kt/kotlin/pull/6](https://github.com/ΛRROW-kt/kotlin/pull/6)
+
+![KEEP-87 PR picture](css/images/keep-pr.png)
+
+---
+
+KEEP-87 Proposes the following changes to Kotlin
+
+Type class declarations are simple plain interfaces and have a expanded usage beyond FP
+
+```kotlin
+interface Repository<A> {
+  suspend fun A.save(): A
+  suspend fun cache(): List<A>
+}
+```
+<!-- .element: class="arrow" data-executable="false" -->
+
+---
+
+Multiple data types can implement the behavior without resorting to inheritance
+
+```kotlin
+extension object UserRepository : Repository<User> {
+  override suspend fun User.save(): User = TODO()
+  override suspend fun cache(): List<User> = TODO()
+}
+```
+<!-- .element: class="arrow" data-executable="false" -->
+
+---
+
+We can write polymorphic code with compile time verified dependencies
+
+```kotlin
+suspend fun <A> persistCache(with R: Repository<A>): List<A> =
+  cache().map { it.save() }
+
+persistCache<User>() // compiles and runs because there is a [Repository<User>]
+persistCache<Invoice>() // fails to compile: No `extension` [Repository<Invoice>] found
+persistCache(UserRepository) // java compatible
+persistCache(InvoiceRepository) // compiles and runs because extension context is provided explicitly
+```
+<!-- .element: class="arrow" data-executable="false" -->
+
+---
+
+KEEP-87
+
+The ΛRROW team plans to submit this proposal at the end of Q1 2019 once it's solid and it has properly addressed feedback from the community and the jetbrains compiler team.
+
+---
+
+Credits
+
+ΛRROW is inspired by great libraries that have proven useful to the FP community:
+
+- [Cats](https://typelevel.org/cats/)
+- [Scalaz](https://github.com/scalaz/scalaz)
+- [Mu](http://higherkindness.io/mu/)
+- [Monocle](http://julien-truffaut.github.io/Monocle/)
+- [Funktionale](https://github.com/MarioAriasC/funKTionale)
+
+---
+
+## Join us!
+
+|        |                                                 |
+|--------|-------------------------------------------------|
+| Github | https://github.com/arrow-kt             |
+| Slack  | https://kotlinlang.slack.com/messages/C5UPMM0A0 |
+| Gitter | https://gitter.im/arrow-kt/Lobby               |
+
+We are beginner friendly and provide 1:1 mentoring for both users & new contributors!
++110 Contributors and growing!
+
+---
+
+## Thanks!
+
+### Thanks to everyone that makes ΛRROW possible!
+
+![47 Degrees](css/images/47deg-logo.png)  ![Kotlin](css/images/kotlin.png)

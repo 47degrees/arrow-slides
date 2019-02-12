@@ -69,16 +69,15 @@ configurations.all {
 
 dependencies {
     implementation "io.arrow-kt:arrow-core-data:$arrow_version"
-    implementation "io.arrow-kt:arrow-effects-extensions:$arrow_version"
-    implementation "io.arrow-kt:arrow-effects-kotlinx-coroutines:$arrow_version"
-    implementation "io.arrow-kt:arrow-effects-kotlinx-coroutines-extensions:$arrow_version"
+    implementation "io.arrow-kt:arrow-effects-io-extensions:$arrow_version"
+    implementation "io.arrow-kt:arrow-effects-rx2-extensions:$arrow_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
 
     kapt "io.arrow-kt:arrow-annotations-processor:$arrow_version"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
-    implementation "io.arrow-kt:arrow-ank:$ankVersion"
+    implementation "io.arrow-kt:arrow-ank:$arrow_version"
 }
 
 task printcp {

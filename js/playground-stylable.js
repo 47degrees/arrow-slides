@@ -16748,8 +16748,8 @@ function () {
     // if (executable) shadowRoot.setAttribute('contenteditable', 'true');
     // shadowRoot.id = 'shadowRoot';
 
-    mountNode.id = 'mountNode';
-    if (executable) mountNode.setAttribute('contenteditable', 'true'); // const shadow = shadowRoot.attachShadow({ mode: 'open' });
+    mountNode.id = 'mountNode'; // if (executable) mountNode.setAttribute('contenteditable', 'true');
+    // const shadow = shadowRoot.attachShadow({ mode: 'open' });
     // const resetStyle = document.createElement('style');
     // resetStyle.textContent = ':host { all: initial }';
     // const style = document.querySelector('style').cloneNode(true);
