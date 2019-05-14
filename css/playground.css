@@ -4,7 +4,7 @@
   font-family: 'Fira Code', Consolas, Menlo, Monaco, Lucida Console, Liberation Mono,
                 DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
                 monospace, serif !important;
-  font-size: 2.5vmin !important;
+  font-size: 2rem !important;
   text-align: left !important;
   margin: inherit !important;
   padding: inherit !important;
@@ -18,7 +18,7 @@
 
 .CodeMirror pre {
   box-shadow: none !important;
-  line-height: 35px !important;
+  line-height: 2.8rem !important;
 }
 
 .CodeMirror {
