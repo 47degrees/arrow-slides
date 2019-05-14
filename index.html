@@ -58,23 +58,28 @@
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
 					{ src: 'plugin/menu/menu.js' },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() {
+						hljs.initHighlightingOnLoad();
+					} },
+					{ src: 'js/playground.js', callback: async function() {
+						function updateCurrentSnippets() {
+							const currentSlide = document.querySelector(".present");
+							window.CurrentSnippets = [];
+							PlaygroundSnippets.map((arrowSnippet) => {
+								if (currentSlide.contains(arrowSnippet.targetNode)) {
+									arrowSnippet.view.codemirror.refresh();
+									window.CurrentSnippets.push(arrowSnippet);
+								}
+							});
+							window.dispatchEvent(new Event('resize'));
+						};
+						window.PlaygroundSnippets = await ArrowPlayground('.arrow');
+						window.CurrentSnippets = [];
+						updateCurrentSnippets();
+						Reveal.addEventListener('slidechanged', updateCurrentSnippets);
+					}},
+					{ src: 'js/playground-keybindings.js' },
 				]
-			});
-			Reveal.addEventListener( 'ready', function( event ) {
-					const AP = ArrowPlayground('.arrow');
-					AP.then((value) => {
-						window.PlaygroundSnippets = value;
-					});
-			});
-			Reveal.addEventListener( 'slidechanged', function( event ) {
-				 const currentSlide = document.querySelector(".present");
-				 PlaygroundSnippets.map((arrowSnippet) => {
-					 if (currentSlide.contains(arrowSnippet.targetNode)) {
-						 arrowSnippet.view.codemirror.refresh();
-					 }
-				 });
-				 window.dispatchEvent(new Event('resize'));
 			});
 		</script>
 	</body>
