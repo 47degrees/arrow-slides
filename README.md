@@ -59,6 +59,45 @@ fun main() {
 ````
 
 
+## PDF exporting through decktape
+
+DeckTape is a high-quality, Puppeteer based, PDF exporter for HTML presentation frameworks.
+
+Decktape will be already installed locally as it's part of the project dependencies. If that's not the case, you can install DeckTape globally:
+
+```sh
+npm install -g decktape
+// Then use it like this
+decktape
+```
+
+Or locally:
+
+```sh
+npm install decktape
+// Then use it like this
+`npm bin`/decktape
+```
+
+Decktape will generate a direct translation of how your presentation renders in a browser (Chromium). First thing you need to do is to have the presentation running:
+
+```sh
+npm start
+```
+
+And then you need to point `decktape` to the URL where the presentation is running, usually `http://localhost:8000/ `. The default viewport size is `1280x720`, but you can adjust it easily:
+
+```sh
+`npm bin`/decktape http://localhost:8000/ output-name.pdf --size '1920x1080'
+```
+
+You might face some layout problems depending on the content of your presentation. If that's the case, there's probably not a universal solution, but you can tweak some settings to get a good result:
+
+* Change the output viewport size. You can easily preview it by resizing your browser window to see the best route to go.
+* Use the zoom setting available in the `reveal.scss` file.
+* For further tweaking, you can play with the font sizes present in `arrow.scss` or `playground.css`.
+
+
 
 # reveal.js [![Build Status](https://travis-ci.org/hakimel/reveal.js.svg?branch=master)](https://travis-ci.org/hakimel/reveal.js) <a href="https://slides.com?ref=github"><img src="https://s3.amazonaws.com/static.slid.es/images/slides-github-banner-320x40.png?1" alt="Slides" width="160" height="20"></a>
 
