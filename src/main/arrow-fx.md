@@ -544,7 +544,7 @@ fx {
 
 ---
 
-*Fx over `Eval`*
+*Fx over `Either`*
 
 ```kotlin:ank:silent
 import arrow.core.Right
