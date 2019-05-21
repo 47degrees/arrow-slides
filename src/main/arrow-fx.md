@@ -1,7 +1,7 @@
-## Who am I?
+## Who are we?
 
+- [@vergauwen_simon](https://twitter.com/vergauwen_simon), Senior Software Engineer @47deg [@47deg](https://twitter.com/47deg)
 - [@raulraja](https://twitter.com/raulraja), Co-Founder and CTO [@47deg](https://twitter.com/47deg)
-- Typed FP advocate (for all languages)
 
 ---
 
