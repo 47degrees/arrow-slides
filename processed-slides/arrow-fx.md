@@ -887,7 +887,7 @@ fun main() {
 
 ##### Resource Safety
 
-*KotlinX Coroutines is unable to release resources when jobs are canceled*
+*Arrow Fx guarantees resources are released regardless of async ops or cancellation*
 ```kotlin
 
 import arrow.effects.IO
@@ -939,6 +939,26 @@ fun main() {
 }
 ```
 <!-- .element: class="arrow" data-executable="true" -->
+
+---
+
+#### Performance
+
+##### Direct style Vs Wrapped Style
+
+*Direct style eliminates the need for `just`, `map`, `flatMap`, etc...*
+
+<!-- .element: class="arrow" data-executable="true" -->
+
+---
+
+#### Performance
+
+##### Direct style Vs Wrapped Style
+
+*Direct style is blazing fast*
+
+![Direct Style Vs Wrapped Style](css/images/DirectSyntax_bench.png)
 
 ---
 

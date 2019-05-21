@@ -917,6 +917,26 @@ fun main() {
 
 ---
 
+#### Performance
+
+##### Direct style Vs Wrapped Style
+
+*Direct style eliminates the need for `just`, `map`, `flatMap`, etc...*
+
+<!-- .element: class="arrow" data-executable="true" -->
+
+---
+
+#### Performance
+
+##### Direct style Vs Wrapped Style
+
+*Direct style is blazing fast*
+
+![Direct Style Vs Wrapped Style](css/images/DirectSyntax_bench.png)
+
+---
+
 ## Thanks!
 
 ### Thanks to everyone that makes ΛRROW possible!
