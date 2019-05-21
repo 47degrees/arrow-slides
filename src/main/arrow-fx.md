@@ -746,6 +746,64 @@ fun main() {
 
 ---
 
+#### Arrow Fx Vs Kotlinx Coroutines
+
+##### Races, Concurrency and Arity abstraction
+
+*Arrow Fx concurrent ops abstract over function arity and tracks all typed participants*
+```kotlin:ank:silent
+import arrow.effects.extensions.io.fx.fx
+
+fun main() {
+  //sampleStart
+  val program = fx {
+    val op1 = effect { "first" }
+    val op2 = effect { 2 }
+    val race = !NonBlocking.raceN(op1, op2)
+    val winner = race.fold({ "first one won" }, { "second one won" })
+    !effect { println(winner) }
+  }
+  //sampleEnd
+  program.unsafeRunSync()
+}
+```
+<!-- .element: class="arrow" data-executable="true" -->
+
+---
+
+#### Arrow Fx Vs Kotlinx Coroutines
+
+##### Races, Concurrency and Arity abstraction
+
+*KotlinX Coorutines does not support explicit races or arity abstraction*
+```kotlin:ank:silent
+import kotlinx.coroutines.*
+import kotlinx.coroutines.selects.select
+
+fun main() {
+  runBlocking {
+    //sampleStart
+    // jobs returning different types coerce to `Any`
+    val list: List<Deferred<Any>> = listOf(
+      GlobalScope.async(Dispatchers.Default) { "first" },
+      GlobalScope.async(Dispatchers.Default) { 2 }
+    )
+    val winner = select<String> {
+      list.withIndex().forEach { (index, deferred) ->
+        deferred.onAwait { "$index one won" }
+      }
+    }
+    println(winner)
+    // Racing requires explicit cooperative cancellation
+    list.filter { it.isActive }.map { it.cancel() }
+    //sampleEnd
+  }
+}
+```
+<!-- .element: class="arrow" data-executable="true" -->
+
+---
+
 ## Thanks!
 
 ### Thanks to everyone that makes ΛRROW possible!
