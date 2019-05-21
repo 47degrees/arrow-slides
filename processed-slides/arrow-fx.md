@@ -827,6 +827,121 @@ fun main() {
 
 ---
 
+#### Arrow Fx Vs Kotlinx Coroutines
+
+##### Resource Safety
+
+*KotlinX Coroutines is unable to release resources when jobs are canceled*
+```kotlin
+
+import arrow.effects.extensions.io.fx.fx
+import kotlinx.coroutines.*
+
+// Guaranteeing resource safety with eagerness is impossible...
+class File(url: String) {
+  fun open(): File = this
+  fun close(): Unit = println("Closing file")
+  override fun toString(): String = "This file contains some interesting content"
+
+  companion object {
+    suspend fun acquire(uri: String): File = File(uri).open()
+    suspend fun use(file: File): String = file.toString()
+    suspend fun release(file: File): Unit = file.close()
+  }
+}
+//sampleStart
+suspend fun program(): Unit {
+  //if cancellation happens before `file` is bound `release` will never ne invoked
+  val file: File = withContext(Dispatchers.Default) {
+    val file = File.acquire("data.json")
+    println("File is now open")
+    delay(1300)
+    file
+  }
+  println("-> Acquired")
+  try {
+    println("-> Use")
+    File.use(file)
+  } catch (e: Throwable) {
+    println("-> Caught $e")
+  } finally {
+    println("-> Release")
+    File.release(file)
+  }
+}
+//sampleEnd
+
+fun main() {
+  runBlocking {
+    val job: Job = GlobalScope.launch { program() }
+    delay(1000)
+    job.cancel()
+  }
+}
+```
+<!-- .element: class="arrow" data-executable="true" -->
+
+---
+
+#### Arrow Fx Vs Kotlinx Coroutines
+
+##### Resource Safety
+
+*KotlinX Coroutines is unable to release resources when jobs are canceled*
+```kotlin
+
+import arrow.effects.IO
+import arrow.effects.extensions.io.fx.fx
+import arrow.effects.typeclasses.ExitCase
+import kotlinx.coroutines.delay
+
+// Guaranteeing resource safety with eagerness is impossible...
+class File(url: String) {
+  fun open(): File = this
+  fun close(): Unit = println("Closing file")
+  override fun toString(): String = "This file contains some interesting content"
+
+  companion object {
+    suspend fun acquire(uri: String): File = File(uri).open()
+    suspend fun use(file: File): String = file.toString()
+    suspend fun release(file: File): Unit = file.close()
+  }
+}
+//sampleStart
+fun program(): IO<String> = fx {
+  val acquire = effect {
+    val file = File("data.json").open()
+    println("File is now open")
+    delay(1300)
+    file
+  }
+  val use = { file: File -> effect { File.use(file) } }
+  val release = { file: File, exitCase: ExitCase<*> ->
+    effect {
+      when (exitCase) {
+        is ExitCase.Completed -> println("completed")
+        is ExitCase.Canceled -> println("canceled")
+        is ExitCase.Error -> println("error")
+      }
+      file.close()
+      println("File closed")
+    }
+  }
+  !acquire.bracketCase(release, use)
+}
+//sampleEnd
+fun main() {
+  fx {
+    val fiber = !NonBlocking.startFiber(program())
+    !effect { delay(1000) }
+    !fiber.cancel()
+  }.unsafeRunSync()
+}
+```
+<!-- .element: class="arrow" data-executable="true" -->
+
+---
+
 ## Thanks!
 
 ### Thanks to everyone that makes ΛRROW possible!
