@@ -587,6 +587,96 @@ fx {
 
 ---
 
+#### Arrow Fx Vs Kotlinx Coroutines
+
+##### Lazy vs Eager
+
+*Kotlinx Coroutines default builders are eager*
+```kotlin:ank:silent
+import kotlinx.coroutines.*
+fun main() {
+
+//sampleStart
+GlobalScope.launch(Dispatchers.Default) {
+  println(Thread.currentThread().name) 
+}
+//sampleEnd
+runBlocking {
+  delay(100)  
+}
+
+}
+```
+<!-- .element: class="arrow" data-executable="true" -->
+
+---
+
+#### Arrow Fx Vs Kotlinx Coroutines
+
+##### Lazy vs Eager
+
+*Kotlinx Coroutines can be made lazy explicitly*
+```kotlin:ank:silent
+import kotlinx.coroutines.*
+fun main() {
+
+//sampleStart
+val job = GlobalScope.launch(Dispatchers.Default, start = CoroutineStart.LAZY) {
+  println(Thread.currentThread().name) 
+}
+//sampleEnd
+println(job)
+
+}
+```
+<!-- .element: class="arrow" data-executable="true" -->
+
+---
+
+#### Arrow Fx Vs Kotlinx Coroutines
+
+##### Lazy vs Eager
+
+*Coroutines scopes wait for their child jobs to finish*
+```kotlin:ank:silent
+import kotlinx.coroutines.*
+fun main() {
+
+//sampleStart
+runBlocking { // <- coroutines scopes wait for their child jobs to finish
+  //nobody starts the job below and it's lazy
+  async(Dispatchers.Default, CoroutineStart.LAZY) {} 
+} //endless loop
+//sampleEnd
+
+}
+```
+<!-- .element: class="arrow" data-executable="true" -->
+
+---
+
+#### Arrow Fx Vs Kotlinx Coroutines
+
+##### Lazy vs Eager
+
+*Arrow Fx is Lazy and always yields pure programs*
+```kotlin:ank:silent
+import arrow.effects.extensions.io.fx.fx
+fun main() {
+  println(
+//sampleStart
+fx {
+  continueOn(NonBlocking)
+  !effect { println(Thread.currentThread().name) }
+}
+//sampleEnd
+)
+}
+```
+<!-- .element: class="arrow" data-executable="true" -->
+
+---
+
 ## Thanks!
 
 ### Thanks to everyone that makes ΛRROW possible!
