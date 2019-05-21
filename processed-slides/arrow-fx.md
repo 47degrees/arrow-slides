@@ -1,7 +1,7 @@
-## Who am I?
+## Who are we?
 
+- [@vergauwen_simon](https://twitter.com/vergauwen_simon), Senior Software Engineer [@47deg](https://twitter.com/47deg)
 - [@raulraja](https://twitter.com/raulraja), Co-Founder and CTO [@47deg](https://twitter.com/47deg)
-- Typed FP advocate (for all languages)
 
 ---
 
@@ -690,6 +690,77 @@ fx {
 }
 //sampleEnd
 )
+}
+```
+<!-- .element: class="arrow" data-executable="true" -->
+
+---
+
+
+#### Arrow Fx Vs Kotlinx Coroutines
+
+##### Cancellation
+
+*Kotlinx Coroutines cancellation is cooperative*
+```kotlin
+
+import kotlinx.coroutines.*
+
+//sampleStart
+fun program() = GlobalScope.launch(Dispatchers.Default) {
+  var iterations = 0
+  while (isActive) { // cancellable computation loop
+    println("job: I'm sleeping ${iterations++} ...")
+  }
+}
+
+suspend fun canceler() { 
+  val job = program()
+  delay(1300L) // delay a bit
+  println("main: I'm tired of waiting!")
+  job.cancelAndJoin() // cancels the job and waits for its completion
+  println("main: Now I can quit.")
+}
+//sampleEnd
+
+fun main() = runBlocking {
+  canceler()
+}
+```
+<!-- .element: class="arrow" data-executable="true" -->
+
+---
+
+#### Arrow Fx Vs Kotlinx Coroutines
+
+##### Cancellation
+
+*Arrow Fx cancellation is automatic*
+```kotlin
+
+import arrow.effects.IO
+import arrow.effects.extensions.io.fx.fx
+import kotlinx.coroutines.*
+
+//sampleStart
+fun program(): IO<Unit> {
+  fun loop(iterations: Int): IO<Unit> = fx {
+    !effect { println("job: I'm sleeping ${iterations} ...") }
+    !loop(iterations + 1) 
+  }
+  return loop(0)
+}
+
+fun cancelable() = fx {
+  val (_, cancel) = !NonBlocking.startFiber(program())
+  !effect { delay(1300) }
+  !effect { println("main: I'm tired of waiting!") }
+  !cancel
+  !effect { println("main: Now I can quit.") }
+}
+//sampleEnd
+fun main() {
+  cancelable().unsafeRunSync()
 }
 ```
 <!-- .element: class="arrow" data-executable="true" -->
