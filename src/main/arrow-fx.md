@@ -863,7 +863,7 @@ fun main() {
 
 ##### Resource Safety
 
-*KotlinX Coroutines is unable to release resources when jobs are canceled*
+*Arrow Fx guarantees resources are released regardless of async ops or cancellation*
 ```kotlin:ank:silent
 import arrow.effects.IO
 import arrow.effects.extensions.io.fx.fx
