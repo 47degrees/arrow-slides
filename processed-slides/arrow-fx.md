@@ -604,9 +604,8 @@ fx {
 
 #### Arrow Fx Vs Kotlinx Coroutines
 
-##### Lazy vs Eager
+Kotlinx Coroutines default builders are **eager**
 
-*Kotlinx Coroutines default builders are eager*
 ```kotlin
 
 import kotlinx.coroutines.*
@@ -629,9 +628,8 @@ runBlocking {
 
 #### Arrow Fx Vs Kotlinx Coroutines
 
-##### Lazy vs Eager
+Kotlinx Coroutines can be made lazy explicitly
 
-*Kotlinx Coroutines can be made lazy explicitly*
 ```kotlin
 
 import kotlinx.coroutines.*
@@ -652,9 +650,8 @@ println(job)
 
 #### Arrow Fx Vs Kotlinx Coroutines
 
-##### Lazy vs Eager
+Coroutines scopes wait for their child jobs to finish
 
-*Coroutines scopes wait for their child jobs to finish*
 ```kotlin
 
 import kotlinx.coroutines.*
@@ -675,9 +672,8 @@ runBlocking { // <- coroutines scopes wait for their child jobs to finish
 
 #### Arrow Fx Vs Kotlinx Coroutines
 
-##### Lazy vs Eager
+Arrow Fx is Lazy and always yields pure programs
 
-*Arrow Fx is Lazy and always yields pure programs*
 ```kotlin
 
 import arrow.effects.extensions.io.fx.fx
@@ -699,9 +695,8 @@ fx {
 
 #### Arrow Fx Vs Kotlinx Coroutines
 
-##### Cancellation
+Kotlinx Coroutines cancellation is **cooperative**
 
-*Kotlinx Coroutines cancellation is cooperative*
 ```kotlin
 
 import kotlinx.coroutines.*
@@ -733,9 +728,8 @@ fun main() = runBlocking {
 
 #### Arrow Fx Vs Kotlinx Coroutines
 
-##### Cancellation
+Arrow Fx cancellation is automatic
 
-*Arrow Fx cancellation is automatic*
 ```kotlin
 
 import arrow.effects.IO
@@ -767,11 +761,10 @@ fun main() {
 
 ---
 
-#### Arrow Fx Vs Kotlinx Coroutines
+Arrow Fx Vs Kotlinx Coroutines
 
-##### Races, Concurrency and Arity abstraction
+Arrow Fx concurrent ops abstract over function arity and tracks all typed participants
 
-*Arrow Fx concurrent ops abstract over function arity and tracks all typed participants*
 ```kotlin
 
 import arrow.effects.extensions.io.fx.fx
@@ -795,9 +788,8 @@ fun main() {
 
 #### Arrow Fx Vs Kotlinx Coroutines
 
-##### Races, Concurrency and Arity abstraction
+KotlinX Coroutines does not support explicit races or arity abstraction
 
-*KotlinX Coorutines does not support explicit races or arity abstraction*
 ```kotlin
 
 import kotlinx.coroutines.*
@@ -829,9 +821,8 @@ fun main() {
 
 #### Arrow Fx Vs Kotlinx Coroutines
 
-##### Resource Safety
+KotlinX Coroutines is unable to auto-release resources when jobs are canceled
 
-*KotlinX Coroutines is unable to release resources when jobs are canceled*
 ```kotlin
 
 import arrow.effects.extensions.io.fx.fx
@@ -885,9 +876,8 @@ fun main() {
 
 #### Arrow Fx Vs Kotlinx Coroutines
 
-##### Resource Safety
+Arrow Fx guarantees resources are released regardless of async ops or cancellation
 
-*Arrow Fx guarantees resources are released regardless of async ops or cancellation*
 ```kotlin
 
 import arrow.effects.IO
@@ -944,11 +934,29 @@ fun main() {
 
 #### Performance
 
-##### Direct style Vs Wrapped Style
+Direct style eliminates the need for `just`, `map`, `flatMap` and the Functor hierarchy
 
-*Direct style eliminates the need for `just`, `map`, `flatMap`, etc...*
+```kotlin
 
-<!-- .element: class="arrow" data-executable="true" -->
+import arrow.effects.IO
+
+//sampleStart
+fun ioFibLazy(n: Int): IO<Int> =
+  if (n <= 1) IO.just(n)
+  else ioFibLazy(n - 1).flatMap { a ->
+    ioFibLazy(n - 2).flatMap { b -> IO { a + b } }
+  }
+//sampleEnd
+```
+<!-- .element: class="arrow" data-executable="false" -->
+
+```kotlin
+
+tailrec suspend fun directFibLazy(n: Int, prev: Int = 1, current: Int = 0): Int =
+    if (n <= 0) current
+    else directFibLazy(n - 1, prev + current, prev)
+```
+<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
@@ -959,6 +967,29 @@ fun main() {
 *Direct style is blazing fast*
 
 ![Direct Style Vs Wrapped Style](css/images/DirectSyntax_bench.png)
+
+---
+
+#### Performance
+
+*Arrow Fx fibers are fast*
+
+![Fibers performance](css/images/forkFiber_bench.png)
+
+---
+
+#### Arrow Fx Vs Kotlinx Coroutines
+
+*Both Arrow Fx are great for Async/Concurrent Programming*
+
+|        | Arrow Fx | KotlinX Coroutines |
+|--------|--------|--------|
+| __Pure FP__ | ✓ | x |
+| __Polymorphic__ | ✓ | x |
+| __Resource Safety__ | ✓ (Bracket) | x (try/catch/finally) |
+| __Cancellation__ | ✓ (automatic) | ✓ (cooperative) |
+| __Performance__ | ✓ | ✓ |
+| __Streaming__ | x (coming up) | ✓ (Flow) |
 
 ---
 
