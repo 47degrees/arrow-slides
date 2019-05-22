@@ -1,7 +1,41 @@
 ## Who are we?
 
-- [@vergauwen_simon](https://twitter.com/vergauwen_simon), Senior Software Engineer [@47deg](https://twitter.com/47deg)
-- [@raulraja](https://twitter.com/raulraja), Co-Founder and CTO [@47deg](https://twitter.com/47deg)
+- [@vergauwen_simon](https://twitter.com/vergauwen_simon), Senior Engineer [@47deg](https://twitter.com/47deg)
+- [@raulraja](https://twitter.com/raulraja), Co-Founder, CTO [@47deg](https://twitter.com/47deg)
+
+---
+
+# Effectful programs & determinism
+
+---
+
+- Majority of programs contain uncontrolled "effects" 🙀.
+
+_(Query data bases, perform network requests, print to console, render UI...)_
+
+---
+
+# Problem?
+
+- __Unexpected results__ whenever an effect runs.
+- __Non deterministic programs__ .
+- Frequently called _side effects_.
+
+---
+
+# Solution?
+
+- We want program's logic to avoid side effects at all cost, so it can __stay deterministic__.
+- But, __can we avoid them at all?__
+
+---
+
+# Solution ✅
+
+- Push side effects to the _"edge of the world"_ (program's entry point).
+- Android - Application or Activity
+- Backend Apis - Endpoints
+- other programs - main()
 
 ---
 
@@ -535,6 +569,8 @@ fx {
 
 ---
 
+#### Fx FOR ALL Monads
+
 *Fx over `Eval`*
 
 ```kotlin
@@ -556,6 +592,8 @@ fx {
 <!-- .element: class="arrow" data-executable="true" -->
 
 ---
+
+#### Fx FOR ALL Monads
 
 *Fx over `Either`*
 
@@ -602,6 +640,12 @@ fx {
 
 ---
 
+#### Users frequently ask...
+
+*How does Arrow Fx compare to KotlinX Coroutines?*
+
+---
+
 #### Arrow Fx Vs Kotlinx Coroutines
 
 Kotlinx Coroutines default builders are **eager**
@@ -636,7 +680,8 @@ import kotlinx.coroutines.*
 fun main() {
 
 //sampleStart
-val job = GlobalScope.launch(Dispatchers.Default, start = CoroutineStart.LAZY) {
+val job = GlobalScope.launch(
+  Dispatchers.Default, start = CoroutineStart.LAZY) {
   println(Thread.currentThread().name) 
 }
 //sampleEnd
@@ -672,7 +717,7 @@ runBlocking { // <- coroutines scopes wait for their child jobs to finish
 
 #### Arrow Fx Vs Kotlinx Coroutines
 
-Arrow Fx is Lazy and always yields pure programs
+*Arrow Fx is Lazy and always yields pure programs*
 
 ```kotlin
 
@@ -695,7 +740,7 @@ fx {
 
 #### Arrow Fx Vs Kotlinx Coroutines
 
-Kotlinx Coroutines cancellation is **cooperative**
+*Kotlinx Coroutines cancellation is **cooperative***
 
 ```kotlin
 
@@ -728,7 +773,7 @@ fun main() = runBlocking {
 
 #### Arrow Fx Vs Kotlinx Coroutines
 
-Arrow Fx cancellation is automatic
+*Arrow Fx cancellation is **automatic***
 
 ```kotlin
 
@@ -761,9 +806,9 @@ fun main() {
 
 ---
 
-Arrow Fx Vs Kotlinx Coroutines
+#### Arrow Fx Vs Kotlinx Coroutines
 
-Arrow Fx concurrent ops abstract over function arity and tracks all typed participants
+*Arrow Fx concurrent ops abstract over function arity and tracks all typed participants*
 
 ```kotlin
 
@@ -788,7 +833,7 @@ fun main() {
 
 #### Arrow Fx Vs Kotlinx Coroutines
 
-KotlinX Coroutines does not support explicit races or arity abstraction
+*KotlinX Coroutines does not support explicit races or arity abstraction*
 
 ```kotlin
 
@@ -821,7 +866,7 @@ fun main() {
 
 #### Arrow Fx Vs Kotlinx Coroutines
 
-KotlinX Coroutines is unable to auto-release resources when jobs are canceled
+*KotlinX Coroutines is unable to auto-release resources when jobs are canceled*
 
 ```kotlin
 
@@ -876,7 +921,7 @@ fun main() {
 
 #### Arrow Fx Vs Kotlinx Coroutines
 
-Arrow Fx guarantees resources are released regardless of async ops or cancellation
+*Arrow Fx guarantees resources are released regardless of async ops or cancellation*
 
 ```kotlin
 
@@ -934,7 +979,7 @@ fun main() {
 
 #### Performance
 
-Direct style eliminates the need for `just`, `map`, `flatMap` and the Functor hierarchy
+*Direct style eliminates the need for `just`, `map`, `flatMap` and the Functor hierarchy*
 
 ```kotlin
 
@@ -964,7 +1009,7 @@ tailrec suspend fun directFibLazy(n: Int, prev: Int = 1, current: Int = 0): Int 
 
 ##### Direct style Vs Wrapped Style
 
-*Direct style is blazing fast*
+*Direct style is blazing fast and beats wrapped style*
 
 ![Direct Style Vs Wrapped Style](css/images/DirectSyntax_bench.png)
 
@@ -980,7 +1025,7 @@ tailrec suspend fun directFibLazy(n: Int, prev: Int = 1, current: Int = 0): Int 
 
 #### Arrow Fx Vs Kotlinx Coroutines
 
-*Both Arrow Fx are great for Async/Concurrent Programming*
+*Both Arrow Fx and KolinX are great for concurrent programming*
 
 |        | Arrow Fx | KotlinX Coroutines |
 |--------|--------|--------|
@@ -993,8 +1038,21 @@ tailrec suspend fun directFibLazy(n: Int, prev: Int = 1, current: Int = 0): Int 
 
 ---
 
+# Join us!
+
+|        |                                                 |
+|--------|-------------------------------------------------|
+| Github | https://github.com/arrow-kt             |
+| Slack  | slack.kotlinlang.org #arrow #arrow-contributors |
+| Gitter | https://gitter.im/arrow-kt/Lobby               |
+
+We are beginner friendly and provide 1:1 mentoring for both users & new contributors!
++110 Contributors and growing!
+
+---
+
 ## Thanks!
 
-### Thanks to everyone that makes ΛRROW possible!
+### Thanks to everyone that makes Λrrow Fx and KotlinX possible!
 
 ![47 Degrees](css/images/47deg-logo.png)  ![Kotlin](css/images/kotlin.png)
