@@ -334,6 +334,22 @@ fun main() {
 
 #### __Asynchronous fibers__
 
+*Lightweight async processes*
+
+![Fibers Animation Success](css/images/animations/fork_join_complete/fork_join_complete.gif)
+
+---
+
+#### __Asynchronous fibers__
+
+*Lightweight async processes*
+
+![Fibers Animation Error](css/images/animations/fork_join_error/fork_join_error.gif)
+
+---
+
+#### __Asynchronous fibers__
+
 Easy to spawn and manage
 
 ```kotlin
@@ -426,7 +442,23 @@ fx {
 
 #### Concurrency
 
-Direct style concurrent non blocking map
+*Direct style concurrent non blocking map*
+
+![Parmap Animation Success](css/images/animations/parmapn_success/parmapn_success.gif)
+
+---
+
+#### Concurrency
+
+*Direct style concurrent non blocking map*
+
+![Parmap Animation Error](css/images/animations/parmapn_error/parmapn_error.gif)
+
+---
+
+#### Concurrency
+
+*Direct style concurrent non blocking map*
 
 ```kotlin
 
@@ -1007,7 +1039,7 @@ tailrec suspend fun directFibLazy(n: Int, prev: Int = 1, current: Int = 0): Int 
 
 #### Performance
 
-##### Direct style Vs Wrapped Style
+*Direct style Vs Wrapped Style*
 
 *Direct style is blazing fast and beats wrapped style*
 
