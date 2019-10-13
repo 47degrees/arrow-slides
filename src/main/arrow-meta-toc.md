@@ -1,0 +1,21 @@
+- Presentation (R, S)
+- The Kotlin Compiler (S)
+    - CLI: How the Kotlin compilation process works and phases (Jetro animation) 
+    - IDE : Same with LOOP in IDE (Jetro animation)
+- What is meta? (R)
+    - Low level DSL (R)
+        - Analysys, IR, Config, Typechecking,...
+    - High Level DSL. Quote templates (S)
+        - Match and Replace/Transform AST nodes 
+    - IDE DSL. (R) (Nothing plugin)
+        - icons, inspection, ... bring FP in IDEA
+        
+    - Use cases 
+        - General meta use cases (?)
+        - Plugins (The future of Arrow)
+            - Higher Kinded Types
+            - Optics
+            - Comprehensions
+            - Type classes
+            - Purity
+    - Exit
