@@ -14,6 +14,7 @@
 #### The Kotlin Compiler
 
 
+
 ---
 
 #### Parsing
@@ -147,86 +148,18 @@ Screenshot @Imran w/ better message
 
  - Automated refactoring tools
   - Similar to Scalafix, Scalameta, Scala Steward
- - Documentation tooling - runnable docs in the IDE
- - Typesearch engine (Hoogle)
- - Keep proposal prototyping
-   - Comprehensions, HKTs, Union types, intersection types, type refinement, typeclasses, poly functions, macros, ...
+ - 
 
 ---
 
-#### The future of Arrow
+#### Use cases - Arr
 
-#### Higher Kinded Types - Quote
- 
-```kotlin:diff
-+ @higherkind
-+ class Option<A> : OptionOf<A>
-- class ForOption private constructor() { companion object }
-- typealias OptionOf<A> = arrow.Kind<ForOption, A>
-- inline fun <A> OptionOf<A>.fix(): Option<A> =
--   this as Option<A>
-```
-
-#### Higher Kinded Types - low level DSL
-
-```kotlin:diff
-val x: OptionOf<Int> = 1.some()
-- val y: Option<Int> = x.fix()
-+ val y: Option<Int> = x
-```
-
-#### Optics
-
-```kotlin:diff
--gist.copy(
--  owner = gist.owner.copy(
--    login = gist.owner.login.toUpperCase()
--  )
--)
-+Gist.owner.login.modify(gist, String::toUpperCase)
-```
-
-#### Comprehensions
-
-```kotlin:diff
-- service1().flatMap { result1 ->
--   service2(result1).flatMap { result2 ->
--     service3(result2).map { result3 ->
--        Result(result3)
--     }
--   }
-- }
-+ val result1 by service1()
-+ val result2 by service2(result1)
-+ val result3 by service3(result2)
-+ Result(result3)
-```
-
-#### Type classes
-
-```kotlin:diff
--fun <A, G, B> OptionOf<A>.traverse(GA: Applicative<G>, f: (A) -> Kind<G, B>): Kind<G, Option<B>> =
--  GA.run {
--    fix().fold({ just(None) }, { f(it).map { Some(it) } })
--  }
-+fun <A, G, B> Option<A>.traverse(GA: Applicative<G> = with, f: (A) -> Kind<G, B>): Kind<G, Option<B>> =
-+  fold({ just(None) }, { f(it).map { Some(it) } })
-```
-#### Type classes
-
-```kotlin:diff
-data class GithubUser(val id: Int)
-
-val ids = listOf(1, 2, 3, 4).k()
-fun getUser(id: Int): IO<GithubUser> = IO { GithubUser(id) }
-
--val result = ids.traverse(IO.applicative(), ::getUser).fix()
-+val result = ids.traverse(::getUser)
-```
-
-#### Purity
-
-SS or Video
+        - Plugins (The future of Arrow)
+            - Higher Kinded Types
+            - Optics
+            - Comprehensions
+            - Type classes
+            - Purity
 
 ---
 
