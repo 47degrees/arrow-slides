@@ -980,7 +980,7 @@ tailrec suspend fun directFibLazy(n: Int, prev: Int = 1, current: Int = 0): Int 
 
 #### Arrow Fx Vs Kotlinx Coroutines
 
-*Both Arrow Fx are great for Async/Concurrent Programming*
+*Both Arrow Fx and KolinX are great for concurrent programming*
 
 |        | Arrow Fx | KotlinX Coroutines |
 |--------|--------|--------|
@@ -995,6 +995,6 @@ tailrec suspend fun directFibLazy(n: Int, prev: Int = 1, current: Int = 0): Int 
 
 ## Thanks!
 
-### Thanks to everyone that makes ΛRROW possible!
+### Thanks to everyone that makes Λrrow Fx and KotlinX possible!
 
 ![47 Degrees](css/images/47deg-logo.png)  ![Kotlin](css/images/kotlin.png)
