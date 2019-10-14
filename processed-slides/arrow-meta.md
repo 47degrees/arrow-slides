@@ -18,8 +18,6 @@
 
 #### Parsing
 
-text -> AST/PSI
-
 AST is modelled as the PSI model whichs IDEA uses, due to this the compiler can use the same APIs as IDEA.
 In the compiler the PSI library is shadowed to achieve the code re-use.
 
@@ -54,25 +52,43 @@ In the compiler the PSI library is shadowed to achieve the code re-use.
 
 #### Config
 
-TABLE DSL example. CLI & IDE support
+| Usage  | CLI  | IDE  |
+|---|---|---|
+| updateConfig | ✓ | ✓ |
+| storageComponent | ✓ | ✓ |
+| enableIr | ✓ | x |
 
 ---
 
 #### Analysis
 
-TABLE DSL example. CLI & IDE support
+| Usage  | CLI  | IDE  |
+|---|---|---|
+| additionalSources | ✓ | ✓ |
+| analysys | ✓ | ✓ |
+| suppressDiagnostic | ✓ | ✓ |
 
 ---
 
 #### Resolve
 
-TABLE DSL example. CLI & IDE support
+| Usage  | CLI  | IDE  |
+|---|---|---|
+| declarationAttributeAlterer | ✓ | ✓ |
+| packageFragmentProvider | ✓ | ✓ |
+| syntheticResolver | ✓ | ✓ |
+| syntheticScopes | x | ✓ |
 
 ---
 
-#### Codegen
+#### Codegen - IR
 
-TABLE DSL example. CLI & IDE support
+| Usage  | CLI  | IDE  |
+|---|---|---|
+| IrGeneration | ✓ | ✓ |
+| irClass | ✓ | x |
+| irFunction | ✓ | x |
+| irBody  | ✓ | x |
 
 ---
 
