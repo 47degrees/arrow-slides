@@ -54,6 +54,48 @@ A function that is deterministic. Given the same input produces the same output 
 
 ---
 
+<video controls>
+   <source src="../css/videos/compil_1.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+
+---
+
+<video controls>
+   <source src="../css/videos/compil_2.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+
+---
+
+<video controls>
+   <source src="../css/videos/compil_3.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+
+---
+
+<video controls>
+   <source src="../css/videos/compil_4.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+
+---
+
+<video controls>
+   <source src="../css/videos/arrow-meta_6.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+
+---
+
+<video controls>
+   <source src="../css/videos/arrow-meta_6.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+
+---
+
 
 
 ## What is a pure function?

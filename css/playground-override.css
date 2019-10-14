@@ -1,7 +1,8 @@
 @import url(../../lib/font/fira-code/fira-code.css);
+@import url(../../lib/font/iosevka/iosevka.css);
 
 .executable-fragment {
-  font-family: 'Fira Code', Consolas, Menlo, Monaco, Lucida Console, Liberation Mono,
+  font-family: 'Iosevka Web', Consolas, Menlo, Monaco, Lucida Console, Liberation Mono,
                 DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
                 monospace, serif !important;
   font-size: 2rem !important;
@@ -104,5 +105,5 @@
 }
 
 .cm-atom {
-  color: #FF856E !important;
+  color: #D31907 !important;
 }
