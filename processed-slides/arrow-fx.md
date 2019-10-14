@@ -11,7 +11,83 @@ A function that is deterministic. Given the same input produces the same output 
 
 ---
 
+<<<<<<< HEAD
+<video controls>
+   <source src="../css/videos/arrow-meta_3.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+
+---
+
+<video controls>
+   <source src="../css/videos/arrow-meta_4.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+
+---
+
+<video controls>
+   <source src="../css/videos/arrow-meta_5.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+
+---
+
+<video controls>
+   <source src="../css/videos/arrow-meta_6.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+
+---
+
+<video controls>
+   <source src="../css/videos/compil_1.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+
+---
+
+<video controls>
+   <source src="../css/videos/compil_2.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+
+---
+
+<video controls>
+   <source src="../css/videos/compil_3.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+
+---
+
+<video controls>
+   <source src="../css/videos/compil_4.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+
+---
+
+<video controls>
+   <source src="../css/videos/arrow-meta_6.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+
+---
+
+<video controls>
+   <source src="../css/videos/arrow-meta_6.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+
+---
+
+
+
+## What is a pure function?
+=======
 #### What is a pure function?
+>>>>>>> 9d6872218615414183f18f29fa4710799f2fca9a
 
 Is this pure or impure?
 

@@ -321,9 +321,15 @@ video:focus {
 .reveal section {
   display: flex !important;
   flex-direction: column !important;
+<<<<<<< HEAD
   justify-content: flex-start !important;
   overflow-y: scroll !important;
   overflow-x: scroll !important;
+=======
+  justify-content: center !important;
+  overflow-y: hidden !important;
+  overflow-x: hidden !important;
+>>>>>>> 4ef539a2b8a7e1d2ef806a5a8cda939eac31556c
   height: 100%; }
   .reveal section:hover {
     overflow-y: auto !important; }
