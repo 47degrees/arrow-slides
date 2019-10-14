@@ -22,7 +22,9 @@ $mainFont: "Open Sans", sans-serif;
 $mainFontSize: 40px;
 $mainColor: #12171A;
 
-$mainFontSize: 6vmin;
+$blockMargin: 40px;
+
+$mainFontSize: 5vmin;
 
 // Headings
 $headingMargin: 0 0 $blockMargin 0;
@@ -49,6 +51,7 @@ $linkColorHover: lighten($linkColor, 5%);
 $selectionBackgroundColor: $linkColor;
 $selectionColor: #fff;
 
+
 // Theme template ------------------------------
 @import "../template/theme";
 // ---------------------------------------------
@@ -64,7 +67,7 @@ $selectionColor: #fff;
     font-weight: 400;
 
     table {
-        font-size: 60%;
+        margin: 0;
     }
 }
 
@@ -114,6 +117,11 @@ $selectionColor: #fff;
         th,
         td {
             border-bottom: 1px solid #ccc;
+            
+            strong {
+                font-family: $codeFont;
+                font-weight: 500;
+            }
         }
     }
     
@@ -132,16 +140,16 @@ video {
  * IMAGES
  *********************************************/
 
-
+ 
 .reveal section {
     // Comment-uncomment the following 3 lines to have a centered content
     // slides effect or not
     display: flex !important;
     flex-direction: column !important;
-    justify-content: space-evenly !important;
+    justify-content: flex-start !important;
     //
-    overflow-y: hidden !important;
-    overflow-x: hidden !important;
+    overflow-y: scroll !important;
+    overflow-x: scroll !important;
     height: 100%;
 
     &:hover {

@@ -13,7 +13,7 @@ body {
 
 .reveal {
   font-family: "Open Sans", sans-serif;
-  font-size: 6vmin;
+  font-size: 5vmin;
   font-weight: normal;
   color: #12171A; }
 
@@ -41,7 +41,7 @@ body {
 .reveal h4,
 .reveal h5,
 .reveal h6 {
-  margin: 0 0 20px 0;
+  margin: 0 0 40px 0;
   color: #12171A;
   font-family: "Iosevka Web", sans-serif;
   font-weight: 600;
@@ -70,7 +70,7 @@ body {
  * OTHER
  *********************************************/
 .reveal p {
-  margin: 20px 0;
+  margin: 40px 0;
   line-height: 1.3; }
 
 /* Ensure certain elements are never larger than the slide itself */
@@ -123,7 +123,7 @@ body {
   display: block;
   position: relative;
   width: 70%;
-  margin: 20px auto;
+  margin: 40px auto;
   padding: 5px;
   font-style: italic;
   background: rgba(255, 255, 255, 0.05);
@@ -140,7 +140,7 @@ body {
   display: block;
   position: relative;
   width: 90%;
-  margin: 20px auto;
+  margin: 40px auto;
   text-align: left;
   font-size: 0.55em;
   font-family: monospace;
@@ -276,7 +276,7 @@ body {
   font-family: "Open Sans", sans-serif;
   font-weight: 400; }
   .reveal table {
-    font-size: 60%; }
+    margin: 0; }
 
 .reveal h1,
 .reveal h2,
@@ -304,6 +304,10 @@ body {
 .reveal table th,
 .reveal table td {
   border-bottom: 1px solid #ccc; }
+  .reveal table th strong,
+  .reveal table td strong {
+    font-family: "Iosevka Web", sans-serif;
+    font-weight: 500; }
 
 .reveal code {
   font-family: "Iosevka Web", sans-serif; }
@@ -317,9 +321,9 @@ video:focus {
 .reveal section {
   display: flex !important;
   flex-direction: column !important;
-  justify-content: space-evenly !important;
-  overflow-y: hidden !important;
-  overflow-x: hidden !important;
+  justify-content: flex-start !important;
+  overflow-y: scroll !important;
+  overflow-x: scroll !important;
   height: 100%; }
   .reveal section:hover {
     overflow-y: auto !important; }
