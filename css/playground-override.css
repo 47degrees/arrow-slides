@@ -82,9 +82,9 @@
 }
 
 .cm-keyword {
-  font-style: oblique !important;
-  color: #12171A !important;
-  font-weight: bold !important;
+  font-style: normal !important;
+  color: #892E98 !important;
+  font-weight: normal !important;
 }
 
 .cm-type {

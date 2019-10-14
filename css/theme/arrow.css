@@ -321,9 +321,14 @@ video:focus {
 .reveal section {
   display: flex !important;
   flex-direction: column !important;
-  justify-content: flex-start !important;
+  justify-content: center !important;
   overflow-y: auto !important;
   overflow-x: auto !important;
   height: 100%; }
   .reveal section:hover {
     overflow-y: auto !important; }
+
+.reveal .long-list {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important; }

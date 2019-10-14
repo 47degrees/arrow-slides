@@ -48,7 +48,7 @@
 
 ---
 
-#### Arrow meta  
+### Arrow meta  
 
 ---
 
@@ -150,6 +150,8 @@ FUN name:flatMap visibility:public modality:FINAL <B> ($this:<root>.IO<A of <roo
 
 ### Many libraries are already based on compiler plugins
 
+<!-- .slide: class="long-list" -->
+
 - Jetpack Compose
 - SQL Delight
 - Kotlinx Serialization
@@ -237,6 +239,7 @@ val IdeMetaPlugin.comprehensionsIdePlugin: Plugin
 
 ---
 
+
 ### Meta provides completion and assistance for IDEA automatically
 
 Screenshot @Imran w/ better message
@@ -251,7 +254,8 @@ Screenshot @Imran w/ better message
  - KEEP proposal prototyping
    - Comprehensions, HKTs, Union types, intersection types, type refinement, typeclasses, poly functions, macros, ...
  - Compile time DI libraries
- - Codebase linting  
+ - Codebase linting
+ 
 
 ---
 
@@ -355,6 +359,8 @@ fun getUser(id: Int): IO<GithubUser> = IO { GithubUser(id) }
 SS or Video
 
 ---
+
+<!-- .slide: class="long-list" -->
 
 ## Thanks!
  A special thanks to the people bootstraping Meta

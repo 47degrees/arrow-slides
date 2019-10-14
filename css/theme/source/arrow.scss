@@ -18,7 +18,8 @@
 $backgroundColor: #fff;
 
 // Primary/body text
-$mainFont: "Open Sans", sans-serif;
+$mainFont: "Open Sans",
+sans-serif;
 $mainFontSize: 40px;
 $mainColor: #12171A;
 
@@ -28,14 +29,16 @@ $mainFontSize: 5vmin;
 
 // Headings
 $headingMargin: 0 0 $blockMargin 0;
-$headingFont: "Iosevka Web", sans-serif;
+$headingFont: "Iosevka Web",
+sans-serif;
 $headingColor: #12171A;
 $headingTextShadow: none;
 $headingLetterSpacing: normal;
 $headingTextTransform: uppercase;
 $headingFontWeight: 600;
 
-$codeFont: "Iosevka Web", sans-serif;
+$codeFont: "Iosevka Web",
+sans-serif;
 
 
 $heading1Size: 2.5em;
@@ -106,25 +109,26 @@ $selectionColor: #fff;
         li {
             padding-left: 8px;
             margin-bottom: 32px;
-            
+
             &:last-child {
                 margin-bottom: 0;
             }
         }
     }
-    
+
     table {
+
         th,
         td {
             border-bottom: 1px solid #ccc;
-            
+
             strong {
                 font-family: $codeFont;
                 font-weight: 500;
             }
         }
     }
-    
+
     code {
         font-family: $codeFont;
     }
@@ -140,18 +144,27 @@ video {
  * IMAGES
  *********************************************/
 
- 
+
 .reveal section {
     // Comment-uncomment the following 3 lines to have a centered content
     // slides effect or not
     display: flex !important;
     flex-direction: column !important;
-    justify-content: flex-start !important;
+    justify-content: center !important;
     overflow-y: auto !important;
     overflow-x: auto !important;
     height: 100%;
 
     &:hover {
         overflow-y: auto !important;
+    }
+
+}
+
+.reveal {
+    .long-list {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
     }
 }
