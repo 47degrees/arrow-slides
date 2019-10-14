@@ -5,43 +5,90 @@
 
 ---
 
-#### The Kotlin Compiler
+### The Kotlin Compiler
 
 ---
 
-#### Parsing
-
-AST is modelled as the PSI model whichs IDEA uses, due to this the compiler can use the same APIs as IDEA.
-In the compiler the PSI library is shadowed to achieve the code re-use.
-
----
-
-#### Analyse 
-
- - Resolution (Tree of descriptors which have pointers back to the original AST/PSI structure)
-    - I.e. IntelliJ and Codegen can use this to render code or tooling
- - Data flow management (smart cast, contracts etc)
- - Typechecking (isSubtypeOf, isEqualTypes)
+<video controls>
+   <source src="../css/videos/compil_1.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
 
 ---
 
-#### Codegen
 
-- IR: incomplete at this point
-- ASM or native platform back-ends
+<video controls>
+   <source src="../css/videos/compil_2.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+---
+
+
+<video controls>
+   <source src="../css/videos/compil_3.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+---
+
+
+<video controls>
+   <source src="../css/videos/compil_4.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+---
+
+<video controls>
+   <source src="../css/videos/compil_5.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+---
+
+<video controls>
+   <source src="../css/videos/compil_6.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
 
 ---
 
 #### Arrow meta  
 
-- Config
-- Analysis
-- Resolve
-- Codegen
+---
+
+<video controls>
+   <source src="../css/videos/arrow-meta_1.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
 
 ---
 
-#### Config
+<video controls>
+   <source src="../css/videos/arrow-meta_2.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+---
+
+<video controls>
+   <source src="../css/videos/arrow-meta_3.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+---
+
+<video controls>
+   <source src="../css/videos/arrow-meta_4.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+---
+
+<video controls>
+   <source src="../css/videos/arrow-meta_5.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+---
+
+<video controls>
+   <source src="../css/videos/arrow-meta_6.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+---
+
+### Config
 
 | Usage  | CLI  | IDE  |
 |---|---|---|
@@ -51,7 +98,7 @@ In the compiler the PSI library is shadowed to achieve the code re-use.
 
 ---
 
-#### Analysis
+### Analysis
 
 | Usage  | CLI  | IDE  |
 |---|---|---|
@@ -61,7 +108,7 @@ In the compiler the PSI library is shadowed to achieve the code re-use.
 
 ---
 
-#### Resolve
+### Resolve
 
 | Usage  | CLI  | IDE  |
 |---|---|---|
@@ -72,7 +119,7 @@ In the compiler the PSI library is shadowed to achieve the code re-use.
 
 ---
 
-#### Codegen - IR
+### Codegen - IR
 
 | Usage  | CLI  | IDE  |
 |---|---|---|
@@ -83,7 +130,7 @@ In the compiler the PSI library is shadowed to achieve the code re-use.
 
 ---
 
-#### Codegen - IR
+### Codegen - IR
 
 ```kotlin
 FUN name:flatMap visibility:public modality:FINAL <B> ($this:<root>.IO<A of <root>.IO>, f:kotlin.Function1<A of <root>.IO, <root>.IO<B of <root>.IO.flatMap>>) returnType:<root>.IO<B of <root>.IO.flatMap> 
@@ -101,7 +148,7 @@ FUN name:flatMap visibility:public modality:FINAL <B> ($this:<root>.IO<A of <roo
 
 ---
 
-#### Many libraries are already based on compiler plugins
+### Many libraries are already based on compiler plugins
 
 - Jetpack Compose
 - SQL Delight
@@ -130,7 +177,7 @@ Arrow Meta solves all that!
 
 ---
 
-#### High Level DSL. Quote templates
+### High Level DSL. Quote templates
 
 ```kotlin
 val Meta.comprehensions: Plugin
@@ -150,7 +197,7 @@ val Meta.comprehensions: Plugin
 
 ---
 
-#### Template <-> KtElement (Psi)
+### Template <-> KtElement (Psi)
 
 ```kotlin
 private fun ElementScope.toFlatMap(
@@ -172,7 +219,7 @@ private fun ElementScope.toFlatMap(
 
 ---
 
-#### IDEA plugins that teach Functional Programming as you code
+### IDEA plugins that teach Functional Programming as you code
 
 ```kotlin
 val IdeMetaPlugin.comprehensionsIdePlugin: Plugin
@@ -190,13 +237,13 @@ val IdeMetaPlugin.comprehensionsIdePlugin: Plugin
 
 ---
 
-#### Meta provides completion and assistance for IDEA automatically
+### Meta provides completion and assistance for IDEA automatically
 
 Screenshot @Imran w/ better message
 
 ---
 
-#### Help us build the future of Kotlin's tooling
+### Help us build the future of Kotlin's tooling
 
  - Automated refactoring tools (scalafix)
  - Documentation tooling - runnable docs in the IDE
@@ -212,7 +259,7 @@ Some plugins coming out in November in the Meta Alpha release
 
 ---
 
-#### The future of Arrow
+### The future of Arrow
 
 ---
 
@@ -230,7 +277,7 @@ Some plugins coming out in November in the Meta Alpha release
 
 ---
 
-#### Higher Kinded Types - low level DSL
+### Higher Kinded Types - low level DSL
 
 ```diff
 val x: OptionOf<Int> = 1.some()
@@ -241,7 +288,7 @@ val x: OptionOf<Int> = 1.some()
 
 ---
 
-#### Optics
+### Optics
 
 ```diff
 -gist.copy(
@@ -255,7 +302,7 @@ val x: OptionOf<Int> = 1.some()
 
 ---
 
-#### Comprehensions
+### Comprehensions
 
 ```diff
 + service1().flatMap { result1 ->
@@ -288,7 +335,7 @@ val x: OptionOf<Int> = 1.some()
 
 ---
 
-#### Type classes
+### Type classes
 
 ```diff
 data class GithubUser(val id: Int)
@@ -303,14 +350,14 @@ fun getUser(id: Int): IO<GithubUser> = IO { GithubUser(id) }
 
 ---
 
-#### Purity
+### Purity
 
 SS or Video
 
 ---
 
 ## Thanks!
-### A special thanks to the people bootstraping Meta
+ A special thanks to the people bootstraping Meta
 
 - Simon
 - Amanda
@@ -324,7 +371,7 @@ SS or Video
 ---
 
 ## Thanks!
-### Kotlin Compiler Folks and Community that helped us [slack.kotlinlang.org](https://slack.kotlinlang.org) #arrow-meta #compiler #lang-proposals 
+ Kotlin Compiler Folks and Community that helped us [slack.kotlinlang.org](https://slack.kotlinlang.org) #arrow-meta #compiler #lang-proposals 
 
 ---
 
