@@ -2,40 +2,29 @@
  * Arrow clear theme for reveal.js.
  *
  */
+@import url(../../lib/font/iosevka/iosevka.css);
 @import url(../../lib/font/open-sans/open-sans.css);
-section.has-dark-background,
-section.has-dark-background h1,
-section.has-dark-background h2,
-section.has-dark-background h3,
-section.has-dark-background h4,
-section.has-dark-background h5,
-section.has-dark-background h6 {
-  color: #fff; }
-
-.reveal table {
-  font-size: 60%; }
-
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #eee;
-  background-color: #eee; }
+  background: #fff;
+  background-color: #fff; }
 
 .reveal {
-  font-family: "Open Sans", Helvetica, sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 6vmin;
   font-weight: normal;
-  color: #1A1C1C; }
+  color: #12171A; }
 
 ::selection {
   color: #fff;
-  background: #a6a6a6;
+  background: #D31907;
   text-shadow: none; }
 
 ::-moz-selection {
   color: #fff;
-  background: #a6a6a6;
+  background: #D31907;
   text-shadow: none; }
 
 .reveal .slides section,
@@ -53,8 +42,8 @@ body {
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  color: #1A1C1C;
-  font-family: "Open Sans", Helvetica, sans-serif;
+  color: #12171A;
+  font-family: "Iosevka Web", sans-serif;
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: normal;
@@ -217,20 +206,20 @@ body {
  * LINKS
  *********************************************/
 .reveal a {
-  color: #666;
+  color: #D31907;
   text-decoration: none;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
   transition: color .15s ease; }
 
 .reveal a:hover {
-  color: #8c8c8c;
+  color: #ec1c08;
   text-shadow: none;
   border: none; }
 
 .reveal .roll span:after {
   color: #fff;
-  background: #404040; }
+  background: #891005; }
 
 /*********************************************
  * IMAGES
@@ -238,7 +227,7 @@ body {
 .reveal section img {
   margin: 15px 0px;
   background: rgba(255, 255, 255, 0.12);
-  border: 4px solid #1A1C1C;
+  border: 4px solid #12171A;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
 
 .reveal section img.plain {
@@ -252,21 +241,21 @@ body {
 
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2);
-  border-color: #666;
+  border-color: #D31907;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
 
 /*********************************************
  * NAVIGATION CONTROLS
  *********************************************/
 .reveal .controls {
-  color: #666; }
+  color: #D31907; }
 
 /*********************************************
  * PROGRESS BAR
  *********************************************/
 .reveal .progress {
   background: rgba(0, 0, 0, 0.2);
-  color: #666; }
+  color: #D31907; }
 
 .reveal .progress span {
   -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
@@ -278,10 +267,24 @@ body {
  *********************************************/
 @media print {
   .backgrounds {
-    background-color: #eee; } }
+    background-color: #fff; } }
 
-.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
-  color: #1A1C1C; }
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400; }
+  .reveal table {
+    font-size: 60%; }
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  color: #12171A; }
 
 .reveal section img {
   margin: 15px 0px;
@@ -294,8 +297,23 @@ body {
   list-style-image: url("../../../css/images/arrow-bullet.svg"); }
   .reveal ul li {
     padding-left: 8px;
-    margin-bottom: 16px; }
+    margin-bottom: 32px; }
+    .reveal ul li:last-child {
+      margin-bottom: 0; }
 
+.reveal table th,
+.reveal table td {
+  border-bottom: 1px solid #ccc; }
+
+.reveal code {
+  font-family: "Iosevka Web", sans-serif; }
+
+video:focus {
+  outline: none; }
+
+/*********************************************
+ * IMAGES
+ *********************************************/
 .reveal section {
   display: flex !important;
   flex-direction: column !important;

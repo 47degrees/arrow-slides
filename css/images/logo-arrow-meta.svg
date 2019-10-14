@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="464px" height="494px" viewBox="0 0 464 494" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>logo-arrow-meta</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="9.97548296%" x2="50%" y2="99.7788683%" id="linearGradient-1">
+            <stop stop-color="#CE1010" offset="0%"></stop>
+            <stop stop-color="#9D1212" offset="99.9181799%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="9.6303304%" x2="50%" y2="99.7141409%" id="linearGradient-2">
+            <stop stop-color="#F63F18" offset="0%"></stop>
+            <stop stop-color="#950F0F" offset="99.9366554%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="-7.62502133%" x2="50%" y2="76.062468%" id="linearGradient-3">
+            <stop stop-color="#132532" offset="0%"></stop>
+            <stop stop-color="#132532" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="91.6085379%" id="linearGradient-4">
+            <stop stop-color="#E5E5E5" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-Copy" transform="translate(-5.000000, 1.000000)">
+            <g id="arrow-optics-header-copy">
+                <g id="around-logo" opacity="0.2" stroke="#000000" stroke-dasharray="150,30,60,15,7.5,15" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.75">
+                    <g id="image">
+                        <path d="M352.130895,381.857934 C407.981548,344.450522 444.75,280.769127 444.75,208.5 C444.75,93.3486297 351.40137,0 236.25,0 C121.09863,0 27.75,93.3486297 27.75,208.5 C27.75,280.997711 64.7514137,344.853279 120.899636,382.212099" id="Shape"></path>
+                        <path d="M63.75,381 L63.75,36 L63.75,36 L408.75,36 L408.75,381" id="Path"></path>
+                        <path d="M235.772644,27 L0,503.363528" id="Line-2"></path>
+                        <path d="M473.25,30.43365 L235.772644,503.363528" id="Line-2-Copy" transform="translate(354.511322, 266.898589) scale(-1, 1) translate(-354.511322, -266.898589) "></path>
+                        <path d="M235.772644,313.5 L428.25,417" id="Path-6"></path>
+                        <path d="M41.7632446,313.5 L234.785889,417" id="Path-6-Copy" transform="translate(138.767944, 365.381662) scale(-1, 1) translate(-138.767944, -365.381662) "></path>
+                    </g>
+                </g>
+                <g id="logos/arrow-optics/color" transform="translate(92.250000, 27.000000)">
+                    <polygon id="Path-Copy" fill="url(#linearGradient-1)" points="144 0 0 288 149.504883 213.375"></polygon>
+                    <polygon id="Path-Copy-2" fill="url(#linearGradient-2)" transform="translate(216.000000, 144.000000) scale(-1, 1) translate(-216.000000, -144.000000) " points="288 0 144 288 288 216"></polygon>
+                    <rect id="bound-copy" opacity="0.261579241" x="102" y="168" width="84" height="84"></rect>
+                    <polygon id="Path-5-Copy-5" fill-opacity="0.7" fill="url(#linearGradient-3)" points="0 288 144.008972 216 288 288 144 353.320312"></polygon>
+                    <polygon id="Path-Copy" fill="#FFFFFF" points="144.238443 144 72 288 147 250.6875"></polygon>
+                    <polygon id="Path-Copy-2" fill="url(#linearGradient-4)" transform="translate(180.000000, 216.000000) scale(-1, 1) translate(-180.000000, -216.000000) " points="216 144 144 288 216 252"></polygon>
+                </g>
+            </g>
+            <text id="ARROW" font-family="Iosevka-Semibold, Iosevka" font-size="67.5" font-weight="500" letter-spacing="7.5" fill="#12171A">
+                <tspan x="133.5" y="416">ARROW</tspan>
+            </text>
+            <text id="META" font-family="Iosevka-Semibold, Iosevka" font-size="43.5" font-weight="500" letter-spacing="0.75" fill="#D31907">
+                <tspan x="191.625" y="476.75">META</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

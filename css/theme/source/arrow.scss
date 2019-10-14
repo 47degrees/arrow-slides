@@ -9,90 +9,142 @@
 
 // ---------------------------------------------
 // Include theme-specific fonts
+//@import url(../../lib/font/open-sans/open-sans.css);
+@import url(../../lib/font/iosevka/iosevka.css);
 @import url(../../lib/font/open-sans/open-sans.css);
 
-// Override theme settings (see ../template/settings.scss)
-$backgroundColor: #eee;
 
-$mainColor: #1A1C1C;
-$headingColor: #1A1C1C;
+// Background of the presentation
+$backgroundColor: #fff;
+
+// Primary/body text
+$mainFont: "Open Sans", sans-serif;
+$mainFontSize: 40px;
+$mainColor: #12171A;
 
 $mainFontSize: 6vmin;
-$mainFont: "Open Sans", Helvetica, sans-serif;
-$headingFont: "Open Sans", Helvetica, sans-serif;
+
+// Headings
+$headingMargin: 0 0 $blockMargin 0;
+$headingFont: "Iosevka Web", sans-serif;
+$headingColor: #12171A;
 $headingTextShadow: none;
 $headingLetterSpacing: normal;
 $headingTextTransform: uppercase;
 $headingFontWeight: 600;
-$linkColor: #666;
-$linkColorHover: lighten( $linkColor, 15%);
-$selectionBackgroundColor: lighten( $linkColor, 25%);
+
+$codeFont: "Iosevka Web", sans-serif;
+
 
 $heading1Size: 2.5em;
 $heading2Size: 1.6em;
 $heading3Size: 1.3em;
 $heading4Size: 1.0em;
 
-section.has-dark-background {
-    &,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        color: #fff;
-    }
-}
+// Links and actions
+$linkColor: #D31907;
+$linkColorHover: lighten($linkColor, 5%);
+
+// Text selection
+$selectionBackgroundColor: $linkColor;
+$selectionColor: #fff;
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+
 
 .reveal {
+    font-family: $mainFont;
+    font-weight: 400;
+
     table {
         font-size: 60%;
     }
 }
 
 
-// Theme template ------------------------------
-@import "../template/theme";
-// ---------------------------------------------
+
 
 .reveal {
-    h1, h2, h3, h4, h5, h6 {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         color: $headingColor;
     }
 }
 
-.reveal section img {
-    margin: 15px 0px;
-    background: none;
-    border: none;
-    box-shadow: none;
-}
 
 .reveal {
-    ul {
-
-        list-style-type: none;
-         list-style-image: url('../../../css/images/arrow-bullet.svg');
-
-        li {
-            padding-left: 8px;
-            margin-bottom: 16px;
+    section {
+        img {
+            margin: 15px 0px;
+            background: none;
+            border: none;
+            box-shadow: none;
         }
     }
 }
 
+.reveal {
+    ul {
+        list-style-type: none;
+        list-style-image: url('../../../css/images/arrow-bullet.svg');
+
+        li {
+            padding-left: 8px;
+            margin-bottom: 32px;
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    
+    table {
+        th,
+        td {
+            border-bottom: 1px solid #ccc;
+        }
+    }
+    
+    code {
+        font-family: $codeFont;
+    }
+}
+
+video {
+    &:focus {
+        outline: none;
+    }
+}
+
+/*********************************************
+ * IMAGES
+ *********************************************/
+
+
 .reveal section {
-  // Comment-uncomment the following 3 lines to have a centered content
-  // slides effect or not
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: space-evenly !important;
-  //
-	overflow-y: hidden !important;
-	overflow-x: hidden !important;
-	height: 100%;
-  &:hover {
-  	overflow-y: auto !important;
-  }
+    // Comment-uncomment the following 3 lines to have a centered content
+    // slides effect or not
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-evenly !important;
+    //
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
+    height: 100%;
+
+    &:hover {
+        overflow-y: auto !important;
+    }
 }

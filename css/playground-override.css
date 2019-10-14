@@ -1,0 +1,108 @@
+@import url(../../lib/font/fira-code/fira-code.css);
+
+.executable-fragment {
+  font-family: 'Fira Code', Consolas, Menlo, Monaco, Lucida Console, Liberation Mono,
+                DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
+                monospace, serif !important;
+  font-size: 2rem !important;
+  text-align: left !important;
+  margin: inherit !important;
+  padding: inherit !important;
+  border: inherit !important;
+  vertical-align: inherit !important;
+}
+
+.compiler-info {
+  font-size: 0.9rem !important;
+}
+
+.CodeMirror pre {
+  box-shadow: none !important;
+  line-height: 2.8rem !important;
+}
+
+.CodeMirror {
+  background: #F5F7F8 !important;
+  height: auto;
+}
+
+.CodeMirror-gutters {
+  background: rgba(255, 255, 255, 0) !important;
+}
+
+.CodeMirror-linebackground.unmodifiable-line {
+  background: rgba(255, 255, 255, 0) !important;
+  /* background: rgba(200, 200, 200, 0.3) !important; */
+}
+
+.CodeMirror-lines {
+  margin: 12px 0 !important;
+  padding: 0 !important;
+}
+
+.code-output {
+  overflow: auto !important;
+  padding-left: 20px !important;
+  padding-top: 10px !important;
+  height: 60px;
+}
+
+.loader {
+  font-size: 8px !important;
+  margin: 0 auto !important;
+}
+
+.CodeMirror-scroll {
+  margin-bottom: -30px !important;
+  margin-right: -30px !important;
+  padding-bottom: 30px !important;
+}
+
+.CodeMirror-sizer {
+  min-height: 0px !important;
+}
+
+.CodeMirror-cursor {
+  border-left: 2px solid #1A1C1C !important;
+  border-right: none !important;
+  width: 0 !important;
+}
+
+.run-button {
+  filter: saturate(0) !important;
+}
+
+.output-wrapper {
+  background: rgba(85, 103, 110, 0.3) !important;
+}
+
+.cm-meta {
+  color: #cccccc !important;
+}
+
+.cm-keyword {
+  font-style: oblique !important;
+  color: #12171A !important;
+  font-weight: bold !important;
+}
+
+.cm-type {
+  color: #12171A !important;
+  font-weight: bold !important;
+}
+
+.cm-def {
+  color: inherit !important;
+}
+
+.cm-string {
+  color: #D31907 !important;
+}
+
+.cm-number {
+  color: #D31907 !important;
+}
+
+.cm-atom {
+  color: #FF856E !important;
+}
