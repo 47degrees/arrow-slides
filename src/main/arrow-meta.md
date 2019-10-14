@@ -5,20 +5,11 @@
 
 ---
 
-#### Arrow meta
-
-![Arrow-Meta](css/images/47deg-logo.png)
-
----
-
 #### The Kotlin Compiler
-
 
 ---
 
 #### Parsing
-
-text -> AST/PSI
 
 AST is modelled as the PSI model whichs IDEA uses, due to this the compiler can use the same APIs as IDEA.
 In the compiler the PSI library is shadowed to achieve the code re-use.
@@ -47,45 +38,106 @@ In the compiler the PSI library is shadowed to achieve the code re-use.
 - Analysis
 - Resolve
 - Codegen
-  - Asm
-  - IR
 
 ---
 
 #### Config
 
-TABLE DSL example. CLI & IDE support
+| Usage  | CLI  | IDE  |
+|---|---|---|
+| updateConfig | ✓ | ✓ |
+| storageComponent | ✓ | ✓ |
+| enableIr | ✓ | x |
 
 ---
 
 #### Analysis
 
-TABLE DSL example. CLI & IDE support
+| Usage  | CLI  | IDE  |
+|---|---|---|
+| additionalSources | ✓ | ✓ |
+| analysis | ✓ | ✓ |
+| suppressDiagnostic | ✓ | ✓ |
 
 ---
 
 #### Resolve
 
-TABLE DSL example. CLI & IDE support
+| Usage  | CLI  | IDE  |
+|---|---|---|
+| declarationAttributeAlterer | ✓ | ✓ |
+| packageFragmentProvider | ✓ | ✓ |
+| syntheticResolver | ✓ | ✓ |
+| syntheticScopes | x | ✓ |
 
 ---
 
-#### Codegen
+#### Codegen - IR
 
-TABLE DSL example. CLI & IDE support
+| Usage  | CLI  | IDE  |
+|---|---|---|
+| IrGeneration | ✓ | x |
+| irClass | ✓ | x |
+| irFunction | ✓ | x |
+| irBody  | ✓ | x |
+
+---
+
+#### Codegen - IR
+
+```kotlin
+FUN name:flatMap visibility:public modality:FINAL <B> ($this:<root>.IO<A of <root>.IO>, f:kotlin.Function1<A of <root>.IO, <root>.IO<B of <root>.IO.flatMap>>) returnType:<root>.IO<B of <root>.IO.flatMap> 
+  TYPE_PARAMETER name:B index:0 variance: superTypes:[kotlin.Any?]
+  $this: VALUE_PARAMETER name:<this> type:<root>.IO<A of <root>.IO> 
+  VALUE_PARAMETER name:f index:0 type:kotlin.Function1<A of <root>.IO, <root>.IO<B of <root>.IO.flatMap>> 
+  BLOCK_BODY
+    RETURN type=kotlin.Nothing from='public final fun flatMap <B> (f: kotlin.Function1<A of <root>.IO, <root>.IO<B of <root>.IO.flatMap>>): <root>.IO<B of <root>.IO.flatMap> declared in <root>.IO'
+      CALL 'public abstract fun invoke (p1: P1 of kotlin.Function1): R of kotlin.Function1 declared in kotlin.Function1' type=<root>.IO<B of <root>.IO.flatMap> origin=INVOKE
+        $this: GET_VAR 'f: kotlin.Function1<A of <root>.IO, <root>.IO<B of <root>.IO.flatMap>> declared in <root>.IO.flatMap' type=kotlin.Function1<A of <root>.IO, <root>.IO<B of <root>.IO.flatMap>> origin=VARIABLE_AS_FUNCTION
+        p1: CALL 'public final fun <get-value> (): A of <root>.IO declared in <root>.IO' type=A of <root>.IO origin=GET_PROPERTY
+          $this: GET_VAR '<this>: <root>.IO<A of <root>.IO> declared in <root>.IO.flatMap' type=<root>.IO<A of <root>.IO> origin=null
+```
+<!-- .element: class="arrow" data-executable="false" -->
+
+---
+
+#### Many libraries are already based on compiler plugins
+
+- Jetpack Compose
+- SQL Delight
+- Kotlinx Serialization
+- Kotlin Android Extensions
+- Parcelize
+- AllOpen
+- Kotlin Spring integration
+- Kotlin JPA Support
+- Sam with Receivers
+- No-arg
+
+---
+
+Issues with traditional compiler plugins:
+
+- Error prone: same logic needs to be repeated N times with different models
+- No code reuse between CI and IDE
+- Lower level API than Meta's low level apis
+- No documentation (for compiler or plugins)
+- No generalized testing strategy
+
+---
+
+Arrow Meta solves all that!
 
 ---
 
 #### High Level DSL. Quote templates
 
-```
-@ExperimentalContracts
+```kotlin
 val Meta.comprehensions: Plugin
   get() =
-    "comprehensions" {
-      meta(
+    "comprehensions" { // Plugin name
+      meta( // List of compiler phases to intercept
         quote(KtDotQualifiedExpression::containsFxBlock) { fxExpression: KtDotQualifiedExpression ->
-          println("fxBlock: ${fxExpression.text}")
           Transform.replace(
             replacing = fxExpression,
             newDeclaration = toFlatMap(fxExpression)
@@ -94,13 +146,16 @@ val Meta.comprehensions: Plugin
       )
     }
 ```
-
+<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
-```
-@ExperimentalContracts
-private fun ElementScope.toFlatMap(bind: KtProperty, remaining: List<KtExpression>): Scope<KtExpression> {
+#### Template <-> KtElement (Psi)
+
+```kotlin
+private fun ElementScope.toFlatMap(
+  bind: KtProperty, 
+  remaining: List<KtExpression>): Scope<KtExpression> {
   val target = bind.delegateExpression
   val targetSource = when {
     target.containsNestedFxBlock() -> delegationToFlatMap(target)
@@ -113,48 +168,53 @@ private fun ElementScope.toFlatMap(bind: KtProperty, remaining: List<KtExpressio
             |}""".expression
 }
 ```
+<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
-#### High Level DSL. IDE
+#### IDEA plugins that teach Functional Programming as you code
 
-Comment PR Imran to use reified KtElement with a default predicate of `it is A`.
-This will reduce prediate to `KtExpression::isBinding`.
-
-```
-@ExperimentalContracts
+```kotlin
 val IdeMetaPlugin.comprehensionsIdePlugin: Plugin
   get() = "ComprehensionsIdePlugin" {
     meta(
       addLineMarkerProvider(
         icon = ArrowIcons.BIND,
-        message = "Bind",
-        matchOn = { it.safeAs<KtExpression>()?.isBinding() == true }
+        message = "Use this to teach your users about this feature",
+        matchOn = { (it as? KtExpression)?.isBinding() == true }
       )
     )
   }
 ```
+<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
-#### High Level DSL. IDE
+#### Meta provides completion and assistance for IDEA automatically
 
 Screenshot @Imran w/ better message
 
 ---
 
-#### Use cases - General meta use cases
+#### Help us build the future of Kotlin's tooling
 
- - Automated refactoring tools
-  - Similar to Scalafix, Scalameta, Scala Steward
+ - Automated refactoring tools (scalafix)
  - Documentation tooling - runnable docs in the IDE
- - Typesearch engine (Hoogle)
- - Keep proposal prototyping
+ - Type Search engine (Hoogle)
+ - KEEP proposal prototyping
    - Comprehensions, HKTs, Union types, intersection types, type refinement, typeclasses, poly functions, macros, ...
+ - Compile time DI libraries
+ - Codebase linting  
+
+---
+
+Some plugins coming out in November in the Meta Alpha release
 
 ---
 
 #### The future of Arrow
+
+---
 
 #### Higher Kinded Types - Quote
  
@@ -166,18 +226,24 @@ Screenshot @Imran w/ better message
 - inline fun <A> OptionOf<A>.fix(): Option<A> =
 -   this as Option<A>
 ```
+<!-- .element: class="arrow" data-executable="false" -->
+
+---
 
 #### Higher Kinded Types - low level DSL
 
-```kotlin:diff
+```diff
 val x: OptionOf<Int> = 1.some()
 - val y: Option<Int> = x.fix()
 + val y: Option<Int> = x
 ```
+<!-- .element: class="arrow" data-executable="false" -->
+
+---
 
 #### Optics
 
-```kotlin:diff
+```diff
 -gist.copy(
 -  owner = gist.owner.copy(
 -    login = gist.owner.login.toUpperCase()
@@ -185,26 +251,32 @@ val x: OptionOf<Int> = 1.some()
 -)
 +Gist.owner.login.modify(gist, String::toUpperCase)
 ```
+<!-- .element: class="arrow" data-executable="false" -->
+
+---
 
 #### Comprehensions
 
-```kotlin:diff
-- service1().flatMap { result1 ->
--   service2(result1).flatMap { result2 ->
--     service3(result2).map { result3 ->
--        Result(result3)
--     }
--   }
-- }
-+ val result1 by service1()
-+ val result2 by service2(result1)
-+ val result3 by service3(result2)
-+ Result(result3)
+```diff
++ service1().flatMap { result1 ->
++   service2(result1).flatMap { result2 ->
++     service3(result2).map { result3 ->
++        Result(result3)
++     }
++   }
++ }
+- val result1 by service1()
+- val result2 by service2(result1)
+- val result3 by service3(result2)
+- Result(result3)
 ```
+<!-- .element: class="arrow" data-executable="false" -->
+
+---
 
 #### Type classes
 
-```kotlin:diff
+```diff
 -fun <A, G, B> OptionOf<A>.traverse(GA: Applicative<G>, f: (A) -> Kind<G, B>): Kind<G, Option<B>> =
 -  GA.run {
 -    fix().fold({ just(None) }, { f(it).map { Some(it) } })
@@ -212,9 +284,13 @@ val x: OptionOf<Int> = 1.some()
 +fun <A, G, B> Option<A>.traverse(GA: Applicative<G> = with, f: (A) -> Kind<G, B>): Kind<G, Option<B>> =
 +  fold({ just(None) }, { f(it).map { Some(it) } })
 ```
+<!-- .element: class="arrow" data-executable="false" -->
+
+---
+
 #### Type classes
 
-```kotlin:diff
+```diff
 data class GithubUser(val id: Int)
 
 val ids = listOf(1, 2, 3, 4).k()
@@ -223,6 +299,9 @@ fun getUser(id: Int): IO<GithubUser> = IO { GithubUser(id) }
 -val result = ids.traverse(IO.applicative(), ::getUser).fix()
 +val result = ids.traverse(::getUser)
 ```
+<!-- .element: class="arrow" data-executable="false" -->
+
+---
 
 #### Purity
 
@@ -231,7 +310,32 @@ SS or Video
 ---
 
 ## Thanks!
+### A special thanks to the people bootstraping Meta
 
-### Thanks to everyone that makes Λrrow Meta and Kotlin possible!
+- Simon
+- Amanda
+- Rachel
+- Imran
+- Isra
+- Jetro
+- Raul
+- Joachim
 
-![47 Degrees](css/images/47deg-logo.png)  ![Kotlin](css/images/kotlin.png)
+---
+
+## Thanks!
+### Kotlin Compiler Folks and Community that helped us [slack.kotlinlang.org](https://slack.kotlinlang.org) #arrow-meta #compiler #lang-proposals 
+
+---
+
+## Thanks!
+
+![47 Degrees](css/images/47deg-logo.png) 
+
+### 47 Degrees for sponsoring and pushing the development of Meta and Arrow 
+
+---
+
+### Thanks to everyone that makes Λrrow and Kotlin possible!
+
+- Photo of all contributors (141) based on Raquel's suggestion

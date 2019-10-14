@@ -1,31 +1,17 @@
-# Who are we?
+## Who are we?
 
 - [@vergauwen_simon](https://twitter.com/vergauwen_simon), Senior Software Engineer [@47deg](https://twitter.com/47deg)
 - [@raulraja](https://twitter.com/raulraja), Co-Founder and CTO [@47deg](https://twitter.com/47deg)
 
 ---
 
-## What is a pure function?
+#### What is a pure function?
 
 A function that is deterministic. Given the same input produces the same output without observable world changing effects.
 
-
 ---
 
-<video controls>
-   <source src="../css/videos/arrow-meta_1.mp4" type="video/mp4"> Your browser does not support the video tag.
-</video>
-
-
----
-
-<video controls>
-   <source src="../css/videos/arrow-meta_2.mp4" type="video/mp4"> Your browser does not support the video tag.
-</video>
-
-
----
-
+<<<<<<< HEAD
 <video controls>
    <source src="../css/videos/arrow-meta_3.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
@@ -99,6 +85,9 @@ A function that is deterministic. Given the same input produces the same output 
 
 
 ## What is a pure function?
+=======
+#### What is a pure function?
+>>>>>>> 9d6872218615414183f18f29fa4710799f2fca9a
 
 Is this pure or impure?
 
@@ -117,7 +106,7 @@ fun main() {
 
 ---
 
-## What is a pure function?
+#### What is a pure function?
 
 Is this pure or impure?
 
@@ -138,7 +127,7 @@ fun main() {
 
 ---
 
-## What is a pure function?
+#### What is a pure function?
 
 Is this pure or impure?
 
@@ -158,7 +147,7 @@ fun main() {
 
 ---
 
-## The suspended future
+#### The suspended future
 
 ---
 
@@ -202,20 +191,20 @@ class Restricted {
 
 ---
 
-## `suspend fun` + ΛRROW
+#### `suspend fun` + ΛRROW
 
-![Arrow FX](css/images/logo-arrow-meta.svg)
+![Arrow FX](css/images/arrow-fx-brand.png)
 
 ---
 
-## ΛRROW Fx
+#### ΛRROW Fx
 
 - A purely functional effects library for Kotlin built on ΛRROW and the Kotlin Coroutines System.
 - Emphasis in empowering simple and declarative effectful programming for everyone.
 
 ---
 
-### Fx DSL
+#### Fx DSL
 
 |        |        |
 |--------|--------|
@@ -226,7 +215,7 @@ class Restricted {
 
 ---
 
-### __fx__
+#### __fx__
 
 A block that delimits a concurrent cancelable continuation
 
@@ -250,7 +239,7 @@ fun main() {
 
 ---
 
-### __effect__
+#### __effect__
 
 Turn and effect into a pure value
 
@@ -277,7 +266,7 @@ fun main() {
 
 ---
 
-### __!__
+#### __!__
 
 Binds a pure value into the continuation context
 
@@ -304,7 +293,7 @@ fun main() {
 
 ---
 
-### __Arrow Fx__ 
+#### __Arrow Fx__ 
 
 `!` Removes `ALL` callbacks
 
@@ -325,7 +314,7 @@ fun main() {
 
 ---
 
-### __unsafe__
+#### __unsafe__
 
 Perform effects at the edge of the world
 
@@ -352,7 +341,7 @@ fun main() {
 
 ---
 
-### __Polymorphism__ 
+#### __Polymorphism__ 
 
 Just make things parametric to `Fx<F>`
 
@@ -385,7 +374,7 @@ fun main() {
 
 ---
 
-### __Asynchronous fibers__
+#### __Asynchronous fibers__
 
 Easy to spawn and manage
 
@@ -415,7 +404,7 @@ fx {
 ---
 
 
-### __Asynchronous fibers__
+#### __Asynchronous fibers__
 
 Recovering from async errors 
 
@@ -446,7 +435,7 @@ fx {
 
 ---
 
-### Concurrency
+#### Concurrency
 
 Races
 
@@ -477,7 +466,7 @@ fx {
 
 ---
 
-### Concurrency
+#### Concurrency
 
 Direct style concurrent non blocking map
 
@@ -508,7 +497,7 @@ fx {
 
 ---
 
-### Switching execution contexts
+#### Switching execution contexts
 
 Imperative context switch with `continueOn`
 
@@ -549,7 +538,7 @@ unsafe {
 
 ---
 
-### Safe resource acquisition
+#### Safe resource acquisition
 
 `bracketCase`
 
@@ -598,7 +587,7 @@ unsafe {
 
 ---
 
-### Fx FOR ALL Monads
+#### Fx FOR ALL Monads
 
 *Fx over `Option`*
 
@@ -666,7 +655,7 @@ fx<String, Int> {
 
 ---
 
-### We support different binding styles
+#### We support different binding styles
 
 *explicit `bind()`*
 ```kotlin
@@ -689,7 +678,7 @@ fx {
 
 ---
 
-### Arrow Fx Vs Kotlinx Coroutines
+#### Arrow Fx Vs Kotlinx Coroutines
 
 Kotlinx Coroutines default builders are **eager**
 
@@ -713,7 +702,7 @@ runBlocking {
 
 ---
 
-### Arrow Fx Vs Kotlinx Coroutines
+#### Arrow Fx Vs Kotlinx Coroutines
 
 Kotlinx Coroutines can be made lazy explicitly
 
@@ -735,7 +724,7 @@ println(job)
 
 ---
 
-### Arrow Fx Vs Kotlinx Coroutines
+#### Arrow Fx Vs Kotlinx Coroutines
 
 Coroutines scopes wait for their child jobs to finish
 
@@ -757,7 +746,7 @@ runBlocking { // <- coroutines scopes wait for their child jobs to finish
 
 ---
 
-### Arrow Fx Vs Kotlinx Coroutines
+#### Arrow Fx Vs Kotlinx Coroutines
 
 Arrow Fx is Lazy and always yields pure programs
 
@@ -780,7 +769,7 @@ fx {
 ---
 
 
-### Arrow Fx Vs Kotlinx Coroutines
+#### Arrow Fx Vs Kotlinx Coroutines
 
 Kotlinx Coroutines cancellation is **cooperative**
 
@@ -813,7 +802,7 @@ fun main() = runBlocking {
 
 ---
 
-### Arrow Fx Vs Kotlinx Coroutines
+#### Arrow Fx Vs Kotlinx Coroutines
 
 Arrow Fx cancellation is automatic
 
@@ -873,7 +862,7 @@ fun main() {
 
 ---
 
-### Arrow Fx Vs Kotlinx Coroutines
+#### Arrow Fx Vs Kotlinx Coroutines
 
 KotlinX Coroutines does not support explicit races or arity abstraction
 
@@ -906,7 +895,7 @@ fun main() {
 
 ---
 
-### Arrow Fx Vs Kotlinx Coroutines
+#### Arrow Fx Vs Kotlinx Coroutines
 
 KotlinX Coroutines is unable to auto-release resources when jobs are canceled
 
@@ -961,7 +950,7 @@ fun main() {
 
 ---
 
-### Arrow Fx Vs Kotlinx Coroutines
+#### Arrow Fx Vs Kotlinx Coroutines
 
 Arrow Fx guarantees resources are released regardless of async ops or cancellation
 
@@ -1019,7 +1008,7 @@ fun main() {
 
 ---
 
-### Performance
+#### Performance
 
 Direct style eliminates the need for `just`, `map`, `flatMap` and the Functor hierarchy
 
@@ -1047,9 +1036,9 @@ tailrec suspend fun directFibLazy(n: Int, prev: Int = 1, current: Int = 0): Int 
 
 ---
 
-### Performance
+#### Performance
 
-#### Direct style Vs Wrapped Style
+##### Direct style Vs Wrapped Style
 
 *Direct style is blazing fast*
 
@@ -1057,7 +1046,7 @@ tailrec suspend fun directFibLazy(n: Int, prev: Int = 1, current: Int = 0): Int 
 
 ---
 
-### Performance
+#### Performance
 
 *Arrow Fx fibers are fast*
 
@@ -1065,7 +1054,7 @@ tailrec suspend fun directFibLazy(n: Int, prev: Int = 1, current: Int = 0): Int 
 
 ---
 
-### Arrow Fx Vs Kotlinx Coroutines
+#### Arrow Fx Vs Kotlinx Coroutines
 
 *Both Arrow Fx and KolinX are great for concurrent programming*
 
@@ -1082,6 +1071,6 @@ tailrec suspend fun directFibLazy(n: Int, prev: Int = 1, current: Int = 0): Int 
 
 ## Thanks!
 
-Thanks to everyone that makes Λrrow Fx and KotlinX possible!
+### Thanks to everyone that makes Λrrow Fx and KotlinX possible!
 
 ![47 Degrees](css/images/47deg-logo.png)  ![Kotlin](css/images/kotlin.png)
