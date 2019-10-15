@@ -283,7 +283,6 @@ val x: OptionOf<Int> = 1.some()
 - val y: Option<Int> = x.fix()
 + val y: Option<Int> = x
 ```
-<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
