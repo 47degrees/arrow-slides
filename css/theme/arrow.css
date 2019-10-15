@@ -410,10 +410,10 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   font-weight: bold; }
 
 .reveal .hljs-deletion {
-  background: rgba(211, 25, 7, 0.2); }
+  background: #EECDCA; }
 
 .reveal .hljs-addition {
-  background: rgba(76, 175, 80, 0.2); }
+  background: #D1E9D7; }
 
 .reveal .hljs-emphasis {
   font-style: italic; }
