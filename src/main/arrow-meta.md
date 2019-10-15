@@ -67,11 +67,7 @@ In the compiler the PSI library is shadowed to achieve the code re-use.
 
 ---
 
-<<<<<<< HEAD
 <video data-autoplay>
-=======
-<video>
->>>>>>> 189e1ca31f7878b04f31f506a2bc1860180cda0f
    <source src="../css/videos/arrow-meta_3.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
@@ -110,7 +106,7 @@ Note:
 
 ### Config
 
-| Usage  | CLI  | IDE  |
+| Usage  | ![Cli](css/images/cli-icon.svg) | ![Ide](css/images/ide-icon.svg)  |
 |---|---|---|
 | updateConfig | ✓ | ✓ |
 | storageComponent | ✓ | ✓ |
@@ -120,7 +116,7 @@ Note:
 
 ### Analysis
 
-| Usage  | CLI  | IDE  |
+| Usage  | ![Cli](css/images/cli-icon.svg) | ![Ide](css/images/ide-icon.svg)  |
 |---|---|---|
 | additionalSources | ✓ | ✓ |
 | analysis | ✓ | ✓ |
@@ -130,7 +126,7 @@ Note:
 
 ### Resolve
 
-| Usage  | CLI  | IDE  |
+| Usage  | ![Cli](css/images/cli-icon.svg) | ![Ide](css/images/ide-icon.svg)  |
 |---|---|---|
 | declarationAttributeAlterer | ✓ | ✓ |
 | packageFragmentProvider | ✓ | ✓ |
@@ -141,7 +137,7 @@ Note:
 
 ### Codegen - IR
 
-| Usage  | CLI  | IDE  |
+| Usage  | ![Cli](css/images/cli-icon.svg) | ![Ide](css/images/ide-icon.svg)  |
 |---|---|---|
 | IrGeneration | ✓ | x |
 | irClass | ✓ | x |
