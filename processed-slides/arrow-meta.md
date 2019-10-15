@@ -9,26 +9,25 @@
 
 ---
 
+
 <video data-autoplay>
    <source src="../css/videos/compil_1.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
-
 <video data-autoplay>
+
    <source src="../css/videos/compil_2.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
-
 
 <video data-autoplay>
    <source src="../css/videos/compil_3.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
-
 
 <video data-autoplay>
    <source src="../css/videos/compil_4.mp4" type="video/mp4"> Your browser does not support the video tag.
@@ -62,17 +61,34 @@
    <source src="../css/videos/arrow-meta_2.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
+Note:
+AST is modelled as the PSI model whichs IDEA uses, due to this the compiler can use the same APIs as IDEA.
+In the compiler the PSI library is shadowed to achieve the code re-use.
+
 ---
 
+<<<<<<< HEAD
 <video data-autoplay>
+=======
+<video>
+>>>>>>> 189e1ca31f7878b04f31f506a2bc1860180cda0f
    <source src="../css/videos/arrow-meta_3.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
+
+Note:
+ - Resolution (Tree of descriptors which have pointers back to the original AST/PSI structure)
+    - I.e. IntelliJ and Codegen can use this to render code or tooling
 
 ---
 
 <video data-autoplay>
    <source src="../css/videos/arrow-meta_4.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
+
+Note:
+ - Data flow management (smart cast, contracts etc)
+ - Typechecking (isSubtypeOf, isEqualTypes)
+   => where constraints are consumed by the typechecker and that information dissapears from KtElement -> Descriptors
 
 ---
 
@@ -85,6 +101,10 @@
 <video data-autoplay>
    <source src="../css/videos/arrow-meta_6.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
+
+Note:
+- IR: incomplete at this point
+- ASM or native platform back-ends
 
 ---
 
@@ -152,22 +172,19 @@ FUN name:flatMap visibility:public modality:FINAL <B> ($this:<root>.IO<A of <roo
 <!-- .slide: class="long-list" -->
 
 - Jetpack Compose
-- SQL Delight
+- SQLDelight
 - Kotlinx Serialization
-- Kotlin Android Extensions
-- Parcelize
-- AllOpen
+- Kotlin Android Extensions / Parcelize 
 - Kotlin Spring integration
 - Kotlin JPA Support
-- Sam with Receivers
-- No-arg
+- AllOpen / No-arg / Sam with Receivers
 
 ---
 
 Issues with traditional compiler plugins:
 
 - Error prone: same logic needs to be repeated N times with different models
-- No code reuse between CI and IDE
+- No code reuse between CLI and IDE
 - Lower level API than Meta's low level apis
 - No documentation (for compiler or plugins)
 - No generalized testing strategy
@@ -185,7 +202,7 @@ val Meta.comprehensions: Plugin
   get() =
     "comprehensions" { // Plugin name
       meta( // List of compiler phases to intercept
-        quote(KtDotQualifiedExpression::containsFxBlock) { fxExpression: KtDotQualifiedExpression ->
+        quote(KtDotQualifiedExpression::containsFxBlock){ fxExpression ->
           Transform.replace(
             replacing = fxExpression,
             newDeclaration = toFlatMap(fxExpression)
@@ -248,7 +265,6 @@ Screenshot @Imran w/ better message
  - Documentation tooling - runnable docs in the IDE
  - Type Search engine (Hoogle)
  - KEEP proposal prototyping
-   - Comprehensions, HKTs, Union types, intersection types, type refinement, typeclasses, poly functions, macros, ...
  - Compile time DI libraries
  - Codebase linting
  
@@ -266,12 +282,12 @@ Some plugins coming out in November in the Meta Alpha release
 #### Higher Kinded Types - Quote
  
 ```diff
-+ @higherkind
-+ class Option<A> : OptionOf<A>
++ @higherkind class Option<A>
 - class ForOption private constructor() { companion object }
 - typealias OptionOf<A> = arrow.Kind<ForOption, A>
 - inline fun <A> OptionOf<A>.fix(): Option<A> =
 -   this as Option<A>
+- @higherkind class Option<A> : OptionOf<A>
 ```
 
 ---
@@ -347,6 +363,17 @@ fun getUser(id: Int): IO<GithubUser> = IO { GithubUser(id) }
 ### Purity
 
 SS or Video
+
+---
+
+#### Many more
+
+ - Union types
+ - Intersection types
+ - type refinement
+ - poly functions
+ - Macros
+ - ...
 
 ---
 
