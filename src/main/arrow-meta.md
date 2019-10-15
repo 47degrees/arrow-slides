@@ -9,40 +9,40 @@
 
 ---
 
-<video autoplay>
+<video data-autoplay>
    <source src="../css/videos/compil_1.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
 
-<video autoplay>
+<video data-autoplay>
    <source src="../css/videos/compil_2.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
 
-<video autoplay>
+<video data-autoplay>
    <source src="../css/videos/compil_3.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
 
-<video autoplay>
+<video data-autoplay>
    <source src="../css/videos/compil_4.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
-<video autoplay>
+<video data-autoplay>
    <source src="../css/videos/compil_5.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
-<video autoplay>
+<video data-autoplay>
    <source src="../css/videos/compil_6.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
@@ -52,37 +52,37 @@
 
 ---
 
-<video autoplay>
+<video data-autoplay>
    <source src="../css/videos/arrow-meta_1.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
-<video autoplay>
+<video data-autoplay>
    <source src="../css/videos/arrow-meta_2.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
-<video autoplay>
+<video data-autoplay>
    <source src="../css/videos/arrow-meta_3.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
-<video autoplay>
+<video data-autoplay>
    <source src="../css/videos/arrow-meta_4.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
-<video autoplay>
+<video data-autoplay>
    <source src="../css/videos/arrow-meta_5.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
-<video autoplay>
+<video data-autoplay>
    <source src="../css/videos/arrow-meta_6.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
@@ -381,7 +381,7 @@ SS or Video
 
 ### Thanks to everyone that makes Λrrow and Kotlin possible!
 
-<video autoplay loop>
+<video data-autoplay data-loop>
    <source src="../css/videos/photos-loop.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
