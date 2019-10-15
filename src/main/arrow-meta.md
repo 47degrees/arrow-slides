@@ -144,7 +144,6 @@ FUN name:flatMap visibility:public modality:FINAL <B> ($this:<root>.IO<A of <roo
         p1: CALL 'public final fun <get-value> (): A of <root>.IO declared in <root>.IO' type=A of <root>.IO origin=GET_PROPERTY
           $this: GET_VAR '<this>: <root>.IO<A of <root>.IO> declared in <root>.IO.flatMap' type=<root>.IO<A of <root>.IO> origin=null
 ```
-<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
@@ -195,7 +194,6 @@ val Meta.comprehensions: Plugin
       )
     }
 ```
-<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
@@ -217,7 +215,6 @@ private fun ElementScope.toFlatMap(
             |}""".expression
 }
 ```
-<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
@@ -235,7 +232,6 @@ val IdeMetaPlugin.comprehensionsIdePlugin: Plugin
     )
   }
 ```
-<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
@@ -269,7 +265,7 @@ Some plugins coming out in November in the Meta Alpha release
 
 #### Higher Kinded Types - Quote
  
-```kotlin:diff
+```diff
 + @higherkind
 + class Option<A> : OptionOf<A>
 - class ForOption private constructor() { companion object }
@@ -277,7 +273,6 @@ Some plugins coming out in November in the Meta Alpha release
 - inline fun <A> OptionOf<A>.fix(): Option<A> =
 -   this as Option<A>
 ```
-<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
@@ -288,7 +283,6 @@ val x: OptionOf<Int> = 1.some()
 - val y: Option<Int> = x.fix()
 + val y: Option<Int> = x
 ```
-<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
@@ -302,7 +296,6 @@ val x: OptionOf<Int> = 1.some()
 -)
 +Gist.owner.login.modify(gist, String::toUpperCase)
 ```
-<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
@@ -321,7 +314,6 @@ val x: OptionOf<Int> = 1.some()
 - val result3 by service3(result2)
 - Result(result3)
 ```
-<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
@@ -335,7 +327,6 @@ val x: OptionOf<Int> = 1.some()
 +fun <A, G, B> Option<A>.traverse(GA: Applicative<G> = with, f: (A) -> Kind<G, B>): Kind<G, Option<B>> =
 +  fold({ just(None) }, { f(it).map { Some(it) } })
 ```
-<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
@@ -350,7 +341,6 @@ fun getUser(id: Int): IO<GithubUser> = IO { GithubUser(id) }
 -val result = ids.traverse(IO.applicative(), ::getUser).fix()
 +val result = ids.traverse(::getUser)
 ```
-<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
