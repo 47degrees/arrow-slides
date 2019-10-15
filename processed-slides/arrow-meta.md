@@ -391,4 +391,53 @@ SS or Video
 
 ### Thanks to everyone that makes Λrrow and Kotlin possible!
 
-- Photo of all contributors (141) based on Raquel's suggestion
+![Contributors 0](css/images/contributors_cropped_0.png)
+
+---
+
+### Thanks to everyone that makes Λrrow and Kotlin possible!
+
+![Contributors 1](css/images/contributors_cropped_1.png)
+
+---
+
+### Thanks to everyone that makes Λrrow and Kotlin possible!
+
+![Contributors 2](css/images/contributors_cropped_2.png)
+
+---
+
+### Thanks to everyone that makes Λrrow and Kotlin possible!
+
+![Contributors 3](css/images/contributors_cropped_3.png)
+
+---
+
+### Thanks to everyone that makes Λrrow and Kotlin possible!
+
+![Contributors 4](css/images/contributors_cropped_4.png)
+
+---
+
+### Thanks to everyone that makes Λrrow and Kotlin possible!
+
+![Contributors 5](css/images/contributors_cropped_5.png)
+
+---
+
+### Thanks to everyone that makes Λrrow and Kotlin possible!
+
+![Contributors 6](css/images/contributors_cropped_6.png)
+
+---
+
+### Thanks to everyone that makes Λrrow and Kotlin possible!
+
+![Contributors 7](css/images/contributors_cropped_7.png)
+
+---
+
+### Thanks to everyone that makes Λrrow and Kotlin possible!
+
+![Contributors](css/images/contributors.png)
+
