@@ -150,7 +150,7 @@ video {
     // slides effect or not
     display: flex !important;
     flex-direction: column !important;
-    justify-content: center !important;
+    justify-content: flex-start !important;
     overflow-y: auto !important;
     overflow-x: auto !important;
     height: 100%;
@@ -159,7 +159,7 @@ video {
         overflow-y: auto !important;
     }
 
-}
+} 
 
 .reveal {
     .long-list {

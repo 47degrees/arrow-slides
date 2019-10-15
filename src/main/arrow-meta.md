@@ -106,7 +106,7 @@ Note:
 
 ### Config
 
-| Usage  | CLI  | IDE  |
+| Usage  | ![Cli](css/images/cli-icon.svg) | ![Ide](css/images/ide-icon.svg)  |
 |---|---|---|
 | updateConfig | ✓ | ✓ |
 | storageComponent | ✓ | ✓ |
@@ -116,7 +116,7 @@ Note:
 
 ### Analysis
 
-| Usage  | CLI  | IDE  |
+| Usage  | ![Cli](css/images/cli-icon.svg) | ![Ide](css/images/ide-icon.svg)  |
 |---|---|---|
 | additionalSources | ✓ | ✓ |
 | analysis | ✓ | ✓ |
@@ -126,7 +126,7 @@ Note:
 
 ### Resolve
 
-| Usage  | CLI  | IDE  |
+| Usage  | ![Cli](css/images/cli-icon.svg) | ![Ide](css/images/ide-icon.svg)  |
 |---|---|---|
 | declarationAttributeAlterer | ✓ | ✓ |
 | packageFragmentProvider | ✓ | ✓ |
@@ -137,7 +137,7 @@ Note:
 
 ### Codegen - IR
 
-| Usage  | CLI  | IDE  |
+| Usage  | ![Cli](css/images/cli-icon.svg) | ![Ide](css/images/ide-icon.svg)  |
 |---|---|---|
 | IrGeneration | ✓ | x |
 | irClass | ✓ | x |
