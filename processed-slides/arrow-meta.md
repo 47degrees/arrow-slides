@@ -158,6 +158,7 @@ FUN name:flatMap visibility:public modality:FINAL <B> ($this:<root>.IO<A of <roo
         p1: CALL 'public final fun <get-value> (): A of <root>.IO declared in <root>.IO' type=A of <root>.IO origin=GET_PROPERTY
           $this: GET_VAR '<this>: <root>.IO<A of <root>.IO> declared in <root>.IO.flatMap' type=<root>.IO<A of <root>.IO> origin=null
 ```
+<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
@@ -202,14 +203,6 @@ Arrow Meta solves all that!
 
 ### Arrow Meta features
 
-- Compiler tree transformations (Quote templates)
-- IR interception
-- Resolution interception
-- Change compiler config
-- Automatic synthetic descriptors for IDE
-- IDE plugin DSL
-- 
-
 ---
 
 ### Quote templates
@@ -228,6 +221,7 @@ val Meta.comprehensions: Plugin
       )
     }
 ```
+<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
@@ -249,6 +243,7 @@ private fun ElementScope.toFlatMap(
             |}""".expression
 }
 ```
+<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
@@ -266,6 +261,7 @@ val IdeMetaPlugin.comprehensionsIdePlugin: Plugin
     )
   }
 ```
+<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
@@ -296,14 +292,15 @@ Some plugins coming out in November in the Meta Alpha release
 
 #### Higher Kinded Types
  
-```diff
-+ @higherkind class Option<A>
+```kotlin:diff
++ class Option<A>
 - class ForOption private constructor() { companion object }
 - typealias OptionOf<A> = arrow.Kind<ForOption, A>
 - inline fun <A> OptionOf<A>.fix(): Option<A> =
 -   this as Option<A>
-- @higherkind class Option<A> : OptionOf<A>
+- class Option<A> : OptionOf<A>
 ```
+<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
@@ -314,6 +311,7 @@ val x: OptionOf<Int> = 1.some()
 - val y: Option<Int> = x.fix()
 + val y: Option<Int> = x
 ```
+<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
@@ -327,6 +325,7 @@ val x: OptionOf<Int> = 1.some()
 -)
 +Gist.owner.login.modify(gist, String::toUpperCase)
 ```
+<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
@@ -345,6 +344,7 @@ val x: OptionOf<Int> = 1.some()
 - val result3 by service3(result2)
 - Result(result3)
 ```
+<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
@@ -358,6 +358,7 @@ val x: OptionOf<Int> = 1.some()
 +fun <A, G, B> Option<A>.traverse(GA: Applicative<G> = with, f: (A) -> Kind<G, B>): Kind<G, Option<B>> =
 +  fold({ just(None) }, { f(it).map { Some(it) } })
 ```
+<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
@@ -372,6 +373,7 @@ fun getUser(id: Int): IO<GithubUser> = IO { GithubUser(id) }
 -val result = ids.traverse(IO.applicative(), ::getUser).fix()
 +val result = ids.traverse(::getUser)
 ```
+<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
@@ -395,6 +397,7 @@ SS or Video
 <!-- .slide: class="long-list" -->
 
 ## Thanks!
+ A special thanks to the people bootstraping Meta
 
 - Simon
 - Amanda
