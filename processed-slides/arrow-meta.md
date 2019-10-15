@@ -9,40 +9,40 @@
 
 ---
 
-<video controls>
+<video autoplay>
    <source src="../css/videos/compil_1.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
 
-<video controls>
+<video autoplay>
    <source src="../css/videos/compil_2.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
 
-<video controls>
+<video autoplay>
    <source src="../css/videos/compil_3.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
 
-<video controls>
+<video autoplay>
    <source src="../css/videos/compil_4.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
-<video controls>
+<video autoplay>
    <source src="../css/videos/compil_5.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
-<video controls>
+<video autoplay>
    <source src="../css/videos/compil_6.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
@@ -52,37 +52,37 @@
 
 ---
 
-<video controls>
+<video autoplay>
    <source src="../css/videos/arrow-meta_1.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
-<video controls>
+<video autoplay>
    <source src="../css/videos/arrow-meta_2.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
-<video controls>
+<video autoplay>
    <source src="../css/videos/arrow-meta_3.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
-<video controls>
+<video autoplay>
    <source src="../css/videos/arrow-meta_4.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
-<video controls>
+<video autoplay>
    <source src="../css/videos/arrow-meta_5.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
-<video controls>
+<video autoplay>
    <source src="../css/videos/arrow-meta_6.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
@@ -381,49 +381,9 @@ SS or Video
 
 ### Thanks to everyone that makes Λrrow and Kotlin possible!
 
-![Contributors 0](css/images/contributors_cropped_0.png)
-
----
-
-### Thanks to everyone that makes Λrrow and Kotlin possible!
-
-![Contributors 1](css/images/contributors_cropped_1.png)
-
----
-
-### Thanks to everyone that makes Λrrow and Kotlin possible!
-
-![Contributors 2](css/images/contributors_cropped_2.png)
-
----
-
-### Thanks to everyone that makes Λrrow and Kotlin possible!
-
-![Contributors 3](css/images/contributors_cropped_3.png)
-
----
-
-### Thanks to everyone that makes Λrrow and Kotlin possible!
-
-![Contributors 4](css/images/contributors_cropped_4.png)
-
----
-
-### Thanks to everyone that makes Λrrow and Kotlin possible!
-
-![Contributors 5](css/images/contributors_cropped_5.png)
-
----
-
-### Thanks to everyone that makes Λrrow and Kotlin possible!
-
-![Contributors 6](css/images/contributors_cropped_6.png)
-
----
-
-### Thanks to everyone that makes Λrrow and Kotlin possible!
-
-![Contributors 7](css/images/contributors_cropped_7.png)
+<video autoplay loop>
+   <source src="../css/videos/photos-loop.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
 
 ---
 
