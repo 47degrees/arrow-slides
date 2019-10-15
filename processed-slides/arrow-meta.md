@@ -9,37 +9,39 @@
 
 ---
 
-<video>
+
+<video data-autoplay>
    <source src="../css/videos/compil_1.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
-<video>
+<video data-autoplay>
+
    <source src="../css/videos/compil_2.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
-<video>
+<video data-autoplay>
    <source src="../css/videos/compil_3.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
-<video>
+<video data-autoplay>
    <source src="../css/videos/compil_4.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
-<video>
+<video data-autoplay>
    <source src="../css/videos/compil_5.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
-<video>
+<video data-autoplay>
    <source src="../css/videos/compil_6.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
@@ -49,13 +51,13 @@
 
 ---
 
-<video>
+<video data-autoplay>
    <source src="../css/videos/arrow-meta_1.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
-<video>
+<video data-autoplay>
    <source src="../css/videos/arrow-meta_2.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
@@ -65,7 +67,7 @@ In the compiler the PSI library is shadowed to achieve the code re-use.
 
 ---
 
-<video>
+<video data-autoplay>
    <source src="../css/videos/arrow-meta_3.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
@@ -75,7 +77,7 @@ Note:
 
 ---
 
-<video>
+<video data-autoplay>
    <source src="../css/videos/arrow-meta_4.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
@@ -86,13 +88,13 @@ Note:
 
 ---
 
-<video>
+<video data-autoplay>
    <source src="../css/videos/arrow-meta_5.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
-<video>
+<video data-autoplay>
    <source src="../css/videos/arrow-meta_6.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
@@ -158,7 +160,6 @@ FUN name:flatMap visibility:public modality:FINAL <B> ($this:<root>.IO<A of <roo
         p1: CALL 'public final fun <get-value> (): A of <root>.IO declared in <root>.IO' type=A of <root>.IO origin=GET_PROPERTY
           $this: GET_VAR '<this>: <root>.IO<A of <root>.IO> declared in <root>.IO.flatMap' type=<root>.IO<A of <root>.IO> origin=null
 ```
-<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
@@ -173,21 +174,21 @@ FUN name:flatMap visibility:public modality:FINAL <B> ($this:<root>.IO<A of <roo
 
 ---
 
-### Common community compiler plugins
+### Many libraries are already based on compiler plugins
 
 <!-- .slide: class="long-list" -->
 
-- Kotlinx Serialization
-- Kotlin Spring integration
-- SQLDelight
-- Kotlin Android Extensions / Parcelize
-- AllOpen / No-arg / Sam with Receivers 
-- Kotlin JPA Support
 - Jetpack Compose
+- SQLDelight
+- Kotlinx Serialization
+- Kotlin Android Extensions / Parcelize 
+- Kotlin Spring integration
+- Kotlin JPA Support
+- AllOpen / No-arg / Sam with Receivers
 
 ---
 
-### Issues we faced
+Issues with traditional compiler plugins:
 
 - Error prone: same logic needs to be repeated N times with different models
 - No code reuse between CLI and IDE
@@ -202,6 +203,25 @@ Arrow Meta solves all that!
 ---
 
 ### Arrow Meta features
+
+- Compiler tree transformations (Quote templates)
+- IR interception
+- Analysis & Resolution interception
+- Change compiler config
+- Automatic synthetic descriptors for IDE
+- IDE plugin DSL
+
+---
+
+### Quote templates
+
+```kotlin
+val Meta.comprehensions: Plugin
+  get() =
+    "comprehensions" { // Plugin name
+      ...
+    }
+```
 
 ---
 
@@ -221,7 +241,6 @@ val Meta.comprehensions: Plugin
       )
     }
 ```
-<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
@@ -243,7 +262,6 @@ private fun ElementScope.toFlatMap(
             |}""".expression
 }
 ```
-<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
@@ -261,7 +279,6 @@ val IdeMetaPlugin.comprehensionsIdePlugin: Plugin
     )
   }
 ```
-<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
@@ -292,26 +309,23 @@ Some plugins coming out in November in the Meta Alpha release
 
 #### Higher Kinded Types
  
-```kotlin:diff
-+ class Option<A>
+```diff
 - class ForOption private constructor() { companion object }
 - typealias OptionOf<A> = arrow.Kind<ForOption, A>
 - inline fun <A> OptionOf<A>.fix(): Option<A> =
 -   this as Option<A>
-- class Option<A> : OptionOf<A>
+- @higherkind class Option<A> : OptionOf<A>
 ```
-<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
 ### Higher Kinded Types
 
 ```diff
-val x: OptionOf<Int> = 1.some()
+  val x: OptionOf<Int> = 1.some()
 - val y: Option<Int> = x.fix()
 + val y: Option<Int> = x
 ```
-<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
@@ -325,26 +339,24 @@ val x: OptionOf<Int> = 1.some()
 -)
 +Gist.owner.login.modify(gist, String::toUpperCase)
 ```
-<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
 ### Comprehensions
 
 ```diff
-+ service1().flatMap { result1 ->
-+   service2(result1).flatMap { result2 ->
-+     service3(result2).map { result3 ->
-+        Result(result3)
-+     }
-+   }
-+ }
-- val result1 by service1()
-- val result2 by service2(result1)
-- val result3 by service3(result2)
-- Result(result3)
+-service1().flatMap { result1 ->
+-  service2(result1).flatMap { result2 ->
+-    service3(result2).map { result3 ->
+-       Result(result3)
+-    }
+-  }
+-}
++val result1 by service1()
++val result2 by service2(result1)
++val result3 by service3(result2)
++Result(result3)
 ```
-<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
@@ -358,7 +370,6 @@ val x: OptionOf<Int> = 1.some()
 +fun <A, G, B> Option<A>.traverse(GA: Applicative<G> = with, f: (A) -> Kind<G, B>): Kind<G, Option<B>> =
 +  fold({ just(None) }, { f(it).map { Some(it) } })
 ```
-<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
@@ -373,7 +384,6 @@ fun getUser(id: Int): IO<GithubUser> = IO { GithubUser(id) }
 -val result = ids.traverse(IO.applicative(), ::getUser).fix()
 +val result = ids.traverse(::getUser)
 ```
-<!-- .element: class="arrow" data-executable="false" -->
 
 ---
 
@@ -397,21 +407,13 @@ SS or Video
 <!-- .slide: class="long-list" -->
 
 ## Thanks!
- A special thanks to the people bootstraping Meta
 
-- Simon
-- Amanda
-- Rachel
-- Imran
-- Isra
-- Jetro
-- Raul
-- Joachim
+![Arrow Meta team](css/images/arrow-meta-team.png)
 
 ---
 
 ## Thanks!
- Kotlin Compiler Folks and Community that helped us [slack.kotlinlang.org](https://slack.kotlinlang.org) #arrow-meta #compiler #lang-proposals 
+ Kotlin Compiler team and Community that helped us [slack.kotlinlang.org](https://slack.kotlinlang.org) #arrow-meta #compiler #lang-proposals 
 
 ---
 
@@ -425,49 +427,9 @@ SS or Video
 
 ### Thanks to everyone that makes Λrrow and Kotlin possible!
 
-![Contributors 0](css/images/contributors_cropped_0.png)
-
----
-
-### Thanks to everyone that makes Λrrow and Kotlin possible!
-
-![Contributors 1](css/images/contributors_cropped_1.png)
-
----
-
-### Thanks to everyone that makes Λrrow and Kotlin possible!
-
-![Contributors 2](css/images/contributors_cropped_2.png)
-
----
-
-### Thanks to everyone that makes Λrrow and Kotlin possible!
-
-![Contributors 3](css/images/contributors_cropped_3.png)
-
----
-
-### Thanks to everyone that makes Λrrow and Kotlin possible!
-
-![Contributors 4](css/images/contributors_cropped_4.png)
-
----
-
-### Thanks to everyone that makes Λrrow and Kotlin possible!
-
-![Contributors 5](css/images/contributors_cropped_5.png)
-
----
-
-### Thanks to everyone that makes Λrrow and Kotlin possible!
-
-![Contributors 6](css/images/contributors_cropped_6.png)
-
----
-
-### Thanks to everyone that makes Λrrow and Kotlin possible!
-
-![Contributors 7](css/images/contributors_cropped_7.png)
+<video data-autoplay data-loop>
+   <source src="../css/videos/photos-loop.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
 
 ---
 

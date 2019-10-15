@@ -9,37 +9,39 @@
 
 ---
 
-<video>
+
+<video data-autoplay>
    <source src="../css/videos/compil_1.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
-<video>
+<video data-autoplay>
+
    <source src="../css/videos/compil_2.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
-<video>
+<video data-autoplay>
    <source src="../css/videos/compil_3.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
-<video>
+<video data-autoplay>
    <source src="../css/videos/compil_4.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
-<video>
+<video data-autoplay>
    <source src="../css/videos/compil_5.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
-<video>
+<video data-autoplay>
    <source src="../css/videos/compil_6.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
@@ -49,13 +51,13 @@
 
 ---
 
-<video>
+<video data-autoplay>
    <source src="../css/videos/arrow-meta_1.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
-<video>
+<video data-autoplay>
    <source src="../css/videos/arrow-meta_2.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
@@ -65,7 +67,7 @@ In the compiler the PSI library is shadowed to achieve the code re-use.
 
 ---
 
-<video>
+<video data-autoplay>
    <source src="../css/videos/arrow-meta_3.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
@@ -75,7 +77,7 @@ Note:
 
 ---
 
-<video>
+<video data-autoplay>
    <source src="../css/videos/arrow-meta_4.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
@@ -86,13 +88,13 @@ Note:
 
 ---
 
-<video>
+<video data-autoplay>
    <source src="../css/videos/arrow-meta_5.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
-<video>
+<video data-autoplay>
    <source src="../css/videos/arrow-meta_6.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
@@ -204,11 +206,22 @@ Arrow Meta solves all that!
 
 - Compiler tree transformations (Quote templates)
 - IR interception
-- Resolution interception
+- Analysis & Resolution interception
 - Change compiler config
 - Automatic synthetic descriptors for IDE
 - IDE plugin DSL
-- 
+
+---
+
+### Quote templates
+
+```kotlin
+val Meta.comprehensions: Plugin
+  get() =
+    "comprehensions" { // Plugin name
+      ...
+    }
+```
 
 ---
 
@@ -219,9 +232,25 @@ val Meta.comprehensions: Plugin
   get() =
     "comprehensions" { // Plugin name
       meta( // List of compiler phases to intercept
-        quote(KtDotQualifiedExpression::containsFxBlock){ fxExpression ->
+        quote(KtDotQualifiedExpression::containsFxBlock) { original ->
+         ...
+        }
+      )
+    }
+```
+
+---
+
+### Quote templates
+
+```kotlin
+val Meta.comprehensions: Plugin
+  get() =
+    "comprehensions" { // Plugin name
+      meta( // List of compiler phases to intercept
+        quote(KtDotQualifiedExpression::containsFxBlock) { original ->
           Transform.replace(
-            replacing = fxExpression,
+            replacing = original,
             newDeclaration = toFlatMap(fxExpression)
           )
         }
@@ -297,12 +326,12 @@ Some plugins coming out in November in the Meta Alpha release
 #### Higher Kinded Types
  
 ```diff
-+ @higherkind class Option<A>
 - class ForOption private constructor() { companion object }
 - typealias OptionOf<A> = arrow.Kind<ForOption, A>
 - inline fun <A> OptionOf<A>.fix(): Option<A> =
 -   this as Option<A>
 - @higherkind class Option<A> : OptionOf<A>
++ @higherkind class Option<A>
 ```
 
 ---
@@ -310,7 +339,7 @@ Some plugins coming out in November in the Meta Alpha release
 ### Higher Kinded Types
 
 ```diff
-val x: OptionOf<Int> = 1.some()
+  val x: OptionOf<Int> = 1.some()
 - val y: Option<Int> = x.fix()
 + val y: Option<Int> = x
 ```
@@ -333,17 +362,17 @@ val x: OptionOf<Int> = 1.some()
 ### Comprehensions
 
 ```diff
-+ service1().flatMap { result1 ->
-+   service2(result1).flatMap { result2 ->
-+     service3(result2).map { result3 ->
-+        Result(result3)
-+     }
-+   }
-+ }
-- val result1 by service1()
-- val result2 by service2(result1)
-- val result3 by service3(result2)
-- Result(result3)
+-service1().flatMap { result1 ->
+-  service2(result1).flatMap { result2 ->
+-    service3(result2).map { result3 ->
+-       Result(result3)
+-    }
+-  }
+-}
++val result1 by service1()
++val result2 by service2(result1)
++val result3 by service3(result2)
++Result(result3)
 ```
 
 ---
@@ -396,19 +425,12 @@ SS or Video
 
 ## Thanks!
 
-- Simon
-- Amanda
-- Rachel
-- Imran
-- Isra
-- Jetro
-- Raul
-- Joachim
+![Arrow Meta team](css/images/arrow-meta-team.png)
 
 ---
 
 ## Thanks!
- Kotlin Compiler Folks and Community that helped us [slack.kotlinlang.org](https://slack.kotlinlang.org) #arrow-meta #compiler #lang-proposals 
+ Kotlin Compiler team and Community that helped us [slack.kotlinlang.org](https://slack.kotlinlang.org) #arrow-meta #compiler #lang-proposals 
 
 ---
 
@@ -422,49 +444,9 @@ SS or Video
 
 ### Thanks to everyone that makes Λrrow and Kotlin possible!
 
-![Contributors 0](css/images/contributors_cropped_0.png)
-
----
-
-### Thanks to everyone that makes Λrrow and Kotlin possible!
-
-![Contributors 1](css/images/contributors_cropped_1.png)
-
----
-
-### Thanks to everyone that makes Λrrow and Kotlin possible!
-
-![Contributors 2](css/images/contributors_cropped_2.png)
-
----
-
-### Thanks to everyone that makes Λrrow and Kotlin possible!
-
-![Contributors 3](css/images/contributors_cropped_3.png)
-
----
-
-### Thanks to everyone that makes Λrrow and Kotlin possible!
-
-![Contributors 4](css/images/contributors_cropped_4.png)
-
----
-
-### Thanks to everyone that makes Λrrow and Kotlin possible!
-
-![Contributors 5](css/images/contributors_cropped_5.png)
-
----
-
-### Thanks to everyone that makes Λrrow and Kotlin possible!
-
-![Contributors 6](css/images/contributors_cropped_6.png)
-
----
-
-### Thanks to everyone that makes Λrrow and Kotlin possible!
-
-![Contributors 7](css/images/contributors_cropped_7.png)
+<video data-autoplay data-loop>
+   <source src="../css/videos/photos-loop.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
 
 ---
 

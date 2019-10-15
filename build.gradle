@@ -54,6 +54,10 @@ allprojects {
         maven { url 'https://jitpack.io' }
         maven { url "https://oss.jfrog.org/artifactory/oss-snapshot-local/" }
     }
+
+    clean.doFirst {
+        delete "${rootDir}/processed-slides"
+    }
 }
 
 sourceCompatibility = javaVersion
