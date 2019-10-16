@@ -475,7 +475,9 @@ fun getUser(id: Int): IO<GithubUser> = IO { GithubUser(id) }
 
 ## Thanks!
 
-![Arrow Meta team](css/images/arrow-meta-team.png)
+A special thanks to the people bootstraping Meta
+
+![Meta contributors](css/images/meta-contributors.png)
 
 ---
 
