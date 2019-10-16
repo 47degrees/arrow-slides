@@ -174,21 +174,21 @@ FUN name:flatMap visibility:public modality:FINAL <B> ($this:<root>.IO<A of <roo
 
 ---
 
-### Many libraries are already based on compiler plugins
+### Common community compiler plugins
 
 <!-- .slide: class="long-list" -->
 
-- Jetpack Compose
-- SQLDelight
 - Kotlinx Serialization
-- Kotlin Android Extensions / Parcelize 
 - Kotlin Spring integration
+- SQLDelight
+- Kotlin Android Extensions / Parcelize
+- AllOpen / No-arg / Sam with Receivers 
 - Kotlin JPA Support
-- AllOpen / No-arg / Sam with Receivers
+- Jetpack Compose
 
 ---
 
-Issues with traditional compiler plugins:
+### Issues we faced
 
 - Error prone: same logic needs to be repeated N times with different models
 - No code reuse between CLI and IDE
@@ -232,9 +232,25 @@ val Meta.comprehensions: Plugin
   get() =
     "comprehensions" { // Plugin name
       meta( // List of compiler phases to intercept
-        quote(KtDotQualifiedExpression::containsFxBlock){ fxExpression ->
+        quote(KtDotQualifiedExpression::containsFxBlock) { original ->
+         ...
+        }
+      )
+    }
+```
+
+---
+
+### Quote templates
+
+```kotlin
+val Meta.comprehensions: Plugin
+  get() =
+    "comprehensions" { // Plugin name
+      meta( // List of compiler phases to intercept
+        quote(KtDotQualifiedExpression::containsFxBlock) { original ->
           Transform.replace(
-            replacing = fxExpression,
+            replacing = original,
             newDeclaration = toFlatMap(fxExpression)
           )
         }
@@ -315,6 +331,7 @@ Some plugins coming out in November in the Meta Alpha release
 - inline fun <A> OptionOf<A>.fix(): Option<A> =
 -   this as Option<A>
 - @higherkind class Option<A> : OptionOf<A>
++ @higherkind class Option<A>
 ```
 
 ---
@@ -387,9 +404,9 @@ fun getUser(id: Int): IO<GithubUser> = IO { GithubUser(id) }
 
 ---
 
-### Purity
-
-SS or Video
+<video>
+   <source src="../css/videos/purity-ide.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
 
 ---
 

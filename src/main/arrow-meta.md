@@ -14,6 +14,9 @@
    <source src="../css/videos/compil_1.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
+Note:
+Before the compiler can do anything we first have to write some code. 
+
 ---
 
 <video data-autoplay>
@@ -21,11 +24,29 @@
    <source src="../css/videos/compil_2.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
+Note:
+Before the compiler can do anything, it first reads the source code and parses it into an AST or Abstract Syntax Tree.
+Kotlin's AST models the structure of Kotlin source code,
+it's modeled on top of Jetbrain's Programming Structure Interface hierarchy which is the model Jetbrains uses internally in their tooling.
+The kotlin compiler 
+
+
+Kotlin's AST is modeled as a tree with `KtElement` at its root.
+The Kotlin AST is compatible with Jetbrain's Programming Structure Interface,
+which is the internal model IntelliJ and the Kotlin compiler  
+is convenient for IDE development. 
+
 ---
 
 <video data-autoplay>
    <source src="../css/videos/compil_3.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
+
+Note:
+During analysis the tree gets transformed into a tree of descriptors which have a reference to their original AST element.
+These descriptors can be used during codegen to render the code, or to build IDE tooling.
+
+
 
 ---
 
@@ -33,17 +54,30 @@
    <source src="../css/videos/compil_4.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
+Note:
+During resolution your program is type checked, including additional data flow management such as smart casts,
+kotlin contracts, generic constraints, etc.
+If the compiler reaches this point than your program will successfully finish after code gen.
+
+
+
 ---
 
 <video data-autoplay>
    <source src="../css/videos/compil_5.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
+Note:
+And finally the code can be rendered for the desired platforms.
+
 ---
 
 <video data-autoplay>
    <source src="../css/videos/compil_6.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
+
+Note:
+And our program compiled correctly.
 
 ---
 
@@ -192,7 +226,7 @@ FUN name:flatMap visibility:public modality:FINAL <B> ($this:<root>.IO<A of <roo
 
 - Error prone: same logic needs to be repeated N times with different models
 - No code reuse between CLI and IDE
-- Lower level API than Meta's low level apis
+- Very low level APIs
 - No documentation (for compiler or plugins)
 - No generalized testing strategy
 
@@ -202,27 +236,21 @@ Arrow Meta solves all that!
 
 ---
 
-### Arrow Meta features
-
-- Compiler tree transformations (Quote templates)
-- IR interception
-- Analysis & Resolution interception
-- Change compiler config
-- Automatic synthetic descriptors for IDE
-- IDE plugin DSL
-
----
-
 ### Quote templates
 
 ```kotlin
 val Meta.comprehensions: Plugin
   get() =
-    "comprehensions" { // Plugin name
+    "comprehensions" { 
       ...
     }
 ```
 
+Note:
+A plugin exists out of a named transformation, in this case "comprehensions".
+The returned transformation is a lambda with the CompilerContext as receiver.
+This enables a powerful compiler DSL, and the lambda returns a list of `ExtensionPhase`.
+
 ---
 
 ### Quote templates
@@ -230,8 +258,8 @@ val Meta.comprehensions: Plugin
 ```kotlin
 val Meta.comprehensions: Plugin
   get() =
-    "comprehensions" { // Plugin name
-      meta( // List of compiler phases to intercept
+    "comprehensions" {
+      meta(
         quote(KtDotQualifiedExpression::containsFxBlock) { original ->
          ...
         }
@@ -239,6 +267,14 @@ val Meta.comprehensions: Plugin
     }
 ```
 
+Note:
+Within a `meta` block we can define multiple extension phases.
+`quote` is Arrow Meta's high level DSL which within Arrow Meta's context is also a possible `ExtensionPhase`.
+
+A `quote` offers a high level DSL to transform code, which can be matched by a reified predicate.
+Here we're matching on `KtDotQualifiedExpression`, which is a function application site.
+And we match in case the function application side contains a fx block.
+
 ---
 
 ### Quote templates
@@ -246,8 +282,8 @@ val Meta.comprehensions: Plugin
 ```kotlin
 val Meta.comprehensions: Plugin
   get() =
-    "comprehensions" { // Plugin name
-      meta( // List of compiler phases to intercept
+    "comprehensions" {
+      meta(
         quote(KtDotQualifiedExpression::containsFxBlock) { original ->
           Transform.replace(
             replacing = original,
@@ -258,6 +294,10 @@ val Meta.comprehensions: Plugin
     }
 ```
 
+Note:
+When matched we can simply return a `Transform`ation, in this case `replace`.
+`Transform` can replacing an element with another or multiple elements, remove the element or leave untransformed.  
+
 ---
 
 ### Template <-> KtElement (Psi)
@@ -266,18 +306,16 @@ val Meta.comprehensions: Plugin
 private fun ElementScope.toFlatMap(
   bind: KtProperty, 
   remaining: List<KtExpression>): Scope<KtExpression> {
-  val target = bind.delegateExpression
-  val targetSource = when {
-    target.containsNestedFxBlock() -> delegationToFlatMap(target)
-    else -> target.text
-  }
-  val argName = bind.name
-  val typeName = bind.typeReference?.let { ": ${it.text}" } ?: ""
-  return """|${targetSource}.flatMap { $argName $typeName -> 
+  ...
+  return """|${source}.flatMap { $argName $typeName -> 
             |  ${toFlatMap(remaining)}  
             |}""".expression
 }
 ```
+
+Note:
+We're not going to dive deeper into the comprehensions plugin code, but to show an example of what the actual code rewrite looks like.
+Here we're rewriting our original code to `flatMap` based code, and by transforming that back into an expression the code will be type checked here in place.
 
 ---
 
@@ -301,6 +339,18 @@ val IdeMetaPlugin.comprehensionsIdePlugin: Plugin
 <video>
    <source src="../css/videos/comprehensions-ide.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
+
+---
+
+### Arrow Meta features
+
+- Compiler tree transformations (Quote templates)
+- IR interception
+- Analysis & Resolution interception
+- Change compiler config
+- Automatic synthetic descriptors for IDE
+- IDE plugin DSL
+- Testing library
 
 ---
 
@@ -339,9 +389,9 @@ Some plugins coming out in November in the Meta Alpha release
 ### Higher Kinded Types
 
 ```diff
-  val x: OptionOf<Int> = 1.some()
-- val y: Option<Int> = x.fix()
-+ val y: Option<Int> = x
+  fun <F> getUser(FF: Functor<F> = with): Kind<F, User> = TODO()
+- val y: Option<User> = getUser<ForOption>().fix()
++ val y: Option<User> = getUser()
 ```
 
 ---
@@ -404,9 +454,9 @@ fun getUser(id: Int): IO<GithubUser> = IO { GithubUser(id) }
 
 ---
 
-### Purity
-
-SS or Video
+<video>
+   <source src="../css/videos/purity-ide.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
 
 ---
 
