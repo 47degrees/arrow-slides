@@ -376,16 +376,10 @@ SS or Video
 <!-- .slide: class="long-list" -->
 
 ## Thanks!
- A special thanks to the people bootstraping Meta
 
-- Simon
-- Amanda
-- Rachel
-- Imran
-- Isra
-- Jetro
-- Raul
-- Joachim
+A special thanks to the people bootstraping Meta
+
+![Meta contributors](css/images/meta-contributors.png)
 
 ---
 
