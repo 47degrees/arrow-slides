@@ -1,7 +1,7 @@
 ## Who are we?
 
-- [@vergauwen_simon](https://twitter.com/vergauwen_simon), Senior Software Engineer [@47deg](https://twitter.com/47deg)
 - [@raulraja](https://twitter.com/raulraja), Co-Founder and CTO [@47deg](https://twitter.com/47deg)
+- [@vergauwen_simon](https://twitter.com/vergauwen_simon), Senior Software Engineer [@47deg](https://twitter.com/47deg)
 
 ---
 
@@ -148,91 +148,16 @@ Note:
 
 ---
 
-### Analysis
+### Low level DSL
 
 | Usage  | ![Cli](css/images/cli-icon.svg) | ![Ide](css/images/ide-icon.svg)  |
 |---|---|---|
-| additionalSources | ✓ | ✓ |
 | analysis | ✓ | ✓ |
 | suppressDiagnostic | ✓ | ✓ |
-
----
-
-### Resolve
-
-| Usage  | ![Cli](css/images/cli-icon.svg) | ![Ide](css/images/ide-icon.svg)  |
-|---|---|---|
-| declarationAttributeAlterer | ✓ | ✓ |
-| packageFragmentProvider | ✓ | ✓ |
 | syntheticResolver | ✓ | ✓ |
 | syntheticScopes | x | ✓ |
-
----
-
-### Codegen - IR
-
-| Usage  | ![Cli](css/images/cli-icon.svg) | ![Ide](css/images/ide-icon.svg)  |
-|---|---|---|
-| IrGeneration | ✓ | x |
 | irClass | ✓ | x |
 | irFunction | ✓ | x |
-| irBody  | ✓ | x |
-
----
-
-### Codegen - IR
-
-```kotlin
-FUN name:flatMap visibility:public modality:FINAL <B> ($this:<root>.IO<A of <root>.IO>, f:kotlin.Function1<A of <root>.IO, <root>.IO<B of <root>.IO.flatMap>>) returnType:<root>.IO<B of <root>.IO.flatMap> 
-  TYPE_PARAMETER name:B index:0 variance: superTypes:[kotlin.Any?]
-  $this: VALUE_PARAMETER name:<this> type:<root>.IO<A of <root>.IO> 
-  VALUE_PARAMETER name:f index:0 type:kotlin.Function1<A of <root>.IO, <root>.IO<B of <root>.IO.flatMap>> 
-  BLOCK_BODY
-    RETURN type=kotlin.Nothing from='public final fun flatMap <B> (f: kotlin.Function1<A of <root>.IO, <root>.IO<B of <root>.IO.flatMap>>): <root>.IO<B of <root>.IO.flatMap> declared in <root>.IO'
-      CALL 'public abstract fun invoke (p1: P1 of kotlin.Function1): R of kotlin.Function1 declared in kotlin.Function1' type=<root>.IO<B of <root>.IO.flatMap> origin=INVOKE
-        $this: GET_VAR 'f: kotlin.Function1<A of <root>.IO, <root>.IO<B of <root>.IO.flatMap>> declared in <root>.IO.flatMap' type=kotlin.Function1<A of <root>.IO, <root>.IO<B of <root>.IO.flatMap>> origin=VARIABLE_AS_FUNCTION
-        p1: CALL 'public final fun <get-value> (): A of <root>.IO declared in <root>.IO' type=A of <root>.IO origin=GET_PROPERTY
-          $this: GET_VAR '<this>: <root>.IO<A of <root>.IO> declared in <root>.IO.flatMap' type=<root>.IO<A of <root>.IO> origin=null
-```
-
----
-
-### Codegen - ASM
-
-| Usage  | CLI  | IDE  |
-|---|---|---|
-| IrGeneration | ✓ | x |
-| irClass | ✓ | x |
-| irFunction | ✓ | x |
-| irBody  | ✓ | x |
-
----
-
-### Common community compiler plugins
-
-<!-- .slide: class="long-list" -->
-
-- Kotlinx Serialization
-- Kotlin Spring integration
-- SQLDelight
-- Kotlin Android Extensions / Parcelize
-- AllOpen / No-arg / Sam with Receivers 
-- Kotlin JPA Support
-- Jetpack Compose
-
----
-
-### Issues we faced
-
-- Error prone: same logic needs to be repeated N times with different models
-- No code reuse between CLI and IDE
-- Very low level APIs
-- No documentation (for compiler or plugins)
-- No generalized testing strategy
-
----
-
-Arrow Meta solves all that!
 
 ---
 
@@ -287,7 +212,7 @@ val Meta.comprehensions: Plugin
         quote(KtDotQualifiedExpression::containsFxBlock) { original ->
           Transform.replace(
             replacing = original,
-            newDeclaration = toFlatMap(fxExpression)
+            newDeclaration = toFlatMap(original)
           )
         }
       )
@@ -342,34 +267,9 @@ val IdeMetaPlugin.comprehensionsIdePlugin: Plugin
 
 ---
 
-### Arrow Meta features
-
-- Compiler tree transformations (Quote templates)
-- IR interception
-- Analysis & Resolution interception
-- Change compiler config
-- Automatic synthetic descriptors for IDE
-- IDE plugin DSL
-- Testing library
-
----
-
-### Use cases
-
- - Automated refactoring tools [Scalafix](https://github.com/scalacenter/scalafix)
- - Documentation tooling - runnable docs in the IDE
- - Type Search engine [Hoogle](https://hoogle.haskell.org/)
- - KEEP proposal prototyping
- - Compile time DI libraries
- - Codebase linting
-
----
+### The future of Arrow
 
 Some plugins coming out in November in the Meta Alpha release
-
----
-
-### The future of Arrow
 
 ---
 
@@ -445,7 +345,7 @@ Some plugins coming out in November in the Meta Alpha release
 ```diff
 data class GithubUser(val id: Int)
 
-val ids = listOf(1, 2, 3, 4).k()
+val ids = listOf(1, 2, 3, 4)
 fun getUser(id: Int): IO<GithubUser> = IO { GithubUser(id) }
 
 -val result = ids.traverse(IO.applicative(), ::getUser).fix()
@@ -460,7 +360,7 @@ fun getUser(id: Int): IO<GithubUser> = IO { GithubUser(id) }
 
 ---
 
-#### Many more
+#### Join us & help us build...
 
  - Union types
  - Intersection types
@@ -471,13 +371,14 @@ fun getUser(id: Int): IO<GithubUser> = IO { GithubUser(id) }
 
 ---
 
-<!-- .slide: class="long-list" -->
+### Use cases
 
-## Thanks!
-
-A special thanks to the people bootstraping Meta
-
-![Meta contributors](css/images/meta-contributors.png)
+ - Automated refactoring tools [Scalafix](https://github.com/scalacenter/scalafix)
+ - Documentation tooling - runnable docs in the IDE
+ - Type Search engine [Hoogle](https://hoogle.haskell.org/)
+ - KEEP proposal prototyping
+ - Compile time DI libraries
+ - ...
 
 ---
 
@@ -491,6 +392,14 @@ A special thanks to the people bootstraping Meta
 ![47 Degrees](css/images/47deg-logo.png) 
 
 ### 47 Degrees for sponsoring and pushing the development of Meta and Arrow 
+
+---
+
+## Thanks!
+
+A special thanks to the people bootstraping Meta
+
+![Meta contributors](css/images/meta-contributors.png)
 
 ---
 
