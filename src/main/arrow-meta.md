@@ -1,7 +1,218 @@
+## Thanks for coming!
+
+Note:
+Welcome and thanks for attending our talk. We hope you enjoy when listening the history of a project, how things changed and what we did to try ...
+
+---
+
 ## Who are we?
 
-- [@raulraja](https://twitter.com/raulraja), Co-Founder and CTO [@47deg](https://twitter.com/47deg)
-- [@vergauwen_simon](https://twitter.com/vergauwen_simon), Senior Software Engineer [@47deg](https://twitter.com/47deg)
+SENIOR SOFTWARE ENGINEERS at [@47deg](https://twitter.com/47deg)
+
+Amanda Hinchman [@hinchman_amanda](https://twitter.com/hinchman_amanda)
+
+Raquel M. Carmena [@bberrycarmen](https://twitter.com/bberrycarmen)
+
+Note:
+We are engineers at 47 Degrees. Amanda: ... Raquel: ... We are also maintainers of Arrow library, a functional companion to Kotlin.
+
+---
+
+```A long time ago in a galaxy far, far away...```
+
+Note:
+In order to explain what we are doing right now in the project about the functional companion to Kotlin, we are going to contextualize the situation with its history, very briefly.
+
+---
+
+![Arrow history](css/images/history.jpg)
+
+Note:
+Everything started when trying to add more functional capabilities to the language...
+
+---
+
+### The usual companion
+
+![Other examples of libraries](css/images/functional-companions.jpg)
+
+Note:
+It seems that a library is the usual companion to a programming language like other examples as Cats library in Scala, Bow library in Swift or VAVR in Java.
+
+---
+
+![Limit](css/images/limit.jpg)
+
+Note:
+However, a library has some limits.
+
+---
+
+### Limits of the library
+
+* No checks at compile runtime
+* Base language remains the same
+* ...
+
+Note:
+(read the list)
+
+---
+
+![Next step?](css/images/history-next-step.jpg)
+
+Note:
+What could be the next step?
+
+---
+
+![Target](css/images/target.jpg)
+
+Note:
+What if we change the target? What if we shoot the arrow to another direction?
+
+---
+
+![Compilation](css/images/compiler.jpg)
+
+Note:
+Let's think. We compile Kotlin source code. BTW! The Kotlin compiler doesn't transpile Java code as some people think. It's a compiler!
+
+---
+
+![Add Arrow library](css/images/compiler-plus-arrow.jpg)
+
+Note:
+And a new library was added, so the focus is the source code.
+
+---
+
+![Focus on Kotlin compiler](css/images/compiler-plus-another-idea.jpg)
+
+Note:
+What if we focus on the Kotlin compiler?
+
+---
+
+![Contact Kotlin team](css/images/contact-kotlin.jpg)
+
+Note:
+It was the time to contact Kotlin team.
+
+---
+
+### Kotlin Evolution
+
+#### Principles of Pragmatic Evolution
+
+* Keep the language modern over the years.
+* Stay in the constant feedback loop with the users.
+* Make updating to new versions comfortable for the users.
+
+Source: https://kotlinlang.org/docs/reference/evolution/kotlin-evolution.html
+
+Note:
+How? Let's see the principles of Kotlin evolution. 
+
+---
+
+### Kotlin Evolution
+
+#### Principles of Pragmatic Evolution
+
+* Keep the language modern over the years.
+* **Stay in the constant feedback loop with the users.**
+* Make updating to new versions comfortable for the users.
+
+Source: https://kotlinlang.org/docs/reference/evolution/kotlin-evolution.html
+
+Note:
+For the second one, "Stay in the constant feedback loop with the users", Kotlin provides several sources of contact.
+
+---
+
+### Sources of contact
+
+* KolinLang Slack
+* Kotlin Forum: https://discuss.kotlinlang.org
+* Issue tracker: https://youtrack.jetbrains.com/issues/KT
+
+Note: 
+(mention the sources) and another one.
+
+---
+
+### KEEP 
+
+**K**otlin **E**volution and **E**nhancement **P**rocess
+
+* Hosted in GitHub: https://github.com/Kotlin/KEEP
+* It holds proposals for the Kotlin Programming Language.
+
+Note:
+(read the list)
+
+---
+
+### KEEP
+
+* The proposals are colloquially known as KEEPs.
+* New KEEPs are submitted as pull requests.
+* Some KEEPs have their own repository (for specification and discussions).
+
+Note: 
+(read the list). So here we go!
+
+---
+
+### KEEP-87
+
+* [https://github.com/Kotlin/KEEP/pull/87](https://github.com/Kotlin/KEEP/pull/87)
+
+![KEEP-87](css/images/keep-87.png)
+
+Note:
+We created this pull request...
+
+---
+
+### Feedback
+
+- 354 messages
+- 85 commits
+- 56 participants
+
+![KEEP-87 reactions](css/images/keep-87-reactions.png)
+
+Note:
+And it's very important to receive initial feedback. These are the numbers for KEEP-87. (read the numbers)
+
+---
+
+![Arrow Meta for Kotlin compiler](css/images/compiler-plus-arrow-meta.jpg)
+
+Note:
+And Arrow Meta was born.
+
+---
+
+### Disclaimer
+
+Arrow is the functional companion to Kotlin's std lib and follows the same principle.
+
+Meta is the functional companion to Kotlin's compiler and also follows the same principle.
+
+Note:
+(Any feature from meta, arrow or the plugins adopted by the language will be removed from meta including meta itself.
+Meta is filling a void we feel the community needs but if some of these features become popular in the Lang we want to make history and leave our legacy in the language not compete with jetbrains.
+This should ease people concerns about us altering the meaning of Kotlin.
+And it sets the tone in which the intention and relationships should occur once the community finds out what we are up to and how it can change some of the landscape so much)
+
+---
+
+### Are you ready?
+
+Let's see some things in detail...
 
 ---
 
@@ -20,7 +231,6 @@ Before the compiler can do anything we first have to write some code.
 ---
 
 <video data-autoplay>
-
    <source src="../css/videos/compil_2.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
@@ -46,8 +256,6 @@ Note:
 During analysis the tree gets transformed into a tree of descriptors which have a reference to their original AST element.
 These descriptors can be used during codegen to render the code, or to build IDE tooling.
 
-
-
 ---
 
 <video data-autoplay>
@@ -58,8 +266,6 @@ Note:
 During resolution your program is type checked, including additional data flow management such as smart casts,
 kotlin contracts, generic constraints, etc.
 If the compiler reaches this point than your program will successfully finish after code gen.
-
-
 
 ---
 
@@ -383,7 +589,13 @@ fun getUser(id: Int): IO<GithubUser> = IO { GithubUser(id) }
 ---
 
 ## Thanks!
- Kotlin Compiler team and Community that helped us [slack.kotlinlang.org](https://slack.kotlinlang.org) #arrow-meta #compiler #lang-proposals 
+
+Kotlin Compiler team and Community that helped us
+
+* Channels at [slack.kotlinlang.org](https://slack.kotlinlang.org):
+    * #arrow-meta
+    * #compiler
+    * #lang-proposals
 
 ---
 
@@ -401,9 +613,12 @@ A special thanks to the people bootstraping Meta
 
 ![Meta contributors](css/images/meta-contributors.png)
 
+Note:
+Special thanks to Jorge Castillo who was going to be here today
+
 ---
 
-### Thanks to everyone that makes Λrrow and Kotlin possible!
+### Thanks to everyone that makes Λrrow possible!
 
 <video data-autoplay data-loop>
    <source src="../css/videos/photos-loop.mp4" type="video/mp4"> Your browser does not support the video tag.
@@ -411,7 +626,9 @@ A special thanks to the people bootstraping Meta
 
 ---
 
-### Thanks to everyone that makes Λrrow and Kotlin possible!
+### Thanks to everyone that makes Kotlin possible!
 
-![Contributors](css/images/contributors.png)
+![Kotlin Logo](css/images/kotlin.png)
 
+Note:
+Last but not least, thanks to everyone that makes Kotlin possible, thank you!
