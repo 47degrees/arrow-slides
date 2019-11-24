@@ -1,11 +1,11 @@
-## Thanks for coming!
+# Thanks for coming!
 
 Note:
 Welcome and thanks for attending our talk. We hope you enjoy when listening the history of a project, how things changed and what we did to try ...
 
 ---
 
-## Who are we?
+# Who are we?
 
 SENIOR SOFTWARE ENGINEERS at [@47deg](https://twitter.com/47deg)
 
@@ -15,6 +15,10 @@ Raquel M. Carmena [@bberrycarmen](https://twitter.com/bberrycarmen)
 
 Note:
 We are engineers at 47 Degrees. Amanda: ... Raquel: ... We are also maintainers of Arrow library, a functional companion to Kotlin.
+
+---
+
+# Introduction
 
 ---
 
@@ -48,7 +52,7 @@ However, a library has some limits.
 
 ---
 
-### Limits of the library
+### What things couldn't be done with the library?
 
 * No checks at compile runtime
 * Base language remains the same
@@ -189,24 +193,7 @@ And it's very important to receive initial feedback. These are the numbers for K
 
 ---
 
-![Arrow Meta for Kotlin compiler](css/images/compiler-plus-arrow-meta.jpg)
-
-Note:
-And Arrow Meta was born.
-
----
-
-### Disclaimer
-
-Arrow is the functional companion to Kotlin's std lib and follows the same principle.
-
-Meta is the functional companion to Kotlin's compiler and also follows the same principle.
-
-Note:
-(Any feature from meta, arrow or the plugins adopted by the language will be removed from meta including meta itself.
-Meta is filling a void we feel the community needs but if some of these features become popular in the Lang we want to make history and leave our legacy in the language not compete with jetbrains.
-This should ease people concerns about us altering the meaning of Kotlin.
-And it sets the tone in which the intention and relationships should occur once the community finds out what we are up to and how it can change some of the landscape so much)
+And we started working with all the received feedback!
 
 ---
 
@@ -344,26 +331,10 @@ Note:
 
 ---
 
-### Config
+![Arrow Meta for Kotlin compiler](css/images/compiler-plus-arrow-meta.jpg)
 
-| Usage  | ![Cli](css/images/cli-icon.svg) | ![Ide](css/images/ide-icon.svg)  |
-|---|---|---|
-| updateConfig | ✓ | ✓ |
-| storageComponent | ✓ | ✓ |
-| enableIr | ✓ | x |
-
----
-
-### Low level DSL
-
-| Usage  | ![Cli](css/images/cli-icon.svg) | ![Ide](css/images/ide-icon.svg)  |
-|---|---|---|
-| analysis | ✓ | ✓ |
-| suppressDiagnostic | ✓ | ✓ |
-| syntheticResolver | ✓ | ✓ |
-| syntheticScopes | x | ✓ |
-| irClass | ✓ | x |
-| irFunction | ✓ | x |
+Note:
+And Arrow Meta was born. Let's see some characteristics in detail
 
 ---
 
@@ -450,32 +421,7 @@ Here we're rewriting our original code to `flatMap` based code, and by transform
 
 ---
 
-### Bring your features to the editor
-
-```kotlin
-val IdeMetaPlugin.comprehensionsIdePlugin: Plugin
-  get() = "ComprehensionsIdePlugin" {
-    meta(
-      addLineMarkerProvider(
-        icon = ArrowIcons.BIND,
-        message = "Teach your users about this feature",
-        matchOn = { (it as? KtExpression)?.isBinding() == true }
-      )
-    )
-  }
-```
-
----
-
-<video>
-   <source src="../css/videos/comprehensions-ide.mp4" type="video/mp4"> Your browser does not support the video tag.
-</video>
-
----
-
-### The future of Arrow
-
-Some plugins coming out in November in the Meta Alpha release
+# Plugins
 
 ---
 
@@ -560,31 +506,33 @@ fun getUser(id: Int): IO<GithubUser> = IO { GithubUser(id) }
 
 ---
 
+# Bring your features to the editor
+
+---
+
+<video>
+   <source src="../css/videos/comprehensions-ide.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+---
+
 <video>
    <source src="../css/videos/purity-ide.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
-#### Join us & help us build...
+### Disclaimer
 
- - Union types
- - Intersection types
- - type refinement
- - poly functions
- - Macros
- - ...
+Arrow is the functional companion to Kotlin's std lib and follows the same principle.
 
----
+Meta is the functional companion to Kotlin's compiler and also follows the same principle.
 
-### Use cases
-
- - Automated refactoring tools [Scalafix](https://github.com/scalacenter/scalafix)
- - Documentation tooling - runnable docs in the IDE
- - Type Search engine [Hoogle](https://hoogle.haskell.org/)
- - KEEP proposal prototyping
- - Compile time DI libraries
- - ...
+Note:
+Any feature from Arrow Meta, Arrow or the plugins which is adopted by the language will be removed from Meta including Meta itself.
+(Meta is filling a void we feel the community needs but if some of these features become popular in the Lang we want to make history and leave our legacy in the language not compete with jetbrains.
+This should ease people concerns about us altering the meaning of Kotlin.
+And it sets the tone in which the intention and relationships should occur once the community finds out what we are up to and how it can change some of the landscape so much)
 
 ---
 
@@ -615,6 +563,18 @@ A special thanks to the people bootstraping Meta
 
 Note:
 Special thanks to Jorge Castillo who was going to be here today
+
+---
+
+#### Everybody is welcome! Join us!
+
+And help us build...
+
+ - Intersection types
+ - type refinement
+ - poly functions
+ - Macros
+ - ...
 
 ---
 
