@@ -1,9 +1,9 @@
+
 # Thanks for coming!
 
-Note:
-Welcome and thanks for attending our talk. We hope you enjoy when listening the history of a project, how things changed and what we did to try ...
-
 ---
+{:.top-content}
+
 
 # Who are we?
 
@@ -19,6 +19,7 @@ We are engineers at 47 Degrees. Amanda: ... Raquel: ... We are also maintainers 
 ---
 
 # Introduction
+
 
 ---
 

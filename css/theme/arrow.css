@@ -287,7 +287,6 @@ body {
   color: #12171A; }
 
 .reveal section img {
-  margin: 15px 0px;
   background: none;
   border: none;
   box-shadow: none; }
@@ -318,15 +317,16 @@ video:focus {
 /*********************************************
  * IMAGES
  *********************************************/
-.reveal section {
+.reveal section.top-content {
   display: flex !important;
   flex-direction: column !important;
   justify-content: flex-start !important;
   overflow-y: auto !important;
   overflow-x: auto !important;
   height: 100%; }
-  .reveal section:hover {
-    overflow-y: auto !important; }
+
+.reveal section:hover {
+  overflow-y: auto !important; }
 
 .reveal .long-list {
   display: flex !important;
