@@ -1,49 +1,58 @@
+<!-- .slide: data-background="css/images/background-dark.svg" -->
+<!-- .slide: class="background-dark" -->
 
 # Who are we?
+
+Note:
+
+[Raquel] 
+
+Ok, so let's start! Thanks for comming!
+
+---
 
 Amanda Hinchman [@hinchman_amanda](https://twitter.com/hinchman_amanda)
 
 Raquel M. Carmena [@bberrycarmen](https://twitter.com/bberrycarmen)
 
+![47 Degrees](css/images/47deg-logo.png)
+
 Note:
-We are engineers at 47 Degrees. Amanda: ... Raquel: ... We are also maintainers of Arrow library, a functional companion to Kotlin.
+
+[Raquel] 
+
+She is Amanda from Chicago where she's the organizer of Kotlin User Group
+
+[Amanda] 
+
+and she is Raquel from Spain and we are engineers at 47 Degrees.
 
 ---
 
 <!-- .slide: data-background="css/images/background-dark.svg" -->
 <!-- .slide: class="background-dark" -->
 
-# Introduction
+## ```A long time ago in a galaxy far, far away...```
+
+Note:
+
+[Amanda]
+
+In order to explain what we are doing right now, we are going to contextualize the situation very briefly.
 
 ---
 
-```A long time ago in a galaxy far, far away...```
+![Arrow history](css/images/history-next-step.jpg)
 
 Note:
-In order to explain what we are doing right now in the project about the functional companion to Kotlin, we are going to contextualize the situation with its history, very briefly.
 
----
+[Raquel]
 
-![Arrow history](css/images/history.jpg)
+Everything started when trying to add more functional capabilities to the language among a group of people in a Spanish Slack. Kategory library was born and then Arrow when joining efforts with another library, Funktionale. 
 
-Note:
-Everything started when trying to add more functional capabilities to the language...
+[Amanda]
 
----
-
-### The usual companion
-
-![Other examples of libraries](css/images/functional-companions.jpg)
-
-Note:
-It seems that a library is the usual companion to a programming language like other examples as Cats library in Scala, Bow library in Swift or VAVR in Java.
-
----
-
-![Limit](css/images/limit.jpg)
-
-Note:
-However, a library has some limits.
+Who of you are using Arrow? Great! What's the next step? What things couldn't be done with the library?
 
 ---
 
@@ -54,41 +63,39 @@ However, a library has some limits.
 * ...
 
 Note:
-(read the list)
 
----
+[Amanda]
 
-![Next step?](css/images/history-next-step.jpg)
-
-Note:
-What could be the next step?
-
----
-
-![Target](css/images/target.jpg)
-
-Note:
-What if we change the target? What if we shoot the arrow to another direction?
+(read the list) So what if we change the target?
 
 ---
 
 ![Compilation](css/images/compiler.jpg)
 
 Note:
-Let's think. We compile Kotlin source code. BTW! The Kotlin compiler doesn't transpile Java code as some people think. It's a compiler!
+
+[Raquel]
+
+Yes, let's think. We compile Kotlin source code. BTW! The Kotlin compiler doesn't transpile Java code as some people think. It's a compiler!
 
 ---
 
 ![Add Arrow library](css/images/compiler-plus-arrow.jpg)
 
 Note:
-And a new library was added, so the focus is the source code.
+
+[Raquel]
+
+We were focused on source code with Arrow, so what if we shoot the arrow to another direction?
 
 ---
 
 ![Focus on Kotlin compiler](css/images/compiler-plus-another-idea.jpg)
 
 Note:
+
+[Raquel]
+
 What if we focus on the Kotlin compiler?
 
 ---
@@ -96,48 +103,24 @@ What if we focus on the Kotlin compiler?
 ![Contact Kotlin team](css/images/contact-kotlin.jpg)
 
 Note:
-It was the time to contact Kotlin team.
+
+[Amanda]
+
+So it was the time to contact Kotlin team.
 
 ---
 
-### Kotlin Evolution
-
-#### Principles of Pragmatic Evolution
-
-* Keep the language modern over the years.
-* Stay in the constant feedback loop with the users.
-* Make updating to new versions comfortable for the users.
-
-Source: https://kotlinlang.org/docs/reference/evolution/kotlin-evolution.html
-
-Note:
-How? Let's see the principles of Kotlin evolution. 
-
----
-
-### Kotlin Evolution
-
-#### Principles of Pragmatic Evolution
-
-* Keep the language modern over the years.
-* **Stay in the constant feedback loop with the users.**
-* Make updating to new versions comfortable for the users.
-
-Source: https://kotlinlang.org/docs/reference/evolution/kotlin-evolution.html
-
-Note:
-For the second one, "Stay in the constant feedback loop with the users", Kotlin provides several sources of contact.
-
----
-
-### Sources of contact
+### Kotlin: Sources of contact
 
 * KolinLang Slack
 * Kotlin Forum: https://discuss.kotlinlang.org
 * Issue tracker: https://youtrack.jetbrains.com/issues/KT
 
 Note: 
-(mention the sources) and another one.
+
+[Amanda]
+
+Kotlin provides several sources of contact (mention the sources) and another one.
 
 ---
 
@@ -147,20 +130,15 @@ Note:
 
 * Hosted in GitHub: https://github.com/Kotlin/KEEP
 * It holds proposals for the Kotlin Programming Language.
-
-Note:
-(read the list)
-
----
-
-### KEEP
-
 * The proposals are colloquially known as KEEPs.
 * New KEEPs are submitted as pull requests.
 * Some KEEPs have their own repository (for specification and discussions).
 
-Note: 
-(read the list). So here we go!
+Note:
+
+[Raquel]
+
+(read the list) So here we go!
 
 ---
 
@@ -171,7 +149,10 @@ Note:
 ![KEEP-87](css/images/keep-87.png)
 
 Note:
-We created this pull request...
+
+[Amanda]
+
+We created this pull request where we explain how to create compile-time extension interfaces.
 
 ---
 
@@ -184,30 +165,38 @@ We created this pull request...
 ![KEEP-87 reactions](css/images/keep-87-reactions.png)
 
 Note:
-And it's very important to receive initial feedback. These are the numbers for KEEP-87. (read the numbers)
+
+[Amanda]
+
+And we received a lot of feedback (read the numbers) And we started working with all the received feedback!
 
 ---
 
-And we started working with all the received feedback!
+<!-- .slide: data-background="css/images/background-dark.svg" -->
+<!-- .slide: class="background-dark" -->
+
+# Are you ready?
+
+Note:
+
+[Raquel]
+
+Are you ready? Let's start...
 
 ---
 
-### Are you ready?
-
-Let's see some things in detail...
+## The Kotlin Compiler
 
 ---
-
-### The Kotlin Compiler
-
----
-
 
 <video data-autoplay>
    <source src="../css/videos/compil_1.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 Note:
+
+[Raquel]
+
 Before the compiler can do anything we first have to write some code. 
 
 ---
@@ -217,11 +206,13 @@ Before the compiler can do anything we first have to write some code.
 </video>
 
 Note:
+
+[Raquel]
+
 Before the compiler can do anything, it first reads the source code and parses it into an AST or Abstract Syntax Tree.
 Kotlin's AST models the structure of Kotlin source code,
 it's modeled on top of Jetbrain's Programming Structure Interface hierarchy which is the model Jetbrains uses internally in their tooling.
 The kotlin compiler 
-
 
 Kotlin's AST is modeled as a tree with `KtElement` at its root.
 The Kotlin AST is compatible with Jetbrain's Programming Structure Interface,
@@ -235,6 +226,9 @@ is convenient for IDE development.
 </video>
 
 Note:
+
+[Raquel]
+
 During analysis the tree gets transformed into a tree of descriptors which have a reference to their original AST element.
 These descriptors can be used during codegen to render the code, or to build IDE tooling.
 
@@ -245,6 +239,9 @@ These descriptors can be used during codegen to render the code, or to build IDE
 </video>
 
 Note:
+
+[Raquel]
+
 During resolution your program is type checked, including additional data flow management such as smart casts,
 kotlin contracts, generic constraints, etc.
 If the compiler reaches this point than your program will successfully finish after code gen.
@@ -256,6 +253,9 @@ If the compiler reaches this point than your program will successfully finish af
 </video>
 
 Note:
+
+[Raquel]
+
 And finally the code can be rendered for the desired platforms.
 
 ---
@@ -265,17 +265,22 @@ And finally the code can be rendered for the desired platforms.
 </video>
 
 Note:
+
+[Raquel]
+
 And our program compiled correctly.
-
----
-
-### Arrow meta  
 
 ---
 
 <video data-autoplay>
    <source src="../css/videos/arrow-meta_1.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
+
+Note:
+
+[Amanda]
+
+What are we doing with Arrow Meta?
 
 ---
 
@@ -284,6 +289,9 @@ And our program compiled correctly.
 </video>
 
 Note:
+
+[Amanda]
+
 AST is modelled as the PSI model whichs IDEA uses, due to this the compiler can use the same APIs as IDEA.
 In the compiler the PSI library is shadowed to achieve the code re-use.
 
@@ -294,8 +302,12 @@ In the compiler the PSI library is shadowed to achieve the code re-use.
 </video>
 
 Note:
- - Resolution (Tree of descriptors which have pointers back to the original AST/PSI structure)
-    - I.e. IntelliJ and Codegen can use this to render code or tooling
+
+[Amanda]
+
+Resolution (Tree of descriptors which have pointers back to the original AST/PSI structure)
+
+I.e. IntelliJ and Codegen can use this to render code or tooling
 
 ---
 
@@ -304,9 +316,12 @@ Note:
 </video>
 
 Note:
- - Data flow management (smart cast, contracts etc)
- - Typechecking (isSubtypeOf, isEqualTypes)
-   => where constraints are consumed by the typechecker and that information dissapears from KtElement -> Descriptors
+
+[Amanda]
+
+Data flow management (smart cast, contracts etc)
+
+Typechecking (isSubtypeOf, isEqualTypes) => where constraints are consumed by the typechecker and that information dissapears from KtElement -> Descriptors
 
 ---
 
@@ -320,20 +335,35 @@ Note:
    <source src="../css/videos/arrow-meta_6.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
+
 Note:
-- IR: incomplete at this point
-- ASM or native platform back-ends
+
+[Amanda]
+
+IR: incomplete at this point
+
+ASM or native platform back-ends
 
 ---
 
 ![Arrow Meta for Kotlin compiler](css/images/compiler-plus-arrow-meta.jpg)
 
 Note:
+
+[Raquel]
+
 And Arrow Meta was born. Let's see some characteristics in detail
 
 ---
 
-### Quote templates
+<!-- .slide: data-background="css/images/background-dark.svg" -->
+<!-- .slide: class="background-dark" -->
+
+# Quotes
+
+---
+
+## Quote templates
 
 ```kotlin
 val Meta.comprehensions: Plugin
@@ -344,13 +374,16 @@ val Meta.comprehensions: Plugin
 ```
 
 Note:
+
+[Amanda]
+
 A plugin exists out of a named transformation, in this case "comprehensions".
 The returned transformation is a lambda with the CompilerContext as receiver.
 This enables a powerful compiler DSL, and the lambda returns a list of `ExtensionPhase`.
 
 ---
 
-### Quote templates
+## Quote templates
 
 ```kotlin
 val Meta.comprehensions: Plugin
@@ -365,6 +398,9 @@ val Meta.comprehensions: Plugin
 ```
 
 Note:
+
+[Amanda]
+
 Within a `meta` block we can define multiple extension phases.
 `quote` is Arrow Meta's high level DSL which within Arrow Meta's context is also a possible `ExtensionPhase`.
 
@@ -374,7 +410,7 @@ And we match in case the function application side contains a fx block.
 
 ---
 
-### Quote templates
+## Quote templates
 
 ```kotlin
 val Meta.comprehensions: Plugin
@@ -392,12 +428,15 @@ val Meta.comprehensions: Plugin
 ```
 
 Note:
+
+[Amanda]
+
 When matched we can simply return a `Transform`ation, in this case `replace`.
 `Transform` can replacing an element with another or multiple elements, remove the element or leave untransformed.  
 
 ---
 
-### Template <-> KtElement (Psi)
+## Template <-> KtElement (Psi)
 
 ```kotlin
 private fun ElementScope.toFlatMap(
@@ -411,6 +450,9 @@ private fun ElementScope.toFlatMap(
 ```
 
 Note:
+
+[Amanda]
+
 We're not going to dive deeper into the comprehensions plugin code, but to show an example of what the actual code rewrite looks like.
 Here we're rewriting our original code to `flatMap` based code, and by transforming that back into an expression the code will be type checked here in place.
 
@@ -434,6 +476,10 @@ Here we're rewriting our original code to `flatMap` based code, and by transform
 + @higherkind class Option<A>
 ```
 
+Note:
+
+[Raquel]
+
 ---
 
 ### Higher Kinded Types
@@ -443,6 +489,10 @@ Here we're rewriting our original code to `flatMap` based code, and by transform
 - val y: Option<User> = getUser<ForOption>().fix()
 + val y: Option<User> = getUser()
 ```
+
+Note:
+
+[Raquel]
 
 ---
 
@@ -456,6 +506,10 @@ Here we're rewriting our original code to `flatMap` based code, and by transform
 -)
 +Gist.owner.login.modify(gist, String::toUpperCase)
 ```
+
+Note:
+
+[Raquel]
 
 ---
 
@@ -475,6 +529,10 @@ Here we're rewriting our original code to `flatMap` based code, and by transform
 +Result(result3)
 ```
 
+Note:
+
+[Raquel]
+
 ---
 
 #### Type classes
@@ -487,6 +545,10 @@ Here we're rewriting our original code to `flatMap` based code, and by transform
 +fun <A, G, B> Option<A>.traverse(GA: Applicative<G> = with, f: (A) -> Kind<G, B>): Kind<G, Option<B>> =
 +  fold({ just(None) }, { f(it).map { Some(it) } })
 ```
+
+Note:
+
+[Raquel]
 
 ---
 
@@ -502,9 +564,16 @@ fun getUser(id: Int): IO<GithubUser> = IO { GithubUser(id) }
 +val result = ids.traverse(::getUser)
 ```
 
+Note:
+
+[Raquel]
+
 ---
 
-# Bring your features to the editor
+<!-- .slide: data-background="css/images/background-dark.svg" -->
+<!-- .slide: class="background-dark" -->
+
+# Bring your features to the editor!
 
 ---
 
@@ -512,25 +581,52 @@ fun getUser(id: Int): IO<GithubUser> = IO { GithubUser(id) }
    <source src="../css/videos/comprehensions-ide.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
+Note:
+
+[Amanda]
+
 ---
 
 <video>
    <source src="../css/videos/purity-ide.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
+Note:
+
+[Amanda]
+
 ---
 
-### Disclaimer
+<!-- .slide: data-background="css/images/background-dark.svg" -->
+<!-- .slide: class="background-dark" -->
+
+# DISCLAIMER
+
+---
 
 Arrow is the functional companion to Kotlin's std lib and follows the same principle.
 
 Meta is the functional companion to Kotlin's compiler and also follows the same principle.
 
 Note:
+
+[Raquel]
+
 Any feature from Arrow Meta, Arrow or the plugins which is adopted by the language will be removed from Meta including Meta itself.
 (Meta is filling a void we feel the community needs but if some of these features become popular in the Lang we want to make history and leave our legacy in the language not compete with jetbrains.
 This should ease people concerns about us altering the meaning of Kotlin.
 And it sets the tone in which the intention and relationships should occur once the community finds out what we are up to and how it can change some of the landscape so much)
+
+---
+
+<!-- .slide: data-background="css/images/background-dark.svg" -->
+<!-- .slide: class="background-dark" -->
+
+# AND ...
+
+Note:
+
+[Amanda] And ...
 
 ---
 
@@ -543,13 +639,23 @@ Kotlin Compiler team and Community that helped us
     * #compiler
     * #lang-proposals
 
+Note:
+
+[Amanda]
+
+... thanks to Kotlin Compiler team and Community that helped us. The main channels were arrow-meta, compiler and lang-proposals. We are actively working on arrow-meta channel.
+
 ---
 
 ## Thanks!
 
 ![47 Degrees](css/images/47deg-logo.png) 
 
-### 47 Degrees for sponsoring and pushing the development of Meta and Arrow 
+Note:
+
+[Raquel]
+
+Thanks to 47 Degrees for sponsoring and pushing the development of Meta and Arrow
 
 ---
 
@@ -560,11 +666,14 @@ A special thanks to the people bootstraping Meta
 ![Meta contributors](css/images/meta-contributors.png)
 
 Note:
-Special thanks to Jorge Castillo who was going to be here today
+
+[Amanda]
+
+Thanks to all the people who are bootstraping Meta. Not only we are here but also more people who started the project as Raúl Raja and Simon Vergauwen so you can make questions to them as well and special thanks to Jorge Castillo who couldn't be here today.
 
 ---
 
-#### Everybody is welcome! Join us!
+## Everybody is welcome! Join us!
 
 And help us build...
 
@@ -574,6 +683,12 @@ And help us build...
  - Macros
  - ...
 
+Note:
+
+[Amanda]
+
+Everybody is welcome, join us and help us build: (read the list) 
+
 ---
 
 ### Thanks to everyone that makes Λrrow possible!
@@ -582,6 +697,12 @@ And help us build...
    <source src="../css/videos/photos-loop.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
+Note:
+
+[Raquel]
+
+Thanks to everyone that makes Λrrow possible! More than 150 contributors and they are increasing every week.
+
 ---
 
 ### Thanks to everyone that makes Kotlin possible!
@@ -589,4 +710,33 @@ And help us build...
 ![Kotlin Logo](css/images/kotlin.png)
 
 Note:
-Last but not least, thanks to everyone that makes Kotlin possible, thank you!
+
+[Amanda]
+
+Thanks to everyone that makes Kotlin possible and last but not least...
+
+---
+
+## Thanks to you
+
+Please, remember to vote!
+
+Amanda Hinchman [@hinchman_amanda](https://twitter.com/hinchman_amanda)
+
+Raquel M. Carmena [@bberrycarmen](https://twitter.com/bberrycarmen)
+
+\#KotlinConf
+
+Note:
+
+[Raquel] 
+
+... thanks to you for comming!
+
+[Amanda]
+
+Please, remember to vote!
+
+[Both]
+
+Thank you!
