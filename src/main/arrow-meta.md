@@ -631,7 +631,7 @@ Note:
 
 ---
 
-## Thanks!
+### Thanks!
 
 Kotlin Compiler team and Community
 
@@ -649,7 +649,7 @@ Note:
 
 ---
 
-## Thanks!
+### Thanks!
 
 ![47 Degrees](css/images/47deg-logo.png) 
 
@@ -661,7 +661,7 @@ Thanks to 47 Degrees for sponsoring and pushing the development of Arrow and Arr
 
 ---
 
-## Thanks!
+### Thanks!
 
 A special thanks to the people bootstraping Meta
 
@@ -675,7 +675,7 @@ Thanks to all the people who are bootstraping Meta. Not only we are here but als
 
 ---
 
-## Everybody is welcome! Join us!
+#### Everybody is welcome! Join us!
 
 And help us build...
 
@@ -693,7 +693,7 @@ Everybody is welcome, join us and help us build: (read the list)
 
 ---
 
-## Thanks to everyone that makes Λrrow possible!
+### Thanks to everyone that makes Λrrow possible!
 
 <video data-autoplay data-loop>
    <source src="../css/videos/photos-loop.mp4" type="video/mp4"> Your browser does not support the video tag.
@@ -707,7 +707,7 @@ Thanks to everyone that makes Λrrow possible! More than 150 contributors and th
 
 ---
 
-## Thanks to everyone that makes Kotlin possible!
+### Thanks to everyone that makes Kotlin possible!
 
 ![Kotlin Logo](css/images/kotlin.png)
 
@@ -719,7 +719,7 @@ Thanks to everyone that makes Kotlin possible and last but not least...
 
 ---
 
-## Thanks to you
+### Thanks to you
 
 Please, remember to vote!
 
