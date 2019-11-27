@@ -633,12 +633,13 @@ Note:
 
 ## Thanks!
 
-Kotlin Compiler team and Community that helped us
+Kotlin Compiler team and Community
 
-* Channels at [slack.kotlinlang.org](https://slack.kotlinlang.org):
-    * #arrow-meta
-    * #compiler
-    * #lang-proposals
+Channels at [slack.kotlinlang.org](https://slack.kotlinlang.org)
+
+* #arrow-meta
+* #compiler
+* #lang-proposals
 
 Note:
 
