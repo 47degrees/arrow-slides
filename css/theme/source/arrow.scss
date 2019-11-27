@@ -21,7 +21,7 @@ $backgroundColor: #fff;
 $mainFont: "Open Sans",
 sans-serif;
 $mainFontSize: 40px;
-$mainColor: #12171A;
+$mainColor: #2E3B44;
 
 $blockMargin: 40px;
 
@@ -31,7 +31,7 @@ $mainFontSize: 5vmin;
 $headingMargin: 0 0 $blockMargin 0;
 $headingFont: "Iosevka Web",
 sans-serif;
-$headingColor: #12171A;
+$headingColor: #2E3B44;
 $headingTextShadow: none;
 $headingLetterSpacing: normal;
 $headingTextTransform: uppercase;
@@ -140,9 +140,8 @@ video {
 }
 
 /*********************************************
- * IMAGES
+ * SECTION
  *********************************************/
-
 
 .reveal {
     section {
@@ -155,6 +154,14 @@ video {
             overflow-y: auto !important;
             overflow-x: auto !important;
             height: 100%;
+        }
+        
+        &.background-dark {
+
+            
+            h1, h2, h3, h4, h5, p, ul, li {
+                color: #fff;
+            }
         }
 
         &:hover {

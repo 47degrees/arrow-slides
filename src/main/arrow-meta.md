@@ -1,13 +1,5 @@
 
-# Thanks for coming!
-
----
-{:.top-content}
-
-
 # Who are we?
-
-SENIOR SOFTWARE ENGINEERS at [@47deg](https://twitter.com/47deg)
 
 Amanda Hinchman [@hinchman_amanda](https://twitter.com/hinchman_amanda)
 
@@ -18,8 +10,10 @@ We are engineers at 47 Degrees. Amanda: ... Raquel: ... We are also maintainers 
 
 ---
 
-# Introduction
+<!-- .slide: data-background="css/images/background-dark.svg" -->
+<!-- .slide: class="background-dark" -->
 
+# Introduction
 
 ---
 
@@ -421,6 +415,9 @@ We're not going to dive deeper into the comprehensions plugin code, but to show 
 Here we're rewriting our original code to `flatMap` based code, and by transforming that back into an expression the code will be type checked here in place.
 
 ---
+
+<!-- .slide: data-background="css/images/background-dark.svg" -->
+<!-- .slide: class="background-dark" -->
 
 # Plugins
 

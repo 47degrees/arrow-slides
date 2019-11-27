@@ -15,7 +15,7 @@ body {
   font-family: "Open Sans", sans-serif;
   font-size: 5vmin;
   font-weight: normal;
-  color: #12171A; }
+  color: #2E3B44; }
 
 ::selection {
   color: #fff;
@@ -42,7 +42,7 @@ body {
 .reveal h5,
 .reveal h6 {
   margin: 0 0 40px 0;
-  color: #12171A;
+  color: #2E3B44;
   font-family: "Iosevka Web", sans-serif;
   font-weight: 600;
   line-height: 1.2;
@@ -227,7 +227,7 @@ body {
 .reveal section img {
   margin: 15px 0px;
   background: rgba(255, 255, 255, 0.12);
-  border: 4px solid #12171A;
+  border: 4px solid #2E3B44;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
 
 .reveal section img.plain {
@@ -284,7 +284,7 @@ body {
 .reveal h4,
 .reveal h5,
 .reveal h6 {
-  color: #12171A; }
+  color: #2E3B44; }
 
 .reveal section img {
   background: none;
@@ -315,7 +315,7 @@ video:focus {
   outline: none; }
 
 /*********************************************
- * IMAGES
+ * SECTION
  *********************************************/
 .reveal section.top-content {
   display: flex !important;
@@ -324,6 +324,9 @@ video:focus {
   overflow-y: auto !important;
   overflow-x: auto !important;
   height: 100%; }
+
+.reveal section.background-dark h1, .reveal section.background-dark h2, .reveal section.background-dark h3, .reveal section.background-dark h4, .reveal section.background-dark h5, .reveal section.background-dark p, .reveal section.background-dark ul, .reveal section.background-dark li {
+  color: #fff; }
 
 .reveal section:hover {
   overflow-y: auto !important; }
@@ -348,7 +351,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   display: block;
   overflow-x: auto;
   padding: 0.8em;
-  color: #12171A;
+  color: #2E3B44;
   background: #F5F7F8; }
 
 .reveal .hljs-comment,
