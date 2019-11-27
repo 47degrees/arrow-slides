@@ -600,7 +600,7 @@ Note:
 <!-- .slide: data-background="css/images/background-dark.svg" -->
 <!-- .slide: class="background-dark" -->
 
-# DISCLAIMER
+# Disclaimer
 
 ---
 
@@ -613,16 +613,13 @@ Note:
 [Raquel]
 
 Any feature from Arrow Meta, Arrow or the plugins which is adopted by the language will be removed from Meta including Meta itself.
-(Meta is filling a void we feel the community needs but if some of these features become popular in the Lang we want to make history and leave our legacy in the language not compete with jetbrains.
-This should ease people concerns about us altering the meaning of Kotlin.
-And it sets the tone in which the intention and relationships should occur once the community finds out what we are up to and how it can change some of the landscape so much)
 
 ---
 
 <!-- .slide: data-background="css/images/background-dark.svg" -->
 <!-- .slide: class="background-dark" -->
 
-# AND ...
+# And ...
 
 Note:
 
