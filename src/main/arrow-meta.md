@@ -124,9 +124,7 @@ Kotlin provides several sources of contact (mention the sources) and another one
 
 ---
 
-### KEEP 
-
-**K**otlin **E**volution and **E**nhancement **P**rocess
+### KEEP: Kotlin Evolution and Enhancement Process
 
 * Hosted in GitHub: https://github.com/Kotlin/KEEP
 * It holds proposals for the Kotlin Programming Language.
@@ -465,7 +463,7 @@ Here we're rewriting our original code to `flatMap` based code, and by transform
 
 ---
 
-#### Higher Kinded Types
+## Higher Kinded Types
  
 ```diff
 - class ForOption private constructor() { companion object }
@@ -482,7 +480,7 @@ Note:
 
 ---
 
-### Higher Kinded Types
+## Higher Kinded Types
 
 ```diff
   fun <F> getUser(FF: Functor<F> = with): Kind<F, User> = TODO()
@@ -496,7 +494,7 @@ Note:
 
 ---
 
-### Optics
+## Optics
 
 ```diff
 -gist.copy(
@@ -513,7 +511,7 @@ Note:
 
 ---
 
-### Comprehensions
+## Comprehensions
 
 ```diff
 -service1().flatMap { result1 ->
@@ -535,7 +533,7 @@ Note:
 
 ---
 
-#### Type classes
+## Type classes
 
 ```diff
 -fun <A, G, B> OptionOf<A>.traverse(GA: Applicative<G>, f: (A) -> Kind<G, B>): Kind<G, Option<B>> =
@@ -552,7 +550,7 @@ Note:
 
 ---
 
-### Type classes
+## Type classes
 
 ```diff
 data class GithubUser(val id: Int)
@@ -688,7 +686,7 @@ Everybody is welcome, join us and help us build: (read the list)
 
 ---
 
-### Thanks to everyone that makes Λrrow possible!
+## Thanks to everyone that makes Λrrow possible!
 
 <video data-autoplay data-loop>
    <source src="../css/videos/photos-loop.mp4" type="video/mp4"> Your browser does not support the video tag.
@@ -702,7 +700,7 @@ Thanks to everyone that makes Λrrow possible! More than 150 contributors and th
 
 ---
 
-### Thanks to everyone that makes Kotlin possible!
+## Thanks to everyone that makes Kotlin possible!
 
 ![Kotlin Logo](css/images/kotlin.png)
 
