@@ -52,7 +52,9 @@ Everything started when trying to add more functional capabilities to the langua
 
 [Amanda]
 
-Who of you are using Arrow? Great! What's the next step? What things couldn't be done with the library?
+Who of you are using Arrow? 
+
+Great! What's the next step? What things couldn't be done with the library?
 
 ---
 
@@ -127,16 +129,21 @@ Kotlin provides several sources of contact (mention the sources) and another one
 ### KEEP: Kotlin Evolution and Enhancement Process
 
 * Hosted in GitHub: https://github.com/Kotlin/KEEP
-* It holds proposals for the Kotlin Programming Language.
-* The proposals are colloquially known as KEEPs.
-* New KEEPs are submitted as pull requests.
-* Some KEEPs have their own repository (for specification and discussions).
+* It holds proposals for Kotlin
+* New KEEPs are submitted as pull requests
+* Some KEEPs have their own repository
 
 Note:
 
 [Raquel]
 
-(read the list) So here we go!
+(read the list) 
+
+2. also known as KEEPs 
+
+4. for specification and discussions
+
+So here we go!
 
 ---
 
@@ -150,7 +157,7 @@ Note:
 
 [Amanda]
 
-We created this pull request where we explain how to create compile-time extension interfaces.
+We created this pull request where we explained how to create compile-time extension interfaces.
 
 ---
 
@@ -195,7 +202,7 @@ Note:
 
 [Raquel]
 
-Before the compiler can do anything we first have to write some code. 
+Firstly, we write some code. 
 
 ---
 
@@ -207,15 +214,9 @@ Note:
 
 [Raquel]
 
-Before the compiler can do anything, it first reads the source code and parses it into an AST or Abstract Syntax Tree.
-Kotlin's AST models the structure of Kotlin source code,
-it's modeled on top of Jetbrain's Programming Structure Interface hierarchy which is the model Jetbrains uses internally in their tooling.
-The kotlin compiler 
+The compiler reads that code and models its structure into a tree, an Abstract Syntax Tree, with `KtElement` at its root.
 
-Kotlin's AST is modeled as a tree with `KtElement` at its root.
-The Kotlin AST is compatible with Jetbrain's Programming Structure Interface,
-which is the internal model IntelliJ and the Kotlin compiler  
-is convenient for IDE development. 
+That tree is compatible with Jetbrain's PSI, Programming Structure Interface, used in the IDE.
 
 ---
 
@@ -227,7 +228,7 @@ Note:
 
 [Raquel]
 
-During analysis the tree gets transformed into a tree of descriptors which have a reference to their original AST element.
+During analysis, the tree gets transformed into a tree of descriptors which have a reference to their original AST element.
 These descriptors can be used during codegen to render the code, or to build IDE tooling.
 
 ---
@@ -241,7 +242,8 @@ Note:
 [Raquel]
 
 During resolution your program is type checked, including additional data flow management such as smart casts,
-kotlin contracts, generic constraints, etc.
+kotlin contracts, generic constraints, ...
+
 If the compiler reaches this point than your program will successfully finish after code gen.
 
 ---
