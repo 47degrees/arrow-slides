@@ -61,7 +61,7 @@ Great! What's the next step? What things couldn't be done with the library?
 ### What things couldn't be done with the library?
 
 * No checks at compile runtime
-* Base language remains the same
+* Boilerplate for doing some things
 * ...
 
 Note:
@@ -143,6 +143,8 @@ Note:
 
 2. also known as KEEPs 
 
+3. -
+
 4. for specification and discussions
 
 So here we go!
@@ -214,7 +216,7 @@ Note:
 
 [Raquel]
 
-The compiler reads that code and models its structure into a tree, an Abstract Syntax Tree, with `KtElement` at its root.
+The compiler reads that code and models its structure into a tree, known as Abstract Syntax Tree.
 
 That tree is compatible with Jetbrain's PSI, Programming Structure Interface, used in the IDE.
 
@@ -229,7 +231,7 @@ Note:
 [Raquel]
 
 During analysis, the tree gets transformed into a tree of descriptors which have a reference to their original AST element.
-These descriptors can be used during codegen to render the code, or to build IDE tooling.
+These descriptors can be used during code generation to render the code, or to build IDE tooling.
 
 ---
 
@@ -241,10 +243,10 @@ Note:
 
 [Raquel]
 
-During resolution your program is type checked, including additional data flow management such as smart casts,
+During resolution the code is type checked, including additional data flow management such as smart casts,
 kotlin contracts, generic constraints, ...
 
-If the compiler reaches this point than your program will successfully finish after code gen.
+If the compiler reaches this point then the code will move to code generation.
 
 ---
 
@@ -256,7 +258,7 @@ Note:
 
 [Raquel]
 
-And finally the code can be rendered for the desired platforms.
+Where we'll get the bytecode to be run in any of the available platforms.
 
 ---
 
@@ -268,7 +270,7 @@ Note:
 
 [Raquel]
 
-And our program compiled correctly.
+And everything is done! And now let's see how we can add more features to the Kotlin compiler through metaprogramming.
 
 ---
 
@@ -280,7 +282,7 @@ Note:
 
 [Amanda]
 
-What are we doing with Arrow Meta?
+Yeah! What are we doing with Arrow Meta? 
 
 ---
 
@@ -292,8 +294,9 @@ Note:
 
 [Amanda]
 
+The code will be parsed into the AST with the power of Arrow Meta so we can apply transformations during that following phase.
+
 AST is modelled as the PSI model whichs IDEA uses, due to this the compiler can use the same APIs as IDEA.
-In the compiler the PSI library is shadowed to achieve the code re-use.
 
 ---
 
@@ -463,6 +466,12 @@ Here we're rewriting our original code to `flatMap` based code, and by transform
 
 # Plugins
 
+Note:
+
+[Raquel]
+
+One of the reasons to build Arrow Meta was to support a set of use cases to improve the state of functional programming in Kotlin.
+
 ---
 
 ## Higher Kinded Types
@@ -480,6 +489,8 @@ Note:
 
 [Raquel]
 
+Currently Higher Kinded Types involve a lot of boilerplate in Arrow so we can remove it with Arrow Meta
+
 ---
 
 ## Higher Kinded Types
@@ -493,6 +504,8 @@ Note:
 Note:
 
 [Raquel]
+
+but more interesting is that we can make use of the type checker to avoid calls that we were using to fix some types.
 
 ---
 
@@ -510,6 +523,8 @@ Note:
 Note:
 
 [Raquel]
+
+Also we can generate optics over inmutable data structures and provide a dot based syntax which is more familiar to the users, even without the need ok knowing about optics, so we can bring this functional features much closer to the developers.
 
 ---
 
@@ -533,6 +548,8 @@ Note:
 
 [Raquel]
 
+Besides we can bring comprehensions syntax to the user.
+
 ---
 
 ## Type classes
@@ -549,6 +566,8 @@ Note:
 Note:
 
 [Raquel]
+
+Remove a lot of boilerplate with type classes.
 
 ---
 
@@ -568,6 +587,8 @@ Note:
 
 [Raquel]
 
+or not to have to pass manually all the type class instances on the call side.
+
 ---
 
 <!-- .slide: data-background="css/images/background-dark.svg" -->
@@ -585,6 +606,8 @@ Note:
 
 [Amanda]
 
+We can see how we get icons in the left side and even explanations for the developer so we improve the development experience
+
 ---
 
 <video>
@@ -594,6 +617,8 @@ Note:
 Note:
 
 [Amanda]
+
+And we can alert to the developer about an impure function and add explanations in the IDE to help to understand why is this important and how you can refactor your codebase to be more pure and functional.
 
 ---
 
