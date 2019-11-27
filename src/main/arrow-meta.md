@@ -604,15 +604,19 @@ Note:
 
 ---
 
-**Arrow** is the functional companion to **Kotlin standard library** and follows the same principle
+**Arrow** is the functional companion to **Kotlin standard library**
 
-**Arrow Meta** is the functional companion to **Kotlin compiler** and also follows the same principle
+**Arrow Meta** is the functional companion to **Kotlin compiler**
 
 Note:
 
 [Raquel]
 
-Any feature from Arrow, Arrow Meta or the plugins which is adopted by the language will be removed, including Meta itself.
+Arrow is the functional companion to Kotlin standard library and follows the same principle
+
+Arrow Meta is the functional companion to Kotlin compiler and also follows the same principle
+
+And any feature from Arrow, Arrow Meta or the plugins which is adopted by the language will be removed, including Meta itself.
 
 ---
 
