@@ -128,7 +128,7 @@ Kotlin provides several sources of contact (mention the sources) and another one
 
 ### KEEP: Kotlin Evolution and Enhancement Process
 
-* Hosted in GitHub: https://github.com/Kotlin/KEEP
+* https://github.com/Kotlin/KEEP
 * It holds proposals for Kotlin
 * New KEEPs are submitted as pull requests
 * Some KEEPs have their own repository
@@ -139,6 +139,8 @@ Note:
 
 (read the list) 
 
+1. Hosted in GitHub
+
 2. also known as KEEPs 
 
 4. for specification and discussions
@@ -148,8 +150,6 @@ So here we go!
 ---
 
 ### KEEP-87
-
-* [https://github.com/Kotlin/KEEP/pull/87](https://github.com/Kotlin/KEEP/pull/87)
 
 ![KEEP-87](css/images/keep-87.png)
 
@@ -604,26 +604,26 @@ Note:
 
 ---
 
-Arrow is the functional companion to Kotlin's std lib and follows the same principle.
+**Arrow** is the functional companion to **Kotlin standard library** and follows the same principle
 
-Meta is the functional companion to Kotlin's compiler and also follows the same principle.
+**Arrow Meta** is the functional companion to **Kotlin compiler** and also follows the same principle
 
 Note:
 
 [Raquel]
 
-Any feature from Arrow Meta, Arrow or the plugins which is adopted by the language will be removed from Meta including Meta itself.
+Any feature from Arrow, Arrow Meta or the plugins which is adopted by the language will be removed, including Meta itself.
 
 ---
 
 <!-- .slide: data-background="css/images/background-dark.svg" -->
 <!-- .slide: class="background-dark" -->
 
-# And ...
+# And finally ...
 
 Note:
 
-[Amanda] And ...
+[Amanda] And finally ...
 
 ---
 
@@ -652,7 +652,7 @@ Note:
 
 [Raquel]
 
-Thanks to 47 Degrees for sponsoring and pushing the development of Meta and Arrow
+Thanks to 47 Degrees for sponsoring and pushing the development of Arrow and Arrow Meta
 
 ---
 
