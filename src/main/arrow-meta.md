@@ -1,5 +1,5 @@
 <!-- .slide: data-background="css/images/background-dark.svg" -->
-<!-- .slide: class="background-dark" -->
+<!-- .slide: git checoutclass="background-dark" -->
 
 # Who are we?
 
