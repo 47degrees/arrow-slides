@@ -36,23 +36,19 @@ and she is Raquel from Spain and we are engineers at 47 Degrees.
 
 Note:
 
-[Amanda]
+[Raquel]
 
-In order to explain what we are doing right now, we are going to contextualize the situation very briefly.
+A long time ago, Arrow was born to be the functional companion of the Kotlin standard library.
 
 ---
 
-![Arrow history](css/images/history-next-step.jpg)
+(logo de Arrow)
 
 Note:
 
-[Raquel]
-
-Everything started when trying to add more functional capabilities to the language among a group of people in a Spanish Slack. Kategory library was born and then Arrow when joining efforts with another library, Funktionale. 
-
 [Amanda]
 
-Who of you are using Arrow? 
+Who of you are using Arrow?
 
 Great! What's the next step? What things couldn't be done with the library?
 
