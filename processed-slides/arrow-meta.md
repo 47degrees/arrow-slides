@@ -36,23 +36,19 @@ and she is Raquel from Spain and we are engineers at 47 Degrees.
 
 Note:
 
-[Amanda]
+[Raquel]
 
-In order to explain what we are doing right now, we are going to contextualize the situation very briefly.
+A long time ago, Arrow was born to be the functional companion of the Kotlin standard library.
 
 ---
 
-![Arrow history](css/images/history-next-step.jpg)
+(logo de Arrow)
 
 Note:
 
-[Raquel]
-
-Everything started when trying to add more functional capabilities to the language among a group of people in a Spanish Slack. Kategory library was born and then Arrow when joining efforts with another library, Funktionale. 
-
 [Amanda]
 
-Who of you are using Arrow? 
+Who of you are using Arrow?
 
 Great! What's the next step? What things couldn't be done with the library?
 
@@ -470,7 +466,19 @@ Note:
 
 [Raquel]
 
-One of the reasons to build Arrow Meta was to support a set of use cases to improve the state of functional programming in Kotlin.
+Arrow Meta provides some plugins by default though other plugins can be added. For example, you can do transformations.
+
+---
+
+<video>
+   <source src="../css/videos/hello-world.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+Note:
+
+[Raquel]
+
+(explain the animation)
 
 ---
 
@@ -489,7 +497,9 @@ Note:
 
 [Raquel]
 
-Currently Higher Kinded Types involve a lot of boilerplate in Arrow so we can remove it with Arrow Meta
+On the other hand, one of the reasons to build Arrow Meta was to support a set of use cases to improve the state of functional programming in Kotlin.
+
+Currently Higher Kinded Types involve a lot of boilerplate in Arrow so we can remove it with Arrow Meta.
 
 ---
 
