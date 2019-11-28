@@ -193,7 +193,7 @@ Are you ready? Let's start...
 ---
 
 <video data-autoplay>
-   <source src="../css/videos/compil_1.mp4" type="video/mp4"> Your browser does not support the video tag.
+   <source src="css/videos/compil_1.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 Note:
@@ -205,7 +205,7 @@ Firstly, we write some code.
 ---
 
 <video data-autoplay>
-   <source src="../css/videos/compil_2.mp4" type="video/mp4"> Your browser does not support the video tag.
+   <source src="css/videos/compil_2.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 Note:
@@ -219,7 +219,7 @@ That tree is compatible with Jetbrain's PSI, Programming Structure Interface, us
 ---
 
 <video data-autoplay>
-   <source src="../css/videos/compil_3.mp4" type="video/mp4"> Your browser does not support the video tag.
+   <source src="css/videos/compil_3.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 Note:
@@ -232,7 +232,7 @@ These descriptors can be used during code generation to render the code, or to b
 ---
 
 <video data-autoplay>
-   <source src="../css/videos/compil_4.mp4" type="video/mp4"> Your browser does not support the video tag.
+   <source src="css/videos/compil_4.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 Note:
@@ -247,7 +247,7 @@ If the compiler reaches this point then the code will move to code generation.
 ---
 
 <video data-autoplay>
-   <source src="../css/videos/compil_5.mp4" type="video/mp4"> Your browser does not support the video tag.
+   <source src="css/videos/compil_5.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 Note:
@@ -259,7 +259,7 @@ Where we'll get the bytecode to be run in any of the available platforms.
 ---
 
 <video data-autoplay>
-   <source src="../css/videos/compil_6.mp4" type="video/mp4"> Your browser does not support the video tag.
+   <source src="css/videos/compil_6.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 Note:
@@ -283,7 +283,7 @@ Yeah! What are we doing with Arrow Meta?
 ---
 
 <video data-autoplay>
-   <source src="../css/videos/arrow-meta_2.mp4" type="video/mp4"> Your browser does not support the video tag.
+   <source src="css/videos/arrow-meta_2.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 Note:
@@ -297,7 +297,7 @@ AST is modelled as the PSI model whichs IDEA uses, due to this the compiler can 
 ---
 
 <video data-autoplay>
-   <source src="../css/videos/arrow-meta_3.mp4" type="video/mp4"> Your browser does not support the video tag.
+   <source src="css/videos/arrow-meta_3.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 Note:
@@ -325,13 +325,13 @@ Typechecking (isSubtypeOf, isEqualTypes) => where constraints are consumed by th
 ---
 
 <video data-autoplay>
-   <source src="../css/videos/arrow-meta_5.mp4" type="video/mp4"> Your browser does not support the video tag.
+   <source src="css/videos/arrow-meta_5.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 ---
 
 <video data-autoplay>
-   <source src="../css/videos/arrow-meta_6.mp4" type="video/mp4"> Your browser does not support the video tag.
+   <source src="css/videos/arrow-meta_6.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 
@@ -731,7 +731,7 @@ Everybody is welcome, join us and help us build: (read the list)
 ### Thanks to everyone that makes Λrrow possible!
 
 <video data-autoplay data-loop>
-   <source src="../css/videos/photos-loop.mp4" type="video/mp4"> Your browser does not support the video tag.
+   <source src="css/videos/photos-loop.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 Note:
