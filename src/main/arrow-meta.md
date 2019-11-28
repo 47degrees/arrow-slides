@@ -470,7 +470,19 @@ Note:
 
 [Raquel]
 
-One of the reasons to build Arrow Meta was to support a set of use cases to improve the state of functional programming in Kotlin.
+Arrow Meta provides some plugins by default though other plugins can be added. For example, you can do transformations.
+
+---
+
+<video>
+   <source src="../css/videos/hello-world.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+Note:
+
+[Raquel]
+
+(explain the animation)
 
 ---
 
@@ -489,7 +501,9 @@ Note:
 
 [Raquel]
 
-Currently Higher Kinded Types involve a lot of boilerplate in Arrow so we can remove it with Arrow Meta
+On the other hand, one of the reasons to build Arrow Meta was to support a set of use cases to improve the state of functional programming in Kotlin.
+
+Currently Higher Kinded Types involve a lot of boilerplate in Arrow so we can remove it with Arrow Meta.
 
 ---
 
