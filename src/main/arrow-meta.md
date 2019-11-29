@@ -460,7 +460,7 @@ Note:
 
 [Raquel]
 
-Arrow Meta provides some plugins by default though other plugins can be added. For example, you can do transformations.
+Arrow Meta provides some plugins by default though other plugins can be added. For example, you can create a plugin to make transformations.
 
 ---
 

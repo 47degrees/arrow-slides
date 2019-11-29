@@ -15,3 +15,4 @@ css/reveal.min.css
 js/reveal.min.js
 .gradle/
 build/
+processed-slides/
