@@ -4,8 +4,8 @@
  */
 
 // Default mixins and settings -----------------
-@import "../template/mixins";
-@import "../template/settings";
+@import "theme/template/mixins";
+@import "theme/template/settings";
 
 // ---------------------------------------------
 // Include theme-specific fonts
@@ -37,8 +37,7 @@ $headingLetterSpacing: normal;
 $headingTextTransform: uppercase;
 $headingFontWeight: 600;
 
-$codeFont: "Iosevka Web",
-sans-serif;
+$codeFont: "Iosevka Web", sans-serif;
 
 
 $heading1Size: 2.5em;
