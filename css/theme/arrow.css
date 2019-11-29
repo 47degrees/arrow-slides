@@ -293,7 +293,7 @@ body {
 
 .reveal ul {
   list-style-type: none;
-  list-style-image: url("css/images/arrow-bullet.svg"); }
+  list-style-image: url("images/arrow-bullet.svg"); }
   .reveal ul li {
     padding-left: 8px;
     margin-bottom: 32px; }
