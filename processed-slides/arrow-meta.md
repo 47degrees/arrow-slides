@@ -1,6 +1,3 @@
-<!-- .slide: data-background="css/images/background-dark.svg" -->
-<!-- .slide: git checoutclass="background-dark" -->
-
 # Who are we?
 
 Note:
@@ -29,9 +26,6 @@ and she is Raquel from Spain and we are engineers at 47 Degrees.
 
 ---
 
-<!-- .slide: data-background="css/images/background-dark.svg" -->
-<!-- .slide: class="background-dark" -->
-
 ## ```A long time ago in a galaxy far, far away...```
 
 Note:
@@ -54,7 +48,7 @@ Great! What's the next step? What things couldn't be done with the library?
 
 ---
 
-### What things couldn't be done with the library?
+## What things couldn't be done with the library?
 
 * No checks at compile runtime
 * Boilerplate for doing some things
