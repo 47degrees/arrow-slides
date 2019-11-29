@@ -265,7 +265,7 @@ And everything is done! And now let's see how we can add more features to the Ko
 ---
 
 <video data-autoplay>
-   <source src="../css/videos/arrow-meta_1.mp4" type="video/mp4"> Your browser does not support the video tag.
+   <source src="css/videos/arrow-meta_1.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 Note:
@@ -305,7 +305,7 @@ I.e. IntelliJ and Codegen can use this to render code or tooling
 ---
 
 <video data-autoplay>
-   <source src="../css/videos/arrow-meta_4.mp4" type="video/mp4"> Your browser does not support the video tag.
+   <source src="css/videos/arrow-meta_4.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 Note:
@@ -465,7 +465,7 @@ Arrow Meta provides some plugins by default though other plugins can be added. F
 ---
 
 <video>
-   <source src="../css/videos/hello-world.mp4" type="video/mp4"> Your browser does not support the video tag.
+   <source src="css/videos/hello-world.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 Note:
@@ -603,7 +603,7 @@ or not to have to pass manually all the type class instances on the call side.
 ---
 
 <video>
-   <source src="../css/videos/comprehensions-ide.mp4" type="video/mp4"> Your browser does not support the video tag.
+   <source src="css/videos/comprehensions-ide.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 Note:
@@ -615,7 +615,7 @@ We can see how we get icons in the left side and even explanations for the devel
 ---
 
 <video>
-   <source src="../css/videos/purity-ide.mp4" type="video/mp4"> Your browser does not support the video tag.
+   <source src="css/videos/purity-ide.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
 Note:
