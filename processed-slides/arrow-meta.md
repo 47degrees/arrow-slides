@@ -191,6 +191,10 @@ Are you ready to know more about it? Before explaining the new product, we are g
 
 ## The Kotlin Compiler
 
+Note:
+
+[Raquel]
+
 ---
 
 <video data-autoplay>
@@ -335,6 +339,12 @@ Typechecking (isSubtypeOf, isEqualTypes) => where constraints are consumed by th
    <source src="css/videos/arrow-meta_5.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
 
+Note:
+
+[Amanda]
+
+(TODO)
+
 ---
 
 <video data-autoplay>
@@ -382,6 +392,10 @@ Note:
 <!-- .slide: class="background-dark" -->
 
 # Quotes
+
+Note:
+
+[Amanda]
 
 ---
 
@@ -763,14 +777,6 @@ Note:
 [Amanda]
 
 Thanks to all the people who are bootstraping Meta. Not only we are here but also more people who started the project as Raúl Raja and Simon Vergauwen so you can make questions to them as well and special thanks to Jorge Castillo who couldn't be here today.
-
----
-
-#### Everybody is welcome!
-
-Note:
-
-[Amanda]
 
 Everybody is welcome, join us! 
 
