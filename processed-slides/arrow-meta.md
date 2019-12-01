@@ -648,7 +648,7 @@ The Gradle plugin which enables Arrow Meta compiler plugin in your project.
 
 The IDEA plugin which to bring the best experience to the user.
 
-And a testing plugin, right? Raquel?
+And a testing plugin
 
 ---
 
@@ -658,7 +658,7 @@ Note:
 
 [Raquel]
 
-Yes, ...
+(TODO)
 
 ---
 
