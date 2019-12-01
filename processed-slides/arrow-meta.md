@@ -158,7 +158,7 @@ We wanted to create type classes features in Arrow and we realized that the enti
 
 However, there wasn't enough documentation about the Kotlin compiler and we wanted to fill that gap for the community.
 
-And, at the same time, to make functional programmin more ergonomic that is today.
+And, at the same time, to make functional programming more ergonomic that is today.
 
 ---
 
