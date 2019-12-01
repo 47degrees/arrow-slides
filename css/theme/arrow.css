@@ -2,8 +2,8 @@
  * Arrow clear theme for reveal.js.
  *
  */
-@import url(../../lib/font/iosevka/iosevka.css);
-@import url(../../lib/font/open-sans/open-sans.css);
+@import url("/lib/font/iosevka/iosevka.css");
+@import url("/lib/font/open-sans/open-sans.css");
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
@@ -293,7 +293,7 @@ body {
 
 .reveal ul {
   list-style-type: none;
-  list-style-image: url("../../../css/images/arrow-bullet.svg"); }
+  list-style-image: url("/css/images/arrow-bullet.svg"); }
   .reveal ul li {
     padding-left: 8px;
     margin-bottom: 32px; }
