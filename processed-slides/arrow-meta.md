@@ -134,7 +134,9 @@ Note:
 
 Yes, let's think! We compile Kotlin source code. BTW! The Kotlin compiler doesn't transpile Java code as some people think. It's a compiler!
 
-**Comment**: Isra, Jetro, this is an example of bytecode:
+**Comment**: Isra, Jetro, `.kt` files are **source code** and `.class` files are **bytecode**.
+
+This is an example of bytecode:
 
 ![](css/images/bytecode.png)
 
