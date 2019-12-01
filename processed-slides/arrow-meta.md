@@ -580,7 +580,7 @@ Note:
 
 ---
 
-## Combining types...
+### Combining types...
 
 Note:
 
