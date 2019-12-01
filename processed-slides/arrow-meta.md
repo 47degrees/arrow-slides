@@ -136,7 +136,7 @@ Yes, let's think! We compile Kotlin source code. BTW! The Kotlin compiler doesn'
 
 **Comment**: Isra, Jetro, this is an example of bytecode:
 
-![](css/images/bytecode.jpg)
+![](css/images/bytecode.png)
 
 Something like Matrix?
 
