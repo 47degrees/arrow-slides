@@ -51,7 +51,7 @@ Note:
 
 And it seems a library is the common way to add more functional capabilities to a programming language like Cats library for Scala, Bow for Swift or VAVR for Java.
 
-However, we could do something else, right, Raquel?
+However, we wanted do something else.
 
 ---
 
@@ -61,7 +61,7 @@ Note:
 
 [Raquel]
 
-Yes, let's think! We compile Kotlin source code. BTW! The Kotlin compiler doesn't transpile Java code as some people think. It's a compiler!
+Let's think, we compile Kotlin source code. BTW! The Kotlin compiler doesn't transpile Java code as some people think. It's a compiler!
 
 ---
 
@@ -111,8 +111,6 @@ Really useful, right?
 
 It also exists a forum, an issue tracker and a way to contribute to the language.
 
-Isn't it, Raquel?
-
 ---
 
 ![](css/images/sources-of-contact-2.jpg)
@@ -121,7 +119,7 @@ Note:
 
 [Raquel]
 
-Right Amanda, there is a way to contribute to the language, KEEP.
+KEEP.
 
 It means Kotlin Evolution and Enhancement Process
 
@@ -146,7 +144,7 @@ Note:
 
 [Raquel]
 
-Yes! We created this pull request where we explained how to create compile-time extension interfaces.
+We created this pull request where we explained how to create compile-time extension interfaces.
 
 We wanted to create type classes features in Arrow and we realized that the entire community was heavilty dependent to the compiler plugins like serialization, allOpen and Android extensions, all of them companions for the Kotlin compiler. 
 
@@ -186,14 +184,6 @@ Note:
 [Raquel]
 
 Are you ready to know more about it? Before explaining the new product, we are going to know how Kotlin Compiler works.
-
----
-
-## The Kotlin Compiler
-
-Note:
-
-[Raquel]
 
 ---
 
@@ -536,19 +526,22 @@ I mean, union types or sum types in general.
 
 ---
 
-```
-sealed class Choice {
-
-  data class OneType(
-    ...
-  ) : Choice()
-
-  data class AnotherType(
-    ...
-  ) : Choice()
-
-  ...
-}
+```diff
+-sealed class Choice {
+-
+-  data class OneType(
+-    ...
+-  ) : Choice()
+-
+-  data class AnotherType(
+-    ...
+-  ) : Choice()
+-
+-  ...
+-}
+-
+-val choice = OneType(...)
++val choice: Union<OneType, AnotherType> = OneType(...)
 ```
 
 Note:
@@ -579,9 +572,7 @@ So we provide a plugin in Arrow Meta to be able to define choices in this way.
 build.gradle
 
 ```
-plugins {
-  id "io.arrow-kt.arrow" version "1.3.60-14-1282bb9"
-}
+plugins { id "io.arrow-kt.arrow" version "<version>" }
 ```
 
 Note:
