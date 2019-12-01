@@ -35,19 +35,13 @@ and she is Raquel from Spain and we are engineers at 47 Degrees.
 
 ---
 
-## ```A long time ago in a galaxy far, far away...```
+![](css/images/arrow.svg)
 
 Note:
 
 [Raquel]
 
-A long time ago, Arrow was born to be the functional companion of the Kotlin standard library.
-
----
-
-![](css/images/arrow.svg)
-
-Note:
+A long time ago in a galaxy far, far away, Arrow was born to be the functional companion of the Kotlin standard library.
 
 [Amanda]
 
