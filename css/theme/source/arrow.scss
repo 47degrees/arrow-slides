@@ -4,14 +4,14 @@
  */
 
 // Default mixins and settings -----------------
-@import "theme/template/mixins";
-@import "theme/template/settings";
+@import "../template/mixins";
+@import "../template/settings";
 
 // ---------------------------------------------
 // Include theme-specific fonts
 //@import url(../../lib/font/open-sans/open-sans.css);
-@import url(../lib/font/iosevka/iosevka.css);
-@import url(../lib/font/open-sans/open-sans.css);
+@import url(../../lib/font/iosevka/iosevka.css);
+@import url(../../lib/font/open-sans/open-sans.css);
 
 
 // Background of the presentation
@@ -37,7 +37,8 @@ $headingLetterSpacing: normal;
 $headingTextTransform: uppercase;
 $headingFontWeight: 600;
 
-$codeFont: "Iosevka Web", sans-serif;
+$codeFont: "Iosevka Web",
+sans-serif;
 
 
 $heading1Size: 2.5em;
@@ -102,7 +103,7 @@ $selectionColor: #fff;
 .reveal {
     ul {
         list-style-type: none;
-        list-style-image: url('images/arrow-bullet.svg');
+        list-style-image: url('../../../css/images/arrow-bullet.svg');
 
         li {
             padding-left: 8px;
@@ -144,7 +145,7 @@ video {
 
 .reveal {
     section {
-        &.top-content {
+
             // Comment-uncomment the following 3 lines to have a centered content
             // slides effect or not
             display: flex !important;
@@ -153,15 +154,6 @@ video {
             overflow-y: auto !important;
             overflow-x: auto !important;
             height: 100%;
-        }
-        
-        &.background-dark {
-
-            
-            h1, h2, h3, h4, h5, p, ul, li {
-                color: #fff;
-            }
-        }
 
         &:hover {
             overflow-y: auto !important;

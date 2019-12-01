@@ -293,7 +293,7 @@ body {
 
 .reveal ul {
   list-style-type: none;
-  list-style-image: url("images/arrow-bullet.svg"); }
+  list-style-image: url("../../../css/images/arrow-bullet.svg"); }
   .reveal ul li {
     padding-left: 8px;
     margin-bottom: 32px; }
@@ -317,19 +317,15 @@ video:focus {
 /*********************************************
  * SECTION
  *********************************************/
-.reveal section.top-content {
+.reveal section {
   display: flex !important;
   flex-direction: column !important;
   justify-content: flex-start !important;
   overflow-y: auto !important;
   overflow-x: auto !important;
   height: 100%; }
-
-.reveal section.background-dark h1, .reveal section.background-dark h2, .reveal section.background-dark h3, .reveal section.background-dark h4, .reveal section.background-dark h5, .reveal section.background-dark p, .reveal section.background-dark ul, .reveal section.background-dark li {
-  color: #fff; }
-
-.reveal section:hover {
-  overflow-y: auto !important; }
+  .reveal section:hover {
+    overflow-y: auto !important; }
 
 .reveal .long-list {
   display: flex !important;
