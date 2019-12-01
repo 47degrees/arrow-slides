@@ -15,16 +15,6 @@ Maybe the first slide will be shown firstly during a few minutes.
 
 ---
 
-# Who are we?
-
-Note:
-
-[Raquel] 
-
-Ok, so let's start! Thanks for comming!
-
----
-
 Amanda Hinchman [@hinchman_amanda](https://twitter.com/hinchman_amanda)
 
 Raquel M. Carmena [@bberrycarmen](https://twitter.com/bberrycarmen)
@@ -34,6 +24,8 @@ Raquel M. Carmena [@bberrycarmen](https://twitter.com/bberrycarmen)
 Note:
 
 [Raquel] 
+
+Ok, so let's start! Thanks for comming!
 
 She is Amanda from Chicago where she's the organizer of Kotlin User Group
 
