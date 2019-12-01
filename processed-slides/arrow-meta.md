@@ -35,13 +35,9 @@ Note:
 
 A long time ago in a galaxy far, far away, Arrow was born.
 
-[Amanda]
-
 Who of you are using Arrow?
 
 Great!
-
-[Raquel]
 
 For those who don't know Arrow, it's the functional companion of the Kotlin standard library.
 
@@ -54,8 +50,6 @@ Note:
 [Raquel]
 
 And it seems a library is the common way to add more functional capabilities to a programming language like Cats library for Scala, Bow for Swift or VAVR for Java.
-
-[Amanda]
 
 However, we could do something else, right, Raquel?
 
@@ -95,7 +89,7 @@ What if we focus on the Kotlin compiler?
 
 Note:
 
-[Amanda]
+[Raquel]
 
 So it was the time to contact Kotlin community.
 
@@ -105,7 +99,7 @@ So it was the time to contact Kotlin community.
 
 Note: 
 
-[Amanda]
+[Raquel]
 
 Kotlin provides several sources of contact.
 
@@ -150,7 +144,7 @@ So here we go!
 
 Note:
 
-[Amanda]
+[Raquel]
 
 Yes! We created this pull request where we explained how to create compile-time extension interfaces.
 
@@ -166,7 +160,7 @@ And, at the same time, to make functional programming more ergonomic that is tod
 
 Note:
 
-[Amanda]
+[Raquel]
 
 And we received a lot of feedback
 
@@ -652,7 +646,7 @@ ARROW META
 
 Note:
 
-[Amanda]
+[Raquel]
 
 The project of Arrow Meta is organized in several modules.
 
@@ -680,7 +674,7 @@ Yes, ...
 
 Note:
 
-[Amanda]
+[Raquel]
 
 (TODO)
 
@@ -693,7 +687,7 @@ Note:
 
 Note:
 
-[Amanda]
+[Raquel]
 
 And we have an important message
 
@@ -705,13 +699,11 @@ And we have an important message
 
 Note:
 
-[Amanda]
+[Raquel]
 
 Arrow is the functional companion to Kotlin standard library and follows the same principle
 
 Arrow Meta is the functional companion to Kotlin compiler and also follows the same principle
-
-[Raquel]
 
 And any feature from Arrow, Arrow Meta or the plugins which is adopted by the language will be removed, including Meta itself.
 
