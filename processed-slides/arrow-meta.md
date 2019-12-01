@@ -174,11 +174,7 @@ So it was the time to contact Kotlin team.
 
 ---
 
-### Kotlin: Sources of contact
-
-* KotlinLang Slack: kotlinlang.slack.com
-* Kotlin Forum: discuss.kotlinlang.org
-* Issue tracker: youtrack.jetbrains.com/issues/KT
+![](css/images/sources-of-contact-1.jpg)
 
 Note: 
 
@@ -198,15 +194,15 @@ Isn't it, Raquel?
 
 ---
 
-### KEEP: Kotlin Evolution and Enhancement Process
-
-* https://github.com/Kotlin/KEEP
+![](css/images/sources-of-contact-2.jpg)
 
 Note:
 
 [Raquel]
 
 Right Amanda, there is another source of contact, KEEP.
+
+Kotlin Evolution and Enhancement Process
 
 1. KEEP is hosted in GitHub
 
