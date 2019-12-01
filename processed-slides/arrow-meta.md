@@ -108,6 +108,24 @@ Just to show you some examples about how we wanted to reduce the boilerplate.
 ---
 
 ```diff
+data class GithubUser(val id: Int)
+
+val ids = listOf(1, 2, 3, 4)
+fun getUser(id: Int): IO<GithubUser> = IO { GithubUser(id) }
+
+-val result = ids.traverse(IO.applicative(), ::getUser).fix()
++val result = ids.traverse(::getUser)
+```
+
+Note:
+
+[Amanda]
+
+It seems really useful, right?
+
+---
+
+```diff
 -gist.copy(
 -  owner = gist.owner.copy(
 -    login = gist.owner.login.toUpperCase()
@@ -118,9 +136,9 @@ Just to show you some examples about how we wanted to reduce the boilerplate.
 
 Note:
 
-[Amanda]
+[Raquel]
 
-However, not only to reduce the boilerplate but also to simplify some things in order not to need functional programming knowledge to do some things like getters.
+However, not only to reduce the boilerplate but also to simplify some things to bring functional features much closer to the developers even without the need of having knowledge about optics.
 
 So what if we change the target?
 
@@ -346,7 +364,7 @@ Note:
 
 [Raquel]
 
-And everything is done! And now let's see how we can add more features to the Kotlin compiler through metaprogramming.
+And everything is done! And now let's see how we can add more features to the Kotlin compiler through metaprogramming with Arrow Meta.
 
 ---
 
@@ -431,7 +449,7 @@ Note:
 
 [Raquel]
 
-And Arrow Meta was born. Let's see some characteristics in detail
+So Arrow Meta was born. Let's see some characteristics in detail
 
 ---
 
@@ -562,106 +580,6 @@ Note:
 
 ---
 
-## Higher Kinded Types
- 
-```diff
-- class ForOption private constructor() { companion object }
-- typealias OptionOf<A> = arrow.Kind<ForOption, A>
-- inline fun <A> OptionOf<A>.fix(): Option<A> =
--   this as Option<A>
-- @higherkind class Option<A> : OptionOf<A>
-+ @higherkind class Option<A>
-```
-
-Note:
-
-[Raquel]
-
-On the other hand, one of the reasons to build Arrow Meta was to support a set of use cases to improve the state of functional programming in Kotlin.
-
-Currently Higher Kinded Types involve a lot of boilerplate in Arrow so we can remove it with Arrow Meta.
-
----
-
-## Higher Kinded Types
-
-```diff
-  fun <F> getUser(FF: Functor<F> = with): Kind<F, User> = TODO()
-- val y: Option<User> = getUser<ForOption>().fix()
-+ val y: Option<User> = getUser()
-```
-
-Note:
-
-[Raquel]
-
-but more interesting is that we can make use of the type checker to avoid calls that we were using to fix some types.
-
----
-
-## Optics
-
-```diff
--gist.copy(
--  owner = gist.owner.copy(
--    login = gist.owner.login.toUpperCase()
--  )
--)
-+Gist.owner.login.modify(gist, String::toUpperCase)
-```
-
-Note:
-
-[Raquel]
-
-Also we can generate optics over inmutable data structures and provide a dot based syntax which is more familiar to the users, even without the need ok knowing about optics, so we can bring this functional features much closer to the developers.
-
----
-
-## Comprehensions
-
-```diff
--service1().flatMap { result1 ->
--  service2(result1).flatMap { result2 ->
--    service3(result2).map { result3 ->
--       Result(result3)
--    }
--  }
--}
-+val result1 by service1()
-+val result2 by service2(result1)
-+val result3 by service3(result2)
-+Result(result3)
-```
-
-Note:
-
-[Raquel]
-
-Besides we can bring comprehensions syntax to the user.
-
----
-
-## Type classes
-
-```diff
--fun <A, G, B> OptionOf<A>.traverse(GA: Applicative<G>, f: (A) -> Kind<G, B>): Kind<G, Option<B>> =
--  GA.run {
--    fix().fold({ just(None) }, { f(it).map { Some(it) } })
--  }
-+fun <A, G, B> Option<A>.traverse(GA: Applicative<G> = with, f: (A) -> Kind<G, B>): Kind<G, Option<B>> =
-+  fold({ just(None) }, { f(it).map { Some(it) } })
-```
-
-Note:
-
-[Raquel]
-
-Remove a lot of boilerplate with type classes.
-
----
-
-## Type classes
 
 ```diff
 data class GithubUser(val id: Int)
