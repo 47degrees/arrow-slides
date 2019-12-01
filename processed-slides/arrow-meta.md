@@ -1,3 +1,12 @@
+
+![](css/images/KotlinConf-first-slide.jpg)
+
+Note:
+
+REMOVE: This is here as a reminder. We must talk to KotlinConf organization to change the title of the talk or to write the original title in the first slide as KotlinConf organization is asking. In other way, we'll have problems as soon as we start! I received several emails about it and I think it's related with vote system. If we don't show the real title people won't be able to vote. Arrow Meta won't appear on vote system. Maybe the first slide will be shown firstly during a few minutes.
+
+---
+
 # Who are we?
 
 Note:
@@ -771,3 +780,12 @@ Please, remember to vote!
 [Both]
 
 Thank you!
+
+---
+
+![](css/images/KotlinConf-first-slide.jpg)
+
+Note:
+
+REMOVE: This is here just to show the requirement by KotlinConf organization
+
