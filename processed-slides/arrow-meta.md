@@ -45,7 +45,7 @@ A long time ago, Arrow was born to be the functional companion of the Kotlin sta
 
 ---
 
-(logo de Arrow)
+![](css/images/arrow.svg)
 
 Note:
 
@@ -53,21 +53,76 @@ Note:
 
 Who of you are using Arrow?
 
-Great! What's the next step? What things couldn't be done with the library?
+Great!
 
 ---
 
-## What things couldn't be done with the library?
+![](css/images/functional-companions.jpg)
 
-* No checks at compile runtime
-* Boilerplate for doing some things
-* ...
+Note:
+
+[Raquel]
+
+And it seems a library is the common way to add more functional capabilities to a programming language.
+
+For instance, some examples, Cats for Scala, Bow for Swift and VAVR for Java.
+
+[Amanda]
+
+However, there were things that we wanted to improve. 
+
+---
+
+```diff
+- class ForOption private constructor() { companion object }
+- typealias OptionOf<A> = arrow.Kind<ForOption, A>
+- inline fun <A> OptionOf<A>.fix(): Option<A> =
+-   this as Option<A>
+- @higherkind class Option<A> : OptionOf<A>
++ @higherkind class Option<A>
+```
 
 Note:
 
 [Amanda]
 
-(read the list) So what if we change the target?
+For example, boilerplate for doing some things.
+
+---
+
+```diff
+-fun <A, G, B> OptionOf<A>.traverse(GA: Applicative<G>, f: (A) -> Kind<G, B>): Kind<G, Option<B>> =
+-  GA.run {
+-    fix().fold({ just(None) }, { f(it).map { Some(it) } })
+-  }
++fun <A, G, B> Option<A>.traverse(GA: Applicative<G> = with, f: (A) -> Kind<G, B>): Kind<G, Option<B>> =
++  fold({ just(None) }, { f(it).map { Some(it) } })
+```
+
+Note:
+
+[Amanda]
+
+Just to show you some examples about how we wanted to reduce the boilerplate.
+
+---
+
+```diff
+-gist.copy(
+-  owner = gist.owner.copy(
+-    login = gist.owner.login.toUpperCase()
+-  )
+-)
++Gist.owner.login.modify(gist, String::toUpperCase)
+```
+
+Note:
+
+[Amanda]
+
+However, not only to reduce the boilerplate but also to simplify some things in order not to need functional programming knowledge to do some things like getters.
+
+So what if we change the target?
 
 ---
 
@@ -77,7 +132,13 @@ Note:
 
 [Raquel]
 
-Yes, let's think. We compile Kotlin source code. BTW! The Kotlin compiler doesn't transpile Java code as some people think. It's a compiler!
+Yes, let's think! We compile Kotlin source code. BTW! The Kotlin compiler doesn't transpile Java code as some people think. It's a compiler!
+
+**Comment**: Isra, Jetro, this is an example of bytecode:
+
+![](css/images/bytecode.jpg)
+
+Something like Matrix?
 
 ---
 
@@ -127,9 +188,11 @@ Maybe the most known is KotlinLang Slack.
 
 Who of you are in KotlinLang Slack?
 
+Really useful, right?
+
 It also exists a forum, an issue tracker and another one.
 
-Right, Raquel?
+Isn't it, Raquel?
 
 ---
 
