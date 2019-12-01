@@ -580,22 +580,96 @@ Note:
 
 ---
 
+## Combining types...
 
-```diff
-data class GithubUser(val id: Int)
+Note:
 
-val ids = listOf(1, 2, 3, 4)
-fun getUser(id: Int): IO<GithubUser> = IO { GithubUser(id) }
+[Raquel]
 
--val result = ids.traverse(IO.applicative(), ::getUser).fix()
-+val result = ids.traverse(::getUser)
+Let's see another example of plugin.
+
+One of the elements of functional programming is types and we combine types to create new types, composite types.
+
+---
+
+```
+Either.Right(5)
+Either.Left("Something went wrong")
 ```
 
 Note:
 
 [Raquel]
 
-or not to have to pass manually all the type class instances on the call side.
+Maybe one of the most known composite types is `Either` which represents the choice between 2 types of values. 
+
+One of them is the expected value, the right part.
+
+And the another one, left part, stores information in case there is a failure when trying to get the right value.
+
+So it's commonly used to handle errors in case of throwing exceptions.
+
+It's an example of union types or sum types. There are called sum or union because if you calculate the number of different values of this type is the sum of the different values of the right part and the different values of the left part.
+
+However, with Either, we have 2 limits: it just considers 2 types in right and left and it has a special meaning because the right part is used with a purpose and the left part is used with another one.
+
+What if we want to combine types in this way, a choice, but a choice between more than 2 types?
+
+I mean, union types or sum types in general.
+
+---
+
+```
+sealed class Choice {
+
+  data class OneType(
+    ...
+  ) : Choice()
+
+  data class AnotherType(
+    ...
+  ) : Choice()
+
+  ...
+}
+```
+
+Note:
+
+[Raquel]
+
+How do we represent this kind of choices right now?
+
+With sealed classes so must to write a lot of boilerplate to get it.
+
+---
+
+```
+val a: Union<String, Int> = 1
+val b: Union<String, Int> = "ok"
+```
+
+Note:
+
+[Raquel]
+
+So we provide a plugin in Arrow Meta to be able to define choices in this way.
+
+**a** and **b** can have a value of 2 possible types, String or Integer.
+
+---
+
+```
+val a: Union<String, Int, AnotherType> = 1
+val b: Union<String, Int, AnotherType> = "ok"
+val c: Union<String, Int, AnotherType> = AnotherType(...)
+```
+
+Note:
+
+[Raquel]
+
+Or more options in the choice without a special meaning to be in a concrete position.
 
 ---
 
