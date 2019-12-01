@@ -3,7 +3,15 @@
 
 Note:
 
-REMOVE: This is here as a reminder. We must talk to KotlinConf organization to change the title of the talk or to write the original title in the first slide as KotlinConf organization is asking. In other way, we'll have problems as soon as we start! I received several emails about it and I think it's related with vote system. If we don't show the real title people won't be able to vote. Arrow Meta won't appear on vote system. Maybe the first slide will be shown firstly during a few minutes.
+REMOVE: This is here as a reminder. We must talk to KotlinConf organization to change the title of the talk or to write the original title in the first slide as KotlinConf organization is asking.
+
+In other way, we'll have problems as soon as we start! 
+
+I received several emails about it and I think it's related with vote system. If we don't show the real title people won't be able to vote. 
+
+Arrow Meta won't appear on vote system. 
+
+Maybe the first slide will be shown firstly during a few minutes.
 
 ---
 
@@ -113,38 +121,43 @@ So it was the time to contact Kotlin team.
 
 ### Kotlin: Sources of contact
 
-* KolinLang Slack
-* Kotlin Forum: https://discuss.kotlinlang.org
-* Issue tracker: https://youtrack.jetbrains.com/issues/KT
+* KotlinLang Slack: kotlinlang.slack.com
+* Kotlin Forum: discuss.kotlinlang.org
+* Issue tracker: youtrack.jetbrains.com/issues/KT
 
 Note: 
 
 [Amanda]
 
-Kotlin provides several sources of contact (mention the sources) and another one.
+Kotlin provides several sources of contact.
+
+Maybe the most known is KotlinLang Slack.
+
+Who of you are in KotlinLang Slack?
+
+It also exists a forum, an issue tracker and another one.
+
+Right, Raquel?
 
 ---
 
 ### KEEP: Kotlin Evolution and Enhancement Process
 
 * https://github.com/Kotlin/KEEP
-* It holds proposals for Kotlin
-* New KEEPs are submitted as pull requests
-* Some KEEPs have their own repository
 
 Note:
 
 [Raquel]
 
-(read the list) 
+Right Amanda, there is another source of contact, KEEP.
 
-1. Hosted in GitHub
+1. KEEP is hosted in GitHub
 
-2. also known as KEEPs 
+2. It holds proposals for Kotlin also known as KEEPs 
 
-3. -
+3. New KEEPs are submitted as pull requests
 
-4. for specification and discussions
+4. Some KEEPs have their own repository for specification and discussions
 
 So here we go!
 
@@ -153,12 +166,13 @@ So here we go!
 ### KEEP-87
 
 ![KEEP-87](css/images/keep-87.png)
+![KEEP-87 reactions](css/images/keep-87-reactions.png)
 
 Note:
 
 [Amanda]
 
-We created this pull request where we explained how to create compile-time extension interfaces.
+Yes! We created this pull request where we explained how to create compile-time extension interfaces.
 
 ---
 
@@ -168,13 +182,17 @@ We created this pull request where we explained how to create compile-time exten
 - 85 commits
 - 56 participants
 
-![KEEP-87 reactions](css/images/keep-87-reactions.png)
-
 Note:
 
 [Amanda]
 
-And we received a lot of feedback (read the numbers) And we started working with all the received feedback!
+And we received a lot of feedback
+
+- 354 messages
+- 85 commits
+- 56 participants
+
+And we started working with all the received feedback!
 
 ---
 
@@ -187,11 +205,17 @@ Note:
 
 [Raquel]
 
-Are you ready? Let's start...
+Are you ready to know more about it?
 
 ---
 
 ## The Kotlin Compiler
+
+Note:
+
+[Raquel]
+
+Let's start knowing some things about Kotlin compiler.
 
 ---
 
@@ -783,7 +807,7 @@ Thank you!
 
 ---
 
-![](css/images/KotlinConf-first-slide.jpg)
+![](css/images/KotlinConf-last-slide.jpg)
 
 Note:
 
