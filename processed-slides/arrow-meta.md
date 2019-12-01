@@ -229,11 +229,7 @@ Yes! We created this pull request where we explained how to create compile-time 
 
 ---
 
-### Feedback
-
-- 354 messages
-- 85 commits
-- 56 participants
+![](css/images/feedback.jpg)
 
 Note:
 
@@ -241,9 +237,10 @@ Note:
 
 And we received a lot of feedback
 
-- 354 messages
+- 367 messages
 - 85 commits
-- 56 participants
+- 57 participants
+- 18 reviewers
 
 And we started working with all the received feedback!
 
