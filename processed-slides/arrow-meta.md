@@ -707,7 +707,66 @@ And we can alert to the developer about an impure function and add explanations 
 <!-- .slide: data-background="css/images/background-dark.svg" -->
 <!-- .slide: class="background-dark" -->
 
+# Current status
+
+Note:
+
+[Raquel]
+
+And what's the current status of the project?
+
+---
+
+![](css/images/pieces.jpg)
+
+Note:
+
+[Amanda]
+
+(TODO)
+
+---
+
+(testing)
+
+Note:
+
+[Raquel]
+
+(TODO)
+
+---
+
+(talk about the repository of examples)
+
+Note:
+
+[Amanda]
+
+(TODO)
+
+---
+
+(bot)
+
+Note:
+
+[Raquel]
+
+(TODO)
+
+---
+
+<!-- .slide: data-background="css/images/background-dark.svg" -->
+<!-- .slide: class="background-dark" -->
+
 # Disclaimer
+
+Note:
+
+[Amanda]
+
+And we have an important message
 
 ---
 
@@ -717,11 +776,13 @@ And we can alert to the developer about an impure function and add explanations 
 
 Note:
 
-[Raquel]
+[Amanda]
 
 Arrow is the functional companion to Kotlin standard library and follows the same principle
 
 Arrow Meta is the functional companion to Kotlin compiler and also follows the same principle
+
+[Raquel]
 
 And any feature from Arrow, Arrow Meta or the plugins which is adopted by the language will be removed, including Meta itself.
 
