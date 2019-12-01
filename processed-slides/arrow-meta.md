@@ -736,9 +736,7 @@ Note:
 
 ---
 
-### Thanks!
-
-Kotlin community
+### Thanks Kotlin community!
 
 Channels at KotlinLang Slack:
 
@@ -766,9 +764,7 @@ Thanks to 47 Degrees for sponsoring and pushing the development of Arrow and Arr
 
 ---
 
-### Thanks!
-
-A special thanks to the people bootstraping Meta
+### Thanks to the people bootstraping Arrow Meta!
 
 ![Meta contributors](css/images/meta-contributors.png)
 
@@ -782,6 +778,20 @@ Everybody is welcome, join us!
 
 ---
 
+### Thanks!
+
+Kotlin Compile Testing by Thilo Schuchort
+
+github.com/tschuchortdev/kotlin-compile-testing
+
+Note:
+
+[Raquel]
+
+Thanks to Thilo Schuchort for his amazing library to test compilations getting the result, log and classes. It has been very useful for us in order to be able to define the testing DSL.
+
+---
+
 ### Thanks to everyone that makes Λrrow possible!
 
 <video data-autoplay data-loop>
@@ -790,7 +800,7 @@ Everybody is welcome, join us!
 
 Note:
 
-[Raquel]
+[Amanda]
 
 Thanks to everyone that makes Λrrow possible! More than 150 contributors and they are increasing every week.
 
@@ -802,7 +812,7 @@ Thanks to everyone that makes Λrrow possible! More than 150 contributors and th
 
 Note:
 
-[Amanda]
+[Raquel]
 
 Thanks to everyone that makes Kotlin possible and last but not least...
 
