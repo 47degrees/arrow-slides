@@ -174,9 +174,6 @@ And we started working with all the received feedback!
 
 ---
 
-<!-- .slide: data-background="css/images/background-dark.svg" -->
-<!-- .slide: class="background-dark" -->
-
 # Are you ready?
 
 Note:
@@ -378,9 +375,6 @@ Note:
 
 ---
 
-<!-- .slide: data-background="css/images/background-dark.svg" -->
-<!-- .slide: class="background-dark" -->
-
 # Quotes
 
 Note:
@@ -484,10 +478,9 @@ Here we're rewriting our original code to `flatMap` based code, and by transform
 
 ---
 
-<!-- .slide: data-background="css/images/background-dark.svg" -->
-<!-- .slide: class="background-dark" -->
-
 # Other plugins
+
+---
 
 ### Combining types...
 
@@ -585,9 +578,6 @@ And what about Intellij IDEA?
 
 ---
 
-<!-- .slide: data-background="css/images/background-dark.svg" -->
-<!-- .slide: class="background-dark" -->
-
 # Bring your features to the editor!
 
 Note:
@@ -627,9 +617,6 @@ And we can alert to the developer about an impure function and add explanations 
 Besides, bring you security on functional programming.
 
 ---
-
-<!-- .slide: data-background="css/images/background-dark.svg" -->
-<!-- .slide: class="background-dark" -->
 
 # Current status
 
@@ -685,9 +672,6 @@ Note:
 
 ---
 
-<!-- .slide: data-background="css/images/background-dark.svg" -->
-<!-- .slide: class="background-dark" -->
-
 # Disclaimer
 
 Note:
@@ -715,9 +699,6 @@ And any feature from Arrow, Arrow Meta or the plugins which is adopted by the la
 Arrow Meta is a way to complement the Kotlin compiler.
 
 ---
-
-<!-- .slide: data-background="css/images/background-dark.svg" -->
-<!-- .slide: class="background-dark" -->
 
 # And finally ...
 
