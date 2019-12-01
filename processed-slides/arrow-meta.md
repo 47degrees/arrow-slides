@@ -237,10 +237,13 @@ Note:
 
 And we received a lot of feedback
 
-- 367 messages
-- 85 commits
-- 57 participants
-- 18 reviewers
+367 messages
+
+85 commits
+
+57 participants
+
+18 reviewers
 
 And we started working with all the received feedback!
 
