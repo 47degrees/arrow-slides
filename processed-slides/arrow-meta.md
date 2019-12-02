@@ -1,11 +1,4 @@
 
-![](css/images/KotlinConf-first-slide.jpg)
-
-Note:
-
-**Isra**, **Jetro**, we must change the first slide (Arrow Meta logo) by a slide with this information and "Keep insisting!" title.
-
----
 
 Amanda Hinchman [@hinchman_amanda](https://twitter.com/hinchman_amanda)
 
@@ -27,6 +20,8 @@ and she is Raquel from Spain and we are engineers at 47 Degrees.
 
 ---
 
+<!-- .element: class="class" -->
+
 ![](css/images/arrow.svg)
 
 Note:
@@ -43,6 +38,8 @@ For those who don't know Arrow, it's the functional companion of the Kotlin stan
 
 ---
 
+## Title slide
+
 ![](css/images/functional-companions.jpg)
 
 Note:
@@ -54,6 +51,8 @@ And it seems a library is the common way to add more functional capabilities to 
 However, we wanted do something else.
 
 ---
+
+## Title slide
 
 ![Compilation](css/images/compiler.jpg)
 
