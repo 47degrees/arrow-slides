@@ -687,15 +687,7 @@ Arrow-meta is here for the empowerment of Kotlin developers, and we at 47 Degree
 
 ---
 
-# And finally ...
-
-Note:
-
-[Amanda] And finally ...
-
----
-
-### Thanks Kotlin community!
+### Thanks to the Kotlin community!
 
 Channels at KotlinLang Slack:
 
