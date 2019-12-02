@@ -1,12 +1,18 @@
+(can we add this logo in the first slide?)
+
 ![47 Degrees](css/images/47deg-logo.png)
+
+(the speaker notes here are for the first slide)
 
 Note:
 
 [Raquel] 
 
-Ok, so let's start! Thanks for comming!
+Ok, so let's start!
 
-She is Amanda Hinchman-Dominguez from Chicago where she's the organizer of Kotlin User Group
+Welcome to our talk and thanks for comming!
+
+She is Amanda Hinchman-Dominguez from Chicago where she's the organizer of Kotlin User Group.
 
 [Amanda]
 
@@ -14,8 +20,7 @@ and she is Raquel Carmena from Spain and we are engineers at 47 Degrees.
 
 ---
 
-Kotlin logo + 
-![](css/images/arrow.svg)
+![](css/images/kotlin-plus-arrow.jpg)
 
 Note:
 
@@ -27,9 +32,9 @@ Who of you are familiar with Arrow?
 
 Great!
 
-For those who are not familiar with Arrow, it's the functional companion of the Kotlin standard library.
+Ok, it's not necessary to be familiar with Arrow for this talk.
 
-Though it's not necessary to be familiar with Arrow for this talk.
+For those who are not familiar with Arrow, it's the functional companion of the Kotlin standard library.
 
 ---
 
@@ -39,9 +44,11 @@ Note:
 
 [Raquel]
 
-And it seems a library is the common way to add more functional capabilities to a programming language like Cats library for Scala, Bow for Swift or VAVR for Java.
+And it seems a library is the common way to add more functional capabilities to a programming language
 
-However, we wanted do something else.
+like Cats library for Scala, Bow libray for Swift or VAVR library for Java.
+
+However, we wanted to do something else.
 
 ---
 
@@ -117,11 +124,11 @@ It means Kotlin Evolution and Enhancement Process
 
 1. KEEP is hosted in GitHub
 
-2. It holds proposals for Kotlin also known as KEEPs 
+2. and it holds proposals for Kotlin also known as KEEPs.
 
-3. New KEEPs are submitted as pull requests
+3. The new KEEPs are submitted as pull requests
 
-4. Some KEEPs have their own repository for specification and discussions
+4. and also some KEEPs have their own repository for specification and discussions.
 
 So here we go!
 
@@ -171,7 +178,9 @@ Note:
 
 [Raquel]
 
-Are you ready to know more about it? Before explaining the new product, we are going to know how Kotlin Compiler works.
+Are you ready to know more about it? 
+
+Before explaining the new companion of the Kotlin compiler, we are going to know how Kotlin Compiler works.
 
 ---
 
@@ -350,7 +359,9 @@ Note:
 
 So Arrow Meta was born. Let's see some features in detail
 
-Arrow Meta provides some plugins by default though other plugins can be added. For example, you can create a plugin to make transformations.
+Arrow Meta provides some plugins by default though other plugins can be added. 
+
+For example, you can create a plugin to make transformations.
 
 ---
 
@@ -483,10 +494,6 @@ Thanks to Thilo Schuchort for his Kotlin Compile Testing library which has been 
 
 # Other plugins
 
----
-
-### Combining types...
-
 Note:
 
 [Raquel]
@@ -550,20 +557,9 @@ How do we represent this kind of choices right now?
 
 With sealed classes we must to write a lot of boilerplate to get it.
 
----
-
-```
-val a: Union<String, Int> = 1
-val b: Union<String, Int> = "ok"
-```
-
-Note:
-
-[Raquel]
+**choice1** and **choice2** can have a value of 2 possible types, integer or string.
 
 So we provide a plugin in Arrow Meta to be able to define choices in this way.
-
-**a** and **b** can have a value of 2 possible types, String or Integer.
 
 ---
 
@@ -577,7 +573,7 @@ Note:
 
 [Raquel]
 
-You can use all these features including the Gradle Plugin. 
+You can use all these features including the Gradle Plugin.
 
 And what about Intellij IDEA? 
 
@@ -592,7 +588,6 @@ Note:
 (TODO)
 
 ---
-
 
 # Bring your features to the editor!
 
@@ -659,6 +654,16 @@ Arrow Meta is the functional companion to Kotlin compiler and also follows the s
 And any feature from Arrow, Arrow Meta or the plugins which is adopted by the language will be removed, including Meta itself.
 
 Arrow Meta is a way to complement the Kotlin compiler.
+
+(TODO)
+
+---
+
+# KEEP insisting!
+
+Note:
+
+[Amanda]
 
 (TODO)
 
