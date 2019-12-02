@@ -3,15 +3,7 @@
 
 Note:
 
-REMOVE: This is here as a reminder. We must talk to KotlinConf organization to change the title of the talk or to write the original title in the first slide as KotlinConf organization is asking.
-
-In other way, we'll have problems as soon as we start! 
-
-I received several emails about it and I think it's related with vote system. If we don't show the real title people won't be able to vote. 
-
-Arrow Meta won't appear on vote system. 
-
-Maybe the first slide will be shown firstly during a few minutes.
+**Isra**, **Jetro**, we must change the first slide (Arrow Meta logo) by a slide with this information and "Keep insisting!" title.
 
 ---
 
@@ -41,13 +33,13 @@ Note:
 
 [Raquel]
 
-A long time ago in a galaxy far, far away, Arrow was born to be the functional companion of the Kotlin standard library.
-
-[Amanda]
+A long time ago in a galaxy far, far away, Arrow was born.
 
 Who of you are using Arrow?
 
 Great!
+
+For those who don't know Arrow, it's the functional companion of the Kotlin standard library.
 
 ---
 
@@ -57,84 +49,9 @@ Note:
 
 [Raquel]
 
-And it seems a library is the common way to add more functional capabilities to a programming language.
+And it seems a library is the common way to add more functional capabilities to a programming language like Cats library for Scala, Bow for Swift or VAVR for Java.
 
-For instance, some examples, Cats for Scala, Bow for Swift and VAVR for Java.
-
-[Amanda]
-
-However, there were things that we wanted to improve. 
-
----
-
-```diff
-- class ForOption private constructor() { companion object }
-- typealias OptionOf<A> = arrow.Kind<ForOption, A>
-- inline fun <A> OptionOf<A>.fix(): Option<A> =
--   this as Option<A>
-- @higherkind class Option<A> : OptionOf<A>
-+ @higherkind class Option<A>
-```
-
-Note:
-
-[Amanda]
-
-For example, boilerplate for doing some things.
-
----
-
-```diff
--fun <A, G, B> OptionOf<A>.traverse(GA: Applicative<G>, f: (A) -> Kind<G, B>): Kind<G, Option<B>> =
--  GA.run {
--    fix().fold({ just(None) }, { f(it).map { Some(it) } })
--  }
-+fun <A, G, B> Option<A>.traverse(GA: Applicative<G> = with, f: (A) -> Kind<G, B>): Kind<G, Option<B>> =
-+  fold({ just(None) }, { f(it).map { Some(it) } })
-```
-
-Note:
-
-[Amanda]
-
-Just to show you some examples about how we wanted to reduce the boilerplate.
-
----
-
-```diff
-data class GithubUser(val id: Int)
-
-val ids = listOf(1, 2, 3, 4)
-fun getUser(id: Int): IO<GithubUser> = IO { GithubUser(id) }
-
--val result = ids.traverse(IO.applicative(), ::getUser).fix()
-+val result = ids.traverse(::getUser)
-```
-
-Note:
-
-[Amanda]
-
-It seems really useful, right?
-
----
-
-```diff
--gist.copy(
--  owner = gist.owner.copy(
--    login = gist.owner.login.toUpperCase()
--  )
--)
-+Gist.owner.login.modify(gist, String::toUpperCase)
-```
-
-Note:
-
-[Raquel]
-
-However, not only to reduce the boilerplate but also to simplify some things to bring functional features much closer to the developers even without the need of having knowledge about optics.
-
-So what if we change the target?
+However, we wanted do something else.
 
 ---
 
@@ -144,15 +61,7 @@ Note:
 
 [Raquel]
 
-Yes, let's think! We compile Kotlin source code. BTW! The Kotlin compiler doesn't transpile Java code as some people think. It's a compiler!
-
-**Comment**: Isra, Jetro, `.kt` files are **source code** and `.class` files are **bytecode**.
-
-This is an example of bytecode:
-
-![](css/images/bytecode.png)
-
-Something like Matrix?
+Let's think, we compile Kotlin source code. BTW! The Kotlin compiler doesn't transpile Java code as some people think. It's a compiler!
 
 ---
 
@@ -180,9 +89,9 @@ What if we focus on the Kotlin compiler?
 
 Note:
 
-[Amanda]
+[Raquel]
 
-So it was the time to contact Kotlin team.
+So it was the time to contact Kotlin community.
 
 ---
 
@@ -190,7 +99,7 @@ So it was the time to contact Kotlin team.
 
 Note: 
 
-[Amanda]
+[Raquel]
 
 Kotlin provides several sources of contact.
 
@@ -200,9 +109,7 @@ Who of you are in KotlinLang Slack?
 
 Really useful, right?
 
-It also exists a forum, an issue tracker and another one.
-
-Isn't it, Raquel?
+It also exists a forum, an issue tracker and a way to contribute to the language.
 
 ---
 
@@ -212,9 +119,9 @@ Note:
 
 [Raquel]
 
-Right Amanda, there is another source of contact, KEEP.
+KEEP.
 
-Kotlin Evolution and Enhancement Process
+It means Kotlin Evolution and Enhancement Process
 
 1. KEEP is hosted in GitHub
 
@@ -235,9 +142,15 @@ So here we go!
 
 Note:
 
-[Amanda]
+[Raquel]
 
-Yes! We created this pull request where we explained how to create compile-time extension interfaces.
+We created this pull request where we explained how to create compile-time extension interfaces.
+
+We wanted to create type classes features in Arrow and we realized that the entire community was heavilty dependent to the compiler plugins like serialization, allOpen and Android extensions, all of them companions for the Kotlin compiler. 
+
+However, there wasn't enough documentation about the Kotlin compiler and we wanted to fill that gap for the community.
+
+And, at the same time, to make functional programming more ergonomic that is today.
 
 ---
 
@@ -245,7 +158,7 @@ Yes! We created this pull request where we explained how to create compile-time 
 
 Note:
 
-[Amanda]
+[Raquel]
 
 And we received a lot of feedback
 
@@ -261,26 +174,13 @@ And we started working with all the received feedback!
 
 ---
 
-<!-- .slide: data-background="css/images/background-dark.svg" -->
-<!-- .slide: class="background-dark" -->
-
 # Are you ready?
 
 Note:
 
 [Raquel]
 
-Are you ready to know more about it?
-
----
-
-## The Kotlin Compiler
-
-Note:
-
-[Raquel]
-
-Let's start knowing some things about Kotlin compiler.
+Are you ready to know more about it? Before explaining the new product, we are going to know how Kotlin Compiler works.
 
 ---
 
@@ -382,6 +282,8 @@ Note:
 
 [Amanda]
 
+(TODO)
+
 The code will be parsed into the AST with the power of Arrow Meta so we can apply transformations during that following phase.
 
 AST is modelled as the PSI model whichs IDEA uses, due to this the compiler can use the same APIs as IDEA.
@@ -395,6 +297,8 @@ AST is modelled as the PSI model whichs IDEA uses, due to this the compiler can 
 Note:
 
 [Amanda]
+
+(TODO)
 
 Resolution (Tree of descriptors which have pointers back to the original AST/PSI structure)
 
@@ -410,6 +314,8 @@ Note:
 
 [Amanda]
 
+(TODO)
+
 Data flow management (smart cast, contracts etc)
 
 Typechecking (isSubtypeOf, isEqualTypes) => where constraints are consumed by the typechecker and that information dissapears from KtElement -> Descriptors
@@ -419,6 +325,12 @@ Typechecking (isSubtypeOf, isEqualTypes) => where constraints are consumed by th
 <video data-autoplay>
    <source src="css/videos/arrow-meta_5.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
+
+Note:
+
+[Amanda]
+
+(TODO)
 
 ---
 
@@ -430,6 +342,8 @@ Typechecking (isSubtypeOf, isEqualTypes) => where constraints are consumed by th
 Note:
 
 [Amanda]
+
+(TODO)
 
 IR: incomplete at this point
 
@@ -443,14 +357,29 @@ Note:
 
 [Raquel]
 
-So Arrow Meta was born. Let's see some characteristics in detail
+So Arrow Meta was born. Let's see some features in detail
+
+Arrow Meta provides some plugins by default though other plugins can be added. For example, you can create a plugin to make transformations.
 
 ---
 
-<!-- .slide: data-background="css/images/background-dark.svg" -->
-<!-- .slide: class="background-dark" -->
+<video>
+   <source src="css/videos/hello-world.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+Note:
+
+[Raquel]
+
+(explain the animation)
+
+---
 
 # Quotes
+
+Note:
+
+[Amanda]
 
 ---
 
@@ -549,28 +478,7 @@ Here we're rewriting our original code to `flatMap` based code, and by transform
 
 ---
 
-<!-- .slide: data-background="css/images/background-dark.svg" -->
-<!-- .slide: class="background-dark" -->
-
-# Plugins
-
-Note:
-
-[Raquel]
-
-Arrow Meta provides some plugins by default though other plugins can be added. For example, you can create a plugin to make transformations.
-
----
-
-<video>
-   <source src="css/videos/hello-world.mp4" type="video/mp4"> Your browser does not support the video tag.
-</video>
-
-Note:
-
-[Raquel]
-
-(explain the animation)
+# Other plugins
 
 ---
 
@@ -582,7 +490,7 @@ Note:
 
 Let's see another example of plugin.
 
-One of the elements of functional programming is types and we combine types to create new types, composite types.
+One of the elements of functional programming is types and we combine types to create new types.
 
 ---
 
@@ -595,13 +503,11 @@ Note:
 
 [Raquel]
 
-Maybe one of the most known composite types is `Either` which represents the choice between 2 types of values. 
+Maybe one of the most known is `Either` which represents the choice between 2 types of values. 
 
 One of them is the expected value, the right part.
 
 And the another one, left part, stores information in case there is a failure when trying to get the right value.
-
-So it's commonly used to handle errors in case of throwing exceptions.
 
 It's an example of union types or sum types. There are called sum or union because if you calculate the number of different values of this type is the sum of the different values of the right part and the different values of the left part.
 
@@ -613,19 +519,22 @@ I mean, union types or sum types in general.
 
 ---
 
-```
-sealed class Choice {
-
-  data class OneType(
-    ...
-  ) : Choice()
-
-  data class AnotherType(
-    ...
-  ) : Choice()
-
-  ...
-}
+```diff
+-sealed class Choice {
+-
+-  data class OneType(
+-    ...
+-  ) : Choice()
+-
+-  data class AnotherType(
+-    ...
+-  ) : Choice()
+-
+-  ...
+-}
+-
+-val choice = OneType(...)
++val choice: Union<OneType, AnotherType> = OneType(...)
 ```
 
 Note:
@@ -653,24 +562,29 @@ So we provide a plugin in Arrow Meta to be able to define choices in this way.
 
 ---
 
+build.gradle
+
 ```
-val a: Union<String, Int, AnotherType> = 1
-val b: Union<String, Int, AnotherType> = "ok"
-val c: Union<String, Int, AnotherType> = AnotherType(...)
+plugins { id "io.arrow-kt.arrow" version "<version>" }
 ```
 
 Note:
 
 [Raquel]
 
-Or more options in the choice without a special meaning to be in a concrete position.
+You can use all these features including the Gradle Plugin. 
+
+And what about Intellij IDEA? 
 
 ---
 
-<!-- .slide: data-background="css/images/background-dark.svg" -->
-<!-- .slide: class="background-dark" -->
-
 # Bring your features to the editor!
+
+Note:
+
+[Amanda]
+
+The plugins that we've seen cannot only be used in CLI but also Arrow Meta brings the best user experience into your editor.
 
 ---
 
@@ -686,6 +600,10 @@ We can see how we get icons in the left side and even explanations for the devel
 
 ---
 
+(TODO: loop on different comprehensions)
+
+---
+
 <video>
    <source src="css/videos/purity-ide.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
@@ -696,10 +614,9 @@ Note:
 
 And we can alert to the developer about an impure function and add explanations in the IDE to help to understand why is this important and how you can refactor your codebase to be more pure and functional.
 
----
+Besides, bring you security on functional programming.
 
-<!-- .slide: data-background="css/images/background-dark.svg" -->
-<!-- .slide: class="background-dark" -->
+---
 
 # Current status
 
@@ -711,13 +628,27 @@ And what's the current status of the project?
 
 ---
 
-![](css/images/pieces.jpg)
+```
+ARROW META
+├── compiler-plugin
+├── gradle-plugin
+├── idea-plugin
+└── testing-plugin
+```
 
 Note:
 
-[Amanda]
+[Raquel]
 
-(TODO)
+The project of Arrow Meta is organized in several modules.
+
+The compiler plugin which is the CLI of Arrow Meta.
+
+The Gradle plugin which enables Arrow Meta compiler plugin in your project.
+
+The IDEA plugin which to bring the best experience to the user.
+
+And a testing plugin
 
 ---
 
@@ -735,30 +666,17 @@ Note:
 
 Note:
 
-[Amanda]
-
-(TODO)
-
----
-
-(bot)
-
-Note:
-
 [Raquel]
 
 (TODO)
 
 ---
 
-<!-- .slide: data-background="css/images/background-dark.svg" -->
-<!-- .slide: class="background-dark" -->
-
 # Disclaimer
 
 Note:
 
-[Amanda]
+[Raquel]
 
 And we have an important message
 
@@ -770,20 +688,17 @@ And we have an important message
 
 Note:
 
-[Amanda]
+[Raquel]
 
 Arrow is the functional companion to Kotlin standard library and follows the same principle
 
 Arrow Meta is the functional companion to Kotlin compiler and also follows the same principle
 
-[Raquel]
-
 And any feature from Arrow, Arrow Meta or the plugins which is adopted by the language will be removed, including Meta itself.
 
----
+Arrow Meta is a way to complement the Kotlin compiler.
 
-<!-- .slide: data-background="css/images/background-dark.svg" -->
-<!-- .slide: class="background-dark" -->
+---
 
 # And finally ...
 
@@ -793,11 +708,9 @@ Note:
 
 ---
 
-### Thanks!
+### Thanks Kotlin community!
 
-Kotlin Compiler team and Community
-
-Channels at [slack.kotlinlang.org](https://slack.kotlinlang.org)
+Channels at KotlinLang Slack:
 
 * #arrow-meta
 * #compiler
@@ -807,7 +720,7 @@ Note:
 
 [Amanda]
 
-... thanks to Kotlin Compiler team and Community that helped us. The main channels were arrow-meta, compiler and lang-proposals. We are actively working on arrow-meta channel.
+... thanks to Kotlin community that helped us. The main channels were arrow-meta, compiler and lang-proposals. We are actively working on arrow-meta channel.
 
 ---
 
@@ -823,9 +736,7 @@ Thanks to 47 Degrees for sponsoring and pushing the development of Arrow and Arr
 
 ---
 
-### Thanks!
-
-A special thanks to the people bootstraping Meta
+### Thanks to the people bootstraping Arrow Meta!
 
 ![Meta contributors](css/images/meta-contributors.png)
 
@@ -835,23 +746,21 @@ Note:
 
 Thanks to all the people who are bootstraping Meta. Not only we are here but also more people who started the project as Raúl Raja and Simon Vergauwen so you can make questions to them as well and special thanks to Jorge Castillo who couldn't be here today.
 
+Everybody is welcome, join us! 
+
 ---
 
-#### Everybody is welcome! Join us!
+### Thanks!
 
-And help us build...
+Kotlin Compile Testing by Thilo Schuchort
 
- - Intersection types
- - type refinement
- - poly functions
- - Macros
- - ...
+github.com/tschuchortdev/kotlin-compile-testing
 
 Note:
 
-[Amanda]
+[Raquel]
 
-Everybody is welcome, join us and help us build: (read the list) 
+Thanks to Thilo Schuchort for his amazing library to test compilations getting the result, log and classes. It has been very useful for us in order to be able to define the testing DSL.
 
 ---
 
@@ -863,7 +772,7 @@ Everybody is welcome, join us and help us build: (read the list)
 
 Note:
 
-[Raquel]
+[Amanda]
 
 Thanks to everyone that makes Λrrow possible! More than 150 contributors and they are increasing every week.
 
@@ -875,7 +784,7 @@ Thanks to everyone that makes Λrrow possible! More than 150 contributors and th
 
 Note:
 
-[Amanda]
+[Raquel]
 
 Thanks to everyone that makes Kotlin possible and last but not least...
 
