@@ -21,7 +21,7 @@ $backgroundColor: #fff;
 $mainFont: "Open Sans",
 sans-serif;
 $mainFontSize: 40px;
-$mainColor: #2E3B44;
+$mainColor: #1B2126;
 
 $blockMargin: 40px;
 
@@ -31,7 +31,7 @@ $mainFontSize: 5vmin;
 $headingMargin: 0 0 $blockMargin 0;
 $headingFont: "Iosevka Web",
 sans-serif;
-$headingColor: #2E3B44;
+$headingColor: #1B2126;
 $headingTextShadow: none;
 $headingLetterSpacing: normal;
 $headingTextTransform: uppercase;
@@ -146,14 +146,14 @@ video {
 .reveal {
     section {
 
-            // Comment-uncomment the following 3 lines to have a centered content
-            // slides effect or not
-            display: flex !important;
-            flex-direction: column !important;
-            justify-content: flex-start !important;
-            overflow-y: auto !important;
-            overflow-x: auto !important;
-            height: 100%;
+        // Comment-uncomment the following 3 lines to have a centered content
+        // slides effect or not
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        overflow-y: auto !important;
+        overflow-x: auto !important;
+        height: 100%;
 
         &:hover {
             overflow-y: auto !important;
@@ -166,6 +166,26 @@ video {
         display: flex !important;
         flex-direction: column !important;
         justify-content: flex-start !important;
+    }
+}
+
+.reveal {
+    .speakers {
+        display: flex;
+        justify-content: center;
+
+        .speaker-item {
+            p {
+                margin: 10px 0;
+            }
+            span {
+                font-size: 60%;
+            }
+            
+            &:first-child {
+                margin-right: 50px;
+            }
+        }
     }
 }
 
