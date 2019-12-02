@@ -1,9 +1,3 @@
-
-
-Amanda Hinchman [@hinchman_amanda](https://twitter.com/hinchman_amanda)
-
-Raquel M. Carmena [@bberrycarmen](https://twitter.com/bberrycarmen)
-
 ![47 Degrees](css/images/47deg-logo.png)
 
 Note:
@@ -12,16 +6,15 @@ Note:
 
 Ok, so let's start! Thanks for comming!
 
-She is Amanda from Chicago where she's the organizer of Kotlin User Group
+She is Amanda Hinchman-Dominguez from Chicago where she's the organizer of Kotlin User Group
 
-[Amanda] 
+[Amanda]
 
-and she is Raquel from Spain and we are engineers at 47 Degrees.
+and she is Raquel Carmena from Spain and we are engineers at 47 Degrees.
 
 ---
 
-<!-- .element: class="class" -->
-
+Kotlin logo + 
 ![](css/images/arrow.svg)
 
 Note:
@@ -30,15 +23,15 @@ Note:
 
 A long time ago in a galaxy far, far away, Arrow was born.
 
-Who of you are using Arrow?
+Who of you are familiar with Arrow?
 
 Great!
 
-For those who don't know Arrow, it's the functional companion of the Kotlin standard library.
+For those who are not familiar with Arrow, it's the functional companion of the Kotlin standard library.
+
+Though it's not necessary to be familiar with Arrow for this talk.
 
 ---
-
-## Title slide
 
 ![](css/images/functional-companions.jpg)
 
@@ -51,8 +44,6 @@ And it seems a library is the common way to add more functional capabilities to 
 However, we wanted do something else.
 
 ---
-
-## Title slide
 
 ![Compilation](css/images/compiler.jpg)
 
@@ -120,7 +111,7 @@ Note:
 
 [Raquel]
 
-KEEP.
+That's KEEP.
 
 It means Kotlin Evolution and Enhancement Process
 
@@ -146,7 +137,7 @@ Note:
 
 We created this pull request where we explained how to create compile-time extension interfaces.
 
-We wanted to create type classes features in Arrow and we realized that the entire community was heavilty dependent to the compiler plugins like serialization, allOpen and Android extensions, all of them companions for the Kotlin compiler. 
+We wanted to create type classes features in Arrow and we realized that the entire community was heavily dependent to the compiler plugins like serialization, allOpen and Android extensions, all of them companions for the Kotlin compiler. 
 
 However, there wasn't enough documentation about the Kotlin compiler and we wanted to fill that gap for the community.
 
@@ -478,6 +469,18 @@ Here we're rewriting our original code to `flatMap` based code, and by transform
 
 ---
 
+(example of testing)
+
+Note:
+
+[Amanda]
+
+(Explain the example)
+
+Thanks to Thilo Schuchort for his Kotlin Compile Testing library which has been very useful for us in order to be able to define the testing DSL.
+
+---
+
 # Other plugins
 
 ---
@@ -495,7 +498,7 @@ One of the elements of functional programming is types and we combine types to c
 ---
 
 ```
-Either.Right(5)
+Either.Right(47)
 Either.Left("Something went wrong")
 ```
 
@@ -522,19 +525,21 @@ I mean, union types or sum types in general.
 ```diff
 -sealed class Choice {
 -
--  data class OneType(
--    ...
+-  data class AnInteger(
+-    val value: Int
 -  ) : Choice()
 -
--  data class AnotherType(
--    ...
+-  data class AString(
+-    val value: String
 -  ) : Choice()
 -
 -  ...
 -}
 -
--val choice = OneType(...)
-+val choice: Union<OneType, AnotherType> = OneType(...)
+-val choice1 = AnInteger(value = 47)
+-val choice2 = AString(value = "another value")
++val choice1: Union<Int, String> = 47
++val choice2: Union<Int, String> = "another value"
 ```
 
 Note:
@@ -543,7 +548,7 @@ Note:
 
 How do we represent this kind of choices right now?
 
-With sealed classes so must to write a lot of boilerplate to get it.
+With sealed classes we must to write a lot of boilerplate to get it.
 
 ---
 
@@ -577,6 +582,17 @@ You can use all these features including the Gradle Plugin.
 And what about Intellij IDEA? 
 
 ---
+
+(old version)
+
+Note:
+
+[Raquel]
+
+(TODO)
+
+---
+
 
 # Bring your features to the editor!
 
@@ -618,60 +634,6 @@ Besides, bring you security on functional programming.
 
 ---
 
-# Current status
-
-Note:
-
-[Raquel]
-
-And what's the current status of the project?
-
----
-
-```
-ARROW META
-├── compiler-plugin
-├── gradle-plugin
-├── idea-plugin
-└── testing-plugin
-```
-
-Note:
-
-[Raquel]
-
-The project of Arrow Meta is organized in several modules.
-
-The compiler plugin which is the CLI of Arrow Meta.
-
-The Gradle plugin which enables Arrow Meta compiler plugin in your project.
-
-The IDEA plugin which to bring the best experience to the user.
-
-And a testing plugin
-
----
-
-(testing)
-
-Note:
-
-[Raquel]
-
-(TODO)
-
----
-
-(talk about the repository of examples)
-
-Note:
-
-[Raquel]
-
-(TODO)
-
----
-
 # Disclaimer
 
 Note:
@@ -698,6 +660,8 @@ And any feature from Arrow, Arrow Meta or the plugins which is adopted by the la
 
 Arrow Meta is a way to complement the Kotlin compiler.
 
+(TODO)
+
 ---
 
 # And finally ...
@@ -722,6 +686,8 @@ Note:
 
 ... thanks to Kotlin community that helped us. The main channels were arrow-meta, compiler and lang-proposals. We are actively working on arrow-meta channel.
 
+We usually have live sessions with people interested in learning more about both Arrow Meta and the Kotlin compiler. We are eager...
+
 ---
 
 ### Thanks!
@@ -736,35 +702,21 @@ Thanks to 47 Degrees for sponsoring and pushing the development of Arrow and Arr
 
 ---
 
-### Thanks to the people bootstraping Arrow Meta!
+### Thanks to everyone that makes Kotlin possible!
 
-![Meta contributors](css/images/meta-contributors.png)
+Jetbrains (logo) + IntellijIDEA (logo) + Kotlin (logo) 
+
+![Kotlin Logo](css/images/kotlin.png)
 
 Note:
 
 [Amanda]
 
-Thanks to all the people who are bootstraping Meta. Not only we are here but also more people who started the project as Raúl Raja and Simon Vergauwen so you can make questions to them as well and special thanks to Jorge Castillo who couldn't be here today.
-
-Everybody is welcome, join us! 
+Thanks to everyone that makes Kotlin possible, Jetbrains for ..., Intellij IDEA for ... and Kotlin.
 
 ---
 
-### Thanks!
-
-Kotlin Compile Testing by Thilo Schuchort
-
-github.com/tschuchortdev/kotlin-compile-testing
-
-Note:
-
-[Raquel]
-
-Thanks to Thilo Schuchort for his amazing library to test compilations getting the result, log and classes. It has been very useful for us in order to be able to define the testing DSL.
-
----
-
-### Thanks to everyone that makes Λrrow possible!
+### Thanks to the people bootstraping Arrow Meta and Arrow!
 
 <video data-autoplay data-loop>
    <source src="css/videos/photos-loop.mp4" type="video/mp4"> Your browser does not support the video tag.
@@ -772,21 +724,13 @@ Thanks to Thilo Schuchort for his amazing library to test compilations getting t
 
 Note:
 
-[Amanda]
-
-Thanks to everyone that makes Λrrow possible! More than 150 contributors and they are increasing every week.
-
----
-
-### Thanks to everyone that makes Kotlin possible!
-
-![Kotlin Logo](css/images/kotlin.png)
-
-Note:
-
 [Raquel]
 
-Thanks to everyone that makes Kotlin possible and last but not least...
+Thanks to all the people who are bootstraping Meta and makes Λrrow possible! More than 150 contributors and they are increasing every week. Not only we are here but also more people who started the project as Raúl Raja and Simon Vergauwen so you can make questions to them as well and special thanks to Jorge Castillo who couldn't be here today.
+
+Everybody is welcome, join us!
+
+... and last but not least...
 
 ---
 
@@ -794,31 +738,28 @@ Thanks to everyone that makes Kotlin possible and last but not least...
 
 Please, remember to vote!
 
+Keep insisting!
+
+\#KotlinConf
+
 Amanda Hinchman [@hinchman_amanda](https://twitter.com/hinchman_amanda)
 
 Raquel M. Carmena [@bberrycarmen](https://twitter.com/bberrycarmen)
 
-\#KotlinConf
+(Arrow logo) + (Arrow Meta logo)
+
+https://meta.arrow-kt.io
 
 Note:
 
-[Raquel] 
+[Amanda] 
 
 ... thanks to you for comming!
 
-[Amanda]
+[Raquel]
 
 Please, remember to vote!
 
 [Both]
 
 Thank you!
-
----
-
-![](css/images/KotlinConf-last-slide.jpg)
-
-Note:
-
-REMOVE: This is here just to show the requirement by KotlinConf organization
-
