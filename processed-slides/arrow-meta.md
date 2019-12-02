@@ -586,7 +586,7 @@ And it's also possible to have more than 2 choices.
 build.gradle
 
 ```
-plugins { id "io.arrow-kt.arrow" version "<version>" }
+plugins { id "io.arrow-kt.arrow" version "<release-version>" }
 ```
 
 Note:
@@ -596,16 +596,6 @@ Note:
 You can use all these features including the Gradle Plugin.
 
 And what about Intellij IDEA? 
-
----
-
-(old version)
-
-Note:
-
-[Raquel]
-
-(TODO)
 
 ---
 
