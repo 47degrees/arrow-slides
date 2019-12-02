@@ -152,13 +152,17 @@ And, at the same time, to make functional programming more ergonomic that is tod
 
 ---
 
+(PROPOSAL FOR ANIMATION: a **rain** of letters over the previous image and at the end, when all the letters have fallen, show the numbers in a corner)
+
 ![](css/images/feedback.jpg)
 
 Note:
 
 [Raquel]
 
-And we received a lot of feedback
+And it's not just about creating the pull request. It's really important to receive feedback.
+
+We received a lot of feedback!
 
 367 messages
 
