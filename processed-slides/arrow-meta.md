@@ -552,7 +552,6 @@ I mean, union types or sum types in general.
 -    val value: String
 -  ) : Choice()
 -
--  ...
 -}
 -
 -val choice1 = AnInteger(value = 47)
@@ -572,6 +571,20 @@ With sealed classes we must to write a lot of boilerplate to get it.
 **choice1** and **choice2** can have a value of 2 possible types, integer or string.
 
 So we provide a plugin in Arrow Meta to be able to define choices in this way.
+
+---
+
+```
+val choice1: Union3<Int, String, AType> = 47
+val choice2: Union4<Int, String, AType, AnotherType> = 47
+...
+```
+
+Note:
+
+[Raquel]
+
+And it's also possible to have more than 2 choices.
 
 ---
 
