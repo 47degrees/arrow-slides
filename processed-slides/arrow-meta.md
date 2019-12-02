@@ -136,8 +136,7 @@ So here we go!
 
 ### KEEP-87
 
-![KEEP-87](css/images/keep-87.png)
-![KEEP-87 reactions](css/images/keep-87-reactions.png)
+![KEEP-87](css/images/keep-87.svg)
 
 Note:
 
