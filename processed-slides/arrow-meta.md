@@ -84,7 +84,9 @@ What if we focus on the Kotlin compiler?
 
 ---
 
-![Contact Kotlin team](css/images/contact-kotlin.jpg)
+<video>
+   <source src="css/videos/calling-kotlin-phone.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
 
 Note:
 
