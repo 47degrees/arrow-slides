@@ -673,7 +673,13 @@ Note:
 
 [Amanda]
 
-(TODO)
+And this is where our story comes full circle! Arrow-meta is more than just writing plugins for anything Kotlin.
+
+We're so grateful for the Kotlin community - from feedback to discussions to contributions - so grateful we're giving back.
+
+Do you also have a KEEP? You can use Arrow-meta to prototype ideas for language features you have for Kotlin. You can use Arrow-meta to improve your own projects or the projects of others!
+
+Arrow-meta is here for the empowerment of Kotlin developers, and we at 47 Degrees are here and eager to help you.
 
 ---
 
@@ -699,7 +705,9 @@ Note:
 
 ... thanks to Kotlin community that helped us. The main channels were arrow-meta, compiler and lang-proposals. We are actively working on arrow-meta channel.
 
-We usually have live sessions with people interested in learning more about both Arrow Meta and the Kotlin compiler. We are eager...
+We usually have live sessions with people interested in learning more about both Arrow Meta and the Kotlin compiler.
+
+We are literally on standby on the #arrow-meta channel, and we will be working hard to help you create your first plugin with Arrow-meta.
 
 ---
 
