@@ -165,7 +165,7 @@ And we started working with all the received feedback!
 
 ---
 
-# Are you ready?
+# How the Kotlin Compiler works
 
 Note:
 
@@ -261,7 +261,7 @@ Note:
 
 [Amanda]
 
-Yeah! What are we doing with Arrow Meta? 
+How does Arrow-meta come into play?
 
 ---
 
@@ -273,11 +273,7 @@ Note:
 
 [Amanda]
 
-(TODO)
-
-The code will be parsed into the AST with the power of Arrow Meta so we can apply transformations during that following phase.
-
-AST is modelled as the PSI model whichs IDEA uses, due to this the compiler can use the same APIs as IDEA.
+Arrow-meta intercepts AST and it's resulting models. This is significant because being able to change components of an AST allows us to alter the surface level of the language without changing the rest of the compiler (although we can and usually do).
 
 ---
 
@@ -366,11 +362,23 @@ Note:
 
 ---
 
-# Quotes
+# Writing your own compiler plugin
+
+![Writing your own compiler plugin](css/images/how-can-I-write-my-own-arrow-meta-plugin.png)
 
 Note:
 
+
+
+---
+
+# DEMO HERE
+
+Note: 
+
 [Amanda]
+
+Does it make sense to demo with the hello world example or one we create ourselves?
 
 ---
 
