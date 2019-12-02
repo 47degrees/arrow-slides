@@ -298,11 +298,10 @@ Note:
 
 [Amanda]
 
-(TODO)
+The quote and template system is the ability to fold a tree you can traverse and turn any match into a terminal value transformation.
 
-Resolution (Tree of descriptors which have pointers back to the original AST/PSI structure)
-
-I.e. IntelliJ and Codegen can use this to render code or tooling
+We can wrap our AST elements with transformable scopes which may go back-and-forth between the models of 
+meta and PSI which may be used for code generation.
 
 ---
 
@@ -314,11 +313,7 @@ Note:
 
 [Amanda]
 
-(TODO)
-
-Data flow management (smart cast, contracts etc)
-
-Typechecking (isSubtypeOf, isEqualTypes) => where constraints are consumed by the typechecker and that information dissapears from KtElement -> Descriptors
+ (TODO) Synthetic resolution - what should be said about this? In Arrow-meta, we use real descriptors over synthetic ones.
 
 ---
 
@@ -330,7 +325,9 @@ Note:
 
 [Amanda]
 
-(TODO)
+During the resolution phase, we can walk the synthetic path to apply immutable transformations.
+
+More specifically, we can use descriptor information to determine what kind of calls are made in the bytecode.
 
 ---
 
@@ -343,11 +340,9 @@ Note:
 
 [Amanda]
 
-(TODO)
+IR is the tree for the IR format which can also be seen as an AST but it has the type info
 
-IR: incomplete at this point
-
-ASM or native platform back-ends
+Not only is it possible for code to be transformed at a visual level, but it is also possible to change the meaning of code at the bytecode level.
 
 ---
 
@@ -715,7 +710,9 @@ Note:
 
 [Raquel]
 
-Thanks to 47 Degrees for sponsoring and pushing the development of Arrow and Arrow Meta
+Thanks to 47 Degrees for sponsoring and pushing the development of Arrow and Arrow Meta.
+
+47 Degrees happens to be hanging a booth here at KotlinConf, so please be sure to stop by to say hello - we'll be happy to answer any questions about Arrow, Meta, or 47.
 
 ---
 
