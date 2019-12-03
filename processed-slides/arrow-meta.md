@@ -1,16 +1,40 @@
-
-
 ![](css/images/functional-companions.jpg)
 
 Note:
 
+**First slide**
+
 [Raquel]
+
+Ok, so let's start!
+
+Welcome to our talk and thanks for comming!
+
+She is Amanda Hinchman-Dominguez from Chicago where she's the organizer of Kotlin User Group.
+
+[Amanda]
+
+and she is Raquel Carmena from Spain and we are engineers at 47 Degrees.
+
+**This slide**
+
+[Raquel]
+
+A long time ago in a galaxy far, far away, Arrow was born.
+
+Who of you are familiar with Arrow?
+
+Great!
+
+Ok, it's not necessary to be familiar with Arrow for this talk.
+
+For those who are not familiar with Arrow, it's A functional companion of the Kotlin standard library.
 
 And it seems a library is the common way to add more functional capabilities to a programming language
 
 like Cats library for Scala, Bow libray for Swift or VAVR library for Java.
 
-However, we wanted to do something else.
+However, we wanted to provide more ergonomics features that require that we reach out the Kotlin compiler which are not available in Kotlin language neither the Kotlin standard library. For instance, there are other features like ... which are just possible with the "way" of compiler plugins. Before talking about... let's see how Kotlin compiler works.
 
 ---
 
@@ -52,7 +76,7 @@ Note:
 
 [Raquel]
 
-So it was the time to contact Kotlin community.
+So it was the time to reach out the Kotlin community to get knowledge about it.
 
 ---
 
@@ -112,13 +136,14 @@ Note:
 
 [Raquel]
 
-We created this pull request where we explained how to create compile-time extension interfaces.
+We created this pull request to propose adding compile-time extension interfaces to the language similar to protocol extensions in Swift. 
 
-We wanted to create type classes features in Arrow and we realized that the entire community was heavily dependent to the compiler plugins like serialization, allOpen and Android extensions, all of them companions for the Kotlin compiler. 
+We realized that the entire community was heavily dependent to the compiler plugins like serialization, allOpen and Android extensions, all of them companions for the Kotlin compiler. 
 
-However, there wasn't enough documentation about the Kotlin compiler and we wanted to fill that gap for the community.
+However, there wasn't enough documentation about the Kotlin compiler and we wanted to fill that gap for the community.------ reach out the community
 
 And, at the same time, to make functional programming more ergonomic that is today.
+
 
 
 ---
@@ -131,7 +156,7 @@ Note:
 
 Are you ready to know more about it? 
 
-Before explaining the new companion of the Kotlin compiler, we are going to know how Kotlin Compiler works.
+Before explaining what we have done with the Kotlin Compiler we are going to show you how it works.
 
 ---
 
@@ -329,17 +354,19 @@ Note:
 
 [Raquel]
 
-So Arrow Meta was born. Let's see some features in detail
+So Arrow Meta was born. Let's see some features in detail.
 
-Arrow Meta provides some plugins by default though other plugins can be added. 
+We use Arrow Meta to build some plugins for Arrow though you can create more plugins with Arrow Meta. 
 
 For example, you can create a plugin to make transformations.
 
-How does it feel like to write a compiler plugin?
+And how does it feel like to write a compiler plugin?
 
-First, let's examine a small example!
+First, let's see a small example!
 
 ---
+
+Replace by Hello World - part 1
 
 <video>
    <source src="css/videos/hello-world.mp4" type="video/mp4"> Your browser does not support the video tag.
@@ -349,9 +376,49 @@ Note:
 
 [Raquel]
 
-(explain the animation) TIME ANIMATION BITS HERE
+The user writes some code
 
-**[Jetro]** please split the animations up into 4 separate slides!
+---
+
+Replace by Hello World - part 2
+
+<video>
+   <source src="css/videos/hello-world.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+Note:
+
+[Raquel]
+
+The compiler plugin can intercept the code for code transformation. In this case, we intercept Hello world function and rewrite its body to print "Hello World Meta"
+
+---
+
+Replace by Hello World - part 3
+
+<video>
+   <source src="css/videos/hello-world.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+Note:
+
+[Raquel]
+
+The code compiles with the modified transformations
+
+---
+
+Replace by Hello World - part 4
+
+<video>
+   <source src="css/videos/hello-world.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+
+Note:
+
+[Raquel]
+
+Once the code is executed, the result will show a successful interception of AST
 
 ---
 
@@ -573,6 +640,14 @@ Note:
 
 [Raquel]
 
+How do we represent this kind of choices right now?
+
+With sealed classes we must to write a lot of boilerplate to get it.
+
+**choice1** and **choice2** can have...
+
+So we provide a plugin in Arrow Meta to be able to define choices in this way.
+
 And it's also possible to have more than 2 choices.
 
 ---
@@ -587,7 +662,7 @@ Note:
 
 [Raquel]
 
-You can use all these features including the Gradle Plugin.
+For all the features that we've seen until now, all you need to do to get into your project is to use the Arrow Meta Gradle Plugin.
 
 And what about Intellij IDEA? 
 
@@ -636,13 +711,13 @@ Note:
 
 [Raquel]
 
-Arrow is the functional companion to Kotlin standard library and follows the same principle
+Arrow is the functional companion to Kotlin standard library
 
-Arrow Meta is the functional companion to Kotlin compiler and also follows the same principle
+Like Arrow, Arrow Meta is the functional companion to Kotlin compiler 
 
-And any feature from Arrow, Arrow Meta or the plugins which is adopted by the language will be removed, including Meta itself.
+Both of them follow the same principle which is: any feature from Arrow, Arrow Meta or the plugins which is adopted by the language will be removed.
 
-Arrow Meta is a way to complement the Kotlin compiler.
+Arrow Meta is just a way to complement the Kotlin compiler and open a window to create prototypes and to explore what's possible to do with it.
 
 (TODO)
 
@@ -694,7 +769,7 @@ Note:
 
 Thanks to 47 Degrees for sponsoring and pushing the development of Arrow and Arrow Meta.
 
-47 Degrees happens to be hanging a booth here at KotlinConf, so please be sure to stop by to say hello - we'll be happy to answer any questions about Arrow, Meta, or 47.
+47 Degrees is sponsoring KotlinConf and we have a booth here, so please be sure to stop by to say hello - we'll be happy to answer any questions about Arrow, Meta, or 47.
 
 ---
 
@@ -720,9 +795,9 @@ Note:
 
 [Raquel]
 
-Thanks to all the people who are bootstraping Meta and makes Λrrow possible! More than 150 contributors and they are increasing every week. Not only we are here but also more people who started the project as Raúl Raja and Simon Vergauwen so you can make questions to them as well and special thanks to Jorge Castillo who couldn't be here today.
+Thanks to all the people who are bootstraping Meta and makes Λrrow possible! More than 150 contributors from all over the world. Not only we are here but also more folks from Arrow and Arrow Meta who started the project as Raúl Raja and Simon Vergauwen so you can make questions to them as well.
 
-Everybody is welcome, join us!
+Arrow is an inclusive community and everybody is welcome, join us!
 
 ... and last but not least...
 
