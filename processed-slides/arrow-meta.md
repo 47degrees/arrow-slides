@@ -1,42 +1,4 @@
-(can we add this logo in the first slide?)
 
-![47 Degrees](css/images/47deg-logo.png)
-
-(the speaker notes here are for the first slide)
-
-Note:
-
-[Raquel] 
-
-Ok, so let's start!
-
-Welcome to our talk and thanks for comming!
-
-She is Amanda Hinchman-Dominguez from Chicago where she's the organizer of Kotlin User Group.
-
-[Amanda]
-
-and she is Raquel Carmena from Spain and we are engineers at 47 Degrees.
-
----
-
-![](css/images/kotlin-plus-arrow.jpg)
-
-Note:
-
-[Raquel]
-
-A long time ago in a galaxy far, far away, Arrow was born.
-
-Who of you are familiar with Arrow?
-
-Great!
-
-Ok, it's not necessary to be familiar with Arrow for this talk.
-
-For those who are not familiar with Arrow, it's the functional companion of the Kotlin standard library.
-
----
 
 ![](css/images/functional-companions.jpg)
 
@@ -138,6 +100,14 @@ So here we go!
 
 ![KEEP-87](css/images/keep-87.svg)
 
+367 messages
+
+85 commits
+
+57 participants
+
+18 reviewers
+
 Note:
 
 [Raquel]
@@ -150,33 +120,10 @@ However, there wasn't enough documentation about the Kotlin compiler and we want
 
 And, at the same time, to make functional programming more ergonomic that is today.
 
----
-
-(PROPOSAL FOR ANIMATION: a **rain** of letters over the previous image and at the end, when all the letters have fallen, show the numbers in a corner)
-
-![](css/images/feedback.jpg)
-
-Note:
-
-[Raquel]
-
-And it's not just about creating the pull request. It's really important to receive feedback.
-
-We received a lot of feedback!
-
-367 messages
-
-85 commits
-
-57 participants
-
-18 reviewers
-
-And we started working with all the received feedback!
 
 ---
 
-# How the Kotlin Compiler works
+### How the Kotlin Compiler works (animacion compilador)
 
 Note:
 
@@ -372,7 +319,7 @@ Note:
 
 ---
 
-# Writing your own compiler plugin
+## Writing your own compiler plugin (plugin animation)
 
 ![Writing your own compiler plugin](css/images/how-can-I-write-my-own-arrow-meta-plugin.png)
 
@@ -382,15 +329,6 @@ Note:
 
 ---
 
-# DEMO HERE
-
-Note: 
-
-[Amanda]
-
-Does it make sense to demo with the hello world example or one we create ourselves?
-
----
 
 ## Quote templates
 
@@ -487,7 +425,8 @@ Here we're rewriting our original code to `flatMap` based code, and by transform
 
 ---
 
-(example of testing)
+(example of testing: Raul code )
+
 
 Note:
 
@@ -536,38 +475,7 @@ I mean, union types or sum types in general.
 
 ---
 
-```diff
--sealed class Choice {
--
--  data class AnInteger(
--    val value: Int
--  ) : Choice()
--
--  data class AString(
--    val value: String
--  ) : Choice()
--
--}
--
--val choice1 = AnInteger(value = 47)
--val choice2 = AString(value = "another value")
-+val choice1: Union<Int, String> = 47
-+val choice2: Union<Int, String> = "another value"
-```
-
-Note:
-
-[Raquel]
-
-How do we represent this kind of choices right now?
-
-With sealed classes we must to write a lot of boilerplate to get it.
-
-**choice1** and **choice2** can have a value of 2 possible types, integer or string.
-
-So we provide a plugin in Arrow Meta to be able to define choices in this way.
-
----
+## Ilustration + animation
 
 ```
 val choice1: Union3<Int, String, AType> = 47
@@ -669,7 +577,7 @@ Arrow Meta is a way to complement the Kotlin compiler.
 
 ---
 
-# KEEP insisting!
+### KEEP insisting! (ilustration keep + arrow meta)
 
 Note:
 
@@ -731,7 +639,7 @@ Thanks to everyone that makes Kotlin possible, Jetbrains for ..., Intellij IDEA 
 
 ---
 
-### Thanks to the people bootstraping Arrow Meta and Arrow!
+### Thanks to the people bootstraping Arrow Meta and Arrow! (add comunnity video)
 
 <video data-autoplay data-loop>
    <source src="css/videos/photos-loop.mp4" type="video/mp4"> Your browser does not support the video tag.
