@@ -233,6 +233,8 @@ Note:
 
 [Amanda]
 
+**AST**
+
 Arrow-meta intercepts AST and it's resulting models. This is significant because being able to change components of an AST allows us to alter the surface level of the language without changing the rest of the compiler (although we can and usually do).
 
 ---
@@ -244,6 +246,8 @@ Arrow-meta intercepts AST and it's resulting models. This is significant because
 Note:
 
 [Amanda]
+
+**Quote Templates**
 
 The quote and template system is the ability to fold a tree you can traverse and turn any match into a terminal value transformation.
 
@@ -260,7 +264,11 @@ Note:
 
 [Amanda]
 
- (TODO) Synthetic resolution - what should be said about this? In Arrow-meta, we use real descriptors over synthetic ones.
+**Synthetic Resolution**
+
+Normally in gradle plugins, there's a need to create synthetic descriptors for IDE to recognize.
+ 
+However, Arrow-meta automatically manages synthetic resolution for you so you don't have to. 
 
 ---
 
@@ -271,6 +279,8 @@ Note:
 Note:
 
 [Amanda]
+
+**Code Generation**
 
 During the resolution phase, we can walk the synthetic path to apply immutable transformations.
 
@@ -427,12 +437,50 @@ Here we're rewriting our original code to `flatMap` based code, and by transform
 
 (example of testing: Raul code )
 
+```kotlin
+  @Test
+  fun `simple case`() {
+    val codeSnippet =
+      """
+      $IO_CLASS_4_TESTS
+      |
+      | fun test(): IO<Int> =
+      |   IO.fx {
+      |     val a: Int by IO(1)
+      |     val b: Int by IO(2)
+      |     a + b
+      |   }
+      |   
+      """
+    assertThis(CompilerTest(
+      config = { metaDependencies },
+      code = { codeSnippet.source },
+      assert = {
+        allOf(
+          compiles,                                  // <-- checks for compilation status
+          quoteOutputMatches(                        // <-- validates analysis 
+            """
+            $IO_CLASS_4_TESTS
+            |
+            | fun test(): IO<Int> =
+            |   IO(1).flatMap { a : Int ->
+            |     IO(2).flatMap { b : Int ->
+            |       IO.just(a + b)
+            |     }
+            |   }
+            |   
+            """.source
+          ),
+          "test().value".source.evalsTo(3)           // <-- validates the result of the compilation 
+        )
+      }
+    ))
+  }
+```
 
 Note:
 
 [Amanda]
-
-(Explain the example)
 
 Thanks to Thilo Schuchort for his Kotlin Compile Testing library which has been very useful for us in order to be able to define the testing DSL.
 
