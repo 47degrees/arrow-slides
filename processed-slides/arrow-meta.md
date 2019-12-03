@@ -221,11 +221,12 @@ Note:
 
 [Amanda]
 
-With different APIs, toolings, and plugins available with the language the Kotlin Compiler is always in evolution, and is far more than just a compiler.  
+With different APIs, toolings, and plugins available, the Kotlin Compiler is always evolving, and is far more than just a compiler.  
 
+[TODO Not sure?]
 We see Arrow-meta as one means for Kotlin-ers to explore creative innovations for the language.
-
-and we do that by remove surface complexity by giving easy access at every phase.
+           [TODO Not sure?]
+Arrow-meta gives access to the Kotlin compiler by removing surface complexity by giving easy access at every phase.
 
 ---
 
@@ -239,7 +240,7 @@ Note:
 
 **AST**
 
-Arrow-meta intercepts AST the phase and it's resulting models. 
+Arrow-meta intercepts the AST phase and it's resulting models. 
 
 ---
 
@@ -253,7 +254,11 @@ Note:
 
 **Quote Templates**
 
-The quote and template system is the ability for any tree transformation possible, and not limited to just code transformation, but also static analysis, code generation, any other purpose you can think of.
+The quote-and-template system gives ability for any possible tree transformation
+ - code generation
+ - also static analysis
+ - code generation
+ - any other purpose you can think of!
 
 ---
 
@@ -266,11 +271,16 @@ Note:
 [Amanda]
 
 **Synthetic Resolution**
+                                     
+[TODO Not sure?]
+IDEA plugins require that accompanying compiler plugins provide special kinds of models called **synthetic descriptors**. 
 
-IDEA requires that compiler plugin authors write a special kind of model called **synthetic descriptors**
+**Synthetic Descriptors** are a way for IDEA plugins and compiler plugins to communicate with each other.
 
-**Synthetic Descriptors** is a way for IDEA plugins and compiler plugins to communicate with each other - 
-the compiler plugin will send a representation of the **code the user did not write** to help IDEA provide tooling likeautocompletion, warning messages, and so on.  
+In other words, the compiler plugin will send **a representation of the code the user did not write** to help IDEA provide tooling like:
+- autocompletion
+- warning messages
+- and so on
 
 And so, when writing compiler plugins for IDEA, the creator is normally responsible for managing synthetic resolution.
 
@@ -288,17 +298,15 @@ Note:
 
 **Code Generation**
 
-There is access to interception at every phase in the compiler, including code generation.
+With Arrow-meta, there is access to interception at every phase in the compiler, including code generation.
 
-When we're talking about code generation, we're referencing ASM/IR 
+For those less familiar with compilers, when we're talking about code generation, we're referencing ASM/IR:
 
-ASM - a library that generates bytecode for the JVM
+- **ASM** - a library that generates bytecode for the JVM
 
-IR - For UI folks, you can think of IR like a ViewModel for code gen. Intermediate representation is a textual tree that can is used to generate bytecode for all available backends available to Kotlin.
+- **IR** - Intermediate representation is a textual tree used to generate bytecode for all available backends available to Kotlin. For UI folks, you can think of IR like a ViewModel for code generation. 
 
-The Kotlin compiler uses one or the other.   
-
-Arrow-meta provides a user-friendly DSL giving you the option to use either! 
+The Kotlin compiler uses one or the other, so Arrow-meta provides a user-friendly DSL giving you the option to use either! 
 
 ---
 
@@ -670,7 +678,7 @@ Note:
 
 ... thanks to Kotlin community that helped us. The main channels were arrow-meta, compiler and lang-proposals. We are actively working on arrow-meta channel.
  
-We usually have weekly live sessions on demand with people interested in learning more about both Arrow Meta and the Kotlin compiler.
+We usually have live sessions with people interested in learning more about both Arrow Meta and the Kotlin compiler.
 
 We are literally on standby on the #arrow-meta channel, and we will be working hard to help you create your first plugin with Arrow-meta.
 
