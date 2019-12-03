@@ -290,7 +290,15 @@ Note:
 
 There is access to interception at every phase in the compiler, including code generation.
 
-Arrow-meta gives easy access to available IR Syntax allowing you to work directly with the backend model of  Kotlin compiler.
+When we're talking about code generation, we're referencing ASM/IR 
+
+ASM - a library that generates bytecode for the JVM
+
+IR - For UI folks, you can think of IR like a ViewModel for code gen. Intermediate representation is a textual tree that can is used to generate bytecode for all available backends available to Kotlin.
+
+The Kotlin compiler uses one or the other.   
+
+Arrow-meta provides a user-friendly DSL giving you the option to use either! 
 
 ---
 
@@ -303,9 +311,7 @@ Note:
 
 [Amanda]
 
-IR is the tree for the IR format which can also be seen as an AST but it has the type info
-
-Not only is it possible for code to be transformed at a visual level, but it is also possible to change the meaning of code at the bytecode level.
+And that completes the compilation process and Arrow's ability to work with all these phases.
 
 ---
 
@@ -321,11 +327,7 @@ Arrow Meta provides some plugins by default though other plugins can be added.
 
 For example, you can create a plugin to make transformations.
 
----
-
 How does it feel like to write a compiler plugin?
-
-Note:
 
 First, let's examine a small example!
 
@@ -341,15 +343,19 @@ Note:
 
 (explain the animation) TIME ANIMATION BITS HERE
 
+**[Jetro]** please split the animations up into 4 separate slides!
+
 ---
 
 ## Arrow-meta is a container for plugins
 
-![Writing your own compiler plugin](css/images/how-can-I-write-my-own-arrow-meta-plugin.png)
+![Animation for the plugin](css/images/how-can-I-write-my-own-arrow-meta-plugin.png)
 
 Note:
 
+[Amanda]
 
+But Arrow-meta is more than a way to create simple plugins - it's also a container for bundling multiple plugins together!
 
 ---
 
@@ -424,8 +430,9 @@ Note:
 
 [Amanda]
 
-When matched we can simply return a `Transform`ation, in this case `replace`.
-`Transform` can replacing an element with another or multiple elements, remove the element or leave untransformed.  
+Within meta, you have the option subscribe to multiple extension phases in the Kotlin compiler, such as the quote system which is one of Arrow-meta's DSLs. 
+
+In this case, we're using a Transformation to replace the intercepted dotqualifiedexpression with a rewritten declaration.
 
 ---
 
@@ -446,8 +453,15 @@ Note:
 
 [Amanda]
 
-We're not going to dive deeper into the comprehensions plugin code, but to show an example of what the actual code rewrite looks like.
-Here we're rewriting our original code to `flatMap` based code, and by transforming that back into an expression the code will be type checked here in place.
+One of the most important feature sof the tempalte DSL
+
+The template DSL offers a bidirectional to go from PSI-to-template trees and back without preserving type information.
+
+This way, we are not forced to work with strings across code generation.
+
+Arrow-meta provides a template DSL which allows you to go back and forth between the quote templates and the tree.
+
+For example, the template DSL gives you direct access to those properties without having to parse out the information yourself.
 
 ---
 
