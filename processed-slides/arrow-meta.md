@@ -241,8 +241,6 @@ Note:
 
 Arrow-meta intercepts AST the phase and it's resulting models. 
 
-This is significant because being able to change components of an AST allows us to alter the surface level of the language without changing the rest of the compiler (although we can and usually do).
-
 ---
 
 <video data-autoplay>
@@ -255,9 +253,7 @@ Note:
 
 **Quote Templates**
 
-The quote and template system is the ability to fold a traversable tree and turn any match into a terminal value transformation.
-
-We can wrap our AST elements with these transformable scopes which may go back-and-forth between the models of meta and PSI.
+The quote and template system is the ability for any tree transformation possible, and not limited to just code transformation, but also static analysis, code generation, any other purpose you can think of.
 
 ---
 
@@ -271,11 +267,12 @@ Note:
 
 **Synthetic Resolution**
 
-The PSI element tree is immutable in CLI.
+IDEA requires that compiler plugin authors write a special kind of model called **synthetic descriptors**
 
-Applying transformations in IDEA which can only be done by creating a copy of the tree - **a synthetic representation of the code the user did not write.**
+**Synthetic Descriptors** is a way for IDEA plugins and compiler plugins to communicate with each other - 
+the compiler plugin will send a representation of the **code the user did not write** to help IDEA provide tooling likeautocompletion, warning messages, and so on.  
 
-Creating compiler descriptors for IDE to recognize is the responsibility of the person writing the compiler plugin.
+And so, when writing compiler plugins for IDEA, the creator is normally responsible for managing synthetic resolution.
 
 However, Arrow-meta automatically manages synthetic resolution for you so you don't have to.
 
@@ -370,6 +367,8 @@ val Meta.comprehensions: Plugin
 Note:
 
 [Amanda]
+
+We can wrap our AST elements with these transformable scopes which may go back-and-forth between the models of meta and PSI.
 
 A plugin exists out of a named transformation, in this case "comprehensions".
 The returned transformation is a lambda with the CompilerContext as receiver.
