@@ -326,6 +326,14 @@ For example, you can create a plugin to make transformations.
 
 ---
 
+How does it feel like to write a compiler plugin?
+
+Note:
+
+First, let's examine a small example!
+
+---
+
 <video>
    <source src="css/videos/hello-world.mp4" type="video/mp4"> Your browser does not support the video tag.
 </video>
@@ -334,11 +342,11 @@ Note:
 
 [Raquel]
 
-(explain the animation)
+(explain the animation) TIME ANIMATION BITS HERE
 
 ---
 
-## Writing your own compiler plugin (plugin animation)
+## Arrow-meta is a container for plugins
 
 ![Writing your own compiler plugin](css/images/how-can-I-write-my-own-arrow-meta-plugin.png)
 
