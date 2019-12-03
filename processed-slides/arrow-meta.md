@@ -221,7 +221,11 @@ Note:
 
 [Amanda]
 
-How does Arrow-meta come into play?
+With different APIs, toolings, and plugins available with the language the Kotlin Compiler is always in evolution, and is far more than just a compiler.  
+
+We see Arrow-meta as one means for Kotlin-ers to explore creative innovations for the language.
+
+and we do that by remove surface complexity by giving easy access at every phase.
 
 ---
 
@@ -235,7 +239,9 @@ Note:
 
 **AST**
 
-Arrow-meta intercepts AST and it's resulting models. This is significant because being able to change components of an AST allows us to alter the surface level of the language without changing the rest of the compiler (although we can and usually do).
+Arrow-meta intercepts AST the phase and it's resulting models. 
+
+This is significant because being able to change components of an AST allows us to alter the surface level of the language without changing the rest of the compiler (although we can and usually do).
 
 ---
 
@@ -249,10 +255,9 @@ Note:
 
 **Quote Templates**
 
-The quote and template system is the ability to fold a tree you can traverse and turn any match into a terminal value transformation.
+The quote and template system is the ability to fold a traversable tree and turn any match into a terminal value transformation.
 
-We can wrap our AST elements with transformable scopes which may go back-and-forth between the models of 
-meta and PSI which may be used for code generation.
+We can wrap our AST elements with these transformable scopes which may go back-and-forth between the models of meta and PSI.
 
 ---
 
@@ -266,9 +271,13 @@ Note:
 
 **Synthetic Resolution**
 
-Normally in gradle plugins, there's a need to create synthetic descriptors for IDE to recognize.
- 
-However, Arrow-meta automatically manages synthetic resolution for you so you don't have to. 
+The PSI element tree is immutable in CLI.
+
+Applying transformations in IDEA which can only be done by creating a copy of the tree - **a synthetic representation of the code the user did not write.**
+
+Creating compiler descriptors for IDE to recognize is the responsibility of the person writing the compiler plugin.
+
+However, Arrow-meta automatically manages synthetic resolution for you so you don't have to.
 
 ---
 
@@ -282,9 +291,9 @@ Note:
 
 **Code Generation**
 
-During the resolution phase, we can walk the synthetic path to apply immutable transformations.
+There is access to interception at every phase in the compiler, including code generation.
 
-More specifically, we can use descriptor information to determine what kind of calls are made in the bytecode.
+Arrow-meta gives easy access to available IR Syntax allowing you to work directly with the backend model of  Kotlin compiler.
 
 ---
 
