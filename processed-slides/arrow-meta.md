@@ -721,9 +721,7 @@ Thanks to 47 Degrees for sponsoring and pushing the development of Arrow and Arr
 
 ### Thanks to everyone that makes Kotlin possible!
 
-Jetbrains (logo) + IntellijIDEA (logo) + Kotlin (logo) 
-
-![Kotlin Logo](css/images/kotlin.png)
+![Logos](css/images/jetbrains-intellijidea-kotlin.png)
 
 Note:
 
