@@ -603,35 +603,20 @@ Note:
 
 [Amanda]
 
+In the previous slide, we've demonstrated the comprehensions plugin:
+
 We can see how we get icons in the left side and even explanations for the developer so we improve the development experience
 
----
+This demonstration of our comprehensions plugin works for all the data types working with flatmap - this includes Arrow-IO, but also all the community Java and Kotlin data types that have a valid flatmap sign including but not limited to:
+ - The entire Kotlin collections API
+ - RxJava
+ - Project Reactor
+ - Kotlinx flow
+ - and many more!
 
-(TODO: loop on different comprehensions)
+This is significant for 47 Degrees because for us, this means that we can bring functional programming to everyone right in their editor. (commentary about educational experience in IDEA)
 
----
-
-<video>
-   <source src="css/videos/purity-ide.mp4" type="video/mp4"> Your browser does not support the video tag.
-</video>
-
-Note:
-
-[Amanda]
-
-And we can alert to the developer about an impure function and add explanations in the IDE to help to understand why is this important and how you can refactor your codebase to be more pure and functional.
-
-Besides, bring you security on functional programming.
-
----
-
-# Disclaimer
-
-Note:
-
-[Raquel]
-
-And we have an important message
+And, you can do the same for your projects and libraries too!
 
 ---
 
@@ -684,8 +669,8 @@ Note:
 [Amanda]
 
 ... thanks to Kotlin community that helped us. The main channels were arrow-meta, compiler and lang-proposals. We are actively working on arrow-meta channel.
-
-We usually have live sessions with people interested in learning more about both Arrow Meta and the Kotlin compiler.
+ 
+We usually have weekly live sessions on demand with people interested in learning more about both Arrow Meta and the Kotlin compiler.
 
 We are literally on standby on the #arrow-meta channel, and we will be working hard to help you create your first plugin with Arrow-meta.
 
