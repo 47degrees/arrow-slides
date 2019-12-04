@@ -54,3 +54,17 @@ section.has-dark-background {
         } 
     }
 } 
+
+
+section {
+    &[data-transition*="none-out"] {
+        &.present, &.past {
+            transition-duration: 0s !important;
+        }
+    }
+    &[data-transition*="none-in"] {
+	&.future, &.present {
+	    transition-duration: 0s !important;
+	}
+    }
+}
