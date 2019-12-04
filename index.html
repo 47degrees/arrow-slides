@@ -4,17 +4,14 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Arrow Meta - Enabling Functional Programming in the Kotlin Compiler</title>
+		<title>reveal.js</title>
 
+		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/arrow.css" id="theme">
+		<link rel="stylesheet" href="css/theme/arrow-meta.css">
 
 		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/github.css">
-
-		<!-- Overrides for a correct showing of the Playground -->
-		<link rel="stylesheet" href="css/playground.css">
-        <link rel="stylesheet" href="css/playground-override.css">
+		<link rel="stylesheet" href="lib/css/monokai.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -28,74 +25,30 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section id="main" data-background="./css/videos/calling-kotlin-phone.mp4">
-				    <h1>Keep insisting</h1>
-				    <div class="speakers">
-				        <div class="speaker-item">
-                            <img src="./css/images/speaker-avatar.png" alt="">
-				            <p>Raquel M.Carmena</p>
-				            <span><a href="https://twitter.com/bberrycarmen">@bberrycarmen</a></span>
-				        </div>
-				        <div class="speaker-item">
-				        <img src="./css/images/speaker-avatar.png" alt="">
-				         <p>Amanda Hinchman-Dominguez</p>
-				         <span><a href="https://twitter.com/hinchman_amanda">@hinchman_amanda</a></span>
-				        </div>
-				    </div>
+				<section data-background-image="img/arrow-meta-1.png">
+			       
+
 				</section>
-				<section data-markdown="./processed-slides/arrow-meta.md" data-background="./css/images/background-light.svg"></section>
+				
+				<section>
+				    slide2
+				</section>
+			       
 			</div>
 		</div>
 
-		<script src="js/playground.js"></script>
-		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
 
 		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
-				// The "normal" size of the presentation, aspect ratio will be preserved
-				// when the presentation is scaled to fit different resolutions. Can be
-				// specified using percentage units.
-                // Remove!
-                showNotes: true,
-				width: '70%',
-				height: '100%',
-				transition: 'none',
-				touch: true,
-				progress: true,
-				history : true,
-				viewDistance: 3,
-				margin: 0.1,
-				minScale: 1, // If you are gonna edit Arrow Playground code, set this to 1.0, otherwise the cursor will behave erractically
-				maxScale: 1, // If you are gonna edit Arrow Playground code, set this to 1.0, otherwise the cursor will behave erratically
-				// center: false,
-				autoPlayMedia: true,
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/menu/menu.js' },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() {
-						hljs.initHighlightingOnLoad();
-					} },
-					{ src: 'js/playground.js', callback: async function() {
-						function updateCurrentSnippets() {
-							const currentSlide = document.querySelector(".present");
-							window.CurrentSnippets = [];
-							PlaygroundSnippets.map((arrowSnippet) => {
-								if (currentSlide.contains(arrowSnippet.targetNode)) {
-									arrowSnippet.view.codemirror.refresh();
-									window.CurrentSnippets.push(arrowSnippet);
-								}
-							});
-							window.dispatchEvent(new Event('resize'));
-						};
-						window.PlaygroundSnippets = await ArrowPlayground('.arrow');
-						window.CurrentSnippets = [];
-						updateCurrentSnippets();
-						Reveal.addEventListener('slidechanged', updateCurrentSnippets);
-					}},
-					{ src: 'js/playground-keybindings.js' },
+					{ src: 'plugin/highlight/highlight.js', async: true }
 				]
 			});
 		</script>
