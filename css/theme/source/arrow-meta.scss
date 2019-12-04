@@ -43,28 +43,10 @@ section.has-dark-background {
 // ---------------------------------------------
 
 
-.reveal{
-    .slides {
-        width: 100%;
-        height: 100%;
-        
-        img {
-           min-width: 100%;
-            height: auto;
-        } 
-    }
-} 
-
-
-section {
-    &[data-transition*="none-out"] {
-        &.present, &.past {
-            transition-duration: 0s !important;
+.reveal {
+    .controls {
+        .controls-arrow {
+            display: none;
         }
-    }
-    &[data-transition*="none-in"] {
-	&.future, &.present {
-	    transition-duration: 0s !important;
-	}
     }
 }

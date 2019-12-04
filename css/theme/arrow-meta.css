@@ -275,15 +275,5 @@ body {
   .backgrounds {
     background-color: #fff; } }
 
-.reveal .slides {
-  width: 100%;
-  height: 100%; }
-  .reveal .slides img {
-    min-width: 100%;
-    height: auto; }
-
-section[data-transition*="none-out"].present, section[data-transition*="none-out"].past {
-  transition-duration: 0s !important; }
-
-section[data-transition*="none-in"].future, section[data-transition*="none-in"].present {
-  transition-duration: 0s !important; }
+.reveal .controls .controls-arrow {
+  display: none; }
