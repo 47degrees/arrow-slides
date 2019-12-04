@@ -246,12 +246,9 @@ Note:
 
 [Amanda]
 
-With different APIs, toolings, and plugins available, the Kotlin Compiler is always evolving, and is far more than just a compiler.  
+With different APIs, toolings, and plugins available, the Kotlin compiler is far more than just a compiler and is always evolving.
 
-[TODO Not sure?]
-We see Arrow-meta as one means for Kotlin-ers to explore creative innovations for the language.
-           [TODO Not sure?]
-Arrow-meta gives access to the Kotlin compiler by removing surface complexity by giving easy access at every phase.
+Arrow-meta as one means for Kotlin-ers to explore creative innovations for the language by providing a DSL that removes surface complexity of subscribing to the different compiler phases.
 
 ---
 
@@ -297,15 +294,9 @@ Note:
 
 **Synthetic Resolution**
                                      
-[TODO Not sure?]
-IDEA plugins require that accompanying compiler plugins provide special kinds of models called **synthetic descriptors**. 
+IntelliJ IDEA features like autocompletion, warning messages, and so on require compiler plugins provide a special kinds of model called **synthetic descriptors**. 
 
-**Synthetic Descriptors** are a way for IDEA plugins and compiler plugins to communicate with each other.
-
-In other words, the compiler plugin will send **a representation of the code the user did not write** to help IDEA provide tooling like:
-- autocompletion
-- warning messages
-- and so on
+Synthetic descriptions contain information like names, Kotlin types, and everything IDEA needs to provide in these features related to Kotlin.
 
 And so, when writing compiler plugins for IDEA, the creator is normally responsible for managing synthetic resolution.
 
@@ -430,7 +421,7 @@ Note:
 
 [Amanda]
 
-But Arrow-meta is more than a way to create simple plugins - it's also a container for bundling multiple plugins together!
+But Arrow-meta is more than just a way to create simple plugins - it's also a container for bundling multiple plugins together!
 
 ---
 
@@ -449,22 +440,22 @@ Note:
 
 [Amanda]
 
-We can wrap our AST elements with these transformable scopes which may go back-and-forth between the models of meta and PSI.
+We can wrap our AST elements with transformable scopes which may go back-and-forth between the models of meta and PSI.
 
 A plugin exists out of a named transformation, in this case "comprehensions".
-The returned transformation is a lambda with the CompilerContext as receiver.
+
 This enables a powerful compiler DSL, and the lambda returns a list of `ExtensionPhase`.
 
 ---
 
-## Quote templates
+## Quote templates TODO AMANDA
 
 ```kotlin
 val Meta.comprehensions: Plugin
   get() =
     "comprehensions" {
       meta(
-        quote(KtDotQualifiedExpression::containsFxBlock) { original ->
+        dotQualifiedExpression(this::containsFxBlock) { original ->
          ...
         }
       )
@@ -476,7 +467,7 @@ Note:
 [Amanda]
 
 Within a `meta` block we can define multiple extension phases.
-`quote` is Arrow Meta's high level DSL which within Arrow Meta's context is also a possible `ExtensionPhase`.
+`quote` is Arrow Meta's high-level DSL which within Arrow Meta's context is also a possible `ExtensionPhase`.
 
 A `quote` offers a high level DSL to transform code, which can be matched by a reified predicate.
 Here we're matching on `KtDotQualifiedExpression`, which is a function application site.
@@ -491,7 +482,7 @@ val Meta.comprehensions: Plugin
   get() =
     "comprehensions" {
       meta(
-        quote(KtDotQualifiedExpression::containsFxBlock) { original ->
+         dotQualifiedExpression(this::containsFxBlock) { original ->
           Transform.replace(
             replacing = original,
             newDeclaration = toFlatMap(original)
@@ -528,9 +519,9 @@ Note:
 
 [Amanda]
 
-One of the most important feature sof the tempalte DSL
+One of the most important features of Arrow-meta is the **template DSL**.
 
-The template DSL offers a bidirectional to go from PSI-to-template trees and back without preserving type information.
+The **template DSL** offers bidirectional PSI-to-template trees and back without preserving type information.
 
 This way, we are not forced to work with strings across code generation.
 
@@ -674,7 +665,8 @@ Note:
 
 [Amanda]
 
-The plugins that we've seen cannot only be used in CLI but also Arrow Meta brings the best user experience into your editor.
+The plugins that we've seen cannot only be used for command line plugins -
+ but also, Arrow Meta brings the best user experience into your editor.
 
 ---
 
@@ -690,7 +682,7 @@ In the previous slide, we've demonstrated the comprehensions plugin:
 
 We can see how we get icons in the left side and even explanations for the developer so we improve the development experience
 
-This demonstration of our comprehensions plugin works for all the data types working with flatmap - this includes Arrow-IO, but also all the community Java and Kotlin data types that have a valid flatmap sign including but not limited to:
+This demonstration of our comprehensions plugin works for all the data types working with `flatmap `- this includes Arrow-IO, but also all the community Java and Kotlin data types that have a valid flatmap sign including but not limited to:
  - The entire Kotlin collections API
  - RxJava
  - Project Reactor
@@ -805,9 +797,9 @@ Arrow is an inclusive community and everybody is welcome, join us!
 
 ### Thanks to you
 
-Please, remember to vote!
+KEEP insisting!
 
-Keep insisting!
+Please remember to vote!
 
 \#KotlinConf
 
