@@ -32,9 +32,13 @@ For those who are not familiar with Arrow, it's A functional companion of the Ko
 
 And it seems a library is the common way to add more functional capabilities to a programming language
 
-like Cats library for Scala, Bow libray for Swift or VAVR library for Java.
+For example, there are other libraries like Cats for Scala, Bow libray for Swift or VAVR library for Java.
 
-However, we wanted to provide more ergonomics features that require that we reach out the Kotlin compiler which are not available in Kotlin language neither the Kotlin standard library. For instance, there are other features like ... which are just possible with the "way" of compiler plugins. Before talking about... let's see how Kotlin compiler works.
+However, we wanted to provide more ergonomics features that don't exist in Kotlin or the standard library 
+
+and that require that we reach out the Kotlin compiler, 
+
+very similar to others like allOpen, serialization or Android extensions.
 
 ---
 
@@ -104,13 +108,13 @@ Note:
 
 [Raquel]
 
-That's KEEP.
+And that's KEEP.
 
 It means Kotlin Evolution and Enhancement Process
 
-1. KEEP is hosted in GitHub
+1. And it's hosted in GitHub
 
-2. and it holds proposals for Kotlin also known as KEEPs.
+2. and it holds proposals for Kotlin that are also known as KEEPs.
 
 3. The new KEEPs are submitted as pull requests
 
@@ -136,15 +140,11 @@ Note:
 
 [Raquel]
 
-We created this pull request to propose adding compile-time extension interfaces to the language similar to protocol extensions in Swift. 
+We created this pull request to propose adding compile-time extension interfaces to the language similar to protocol extensions in Swift.
 
-We realized that the entire community was heavily dependent to the compiler plugins like serialization, allOpen and Android extensions, all of them companions for the Kotlin compiler. 
+At the same time, we realized that the entire community was heavily dependent to some compiler plugins like serialization, allOpen and Android extensions, 
 
-However, there wasn't enough documentation about the Kotlin compiler and we wanted to fill that gap for the community.------ reach out the community
-
-And, at the same time, to make functional programming more ergonomic that is today.
-
-
+all of them companions for the Kotlin compiler, because they require more advanced features of the language.
 
 ---
 
@@ -156,7 +156,7 @@ Note:
 
 Are you ready to know more about it? 
 
-Before explaining what we have done with the Kotlin Compiler we are going to show you how it works.
+Before explaining what we have done for the Kotlin Compiler we are going to show you how the Kotlin Compiler works.
 
 ---
 
@@ -360,9 +360,7 @@ We use Arrow Meta to build some plugins for Arrow though you can create more plu
 
 For example, you can create a plugin to make transformations.
 
-And how does it feel like to write a compiler plugin?
-
-First, let's see a small example!
+Let's see!
 
 ---
 
@@ -597,6 +595,8 @@ Note:
 
 [Raquel]
 
+(TODO)
+
 Let's see another example of plugin.
 
 One of the elements of functional programming is types and we combine types to create new types.
@@ -611,6 +611,8 @@ Either.Left("Something went wrong")
 Note:
 
 [Raquel]
+
+(TODO)
 
 Maybe one of the most known is `Either` which represents the choice between 2 types of values. 
 
@@ -640,6 +642,8 @@ Note:
 
 [Raquel]
 
+(TODO)
+
 How do we represent this kind of choices right now?
 
 With sealed classes we must to write a lot of boilerplate to get it.
@@ -662,7 +666,7 @@ Note:
 
 [Raquel]
 
-For all the features that we've seen until now, all you need to do to get into your project is to use the Arrow Meta Gradle Plugin.
+For all the features that we've seen until now, all you need to do to get them into your project is to use the Arrow Meta Gradle Plugin.
 
 And what about Intellij IDEA? 
 
@@ -769,7 +773,7 @@ Note:
 
 Thanks to 47 Degrees for sponsoring and pushing the development of Arrow and Arrow Meta.
 
-47 Degrees is sponsoring KotlinConf and we have a booth here, so please be sure to stop by to say hello - we'll be happy to answer any questions about Arrow, Meta, or 47.
+47 Degrees is sponsoring KotlinConf and we have a booth here, so please be sure to stop by to say hello - we'll be happy to answer any questions about Arrow, Arrow Meta, or 47.
 
 ---
 
@@ -795,9 +799,13 @@ Note:
 
 [Raquel]
 
-Thanks to all the people who are bootstraping Meta and makes Λrrow possible! More than 150 contributors from all over the world. Not only we are here but also more folks from Arrow and Arrow Meta who started the project as Raúl Raja and Simon Vergauwen so you can make questions to them as well.
+Thanks to all the people who are bootstraping Meta and makes Λrrow possible! 
 
-Arrow is an inclusive community and everybody is welcome, join us!
+More than 150 contributors from all over the world. 
+
+Not only we are here, Amanda and me, but also more folks from Arrow and Arrow Meta who started the project as Raúl Raja and Simon Vergauwen so you can make questions to them as well.
+
+And Arrow is an inclusive community where everybody is welcome, so join us!
 
 ... and last but not least...
 
