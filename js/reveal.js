@@ -4074,7 +4074,7 @@
 
 		if( isAttachedToDOM && isVisible ) {
 			event.target.currentTime = 0;
-			event.target.play();
+			event.target.play('load');
 		}
 
 		event.target.removeEventListener( 'loadeddata', startEmbeddedMedia );
