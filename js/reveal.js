@@ -4070,11 +4070,11 @@
 	function startEmbeddedMedia( event ) {
 
 		var isAttachedToDOM = !!closestParent( event.target, 'html' ),
-			isVisible  		= !!closestParent( event.target, '.present, .main' );
+			isVisible  		= !!closestParent( event.target, '.present' );
 
 		if( isAttachedToDOM && isVisible ) {
 			event.target.currentTime = 0;
-			event.target.play(1);
+			event.target.play();
 		}
 
 		event.target.removeEventListener( 'loadeddata', startEmbeddedMedia );
